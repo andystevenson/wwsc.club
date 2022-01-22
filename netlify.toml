@@ -5,7 +5,7 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/squashx"
+  from = "/squash"
   to = "https://squash.westwarwicks.club"
   force = true
   status = 200
