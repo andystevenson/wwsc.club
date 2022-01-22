@@ -1,0 +1,39 @@
+{
+  "name": "wwsc.club",
+  "version": "0.1.0",
+  "description": "new westwarwicks.co.uk website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite ",
+    "debug": "vite --debug --force",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andystevenson/wwsc.club.git"
+  },
+  "keywords": [
+    "website",
+    "westwarwicks",
+    "html",
+    "javascript",
+    "netlify"
+  ],
+  "author": "andystevenson@mac.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andystevenson/wwsc.club/issues"
+  },
+  "homepage": "https://github.com/andystevenson/wwsc.club#readme",
+  "devDependencies": {
+    "postcss": "^8.4.5",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-jit-props": "^1.0.4",
+    "sass": "^1.49.0",
+    "vite": "^2.7.13"
+  },
+  "dependencies": {
+    "open-props": "^1.1.5"
+  }
+}

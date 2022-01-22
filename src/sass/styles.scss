@@ -1,0 +1,30 @@
+@import 'open-props/style';
+@import 'open-props/normalize';
+
+body {
+  display: grid;
+  grid-template-rows: min-content;
+}
+
+main {
+  margin: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  & h1 {
+    max-inline-size: var(--size-header-3);
+  }
+}
+
+.skip-to-content {
+  --indent: 0.5em;
+  transform: translateY(-100%);
+  max-inline-size: max-content;
+
+  &:focus-visible {
+    transform: translateY(0);
+    margin-inline-start: var(--indent);
+    margin-block-start: var(--indent);
+  }
+}
