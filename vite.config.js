@@ -1,5 +1,5 @@
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
-// postcss.config.js
 import postcssJitProps from 'postcss-jit-props'
 import postcssCustomMedia from 'postcss-custom-media'
 
@@ -10,6 +10,14 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [postcssJitProps(OpenProps), postcssCustomMedia()],
+    },
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        a404: resolve(__dirname, '404.html'),
+      },
     },
   },
 })
