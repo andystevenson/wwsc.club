@@ -12,13 +12,13 @@
 
 [[redirects]]
   from = "/*"
-  to = "/404.html"
+  to = "/404"
   status = 404
 
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
-  # [dev]
-  #  command = "npm run dev" # Command to start your dev server
-  #  publish = "dist" # Folder with the static content for _redirect file
+[dev]
+  command = "npm start" # Command to start your dev server
+  publish = "dist" # Folder with the static content for _redirect file
 
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/

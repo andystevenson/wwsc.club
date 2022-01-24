@@ -4,10 +4,9 @@
   "description": "new westwarwicks.co.uk website",
   "main": "index.html",
   "scripts": {
-    "dev": "vite ",
-    "debug": "vite --debug --force",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "BUILD='development' slinkity --serve --incremental",
+    "build": "BUILD='production' slinkity",
+    "clean": "rm -rf _site .11ty*"
   },
   "repository": {
     "type": "git",
@@ -31,9 +30,10 @@
     "postcss-custom-media": "^8.0.0",
     "postcss-jit-props": "^1.0.4",
     "sass": "^1.49.0",
-    "vite": "^2.7.13"
+    "slinkity": "^0.5.0"
   },
   "dependencies": {
+    "@11ty/eleventy": "^1.0.0",
     "open-props": "^1.1.5"
   }
 }

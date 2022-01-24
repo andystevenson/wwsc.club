@@ -109,3 +109,7 @@ dist
 # mac os
 .DS_Store
 
+
+# 11ty config
+
+.11ty*
