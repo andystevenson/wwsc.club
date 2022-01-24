@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: 'NOT FOUND'
+title: 'SORRY NOT FOUND!'
 ---
 
 <main id="main" tabindex="-1">
