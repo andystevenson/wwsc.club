@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^1.0.0",
+    "@andystevenson/11ty": "^0.1.2",
     "open-props": "^1.1.5"
   }
 }
