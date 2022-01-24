@@ -19,7 +19,7 @@
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
 [dev]
   command = "npm start" # Command to start your dev server
-  publish = "dist" # Folder with the static content for _redirect file
+  publish = "_site" # Folder with the static content for _redirect file
   # PROBLEM: some real weirdness here if I specify anything other than the WRONG publish directory this fails to launch the correct site!?!!?
 
 
