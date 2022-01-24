@@ -2,7 +2,7 @@
 [build]
   command = "npm run build"
   functions = "netlify/functions"
-  publish = "dist"
+  publish = "_site"
 
 [[redirects]]
   from = "/squash"
@@ -19,6 +19,6 @@
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
 [dev]
   command = "npm start" # Command to start your dev server
-  publish = "dist" # Folder with the static content for _redirect file
+  publish = "_site" # Folder with the static content for _redirect file
 
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
