@@ -1,5 +1,5 @@
-@import 'open-props/style';
-@import 'open-props/normalize';
+@use 'config';
+@use 'utilities';
 
 body {
   display: grid;
@@ -12,19 +12,49 @@ main {
   gap: 1rem;
   align-items: center;
 
-  & h1 {
-    max-inline-size: var(--size-header-3);
+  @media (--md-n-below) {
+    flex-direction: column;
   }
 }
 
-.skip-to-content {
-  --indent: 0.5em;
-  transform: translateY(-100%);
-  max-inline-size: max-content;
+#theme-toggler {
+  display: flex;
+  justify-content: space-around;
 
-  &:focus-visible {
-    transform: translateY(0);
-    margin-inline-start: var(--indent);
-    margin-block-start: var(--indent);
+  & button {
+    background-color: transparent;
   }
+  & svg {
+    width: 5rem;
+  }
+}
+
+html[data-theme='dark'] [data-theme='light'].theme-toggle,
+html[data-theme='light'] [data-theme='dark'].theme-toggle {
+  display: none;
+}
+
+html[data-theme='dark'] {
+  @media (--motionOK) {
+    animation: var(--animation-shake-x), var(--animation-fade-out) reverse;
+    animation-duration: 1s;
+  }
+}
+
+html[data-theme='light'] {
+  @media (--motionOK) {
+    animation: var(--animation-shake-y);
+  }
+
+  & > * {
+    animation: var(--animation-fade-out);
+  }
+}
+
+p {
+  text-align: center;
+  padding: 1em;
+  justify-self: center;
+  background-color: var(--surface-2);
+  color: var(--text-2);
 }

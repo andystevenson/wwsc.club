@@ -9,4 +9,5 @@ layout: base.njk
     </picture>
   </a>
   <h1>West Warwickshire Sports Complex</h1>
+  <!-- <h2 title="West Warwickshire Sports Complex">WWSC</h2> -->
 </main>
