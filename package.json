@@ -17,6 +17,7 @@
     "westwarwicks",
     "html",
     "javascript",
+    "css",
     "netlify"
   ],
   "author": "andystevenson@mac.com",
@@ -35,6 +36,8 @@
   "dependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@andystevenson/11ty": "^0.1.2",
+    "@andystevenson/sass": "^0.1.0",
+    "@andystevenson/theme-toggle": "^0.1.4",
     "open-props": "^1.1.5"
   }
 }

@@ -1,5 +1,8 @@
-@use 'config';
-@use 'utilities';
+// @use 'config';
+// @use 'utility';
+// @use 'component';
+
+@forward '@andystevenson/sass';
 
 body {
   display: grid;
@@ -29,11 +32,6 @@ main {
   }
 }
 
-html[data-theme='dark'] [data-theme='light'].theme-toggle,
-html[data-theme='light'] [data-theme='dark'].theme-toggle {
-  display: none;
-}
-
 html[data-theme='dark'] {
   @media (--motionOK) {
     animation: var(--animation-shake-x), var(--animation-fade-out) reverse;
@@ -51,10 +49,10 @@ html[data-theme='light'] {
   }
 }
 
-p {
-  text-align: center;
-  padding: 1em;
-  justify-self: center;
-  background-color: var(--surface-2);
-  color: var(--text-2);
-}
+// p {
+//   text-align: center;
+//   padding: 1em;
+//   justify-self: center;
+//   background-color: var(--surface-2);
+//   color: var(--text-2);
+// }
