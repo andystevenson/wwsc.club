@@ -20,7 +20,6 @@
 [dev]
   command = "npm start" # Command to start your dev server
   publish = "_site" # Folder with the static content for _redirect file
-  # PROBLEM: some real weirdness here if I specify anything other than the WRONG publish directory this fails to launch the correct site!?!!?
 
 
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
