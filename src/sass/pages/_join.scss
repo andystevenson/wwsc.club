@@ -49,6 +49,7 @@
       border-radius: var(--radius-3);
       padding: var(--size-fluid-2);
       background-color: var(--surface-1);
+      box-shadow: var(--shadow-4);
 
       & > header {
         place-items: center;
@@ -88,7 +89,6 @@
           & svg {
             width: var(--size-5);
             stroke: var(--brand);
-            // stroke-width: 2px;
           }
         }
       }

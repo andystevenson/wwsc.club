@@ -245,20 +245,35 @@ body {
     }
 
     & > nav {
-      & ul {
-        font-size: var(--font-size-4);
-      }
-      & #close-mobile-menu {
+      @media (--md-n-below) {
         display: none;
       }
 
-      & > a {
+      & > ul {
+        font-size: var(--font-size-4);
+
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        gap: 1em;
+
+        & > li {
+          &:first-of-type {
+            display: none;
+          }
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      #close-mobile-menu {
         display: none;
       }
 
       &:target {
-        // pointer-events: none;
-        display: flex;
+        display: block;
+
         position: fixed;
         overflow: hidden;
         overscroll-behavior: none;
@@ -266,19 +281,25 @@ body {
         background: var(--surface-1);
         z-index: var(--layer-important);
 
-        & ul {
-          position: relative;
-          width: 70%;
+        #theme-toggler {
+          display: none;
+        }
+
+        & > ul {
+          width: 100%;
           flex-direction: column;
           gap: 0;
-          padding-block-start: 0.5rem;
+          padding-block-start: var(--size-2);
 
-          & li {
-            margin-inline-start: 1rem;
-            margin-inline-end: 2.5rem;
-            padding: 0.5rem;
+          & > li {
+            margin-inline-start: var(--size-3);
+            margin-inline-end: var(--size-8);
+            padding: var(--size-2);
 
-            & a {
+            &:first-of-type {
+              display: inline-block;
+            }
+            & > a {
               width: 100%;
               display: inline-block;
             }
@@ -289,44 +310,25 @@ body {
           }
         }
 
-        & #close-mobile-menu {
+        #close-mobile-menu {
           position: absolute;
-          top: 1rem;
+          top: var(--size-4);
           right: 0.75rem;
           display: block;
           border-radius: var(--radius-round);
-        }
-
-        & > a {
-          display: block;
-          width: 30%;
           margin: 0;
           padding: 0;
           background-color: var(--surface-4);
-          opacity: 0.1;
-        }
-      }
 
-      @media (--md-n-below) {
-        display: none;
-      }
-
-      & ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-        gap: 1em;
-
-        & li {
-          padding: 0;
-          margin: 0;
+          & > svg {
+            width: var(--size-6);
+          }
         }
       }
     }
   }
 
-  & footer {
+  & > footer {
     position: relative;
 
     grid-column: 1 / -1;
