@@ -193,7 +193,7 @@ body {
     place-self: center;
   }
 
-  & > :is(header, footer) {
+  & > header {
     --link: var(--text-1);
     --link-visited: var(--text-2);
 
@@ -216,6 +216,7 @@ body {
       --_bg: transparent;
       align-self: center;
       padding: var(--size-2);
+      padding-inline-end: 0;
       border-radius: var(--radius-round);
     }
 
@@ -326,32 +327,69 @@ body {
   }
 
   & footer {
-    flex-direction: column;
-    gap: var(--size-3);
-    padding-block: var(--size-2);
+    position: relative;
+
+    grid-column: 1 / -1;
+    display: grid;
+    gap: var(--size-fluid-1);
+    padding-block: var(--size-fluid-1);
 
     & p {
       font-size: var(--font-size-fluid-0);
+      place-self: center;
     }
     & > section {
       margin: auto;
-      display: flex;
+      @media (--sm-n-below) {
+        margin: 0;
+      }
 
-      & > * {
+      display: flex;
+      gap: var(--size-fluid-2);
+
+      [data-theme='light'] & img {
+        filter: invert(1);
+      }
+
+      & > .contacts {
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        gap: clamp(0.75rem, 1.5vw, 1rem);
+
+        & > a {
+          border: var(--size-1) double var(--brand);
+          border-radius: var(--radius-round);
+          background-color: var(--text-1);
+        }
+      }
+
+      & > a {
         display: grid;
         place-content: center;
         border-radius: var(--radius-round);
-        background-color: currentColor;
+        background-color: var(--text-1);
 
         padding-block: var(--size-2);
         padding-inline: var(--size-2);
 
         & > img {
-          width: var(--size-4);
+          width: var(--size-fluid-2);
           aspect-ratio: 1;
         }
-        [data-theme='light'] & > img {
-          filter: invert(1);
+      }
+    }
+    & .copyright {
+      & .shortname {
+        display: none;
+      }
+      @media (--xs-n-below) {
+        & .shortname {
+          display: inline;
+        }
+        & .longname {
+          display: none;
         }
       }
     }
