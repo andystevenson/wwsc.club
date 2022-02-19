@@ -1,0 +1,8 @@
+.container {
+  --max-width: var(--size-xl);
+
+  min-inline-size: min(90vw, var(--max-width));
+  max-inline-size: min(99vw, var(--max-width));
+  position: relative;
+  margin: auto;
+}

@@ -1,9 +1,11 @@
 <section>
-  {% for platform, link in social %}
-    <a href="{{link}}" title="{{platform}}">
-      <img src="/images/{{platform}}.svg" alt="image for social media {{platform}}">
-    </a>
-  {% endfor %}
+  <section class="social">
+    {% for platform, link in social %}
+      <a href="{{link}}" title="{{platform}}">
+        <img src="/images/{{platform}}.svg" alt="image for social media {{platform}}">
+      </a>
+    {% endfor %}
+  </section>
   <section class="contacts">
     <a href="mailto:{{email}}" title="email {{email}}">
       <img src="/images/envelope.svg" alt="email west warwicks">

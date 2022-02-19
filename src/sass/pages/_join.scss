@@ -1,26 +1,30 @@
 .join {
-  & .site main {
-    place-self: unset;
-
-    & > h1 {
-      place-self: center;
-    }
-  }
-
   & .options {
+    place-self: center;
     display: flex;
-    justify-content: center;
+    gap: var(--size-1);
     padding-block-end: var(--size-3);
+    font-size: 0.75rem;
+
+    @media (--xs-n-above) {
+      font-size: var(--size-fluid-2);
+      gap: var(--size-fluid-2);
+    }
   }
 
   & .prices {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--size-header-2), 1fr));
-    padding: var(--size-5);
+    grid-template-columns: repeat(auto-fit, minmax(var(--size-header-1), 1fr));
+    padding: var(--size-fluid-1);
     padding-block-start: var(--size-7);
     background-color: var(--surface-3);
     border-radius: var(--radius-2);
+
+    @media (--xs-n-above) {
+      padding: var(--size-fluid-2);
+      padding-block-start: var(--size-7);
+    }
 
     & .download-prices {
       position: absolute;
@@ -40,16 +44,18 @@
         // stroke-width: 2px;
       }
     }
+
     & > article {
       grid-auto-rows: min-content;
-      &.hide {
-        display: none;
-      }
 
       border-radius: var(--radius-3);
-      padding: var(--size-fluid-2);
+      padding: var(--size-fluid-1);
       background-color: var(--surface-1);
       box-shadow: var(--shadow-4);
+
+      @media (--xxs-n-above) {
+        padding: var(--size-fluid-2);
+      }
 
       & > header {
         place-items: center;

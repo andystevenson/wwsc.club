@@ -1,0 +1,15 @@
+// TODO:  this should be moved to main sass reset
+:focus-visible {
+  outline-style: solid;
+}
+
+button {
+  --_text: var(--brand);
+  --_ink-shadow: none;
+}
+
+body {
+  align-content: start;
+  overflow-x: hidden;
+  padding-block-start: 2vmin;
+}

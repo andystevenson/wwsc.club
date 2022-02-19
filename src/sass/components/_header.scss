@@ -1,0 +1,136 @@
+.site {
+  & > header {
+    --link: var(--text-1);
+    --link-visited: var(--text-2);
+
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & :where(svg) {
+      flex-shrink: 0;
+      filter: drop-shadow(var(--_ink-shadow));
+      min-block-size: var(--_icon-size, 2ch);
+      min-inline-size: var(--_icon-size, 2ch);
+    }
+
+    & button {
+      --_highlight: none;
+      --_border: none;
+      --_bg: transparent;
+      align-self: center;
+      padding: var(--size-2);
+      padding-inline-end: 0;
+      border-radius: var(--radius-round);
+    }
+
+    & #logo {
+      --_size: 4rem;
+      border-radius: var(--radius-round);
+      & img {
+        min-inline-size: var(--_size);
+        min-block-size: var(--_size);
+        inline-size: var(--_size);
+        block-size: var(--_size);
+      }
+
+      @media (--md-n-below) {
+        display: none;
+      }
+    }
+
+    & #mobile-menu {
+      --link-visited: initial;
+      display: none;
+
+      @media (--md-n-below) {
+        display: inherit;
+      }
+    }
+
+    & > nav {
+      @media (--md-n-below) {
+        display: none;
+      }
+
+      & > ul {
+        font-size: var(--font-size-4);
+
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        gap: 1em;
+
+        & > li {
+          &:first-of-type {
+            display: none;
+          }
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      #close-mobile-menu {
+        display: none;
+      }
+
+      &:target {
+        display: block;
+
+        position: fixed;
+        overflow: hidden;
+        overscroll-behavior: none;
+        inset: 0;
+        background: var(--surface-1);
+        z-index: var(--layer-important);
+
+        #theme-toggler {
+          display: none;
+        }
+
+        & > ul {
+          width: 100%;
+          flex-direction: column;
+          gap: 0;
+          padding-block-start: var(--size-2);
+
+          & > li {
+            margin-inline-start: var(--size-3);
+            margin-inline-end: var(--size-8);
+            padding: var(--size-2);
+
+            &:first-of-type {
+              display: inline-block;
+            }
+            & > a {
+              width: 100%;
+              display: inline-block;
+            }
+
+            &:hover {
+              background-color: var(--surface-4);
+            }
+          }
+        }
+
+        #close-mobile-menu {
+          position: absolute;
+          top: var(--size-4);
+          right: 0.75rem;
+          display: block;
+          border-radius: var(--radius-round);
+          margin: 0;
+          padding: 0;
+          background-color: var(--surface-4);
+
+          & > svg {
+            width: var(--size-6);
+          }
+        }
+      }
+    }
+  }
+}

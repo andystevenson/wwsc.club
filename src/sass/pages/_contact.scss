@@ -1,0 +1,26 @@
+.site {
+  & > main {
+    & > .information {
+      & > .enquiries {
+        min-block-size: 60vh;
+        background-size: cover;
+        background-image: url('/cloudinaried/1024/aerial-main.jpg');
+        background-position: bottom;
+        border-radius: var(--radius-2);
+        padding: var(--size-fluid-1);
+
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(var(--size-header-1), 1fr)
+        );
+        & > article {
+          display: grid;
+          place-content: center;
+          background-color: var(--surface-1);
+          opacity: 0.6;
+          aspect-ratio: 1;
+        }
+      }
+    }
+  }
+}
