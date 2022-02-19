@@ -21,6 +21,11 @@
           aspect-ratio: 1;
         }
       }
+
+      & iframe {
+        aspect-ratio: var(--ratio-landscape);
+        width: 100%;
+      }
     }
   }
 }
