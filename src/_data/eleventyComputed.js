@@ -2,7 +2,7 @@
 const { statSync } = require('fs')
 
 module.exports = {
-  layout: (data) => 'base.njk',
+  layout: 'base.njk',
   title: (data) => {
     return data.page.fileSlug || 'WWSC'
   },
@@ -12,11 +12,17 @@ module.exports = {
     try {
       // throws if file does not exist
       const stat = statSync(`./src/js/${src}`)
-      console.log(`${src} file exists`)
+      // console.log(`${src} file exists`)
     } catch (error) {
-      console.log(`${src} file DOES NOT exists!!! [${error.message}]`)
+      // console.log(`${src} file DOES NOT exists!!! [${error.message}]`)
       src = undefined
     }
     return src
   },
+  site: 'https://westwarwicks.club',
+  company: 'West Warwickshire Sports Complex',
+  description:
+    'West Warwickshire Sports Complex - the heart of sport & hospitality in Solihull.',
+  email: 'admin@westwarwicks.co.uk',
+  telephone: '+44 121 706 3594',
 }
