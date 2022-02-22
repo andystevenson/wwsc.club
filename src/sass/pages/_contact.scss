@@ -1,32 +1,61 @@
 .site {
   & > main {
     & > .information {
-      & h2 {
-        font-size: var(--size-fluid-2);
-        color: var(--brand);
-      }
       & > .enquiries {
-        min-block-size: 60vh;
         background-size: cover;
         background-image: url('/cloudinaried/1024/aerial-main.jpg');
         background-position: bottom;
         border-radius: var(--radius-2);
-        padding: var(--size-fluid-1);
+        padding: var(--size-fluid-2);
+        gap: var(--size-fluid-2);
 
-        grid-template-columns: repeat(
-          auto-fit,
-          minmax(var(--size-header-1), 1fr)
-        );
+        @media (--sm-n-below) {
+          gap: var(--size-fluid-1);
+          padding: var(--size-fluid-1);
+        }
+
+        grid-template-columns: repeat(auto-fit, minmax(13ch, 1fr));
+
+        @media (--sm-n-above) {
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(var(--size-header-1), 1fr)
+          );
+        }
+
         & > article {
-          display: grid;
+          gap: var(--size-fluid-2);
           place-content: center;
+          aspect-ratio: 1;
+
           background-color: var(--surface-1);
           opacity: 0.8;
-          aspect-ratio: 1;
+          border-radius: var(--radius-2);
+          box-shadow: var(--shadow-2);
+
+          & h2 {
+            font-size: var(--size-fluid-2);
+            color: var(--brand);
+          }
+          & > section {
+            display: flex;
+            place-self: center;
+
+            & > a {
+              display: grid;
+              place-content: center;
+              border: var(--size-1) double var(--brand);
+              border-radius: var(--radius-round);
+
+              padding-block: var(--size-1);
+              padding-inline: var(--size-1);
+            }
+          }
         }
       }
 
       & .find-us {
+        justify-items: center;
         border-radius: var(--border-size-2);
         box-shadow: var(--shadow-3);
         overflow: hidden;

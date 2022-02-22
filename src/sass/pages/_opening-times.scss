@@ -1,0 +1,46 @@
+.site {
+  section.opening-times {
+    grid-template-columns: repeat(auto-fit, minmax(var(--size-header-1), 1fr));
+
+    .section-times {
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--text-1);
+      padding: var(--size-fluid-2);
+      gap: var(--size-fluid-1);
+
+      & > * {
+        gap: var(--size-fluid-1);
+      }
+
+      & > :is(.days, .short-days) {
+        text-align: center;
+        & > *:first-of-type {
+          visibility: hidden;
+        }
+      }
+
+      & > .days {
+        display: none;
+      }
+
+      & > h2 {
+        grid-column: 1 / -1;
+        font-size: var(--font-size-fluid-1);
+        border-block-end: 1px solid var(--brand);
+        text-align: center;
+        padding-block-end: var(--size-fluid-1);
+      }
+
+      & > :is(.open-times, .close-times) {
+        & > *:first-of-type {
+          font-weight: bolder;
+        }
+        text-align: center;
+
+        @media (--sm-n-above) {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
