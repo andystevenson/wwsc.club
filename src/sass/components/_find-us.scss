@@ -1,0 +1,13 @@
+.site {
+  & .find-us {
+    padding-block-start: var(--size-3);
+    justify-items: center;
+    border-radius: var(--border-size-2);
+    box-shadow: var(--shadow-3);
+    overflow: hidden;
+    & iframe {
+      aspect-ratio: var(--ratio-landscape);
+      width: 100%;
+    }
+  }
+}

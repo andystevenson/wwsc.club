@@ -1,0 +1,53 @@
+.site {
+  & > main {
+    & > .welcome {
+      padding: var(--size-fluid-2);
+      display: grid;
+      gap: var(--size-fluid-2);
+      text-align: center;
+
+      @media (--lg-n-above) {
+        text-align: left;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      background-color: var(--surface-2);
+
+      & > header {
+        padding: var(--size-fluid-2);
+        background: var(--surface-1);
+        opacity: 0.8;
+        grid-auto-rows: min-content;
+
+        & > * {
+          place-self: center;
+
+          @media (--lg-n-above) {
+            place-self: unset;
+          }
+        }
+
+        & > .cto {
+          place-self: center;
+
+          @media (--xs-n-above) {
+            display: flex;
+          }
+        }
+      }
+
+      & form {
+        place-self: center;
+      }
+
+      & .aerial-video {
+        display: none;
+        place-self: center;
+
+        @media (--sm-n-above) {
+          display: block;
+        }
+      }
+    }
+  }
+}

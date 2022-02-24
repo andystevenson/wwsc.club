@@ -1,0 +1,63 @@
+.site {
+  & .sports-gallery {
+    --columns: 1;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: var(--size-fluid-1);
+
+    @media (--xs-n-above) {
+      --columns: 2;
+    }
+
+    @media (--md-n-above) {
+      --columns: 4;
+    }
+
+    & article {
+      grid-auto-rows: min-content;
+      place-content: center;
+      width: 100%;
+      aspect-ratio: var(--ratio-portrait);
+      background-position: bottom;
+      background-size: cover;
+
+      & h3 {
+        padding-block: var(--size-fluid-1);
+        padding-inline: var(--size-fluid-3);
+        font-size: var(--size-fluid-3);
+        place-self: center;
+        color: var(--brand);
+        backdrop-filter: blur(10px);
+      }
+
+      & > form {
+        width: max-content;
+        place-self: center;
+      }
+
+      &.gym {
+        background-image: url('/cloudinaried/600/fitness-main.jpg');
+      }
+      &.fitness {
+        background-image: url('/cloudinaried/600/fitness-main-i2.jpg');
+      }
+      &.tennis {
+        background-image: url('/cloudinaried/600/tennis-main.jpg');
+      }
+      &.squash {
+        background-image: url('/cloudinaried/600/squash-main.jpg');
+      }
+      &.racketball {
+        background-image: url('/cloudinaried/600/squash-main.jpg');
+      }
+      &.hockey {
+        background-image: url('/cloudinaried/600/hockey-main.jpg');
+      }
+      &.cricket {
+        background-image: url('/cloudinaried/600/cricket-main.jpg');
+      }
+      &.football {
+        background-image: url('/cloudinaried/600/football-main.jpg');
+      }
+    }
+  }
+}

@@ -1,6 +1,11 @@
 .site {
   & > main {
     & > .information {
+      & > * {
+        border-radius: var(--radius-2);
+        box-shadow: var(--shadow-2);
+      }
+
       & > .enquiries {
         background-size: cover;
         background-image: url('/cloudinaried/1024/aerial-main.jpg');
@@ -30,8 +35,6 @@
 
           background-color: var(--surface-1);
           opacity: 0.8;
-          border-radius: var(--radius-2);
-          box-shadow: var(--shadow-2);
 
           & h2 {
             font-size: var(--size-fluid-2);
@@ -54,15 +57,10 @@
         }
       }
 
-      & .find-us {
-        justify-items: center;
-        border-radius: var(--border-size-2);
-        box-shadow: var(--shadow-3);
-        overflow: hidden;
-        & iframe {
-          aspect-ratio: var(--ratio-landscape);
-          width: 100%;
-        }
+      & .address {
+        line-height: var(--font-lineheight-0);
+        gap: var(--size-1);
+        padding: var(--size-fluid-2);
       }
     }
   }

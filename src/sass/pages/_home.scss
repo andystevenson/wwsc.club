@@ -9,6 +9,10 @@
     gap: var(--size-3);
     grid-column: 1 / -1;
 
+    & > *:not(:first-of-type) {
+      border-radius: var(--radius-2);
+      box-shadow: var(--shadow-2);
+    }
     & > h1 {
       place-self: center;
     }
@@ -35,49 +39,22 @@
         & > * {
           align-self: center;
         }
+
+        & button {
+          width: max-content;
+        }
       }
 
       & section {
-        display: grid;
+        --columns: 3;
         gap: var(--size-1);
-        grid-template-columns: repeat(auto-fill, minmax(1rem, 1fr));
-      }
+        grid-template-columns: repeat(var(--columns), 1fr);
 
-      @media (--xxs-n-above) {
-        & section {
-          gap: var(--size-2);
-          grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+        @media (--md-n-above) {
+          --columns: 4;
         }
-      }
-
-      @media (--xs-n-above) {
-        & section {
-          grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
-        }
-      }
-
-      @media (--sm-n-above) {
-        & section {
-          gap: var(--size-2);
-          grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-        }
-      }
-
-      @media (--md-n-above) {
-        & section {
-          gap: var(--size-3);
-          grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-        }
-      }
-
-      @media (--xs-n-below) {
-        & h1 {
-          font-size: var(--font-size-fluid-2);
-        }
-
-        & section {
-          gap: var(--size-1);
-          grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+        @media (--xl-n-above) {
+          --columns: 6;
         }
       }
     }

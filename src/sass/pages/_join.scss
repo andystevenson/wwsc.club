@@ -22,6 +22,10 @@
     border-radius: var(--radius-2);
 
     @media (--xs-n-above) {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(var(--size-header-2), 1fr)
+      );
       padding: var(--size-fluid-2);
       padding-block-start: var(--size-7);
     }
@@ -49,12 +53,12 @@
       grid-auto-rows: min-content;
 
       border-radius: var(--radius-3);
-      padding: var(--size-fluid-1);
+      padding: var(--size-fluid-2);
       background-color: var(--surface-1);
       box-shadow: var(--shadow-4);
 
-      @media (--xxs-n-above) {
-        padding: var(--size-fluid-2);
+      @media (--sm-n-above) {
+        // padding: var(--size-fluid-2);
       }
 
       & > header {

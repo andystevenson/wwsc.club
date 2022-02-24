@@ -2,49 +2,163 @@
   <header>
     <h1>West Warwickshire Sports Complex</h1>
     <form action="/join">
-      <button>join</button>
+      <button>join us</button>
     </form>
   </header>
-  <section id="home-gallery">
-    <picture>
-      <img src="/cloudinaried/600/bar-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/cricket-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/tennis-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/fitness-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/restaurant-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/hockey-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/squash-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/football-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/events-main.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/tennis-main-i2.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/fitness-main-i2.jpg" alt="" loading="lazy">
-    </picture>
-    <picture>
-      <img src="/cloudinaried/600/clubhouse-main.jpg" alt="" loading="lazy">
-    </picture>
+  <section title="gallery" id="home-gallery">
+    <a title="bar" href="/bar">
+      <picture>
+        <img src="/cloudinaried/600/bar-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="cricket" href="/cricket">
+      <picture>
+        <img src="/cloudinaried/600/cricket-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="tennis" href="/tennis">
+      <picture>
+        <img src="/cloudinaried/600/tennis-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="gym" href="/gym">
+      <picture>
+        <img src="/cloudinaried/600/fitness-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="restaurant" href="/restaurant">
+      <picture>
+        <img src="/cloudinaried/600/restaurant-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="hockey" href="/hockey">
+      <picture>
+        <img src="/cloudinaried/600/hockey-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="squash" href="/squash">
+      <picture>
+        <img src="/cloudinaried/600/squash-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="football" href="/football">
+      <picture>
+        <img src="/cloudinaried/600/football-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="events" href="/events">
+      <picture>
+        <img src="/cloudinaried/600/events-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="tennis" href="/tennis">
+      <picture>
+        <img src="/cloudinaried/600/tennis-main-i2.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="fitness" href="/fitness">
+      <picture>
+        <img src="/cloudinaried/600/fitness-main-i2.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
+    <a title="clubhouse" href="/contact">
+      <picture>
+        <img src="/cloudinaried/600/clubhouse-main.jpg" alt="" loading="lazy">
+      </picture>
+    </a>
   </section>
 </section>
-<section id="welcome">
-  <h2>Welcome</h2>
-  <p>West Warwickshire Sports Complex sits in the heart of Solihull and welcomes members and non-members to enjoy our great multi-sports facility. We have been established as a charity since </p>
+<section title="welcome" id="welcome" class="welcome">
+  <header  data-theme="light">
+    <h2>Welcome</h2>
+    <p>West Warwickshire Sports Complex (WWSC) is in the heart of Solihull and welcomes members and the public to enjoy our great multi-sports and hospitality facility. We can trace the roots of WWSC back to 1888 with Olton & West Warwicks Cricket Club and 1898 with Olton & West Warwicks Hockey Club. WWSC has been an established charity since 2005 with the objective of providing the best multi-sports facility to the local community. </p>
+    <section class="cto">
+      <form action="/contact">
+        <button>book a tour</button>
+      </form>
+      <form action="/opening-times">
+        <button>opening times</button>
+      </form>
+    </section>
+  </header>
+  <section title="aerial-video" id="aerial-video" class="aerial-video">
+    <video controls>
+      <source src="files/vid.mp4" type="video/mp4">
+    </video>
+  </section>
+
+</section>
+<section id="sports-gallery">
+  <h2>Sports</h2>
+  <section class="sports-gallery">
+    <article class="gym">
+      <a href="/gym">
+        <h3>gym</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+    <article class="fitness">
+      <a href="/fitness">
+        <h3>fitness</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+    <article class="tennis">
+      <a href="/tennis">
+        <h3>tennis</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+    <article class="squash">
+      <a href="/squash">
+        <h3>squash</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+    <article class="racketball">
+      <a href="/racketball">
+        <h3>racketball</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+    <article class="hockey">
+      <a href="/hockey">
+        <h3>hockey</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+    <article class="cricket">
+      <a href="/cricket">
+        <h3>cricket</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+    <article class="football">
+      <a href="/football">
+        <h3>football</h3>
+      </a>
+      <form action="{{ bookNow }}">
+        <button>book now</button>
+      </form>
+    </article>
+  </section>
+</section>
+<section class="find-us">
+  <h2>Find us</h2>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.7621604957194!2d-1.8089166842588886!3d52.42910705071379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b98bd12f5729%3A0x9b13324877249de4!2sWest%20Warwickshire%20Sports%20Complex!5e0!3m2!1sen!2suk!4v1645210891788!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+    <span></span></iframe>
 </section>

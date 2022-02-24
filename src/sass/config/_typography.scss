@@ -17,3 +17,7 @@ h1 {
 h2 {
   font-size: var(--font-size-fluid-2);
 }
+
+:where(p) {
+  color: var(--text-2);
+}
