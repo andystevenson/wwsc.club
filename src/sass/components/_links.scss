@@ -1,0 +1,30 @@
+section.links {
+  justify-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-fluid-1);
+
+  background-color: var(--surface-3);
+  padding: var(--size-fluid-1);
+
+  & > * {
+    background-color: var(--surface-1);
+    padding: var(--size-fluid-1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-fluid-1);
+
+    & > * {
+      place-self: center;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    & img {
+      // min-inline-size: 64px;
+      max-block-size: min(64px, 10vh);
+      // max-inline-size: max(300px, 30vw);
+    }
+  }
+}

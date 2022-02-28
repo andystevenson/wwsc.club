@@ -1,0 +1,22 @@
+{% if group.affiliates %}
+  <section class="links">
+    <section class="affiliates" data-theme="light">
+      {% for affiliate in group.affiliates%}
+        <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
+          <img src="{{ affiliate.logo }}" alt="">
+        </a>
+      {% endfor %}
+    </section>
+    {% if group.social %}
+      <section class="social" data-theme="light">
+        {% for social in group.social %}
+          {% for name, link in social %}
+            <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
+              <img src="/images/{{name}}.svg" alt="">
+            </a>
+          {% endfor %}
+        {% endfor %}
+      </section>
+    {% endif %}
+  </section>
+{% endif %}

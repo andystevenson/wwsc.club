@@ -33,24 +33,9 @@
 
 </section>
 
-<section class="links">
-  <section class="affiliates" data-theme="light">
-    {% for affiliate in cricket.affiliates%}
-      <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
-        <img src="{{ affiliate.logo }}" alt="">
-      </a>
-    {% endfor %}
-  </section>
-  <section class="social" data-theme="light">
-    {% for social in cricket.social %}
-      {% for name, link in social %}
-        <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
-          <img src="/images/{{name}}.svg" alt="">
-        </a>
-      {% endfor %}
-    {% endfor %}
-  </section>
-</section>
+{% set group = cricket %}
+{% include 'partials/links.njk' %}
+
 <section class="information">
   <div class="content">
     <p>The club enjoys close contacts with local schools, voluntary organisations and the <a href="{{cricket.wcb}}">Warwickshire Cricket Board</a>.</p>

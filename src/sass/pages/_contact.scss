@@ -1,4 +1,10 @@
 .contact main {
+  & [action='/opening-times'] {
+    gap: var(--size-fluid-2);
+  }
+  & .clock {
+    block-size: var(--size-7);
+  }
   & > .information {
     & h2 {
       color: var(--brand);

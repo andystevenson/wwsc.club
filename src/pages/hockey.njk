@@ -33,24 +33,9 @@
 
 </section>
 
-<section class="links">
-  <section class="affiliates" data-theme="light">
-    {% for affiliate in hockey.affiliates%}
-      <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
-        <img src="{{ affiliate.logo }}" alt="">
-      </a>
-    {% endfor %}
-  </section>
-  <section class="social" data-theme="light">
-    {% for social in hockey.social %}
-      {% for name, link in social %}
-        <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
-          <img src="/images/{{name}}.svg" alt="">
-        </a>
-      {% endfor %}
-    {% endfor %}
-  </section>
-</section>
+{% set group = hockey %}
+{% include 'partials/links.njk' %}
+
 <section class="information">
   <div class="content">
     <p>We aim to provide a welcoming and friendly environment within which players of all ages & abilities can participate in and enjoy all aspects of the game. We offer members the opportunities and technical support to excel at the highest levels of the sport, whilst instilling the virtues of sportsmanship and etiquette towards fellow members, officials and opponents alike. We aim to serve the community as a whole, promoting a beacon of sporting excellence open to all.</p>
