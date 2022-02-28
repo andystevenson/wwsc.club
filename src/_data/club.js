@@ -30,5 +30,11 @@ module.exports = {
       website: 'https://www.englandsquash.com/',
       logo: '/files/squash-england.png',
     },
+    {
+      name: 'restaurant guide',
+      website:
+        'https://restaurantguru.com/West-Warwickshire-Sports-Complex-Solihull',
+      logo: '/files/restaurant-guru-logo.svg',
+    },
   ],
 }
