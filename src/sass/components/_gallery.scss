@@ -1,0 +1,28 @@
+section.gallery {
+  --columns: 1;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--size-fluid-1);
+
+  background-color: var(--surface-3);
+  padding: var(--size-fluid-1);
+  border-radius: var(--radius-2);
+  box-shadow: var(--radius-2);
+
+  @media (--xs-n-above) {
+    --columns: 2;
+  }
+
+  @media (--sm-n-above) {
+    --columns: 3;
+  }
+
+  @media (--md-n-above) {
+    --columns: 6;
+  }
+
+  & img {
+    width: 100%;
+    aspect-ratio: var(--ratio-portrait);
+    object-fit: cover;
+  }
+}
