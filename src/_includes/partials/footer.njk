@@ -1,7 +1,7 @@
 <section>
   <section class="social">
     {% for platform, link in social %}
-      <a href="{{link}}" title="{{platform}}">
+      <a href="{{link}}" title="{{platform}}" class="social-link {{platform}}">
         <img src="/images/{{platform}}.svg" alt="image for social media {{platform}}">
       </a>
     {% endfor %}
@@ -15,5 +15,12 @@
     </a>
   </section>
 </section>
-<p class="copyright">Copyright &copy 2022 - <span class="longname">West Warwickshire Sports Complex</span>
-  <span class="shortname">WWSC</span></p>
+<section class="company">
+  <p class="copyright">Copyright &copy 2022 - <span class="longname">West Warwickshire Sports Complex</span>
+    <span class="shortname">WWSC</span>
+  </p>
+  <p class="registration">
+    <span class="longname">(Company registered in England: {{charity.wwsc.companyId}})</span>
+    <span class="shortname">(Company Reg: {{charity.wwsc.companyId}})</span>
+  </p>
+</section>

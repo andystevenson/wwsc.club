@@ -66,17 +66,26 @@
         }
       }
     }
-    & .copyright {
+
+    & .company {
+      gap: var(--size-1);
+      line-height: var(--font-lineheight-00);
+
+      & > .registration {
+        font-size: var(--font-size-0);
+      }
+    }
+
+    & .longname {
+      display: none;
+    }
+
+    @media (--md-n-above) {
       & .shortname {
         display: none;
       }
-      @media (--sm-n-below) {
-        & .shortname {
-          display: inline;
-        }
-        & .longname {
-          display: none;
-        }
+      & .longname {
+        display: inline;
       }
     }
   }

@@ -1,5 +1,6 @@
 module.exports = {
-  'west warwickshire sports complex': {
+  wwsc: {
+    name: 'west warwickshire sports complex',
     established: '2005-11-10',
     companyId: ' 05618704',
     company:
@@ -14,7 +15,8 @@ module.exports = {
     objective:
       'In support of the local community, to develop and support the growth of excellent sports and hospitality facilities.',
   },
-  'west warwickshire club limited': {
+  wwcl: {
+    name: 'west warwickshire club limited',
     companyId: ' 04518816',
     company:
       'https://find-and-update.company-information.service.gov.uk/company/04518816',
@@ -22,7 +24,8 @@ module.exports = {
     objective:
       'The provision of excellent food and beverage services to the public and members of West Warwickshire Sports Complex.',
   },
-  'olton grounds limited': {
+  oltonGrounds: {
+    name: 'olton grounds limited',
     established: '1897-08-16',
     companyId: ' 00053779',
     company:

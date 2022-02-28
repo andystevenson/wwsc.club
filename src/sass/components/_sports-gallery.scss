@@ -20,7 +20,7 @@
       background-position: bottom;
       background-size: cover;
 
-      & h3 {
+      & :is(h2, h3) {
         padding-block: var(--size-fluid-1);
         padding-inline: var(--size-fluid-3);
         font-size: var(--size-fluid-3);
@@ -29,7 +29,7 @@
         backdrop-filter: blur(10px);
       }
 
-      & > form {
+      & > *:last-of-type {
         width: max-content;
         place-self: center;
       }

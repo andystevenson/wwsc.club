@@ -1,6 +1,6 @@
 .site {
   display: grid;
-  gap: var(--size-fluid-2);
+  gap: var(--size-fluid-1);
   grid: auto 1fr auto / auto 1fr auto;
   place-content: center;
 
@@ -21,7 +21,6 @@
       gap: var(--size-6);
 
       & img {
-        display: block;
         width: 100%;
         aspect-ratio: var(--ratio-portrait);
         object-fit: cover;

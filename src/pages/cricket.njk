@@ -1,1 +1,77 @@
-<h1>{{ title | capitalize }}</h1>
+<header>
+  <section class="title">
+    <h2>{{cricket.name}}</h2>
+    <a title="{{cricket.name}}" href="{{cricket.website}}">
+      <picture>
+        <img src="{{cricket.logo}}" alt="">
+      </picture>
+    </a>
+
+  </section>
+  <p>{{cricket.description}}</p>
+</header>
+
+<section title="gallery" class="gallery">
+  <picture>
+    <img src="/cloudinaried/600/cricket/cricket-main.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/cricket/cricket-i29.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/cricket/cricket-i27.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/cricket/cricket-i17.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/cricket/cricket-i3.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/cricket/cricket-i20.jpg" alt="" loading="lazy">
+  </picture>
+
+</section>
+
+<section class="links">
+  <section class="affiliates" data-theme="light">
+    {% for affiliate in cricket.affiliates%}
+      <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
+        <img src="{{ affiliate.logo }}" alt="">
+      </a>
+    {% endfor %}
+  </section>
+  <section class="social" data-theme="light">
+    {% for social in cricket.social %}
+      {% for name, link in social %}
+        <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
+          <img src="/images/{{name}}.svg" alt="">
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </section>
+</section>
+<section class="information">
+  <div class="content">
+    <p>The club enjoys close contacts with local schools, voluntary organisations and the <a href="{{cricket.wcb}}">Warwickshire Cricket Board</a>.</p>
+    <p>We aim to provide a welcoming and friendly environment within which players of all ages and abilities can participate in and enjoy all aspects of the game.</p>
+    <p>The club has has expanded to five teams in <a href="{{cricket.wccl}}">The Warwickshire League</a> on Saturdays, playing on three grounds in the local area.</p>
+    <p>Teams are entered in midweek competitions as well and more adult Sunday cricket is played since the club joined the <a href="{{cricket.ardenSundayLeague}}">Arden Sunday League</a> in 2017.</p>
+    <p>Always keen to recruit new adult and junior members at all levels, the club has a very strong junior section with excellent coaching for all ages and abilities.</p>
+    <p>Practice sessions for adult and junior players takes place three or four evenings per week.</p>
+    <p>The cricket facilities both at our main ground at WWSC and at our other grounds at <a href="{{cricket.tudorGrange}}">Tudor Grange Academy</a> and <a href="{{cricket.langley}}">Langley School</a> are maintained to a high standard by our professional grounds team.</p>
+    <p>The grounds are in very pleasant settings.</p>
+    <p>There is access to net facilities and artificial pitches, as well as high quality cricket squares.</p>
+    <p>The club enjoys valued support from a range of sponsors and a number of vice presidents and this has enabled the club to attract professional players/coaches from overseas and to improve its facilities.</p>
+    <p>Our youth cricket is one of the strongest set-ups in the county.</p>
+    <p>Beginners quickly graduate to hardball cricket, where we run nine teams in the U10 to U16 range, playing Sunday mornings and weekday evenings.</p>
+    <p>Boys and girls enjoy high quality coaching from professional coaches and volunteers, and many go on to represent the district and the county age group teams, whilst in recent years several have gone on to play in age group international cricket and first class cricket.</p>
+    <p>Rarely does a year go by without at least one of our teams becoming county champions and/or reaching regional finals.</p>
+    <p>A programme of winter coaching for youngsters, and adult nets takes place in February and March, taking advantage of our preferential arrangement to use the sports hall at <a href="{{cricket.tudorGrange}}">Tudor Grange Academy</a>.</p>
+    <p>We very much welcome new members, irrespective of background or previous experience, and make every effort to embrace newcomers in our successful and expanding club.</p>
+  </div>
+
+</section>
+<form action="{{cricket.website}}">
+  <button>visit our website</button>
+</form>

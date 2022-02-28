@@ -1,1 +1,65 @@
-<h1>{{ title | capitalize }}</h1>
+<header>
+  <section class="title">
+    <h2>{{cricket.name}}</h2>
+    <a title="{{hockey.name}}" href="{{hockey.website}}">
+      <picture>
+        <img src="{{hockey.logo}}" alt="">
+      </picture>
+    </a>
+
+  </section>
+  <p>{{hockey.description}}</p>
+</header>
+
+<section title="gallery" class="gallery">
+  <picture>
+    <img src="/cloudinaried/600/hockey/hockey-i9.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/hockey/hockey-i4.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/hockey/hockey-i2.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/hockey/hockey-i8.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/hockey/hockey-i5.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/hockey/hockey-i6.jpg" alt="" loading="lazy">
+  </picture>
+
+</section>
+
+<section class="links">
+  <section class="affiliates" data-theme="light">
+    {% for affiliate in hockey.affiliates%}
+      <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
+        <img src="{{ affiliate.logo }}" alt="">
+      </a>
+    {% endfor %}
+  </section>
+  <section class="social" data-theme="light">
+    {% for social in hockey.social %}
+      {% for name, link in social %}
+        <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
+          <img src="/images/{{name}}.svg" alt="">
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </section>
+</section>
+<section class="information">
+  <div class="content">
+    <p>We aim to provide a welcoming and friendly environment within which players of all ages & abilities can participate in and enjoy all aspects of the game. We offer members the opportunities and technical support to excel at the highest levels of the sport, whilst instilling the virtues of sportsmanship and etiquette towards fellow members, officials and opponents alike. We aim to serve the community as a whole, promoting a beacon of sporting excellence open to all.</p>
+
+    <p>Olton and West Warwicks is a well-established Hockey club run by players and ex-players and these accounts form the impressive number of teams we run, our sporting success and the friendly, social atmosphere within the Club.</p>
+
+    <p>We have ladies, men's, junior & vets teams. For more information on memberships or to view our upcoming fixtures, please see the Olton Hockey website.</p>
+  </div>
+</section>
+<form action="{{hockey.website}}">
+  <button>visit our website</button>
+</form>
