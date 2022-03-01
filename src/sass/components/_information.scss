@@ -1,0 +1,10 @@
+section.information {
+  padding: var(--size-fluid-1);
+  font-size: var(--font-size-fluid-1);
+
+  & .content {
+    display: grid;
+    place-content: center;
+    gap: var(--size-fluid-1);
+  }
+}
