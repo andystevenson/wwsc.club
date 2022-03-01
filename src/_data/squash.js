@@ -21,6 +21,11 @@ module.exports = {
       logo: '/files/squashskills-logo.png',
       darkBackground: true,
     },
+    {
+      name: 'warwickshire squash',
+      website: 'https://www.warwickshiresquash.org/',
+      logo: '/files/warwickshire-squash-logo.png',
+    },
   ],
   social: [
     { youtube: 'https://www.youtube.com/psasquashtv' },

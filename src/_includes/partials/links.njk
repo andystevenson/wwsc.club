@@ -5,6 +5,8 @@
         <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
           {% if affiliate.darkBackground %}
             {% set dark = 'data-dark' %}
+          {% else %}
+            {% set dark = '' %}
           {% endif %}
           <img src="{{ affiliate.logo }}" alt="" {{ dark }}>
         </a>
