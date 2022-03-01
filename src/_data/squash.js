@@ -19,6 +19,7 @@ module.exports = {
       name: 'squashskills',
       website: 'https://squashskills.com/',
       logo: '/files/squashskills-logo.png',
+      darkBackground: true,
     },
   ],
   social: [

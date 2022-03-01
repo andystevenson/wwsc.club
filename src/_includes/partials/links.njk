@@ -3,7 +3,10 @@
     <section class="affiliates" data-theme="light">
       {% for affiliate in group.affiliates%}
         <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
-          <img src="{{ affiliate.logo }}" alt="">
+          {% if affiliate.darkBackground %}
+            {% set dark = 'data-dark' %}
+          {% endif %}
+          <img src="{{ affiliate.logo }}" alt="" {{ dark }}>
         </a>
       {% endfor %}
     </section>
