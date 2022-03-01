@@ -13,13 +13,14 @@ module.exports = {
     {
       name: 'psa squash tv',
       website: 'https://psaworldtour.com/tv',
-      logo: '/files/stv-monotone.png',
+      logo: '/files/stv-colour.png',
+      darkBackground: '#252B33',
     },
     {
       name: 'squashskills',
       website: 'https://squashskills.com/',
       logo: '/files/squashskills-logo.png',
-      darkBackground: true,
+      darkBackground: '#363738',
     },
     {
       name: 'warwickshire squash',

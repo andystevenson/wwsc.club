@@ -21,6 +21,7 @@ module.exports = {
       name: 'midlands hockey',
       website: 'https://midlands.hockey/',
       logo: '/files/midlands-hockey.png',
+      darkBackground: '#7F1786',
     },
   ],
   social: [

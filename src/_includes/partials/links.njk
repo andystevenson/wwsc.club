@@ -4,11 +4,11 @@
       {% for affiliate in group.affiliates%}
         <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
           {% if affiliate.darkBackground %}
-            {% set dark = 'data-dark' %}
+            {% set dark = 'data-dark={{affiliate.darkBackground}}' %}
           {% else %}
             {% set dark = '' %}
           {% endif %}
-          <img src="{{ affiliate.logo }}" alt="" {{ dark }}>
+          <img src="{{ affiliate.logo }}" alt="" {{ dark }} style="background-color: {{affiliate.darkBackground}};">
         </a>
       {% endfor %}
     </section>

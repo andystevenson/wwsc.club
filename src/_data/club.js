@@ -4,11 +4,14 @@ module.exports = {
       name: 'sport england',
       website: 'https://www.sportengland.org/',
       logo: '/files/sport-england-logo.png',
+      darkBackground: '#070709',
     },
     {
       name: 'lawn tennis association',
       website: 'https://www.lta.org.uk/',
-      logo: '/files/lta-logo.svg',
+      logo: '/files/lta-logo_neg@2x.png',
+      // logo: '/files/lta-logo.svg',
+      darkBackground: '#16316f',
     },
     {
       name: 'england football',
