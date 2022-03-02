@@ -8,17 +8,26 @@ section.benefits {
   box-shadow: var(--shadow-2);
   padding: var(--font-size-fluid-1);
   background-color: var(--surface-3);
+
   & ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
     gap: var(--size-fluid-1);
     & > * {
+      display: grid;
+      gap: var(--size-1);
+      grid-auto-rows: min-content;
+
       padding: var(--size-fluid-1);
       border-radius: var(--radius-2);
-      box-shadow: var(--shadow-1);
-      border: 1px solid var(--surface-3);
+      box-shadow: var(--shadow-3);
+      border: 1px solid var(--brand);
       background-color: var(--surface-1);
+
+      & > *:first-child {
+        place-self: center;
+      }
     }
   }
 }

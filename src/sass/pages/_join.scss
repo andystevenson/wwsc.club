@@ -1,4 +1,9 @@
 .join main {
+  & svg {
+    width: var(--size-5);
+    stroke: var(--brand);
+  }
+
   & .options {
     border-radius: 0;
     box-shadow: none;
@@ -45,13 +50,6 @@
       display: flex;
       align-items: center;
       gap: var(--size-2);
-
-      & svg {
-        width: var(--size-4);
-        aspect-ratio: 1;
-        stroke: var(--brand);
-        // stroke-width: 2px;
-      }
     }
 
     & > article {
@@ -101,10 +99,6 @@
           display: flex;
           align-items: center;
           gap: var(--size-2);
-          & svg {
-            width: var(--size-5);
-            stroke: var(--brand);
-          }
         }
       }
     }
