@@ -19,21 +19,14 @@
       background-image: url('/cloudinaried/1024/aerial-main.jpg');
       background-position: bottom;
       border-radius: var(--radius-2);
-      padding: var(--size-fluid-2);
-      gap: var(--size-fluid-2);
-
-      @media (--sm-n-below) {
-        gap: var(--size-fluid-1);
-        padding: var(--size-fluid-1);
-      }
+      gap: var(--size-fluid-1);
+      padding: var(--size-fluid-1);
 
       grid-template-columns: repeat(auto-fit, minmax(13ch, 1fr));
 
       @media (--sm-n-above) {
-        grid-template-columns: repeat(
-          auto-fit,
-          minmax(var(--size-header-1), 1fr)
-        );
+        padding: var(--size-fluid-2);
+        gap: var(--size-fluid-2);
       }
 
       & > article {
@@ -47,6 +40,7 @@
         & h2 {
           font-size: var(--size-fluid-2);
           color: var(--brand);
+          text-align: center;
         }
         & > section {
           display: flex;
