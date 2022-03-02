@@ -1,1 +1,32 @@
 <h1>{{ title | capitalize }}</h1>
+
+<section title="gallery" class="gallery">
+  <picture>
+    <img src="/cloudinaried/600/racketball/racketball-i1.jpg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/racketball/racketball-i2.avif" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/racketball/racketball-i3.png" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/racketball/racketball-i4.png" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/racketball/racketball-i5.jpeg" alt="" loading="lazy">
+  </picture>
+  <picture>
+    <img src="/cloudinaried/600/racketball/racketball-i7.jpeg" alt="" loading="lazy">
+  </picture>
+
+</section>
+
+{% set group = racketball %}
+{% include 'partials/links.njk' %}
+
+<section class="information">
+  <div class="content">
+    <p>racketball racketball racketball.</p>
+  </div>
+</section>
