@@ -40,4 +40,16 @@ module.exports = {
       logo: '/files/restaurant-guru-logo.svg',
     },
   ],
+  charities: [
+    {
+      name: 'campaign against living miserably',
+      website: '',
+      logo: '/files/calm-logo.svg',
+    },
+    {
+      name: 'social life opportunities',
+      website: 'https://sociallifeopportunities.org/',
+      logo: '/files/solo-logo.svg',
+    },
+  ],
 }

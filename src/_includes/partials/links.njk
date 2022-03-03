@@ -1,5 +1,5 @@
-{% if group.affiliates %}
-  <section class="links">
+<section class="links">
+  {% if group.affiliates %}
     <section class="affiliates" data-theme="light">
       {% for affiliate in group.affiliates%}
         <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
@@ -12,16 +12,58 @@
         </a>
       {% endfor %}
     </section>
-    {% if group.social %}
-      <section class="social" data-theme="light">
-        {% for social in group.social %}
-          {% for name, link in social %}
-            <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
-              <img src="/images/{{name}}.svg" alt="">
-            </a>
-          {% endfor %}
+  {% endif %}
+  {% if group.channels %}
+    <section class="channels" data-theme="light">
+      {% for channel in group.channels %}
+        <a title="{{ channel.name }}" href="{{ channel.website }}">
+          {% if channel.darkBackground %}
+            {% set dark = 'data-dark={{ channel.darkBackground }}' %}
+          {% else %}
+            {% set dark = '' %}
+          {% endif %}
+          <img src="{{ channel.logo }}" alt="" {{ dark }} style="background-color: {{ channel.darkBackground }};">
+        </a>
+      {% endfor %}
+    </section>
+  {% endif %}
+  {% if group.tournaments %}
+    <section class="tournaments" data-theme="light">
+      {% for tournament in group.tournaments %}
+        <a title="{{ tournament.name }}" href="{{ tournament.website }}">
+          {% if tournament.darkBackground %}
+            {% set dark = 'data-dark={{ tournament.darkBackground }}' %}
+          {% else %}
+            {% set dark = '' %}
+          {% endif %}
+          <img src="{{ tournament.logo }}" alt="" {{ dark }} style="background-color: {{ tournament.darkBackground }};">
+        </a>
+      {% endfor %}
+    </section>
+  {% endif %}
+  {% if group.charities %}
+    <section class="charities" data-theme="light">
+      {% for charity in group.charities%}
+        <a title="{{ charity.name }}" href="{{ charity.website }}">
+          {% if charity.darkBackground %}
+            {% set dark = 'data-dark={{charity.darkBackground}}' %}
+          {% else %}
+            {% set dark = '' %}
+          {% endif %}
+          <img src="{{ charity.logo }}" alt="" {{ dark }} style="background-color: {{charity.darkBackground}};">
+        </a>
+      {% endfor %}
+    </section>
+  {% endif %}
+  {% if group.social %}
+    <section class="social" data-theme="light">
+      {% for social in group.social %}
+        {% for name, link in social %}
+          <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
+            <img src="/images/{{name}}.svg" alt="">
+          </a>
         {% endfor %}
-      </section>
-    {% endif %}
-  </section>
-{% endif %}
+      {% endfor %}
+    </section>
+  {% endif %}
+</section>

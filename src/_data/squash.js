@@ -32,4 +32,11 @@ module.exports = {
     { youtube: 'https://www.youtube.com/psasquashtv' },
     { facebook: 'https://www.facebook.com/PSAworldtour' },
   ],
+  charities: [
+    {
+      name: 'campaign against living miserably',
+      website: '',
+      logo: '/files/calm-logo.svg',
+    },
+  ],
 }

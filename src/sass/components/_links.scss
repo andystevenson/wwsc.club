@@ -2,6 +2,7 @@ section.links {
   justify-self: center;
   display: flex;
   flex-wrap: wrap;
+  place-content: center;
   gap: var(--size-fluid-1);
 
   background-color: var(--surface-3);
@@ -13,11 +14,13 @@ section.links {
     display: flex;
     flex-wrap: wrap;
     gap: var(--size-fluid-1);
+    place-content: center;
 
     & > * {
+      max-width: 15ch;
       place-self: center;
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.02);
       }
     }
 
