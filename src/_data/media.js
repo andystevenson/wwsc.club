@@ -13,24 +13,22 @@ module.exports = {
     {
       name: 'bt sport',
       website: 'https://www.bt.com/sport',
-      logo: '/files/BT-logo-2018.svg',
-      darkBackground: '#5514B4',
+      logo: '/files/bt-sport.jpg',
     },
     {
       name: 'bbc sport',
       website: 'https://www.bbc.co.uk/sport',
-      logo: '/files/BBC_Logo_2021.svg',
+      logo: '/files/bbc-sport.jpg',
     },
     {
       name: 'itv sport',
       website: 'https://www.itv.com/news/sport',
-      logo: '/files/ITV_logo_2019.svg.webp',
+      logo: '/files/itv-sport.jpg',
     },
     {
       name: 'channel 4 sport',
       website: 'https://www.channel4.com/',
-      logo: '/files/all4_logo_negative.svg',
-      darkBackground: '#333333',
+      logo: '/files/channel4-sport.jpg',
     },
     {
       name: 'psa squash tv',
