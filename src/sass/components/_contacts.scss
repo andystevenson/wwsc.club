@@ -11,5 +11,9 @@ section.contacts {
     border: var(--size-1) double var(--brand);
     padding-block: var(--size-1);
     padding-inline: var(--size-1);
+
+    & img {
+      block-size: var(--size-fluid-2);
+    }
   }
 }
