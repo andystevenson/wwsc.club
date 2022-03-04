@@ -1,0 +1,15 @@
+section.contacts {
+  place-self: center;
+  padding-block: var(--size-fluid-1);
+
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+
+  & > a {
+    border-radius: var(--radius-round);
+    border: var(--size-1) double var(--brand);
+    padding-block: var(--size-1);
+    padding-inline: var(--size-1);
+  }
+}

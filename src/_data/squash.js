@@ -1,4 +1,10 @@
 module.exports = {
+  coach: {
+    name: 'Ali Jafari',
+    email: 'ali@westwarwicks.co.uk',
+    telephone: '07307 247584',
+    social: [{ twitter: '' }, { facebook: '' }],
+  },
   affiliates: [
     {
       name: 'squash england',

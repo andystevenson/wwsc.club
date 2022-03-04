@@ -3,7 +3,9 @@ section.coach {
   padding: var(--size-fluid-1);
 
   & h2 {
+    font-size: var(--font-size-fluid-1);
     padding-block: var(--size-fluid-1);
+    border: 1px solid var(--surface-3);
     border-radius: var(--radius-2);
     box-shadow: var(--shadow-2);
     line-height: var(--font-lineheight-00);
@@ -61,6 +63,7 @@ section.coach {
       display: grid;
       align-content: end;
       & small {
+        font-size: var(--font-size-00);
         max-inline-size: unset;
       }
     }
