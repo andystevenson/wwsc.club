@@ -1,4 +1,6 @@
 module.exports = {
+  description:
+    'Founded in 1970, West Warwicks Squash is a thriving hub of activity for all ages and abilities. We run monthly box leagues for all players, several weekly club social sessions and quarterly tournaments. One of only 5 England Squash Performance Hubs in the UK we host the world renowned Rob Owen Academy (ROA). The alumni of the club and ROA include legend of Squash, Jonah Barrington, 6 times British Open Champion, Paul Coll current World #1, Sarah-Jane Perry England Number #1 / World #5 and many junior & senior world top 50 players. ',
   coach: {
     name: 'Ali Jafari',
     email: 'ali@westwarwicks.co.uk',

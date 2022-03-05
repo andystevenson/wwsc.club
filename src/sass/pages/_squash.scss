@@ -1,0 +1,8 @@
+.squash main {
+  section.gallery.reasons {
+    & img {
+      object-fit: contain;
+      aspect-ratio: unset;
+    }
+  }
+}
