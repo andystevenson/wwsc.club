@@ -16,4 +16,7 @@ section.contacts {
       block-size: var(--size-fluid-2);
     }
   }
+  [data-theme='dark'] & > a {
+    background-color: var(--text-1);
+  }
 }

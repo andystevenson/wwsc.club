@@ -1,0 +1,28 @@
+section.committee {
+  & .members {
+    grid-template-columns: repeat(auto-fit, minmax(var(--size-content-1), 1fr));
+    gap: var(--size-fluid-1);
+  }
+  & .member {
+    padding: var(--size-fluid-1);
+    background-color: var(--surface-3);
+    box-shadow: var(--shadow-2);
+    border-radius: var(--radius-2);
+    gap: 0;
+
+    & img {
+      block-size: var(--size-9);
+      object-fit: cover;
+      aspect-ratio: 1;
+      border-radius: var(--radius-round);
+    }
+    & > * {
+      place-self: center;
+    }
+  }
+
+  & h2 {
+    max-inline-size: unset;
+    text-align: center;
+  }
+}

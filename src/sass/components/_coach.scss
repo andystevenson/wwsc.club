@@ -32,6 +32,7 @@ section.coach {
       border-radius: var(--radius-2);
       box-shadow: var(--shadow-2);
       overflow: hidden;
+      place-self: unset;
     }
     & img {
       height: 100%;
@@ -43,10 +44,6 @@ section.coach {
   & .bio {
     grid-auto-rows: min-content;
     gap: var(--size-fluid-1);
-    & picture {
-      place-self: center;
-      max-width: 12ch;
-    }
     & p {
       place-self: center;
     }
@@ -73,7 +70,7 @@ section.coach {
       gap: var(--size-fluid-1);
       & li {
         place-self: center;
-        min-inline-size: 15ch;
+        min-inline-size: 16ch;
         border-radius: var(--radius-2);
         border: 1px solid var(--brand);
         box-shadow: var(--shadow-2);

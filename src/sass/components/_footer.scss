@@ -35,6 +35,7 @@
       }
 
       & > .contacts {
+        padding-block-start: unset;
         @media (--sm-n-above) {
           position: absolute;
           right: var(--size-fluid-2);

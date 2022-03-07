@@ -1,0 +1,27 @@
+section.schedule {
+  & .times {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: var(--size-fluid-1);
+    place-self: center;
+
+    & li {
+      display: grid;
+      gap: var(--size-fluid-1);
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+      padding: var(--size-fluid-1);
+      border: 1px solid var(--brand);
+      border-radius: var(--radius-2);
+      box-shadow: var(--shadow-2);
+
+      & > * {
+        font-size: var(--size-fluid-2);
+      }
+      & p {
+        font-weight: 700;
+        max-inline-size: unset;
+      }
+    }
+  }
+}

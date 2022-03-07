@@ -18,6 +18,10 @@ h2 {
   font-size: var(--font-size-fluid-2);
 }
 
+h3 {
+  font-size: var(--font-size-fluid-1);
+}
+
 :where(p) {
   color: var(--text-2);
 }
