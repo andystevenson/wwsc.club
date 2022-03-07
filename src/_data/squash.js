@@ -57,7 +57,7 @@ module.exports = {
     {
       name: 'Jamie Roberts',
       role: 'Chairman',
-      image: '/files/person-circle.svg',
+      image: '/files/jamie-roberts.png',
     },
     {
       name: 'Mike Hawkswood',
@@ -72,7 +72,7 @@ module.exports = {
     {
       name: 'Duncan Campbell',
       role: 'Member',
-      image: '/files/person-circle.svg',
+      image: '/files/duncan-campbell.jpeg',
     },
     {
       name: 'David Harper',
