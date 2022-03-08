@@ -1,0 +1,25 @@
+{% if group.people %}
+  <section class="people">
+    <h2>{{group.people.title}}</h2>
+    {% if group.people.members %}
+      <section class="members">
+        {% for member in group.people.members %}
+          <section class="member">
+            <picture>
+              <img src="{{ member.image }}" alt="{{member.name}}">
+            </picture>
+            {% if member.role %}
+              <h3>{{member.role}}</h3>
+            {% endif %}
+            <p>{{member.name}}</p>
+          </section>
+        {% endfor %}
+      </section>
+    {% endif %}
+    <section class="contacts">
+      <a href="mailto:{{group.people.email}}?Subject=Feedback" title="{{group.people.emailMessage}}">
+        <img src="/images/envelope.svg" alt="{{group.people.emailMessage}}">
+      </a>
+    </section>
+  </section>
+{% endif %}

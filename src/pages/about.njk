@@ -1,1 +1,7 @@
 <h1>{{ title | capitalize }}</h1>
+
+{% set group = staff %}
+{% include 'partials/people.njk' %}
+
+{% set group = about %}
+{% include 'partials/people.njk' %}

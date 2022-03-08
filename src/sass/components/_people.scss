@@ -1,4 +1,4 @@
-section.committee {
+section.people {
   & .members {
     grid-template-columns: repeat(auto-fit, minmax(var(--size-content-1), 1fr));
     gap: var(--size-fluid-1);
@@ -21,7 +21,8 @@ section.committee {
     }
   }
 
-  & h2 {
+  & h2,
+  h3 {
     max-inline-size: unset;
     text-align: center;
   }
