@@ -1,0 +1,19 @@
+{% if contacts %}
+  <section class="contacts">
+    {% if contacts.email %}
+
+      <a href="mailto:{{contacts.email}}" title="email {{contacts.email}}">
+        <img src="/images/envelope.svg" alt="email {{contacts.email}}">
+      </a>
+
+    {% endif %}
+
+    {% if contacts.telephone %}
+
+      <a href="tel:{{ contacts.telephone }}" title="telephone {{ contacts.telephone }}">
+        <img src="/images/telephone.svg" alt="telephone {{contacts.telephone}}">
+      </a>
+
+    {% endif %}
+  </section>
+{% endif %}

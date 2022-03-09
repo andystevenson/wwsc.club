@@ -1,0 +1,30 @@
+section.coaches {
+  background-color: var(--surface-3);
+  & > header {
+    grid-column: 1/-1;
+    & > * {
+      text-align: center;
+      place-self: center;
+    }
+  }
+
+  & .bios {
+    grid-template-columns: repeat(auto-fit, minmax(18ch, 1fr));
+  }
+  & .coach {
+    grid-auto-rows: min-content;
+
+    background-color: var(--surface-1);
+    gap: var(--size-fluid-1);
+    padding: var(--size-fluid-1);
+    box-shadow: var(--shadow-2);
+    & > * {
+      place-self: center;
+    }
+    & img {
+      max-height: 40vh;
+      border-radius: var(--radius-2);
+      overflow: hidden;
+    }
+  }
+}

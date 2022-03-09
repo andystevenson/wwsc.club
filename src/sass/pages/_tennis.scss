@@ -1,0 +1,6 @@
+.tennis main {
+  & > .clubspark {
+    grid-template-columns: repeat(auto-fit, minmax(18ch, 1fr));
+    gap: var(--size-fluid-1);
+  }
+}

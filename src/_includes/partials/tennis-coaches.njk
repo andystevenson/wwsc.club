@@ -1,0 +1,20 @@
+{% if group.coaches %}
+  <section class="coaches">
+    <header>
+      <h2>{{group.coaches.name}}</h2>
+      <p>{{group.coaches.description}}</p>
+    </header>
+    <section class="bios">
+      {% for coach in group.coaches.members %}
+        <section class="coach">
+          <h3>{{coach.name}}</h3>
+          <p>{{coach.title}}</p>
+          <picture><img src="{{coach.image}}" alt="{{coach.name}}"></picture>
+          <p>{{coach.bio}}</p>
+          {% set contacts = coach %}
+          {% include 'partials/contacts.njk' %}
+        </section>
+      {% endfor %}
+    </section>
+  </section>
+{% endif %}

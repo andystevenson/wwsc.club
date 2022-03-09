@@ -1,4 +1,7 @@
+{% set group = tennis %}
+
 <h1>{{ title | capitalize }}</h1>
+<p class="description">{{ tennis.description }}</p>
 
 <section title="gallery" class="gallery">
   <picture>
@@ -21,6 +24,30 @@
   </picture>
 
 </section>
+
 <form class='book-a-court' action="{{ bookNow }}">
   <button>book a court</button>
 </form>
+
+<section class="clubspark">
+  <a href="{{tennis.clubspark}}" target="_blank">
+    <picture>
+      <img src="/files/tennis-kids-classes.avif" alt="">
+    </picture>
+  </a>
+
+  <a href="{{tennis.clubspark}}" target="_blank">
+    <picture>
+      <img src="/files/tennis-adult-classes.avif" alt="">
+    </picture>
+  </a>
+
+</section>
+
+<form class='book-tennis-coaching' action="{{ tennis.clubspark }}">
+  <button>book a coaching session</button>
+</form>
+
+{% include 'partials/tennis-coaches.njk' %}
+{% include 'partials/people.njk' %}
+{% include 'partials/links.njk' %}
