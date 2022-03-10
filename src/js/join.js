@@ -23,6 +23,7 @@ visitorPrices.forEach((price) => (price.style.display = 'none'))
 
 annual.addEventListener('click', (e) => {
   withMembership.style.display = 'inline'
+  benefits.style.display = 'grid'
   visitorIcon.style.display = 'none'
   monthlyIcon.style.display = 'none'
   annualIcon.style.display = 'block'

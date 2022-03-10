@@ -2,67 +2,58 @@
   & [action='/opening-times'] {
     gap: var(--size-fluid-2);
   }
+
   & .clock {
     block-size: var(--size-7);
   }
-  & > .information {
-    & h2 {
-      color: var(--brand);
-    }
-    & > * {
-      border-radius: var(--radius-2);
-      box-shadow: var(--shadow-2);
-    }
 
-    & > .enquiries {
-      background-size: cover;
-      background-image: url('/cloudinaried/1024/aerial-main.jpg');
-      background-position: bottom;
-      border-radius: var(--radius-2);
-      gap: var(--size-fluid-1);
-      padding: var(--size-fluid-1);
+  & > .enquiries {
+    background-size: cover;
+    background-image: url('/cloudinaried/1024/aerial-main.jpg');
+    background-position: bottom;
+    border-radius: var(--radius-2);
+    gap: var(--size-fluid-1);
+    padding: var(--size-fluid-1);
 
-      grid-template-columns: repeat(auto-fit, minmax(13ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(13ch, 1fr));
 
-      @media (--sm-n-above) {
-        padding: var(--size-fluid-2);
-        gap: var(--size-fluid-2);
-      }
-
-      & > article {
-        gap: var(--size-fluid-2);
-        place-content: center;
-        aspect-ratio: 1;
-
-        background-color: var(--surface-1);
-        opacity: 0.8;
-
-        & h2 {
-          font-size: var(--size-fluid-2);
-          color: var(--brand);
-          text-align: center;
-        }
-        & > section {
-          display: flex;
-          place-self: center;
-
-          & > a {
-            display: grid;
-            place-content: center;
-            border: var(--size-1) double var(--brand);
-            border-radius: var(--radius-round);
-
-            padding-block: var(--size-1);
-            padding-inline: var(--size-1);
-          }
-        }
-      }
-    }
-
-    & .address {
-      line-height: var(--font-lineheight-0);
-      gap: var(--size-1);
+    @media (--sm-n-above) {
       padding: var(--size-fluid-2);
+      gap: var(--size-fluid-2);
     }
+
+    & > article {
+      gap: var(--size-fluid-2);
+      place-content: center;
+      aspect-ratio: 1;
+
+      background-color: var(--surface-1);
+      opacity: 0.8;
+
+      & h2 {
+        font-size: var(--size-fluid-2);
+        text-align: center;
+      }
+      & > section {
+        display: flex;
+        place-self: center;
+
+        & > a {
+          display: grid;
+          place-content: center;
+          border: var(--size-1) double var(--brand);
+          border-radius: var(--radius-round);
+
+          padding-block: var(--size-1);
+          padding-inline: var(--size-1);
+        }
+      }
+    }
+  }
+
+  & .address {
+    line-height: var(--font-lineheight-0);
+    gap: var(--size-1);
+    padding: var(--size-fluid-2);
   }
 }

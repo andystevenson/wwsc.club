@@ -1,6 +1,7 @@
 .cricket main,
 .hockey main {
   & header {
+    background-color: transparent;
     padding: var(--size-fluid-1);
     margin-block-start: calc(var(--size-fluid-1) * -1);
     gap: var(--size-fluid-1);
