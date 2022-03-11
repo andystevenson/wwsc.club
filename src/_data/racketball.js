@@ -1,4 +1,7 @@
 module.exports = {
+  name: 'racketball',
+  description:
+    'West Warwicks has a lively Racketball (Squash 57) community with a very competitive box league for players of all standards. ',
   affiliates: [
     {
       name: 'squash england',
