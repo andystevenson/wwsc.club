@@ -1,4 +1,6 @@
+{% set group = gym %}
 <h1>{{ title | capitalize }}</h1>
+<p class="description">{{gym.description}}</p>
 
 <section title="gallery" class="gallery">
   <picture>
@@ -24,3 +26,5 @@
 <form class='book-a-court' action="{{ bookNow }}">
   <button>book a session</button>
 </form>
+
+{% include 'partials/classes.njk' %}

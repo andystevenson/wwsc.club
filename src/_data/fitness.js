@@ -1,4 +1,7 @@
 module.exports = {
+  name: 'fitness',
+  description:
+    'At West Warwicks we pride ourselves on being a true multi-sport facility offering a wide variety of individual and team sports. Our fitness professionals organise focussed and exciting classes to challenge and hone individual fitness.',
   coaches: {
     name: 'Fitness Team',
     description:
@@ -70,7 +73,7 @@ module.exports = {
     },
     {
       name: '',
-      image: '/files/fitness-insanity.png',
+      image: '/files/fitness-insanity.jpg',
     },
   ],
 }
