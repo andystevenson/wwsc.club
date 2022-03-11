@@ -1,7 +1,8 @@
 {% if group.classes %}
   <section class="classes">
     {% for class in group.classes %}
-      <section class="fitness-class {{ class.name }}" style="background-image: url('{{ class.image }}');">
+      <section class="fitness-class {{ class.name }}" 
+      style=':root{} display: grid; background-image: url({{ class.image }})'>
         {% if class.name %}
           <h2>{{ class.name | capitalize }}</h2>
         {% endif %}
