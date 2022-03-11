@@ -1,0 +1,19 @@
+a.review {
+  margin: 0;
+  align-self: center;
+  & h2 {
+    max-inline-size: unset;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    gap: var(--size-fluid-1);
+    text-align: center;
+  }
+  & img {
+    [data-theme='dark'] & {
+      filter: invert(1);
+    }
+    transform: translateY(10%);
+    block-size: var(--size-fluid-3);
+  }
+}

@@ -1,0 +1,18 @@
+section.fitness-class {
+  min-block-size: 50vh;
+  background-size: cover;
+  place-content: center;
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+
+  & h2 {
+    font-size: var(--font-size-fluid-1);
+    padding-inline: var(--size-fluid-1);
+    padding-block: var(--size-3);
+    color: var(--brand);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    text-align: center;
+  }
+}

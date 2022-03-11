@@ -1,0 +1,17 @@
+section.classes {
+  --columns: 1;
+  grid-template-columns: repeat(auto-fit, minmax(18ch, 1fr));
+  gap: var(--size-fluid-1);
+
+  @media (--sm-n-above) {
+    --columns: 2;
+  }
+
+  @media (--md-n-above) {
+    --columns: 4;
+  }
+
+  @media (--lg-n-above) {
+    --columns: 6;
+  }
+}

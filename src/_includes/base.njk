@@ -92,6 +92,9 @@
 
       <main id='main' class='page'>
         {{ content | safe }}
+
+        {% set review = page.fileSlug %}
+        {% include 'partials/review.njk' %}
       </main>
 
       <footer>
