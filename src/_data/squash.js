@@ -82,7 +82,7 @@ module.exports = {
       {
         name: 'David Harper',
         role: 'Member',
-        image: '/files/person-circle.svg',
+        image: '/files/david-harper.avif',
       },
       {
         name: 'Mick Mulroy',
