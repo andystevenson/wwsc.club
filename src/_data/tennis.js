@@ -4,6 +4,14 @@ module.exports = {
     'West Warwicks Tennis Club can trace its origins back to 1888 from the amalgamation of Moseley LTC (1882), Newton LTC (1886) and Olton LTC (1898). We welcome players of all ages and standards. Our new coaching partners "All Court Tennis" provide an extensive set of coaching for all age groups. Alumni of our Tennis Club include Dan Evans British #1 and Highest World Ranking of #22.',
   clubspark: 'https://clubspark.lta.org.uk/WestWarwicks/Coaching',
 
+  gallery: [
+    { image: '/cloudinaried/600/tennis/tennis-i1.jpg' },
+    { image: '/cloudinaried/600/tennis/tennis-i18.jpg' },
+    { image: '/cloudinaried/600/tennis/tennis-i3.jpg' },
+    { image: '/cloudinaried/600/tennis/tennis-i40.jpg' },
+    { image: '/cloudinaried/600/tennis/tennis-i5.jpg' },
+    { image: '/cloudinaried/600/tennis/tennis-i14.jpg' },
+  ],
   coaches: {
     name: 'All Court Tennis',
     description:

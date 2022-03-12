@@ -6,7 +6,7 @@
         {% for member in group.people.members %}
           <section class="member">
             <picture>
-              <img src="{{ member.image }}" alt="{{member.name}}">
+              <img src="{{ member.image }}" alt="{{member.name}}" loading='lazy'>
             </picture>
             {% if member.role %}
               <h3>{{member.role}}</h3>
@@ -17,8 +17,9 @@
       </section>
     {% endif %}
     <section class="contacts">
-      <a href="mailto:{{group.people.email}}?Subject=Feedback" title="{{group.people.emailMessage}}">
-        <img src="/images/envelope.svg" alt="{{group.people.emailMessage}}">
+      <a href="mailto:{{group.people.email}}?Subject=Feedback" 
+          title="{{group.people.emailMessage}}">
+        <img src="/images/envelope.svg" alt="{{group.people.emailMessage}}" loading='lazy'>
       </a>
     </section>
   </section>

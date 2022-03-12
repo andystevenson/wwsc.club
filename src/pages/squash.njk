@@ -1,28 +1,8 @@
+{% set group = squash %}
 <h1>{{ title | capitalize }}</h1>
 <p class="description">{{ squash.description }}</p>
 
-<section title="gallery" class="gallery">
-  <picture>
-    <img src="/cloudinaried/600/squash/squash-i44.jpg" alt="" loading="lazy">
-  </picture>
-  <picture>
-    <img src="/cloudinaried/600/squash/squash-i23.jpg" alt="" loading="lazy">
-  </picture>
-  <picture>
-    <img src="/cloudinaried/600/squash/squash-i46.png" alt="" loading="lazy">
-    {# <img src="/files/squash-new.png" alt="" loading="lazy"> #}
-  </picture>
-  <picture>
-    <img src="/cloudinaried/600/squash/squash-i22.jpg" alt="" loading="lazy">
-  </picture>
-  <picture>
-    <img src="/cloudinaried/600/squash/squash-i45.png" alt="" loading="lazy">
-  </picture>
-  <picture>
-    <img src="/cloudinaried/600/squash/squash-i20.jpg" alt="" loading="lazy">
-  </picture>
-
-</section>
+{% include 'partials/gallery.njk' %}
 
 <form class='book-a-court' action="{{ bookNow }}">
   <button>book a court</button>

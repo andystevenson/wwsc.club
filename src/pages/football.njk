@@ -1,1 +1,6 @@
+{% set group = football %}
+
 <h1>{{ title | capitalize }}</h1>
+<p class="description">{{ football.description }}</p>
+
+{% include 'partials/gallery.njk' %}

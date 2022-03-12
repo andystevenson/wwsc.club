@@ -14,6 +14,14 @@ module.exports = {
     telephone: '07307 247584',
     social: [{ twitter: '' }, { facebook: '' }],
   },
+  gallery: [
+    { image: '/cloudinaried/600/squash/squash-i44.jpg' },
+    { image: '/cloudinaried/600/squash/squash-i23.jpg' },
+    { image: '/cloudinaried/600/squash/squash-i46.png' },
+    { image: '/cloudinaried/600/squash/squash-i22.jpg' },
+    { image: '/cloudinaried/600/squash/squash-i45.png' },
+    { image: '/cloudinaried/600/squash/squash-i20.jpg' },
+  ],
   affiliates: [
     {
       name: 'squash england',
