@@ -10,7 +10,7 @@ module.exports = {
       {
         name: 'Laris Arcip',
         title: 'Head of Health & Fitness',
-        image: '/files/larisa-arcip.avif',
+        image: '/cloudinaried/600/fitness/fitness-larisa-arcip.avif',
         bio: 'Larisa is an ex-professional athlete and elite Personal Trainer qualified to develop members of all ages to their highest potential.',
         telephone: '+44 7472 676672',
         email: 'fitness@westwarwicks.co.uk',
@@ -18,13 +18,21 @@ module.exports = {
       {
         name: 'Dan Spiridon',
         title: 'Personal Trainer',
-        image: '/files/dan-spiridon.avif',
+        image: '/cloudinaried/600/fitness/fitness-dan-spiridon.avif',
         bio: 'Dan is an ex-professional footballer with an extensive knowledge as an exceptional Personal Trainer.',
         telephone: '+44 7492 924542',
         email: 'fitness@westwarwicks.co.uk',
       },
     ],
   },
+  gallery: [
+    { image: '/cloudinaried/600/fitness/fitness-i66.jpg' },
+    { image: '/cloudinaried/600/fitness/fitness-i10.jpg' },
+    { image: '/cloudinaried/600/fitness/fitness-i5.jpg' },
+    { image: '/cloudinaried/600/fitness/fitness-i41.jpg' },
+    { image: '/cloudinaried/600/fitness/fitness-i29.jpg' },
+    { image: '/cloudinaried/600/fitness/fitness-i60.jpg' },
+  ],
   classes: [
     {
       name: 'personal trainer',

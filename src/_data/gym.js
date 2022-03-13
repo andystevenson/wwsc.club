@@ -21,7 +21,7 @@ module.exports = {
     },
     {
       name: 'curved runner',
-      image: '/files/fitness-i21.avif',
+      image: '/cloudinaried/600/fitness/fitness-i21.avif',
     },
     {
       name: 'battle ropes',
@@ -50,7 +50,7 @@ module.exports = {
     },
     {
       name: 'lat machine',
-      image: '/files/fitness-lat-machine.avif',
+      image: '/cloudinaried/600/fitness/fitness-lat-machine.avif',
     },
   ],
 }

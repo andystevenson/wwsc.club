@@ -90,7 +90,7 @@ module.exports = {
       {
         name: 'David Harper',
         role: 'Member',
-        image: '/files/david-harper.avif',
+        image: '/cloudinaried/600/squash/squash-david-harper.avif',
       },
       {
         name: 'Mick Mulroy',

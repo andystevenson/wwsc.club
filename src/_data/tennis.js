@@ -20,7 +20,7 @@ module.exports = {
       {
         name: 'Matt Tully',
         title: 'Head Coach',
-        image: '/files/matt-tully.avif',
+        image: '/cloudinaried/600/tennis/tennis-matt-tully.avif',
         bio: 'Matt graduated with a business finance degree from West Liberty University in America on a tennis scholarship in 2017. He is an LTA Level 4 qualified tennis coach with over 10 years of coaching experience. Matt has played nationally and internationally in tournaments and has moved across to West Warwicks after 5 years coaching at Solihull Arden Club. Matt also captains and leads sessions for 7 county teams from Hereford & Worcestershire at Manor Park Sports Club in Malvern and is a 10&U national pathway coach. Matt is excited to be building up a team of coaches to produce an excellent development and performance programme for both juniors and adults at the club and is available for both group and individual coaching.',
         telephone: '07724521559',
         email: 'tennis@westwarwicks.co.uk',
