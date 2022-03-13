@@ -8,7 +8,7 @@ module.exports = {
     {
       name: 'amazon video sports',
       website: 'https://www.amazon.co.uk/b?ie=UTF8&node=16446617031',
-      logo: '/files/Amazon_Prime_Video_logo.svg',
+      logo: '/images/Amazon_Prime_Video_logo.svg',
     },
     {
       name: 'bt sport',

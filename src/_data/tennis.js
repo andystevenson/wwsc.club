@@ -28,7 +28,7 @@ module.exports = {
       {
         name: 'Matt Corp',
         title: 'Head Coach',
-        image: '/files/matt-corp.jpg',
+        image: '/cloudinaried/tennis/tennis-matt-corp.jpg',
         bio: 'Matt graduated with a degree in Sports Studies in 2007, he is a LTA level 3 & PTR level 4 qualified tennis coach with over 17 years experience. Matt is passionate about getting more people involved in sport and and getting people active.  In 2014 after 10 years  service as Head coach at Solihull Tennis Club made the decision to work alongside Paul Murtagh (Walking Football Chairman) to take on Beechcroft. Matt is head coach at West Warwickshire Sports Complex and is focused on developing the tennis programme, working with the coaching team coaching groups and also offers private coaching.',
         telephone: '07930164811',
         email: 'tennis@westwarwicks.co.uk',
@@ -36,7 +36,7 @@ module.exports = {
       {
         name: 'Alex Navarro',
         title: 'Club Coach',
-        image: '/files/alex-navarro.jpeg',
+        image: '/cloudinaried/tennis/tennis-alex-navarro.jpeg',
         bio: 'Alex has over 20 years playing experience, reaching top 500 in Spain and has been coaching for over 10 years in Spain,  Croatia, London and now Birmingham. Alex is a level 3 RPT qualified tennis coach. His coaching approach is suitable for all levels from beginners to pros and his passion for coaching tennis at all levels is exceptional whilst coaching the physical and positive mental attributes of tennis in a fun, safe environment. West Warwicks are very proud to have Alex in the team and is an important piece of where the club looking to go in the near future. Alex is offers both group and private lessons.',
         email: 'tennis@westwarwicks.co.uk',
       },
@@ -47,13 +47,12 @@ module.exports = {
       name: 'lawn tennis association',
       website: 'https://www.lta.org.uk/',
       logo: '/files/lta-logo_neg@2x.png',
-      // logo: '/files/lta-logo.svg',
       darkBackground: '#16316f',
     },
     {
       name: 'clubspark lta',
       website: 'https://clubspark.lta.org.uk/',
-      logo: '/files/clubspark-logo.svg',
+      logo: '/images/clubspark-logo.svg',
       darkBackground: '#16316f',
     },
   ],
@@ -66,7 +65,7 @@ module.exports = {
     {
       name: 'campaign against living miserably',
       website: '',
-      logo: '/files/calm-logo.svg',
+      logo: '/images/calm-logo.svg',
     },
   ],
 
@@ -78,37 +77,37 @@ module.exports = {
       {
         name: 'Terry Dight',
         role: 'Chairman',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Tim Kennedy',
         role: 'Treasurer',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Terri Gough',
         role: 'Secretary',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Matthew Tully',
         role: 'Coach',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Matthew Corp',
         role: 'Coach',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Andy Jeffs',
         role: 'Juniors',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Alison Own',
         role: 'Ladies',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
     ],
   },

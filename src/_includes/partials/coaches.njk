@@ -9,7 +9,7 @@
         <section class="coach">
           <h3>{{coach.name}}</h3>
           <p>{{coach.title}}</p>
-          <picture><img src="{{coach.image}}" alt="{{coach.name}}"></picture>
+          <picture><img src="{{coach.image}}" alt="{{coach.name}}" loading='lazy'></picture>
           <p>{{coach.bio}}</p>
           {% set contacts = coach %}
           {% include 'partials/contacts.njk' %}

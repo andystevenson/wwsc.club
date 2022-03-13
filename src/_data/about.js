@@ -8,32 +8,32 @@ module.exports = {
       {
         name: 'Richard Rigg',
         role: 'Chairman',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: "Andy O'Brien",
         role: 'Treasurer, Hockey',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'James Neale',
         role: 'Cricket',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Terry Dight',
         role: 'Tennis',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Scott Key',
         role: 'Social',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Andy Stevenson',
         role: 'Acting GM, Squash',
-        image: '/files/me.webp',
+        image: '/images/me.webp',
       },
     ],
   },

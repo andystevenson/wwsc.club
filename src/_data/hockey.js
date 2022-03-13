@@ -10,7 +10,7 @@ module.exports = {
     {
       name: 'england hockey',
       website: 'https://www.englandhockey.co.uk/',
-      logo: '/files/england-hockey-logo.svg',
+      logo: '/images/england-hockey-logo.svg',
     },
     {
       name: 'warwickshire womens hockey league',

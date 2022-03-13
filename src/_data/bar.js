@@ -4,7 +4,7 @@ module.exports = {
       name: 'restaurant guide',
       website:
         'https://restaurantguru.com/West-Warwickshire-Sports-Complex-Solihull',
-      logo: '/files/restaurant-guru-logo.svg',
+      logo: '/images/restaurant-guru-logo.svg',
     },
     {
       name: 'food standards agency',

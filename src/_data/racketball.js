@@ -6,7 +6,7 @@ module.exports = {
     {
       name: 'squash england',
       website: 'https://www.englandsquash.com/',
-      logo: '/files/squash-england.png',
+      logo: '/images/squash-england.png',
     },
     {
       name: 'uk racketball',

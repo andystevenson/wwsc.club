@@ -26,7 +26,7 @@ module.exports = {
     {
       name: 'squash england',
       website: 'https://www.englandsquash.com/',
-      logo: '/files/squash-england.png',
+      logo: '/images/squash-england.png',
     },
     {
       name: 'psa world tour',
@@ -42,7 +42,7 @@ module.exports = {
     {
       name: 'squashskills',
       website: 'https://squashskills.com/',
-      logo: '/files/squashskills-logo.png',
+      logo: '/images/squashskills-logo.png',
       darkBackground: '#363738',
     },
     {
@@ -59,7 +59,7 @@ module.exports = {
     {
       name: 'campaign against living miserably',
       website: '',
-      logo: '/files/calm-logo.svg',
+      logo: '/images/calm-logo.svg',
     },
   ],
   people: {
@@ -70,17 +70,17 @@ module.exports = {
       {
         name: 'Jamie Roberts',
         role: 'Chairman',
-        image: '/files/jamie-roberts.png',
+        image: '/cloudinaried/squash/squash-jamie-roberts.png',
       },
       {
         name: 'Mike Hawkswood',
         role: 'Treasurer',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Daniel Suarez-Mash',
         role: 'Member',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Duncan Campbell',
@@ -95,12 +95,12 @@ module.exports = {
       {
         name: 'Mick Mulroy',
         role: 'Member',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Ali Jafari',
         role: 'Member',
-        image: '/files/person-circle.svg',
+        image: '/images/person-circle.svg',
       },
       {
         name: 'Andy Stevenson',

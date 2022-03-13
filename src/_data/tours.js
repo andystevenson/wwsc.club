@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'premier league',
       website: 'https://www.premierleague.com/',
-      logo: '/files/new-premier-league2016-17-seeklogo.com.svg',
+      logo: '/images/new-premier-league2016-17-seeklogo.com.svg',
     },
     {
       name: 'guiness six nations',
@@ -13,7 +13,7 @@ module.exports = {
     {
       name: 'ATP',
       website: 'https://www.atptour.com/',
-      logo: '/files/atp-logo-neg.svg',
+      logo: '/images/atp-logo-neg.svg',
       darkBackground: '#051224',
     },
     {
