@@ -1,1 +1,8 @@
+{% set group = restaurant %}
 <h1>{{ title | capitalize }}</h1>
+<p class="description">{{group.description}}</p>
+
+{% include "partials/gallery.njk" %}
+<a class="booking" href="mailto:restaurant@westwarwicks.co.uk?Subject=Book a Table">
+  book a table
+</a>
