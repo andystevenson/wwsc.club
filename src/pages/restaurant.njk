@@ -3,6 +3,7 @@
 <p class="description">{{group.description}}</p>
 
 {% include "partials/gallery.njk" %}
-<a class="booking" href="mailto:restaurant@westwarwicks.co.uk?Subject=Book a Table">
-  book a table
+
+<a class="booking" href="mailto:{{group.name}}@westwarwicks.co.uk?Subject={{group.subject}}">
+  <h2>{{group.booking}}<img src="/images/envelope.svg" alt="email"></h2>
 </a>
