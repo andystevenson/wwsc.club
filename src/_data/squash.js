@@ -11,6 +11,7 @@ module.exports = {
   coach: {
     name: 'Ali Jafari',
     email: 'ali@westwarwicks.co.uk',
+    image: '/cloudinaried/600/squash/squash-ali-jafari.jpg',
     telephone: '07307 247584',
     social: [{ twitter: '' }, { facebook: '' }],
   },
@@ -80,7 +81,7 @@ module.exports = {
       {
         name: 'Daniel Suarez-Mash',
         role: 'Member',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/squash/squash-daniel-suarez-mash.avif',
       },
       {
         name: 'Duncan Campbell',
@@ -90,7 +91,7 @@ module.exports = {
       {
         name: 'David Harper',
         role: 'Member',
-        image: '/cloudinaried/600/squash/squash-david-harper.avif',
+        image: '/cloudinaried/squash/squash-david-harper.avif',
       },
       {
         name: 'Mick Mulroy',
@@ -99,13 +100,13 @@ module.exports = {
       },
       {
         name: 'Ali Jafari',
-        role: 'Member',
-        image: '/images/person-circle.svg',
+        role: 'Head Coach',
+        image: '/cloudinaried/squash/squash-ali-jafari-profile.avif',
       },
       {
         name: 'Andy Stevenson',
         role: 'Member',
-        image: '/files/me.webp',
+        image: '/cloudinaried/squash/squash-andy-stevenson.avif',
       },
     ],
   },
