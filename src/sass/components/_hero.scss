@@ -10,14 +10,14 @@ section.hero {
   & header {
     display: flex;
     flex-direction: column;
-    gap: var(--size-fluid-1);
 
-    @media (--xs-n-above) {
+    @media (--lg-n-above) {
       flex-direction: row;
       justify-content: space-between;
     }
 
     & > * {
+      text-align: center;
       align-self: center;
     }
 
