@@ -57,13 +57,10 @@
       grid-auto-rows: min-content;
 
       border-radius: var(--radius-3);
-      padding: var(--size-fluid-2);
+      padding-block: var(--size-fluid-2);
+      padding-inline: var(--size-fluid-1);
       background-color: var(--surface-1);
       box-shadow: var(--shadow-4);
-
-      @media (--sm-n-above) {
-        // padding: var(--size-fluid-2);
-      }
 
       & > header {
         place-items: center;
@@ -73,9 +70,8 @@
         border-block-end: 1px solid var(--brand);
 
         & > h2 {
-          line-height: var(--font-lineheight-00);
+          width: max-content;
         }
-
         & > p {
           min-block-size: 4.4em;
         }
