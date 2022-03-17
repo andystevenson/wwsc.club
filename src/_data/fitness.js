@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'fitness',
+  name: 'Group Exercise',
   description:
     'At West Warwicks we pride ourselves on being a true multi-sport facility offering a wide variety of individual and team sports. Our fitness professionals organise focussed and exciting classes to challenge and hone individual fitness.',
   coaches: {
@@ -18,7 +18,7 @@ module.exports = {
       {
         name: 'Dan Spiridon',
         title: 'Personal Trainer',
-        image: '/cloudinaried/600/fitness/fitness-dan-spiridon.avif',
+        image: '/files/dan-spiridon-latest.avif',
         bio: 'Dan is an ex-professional footballer with an extensive knowledge as an exceptional Personal Trainer.',
         telephone: '+44 7492 924542',
         email: 'fitness@westwarwicks.co.uk',
@@ -48,7 +48,7 @@ module.exports = {
     },
     {
       name: 'fire up',
-      image: '/files/fitness-fire-up.jpg',
+      image: '/files/hayley.jpg',
     },
     {
       name: 'pilates',
@@ -82,6 +82,10 @@ module.exports = {
     {
       name: '',
       image: '/files/fitness-insanity.jpg',
+    },
+    {
+      name: 'stretching',
+      image: '/files/christina.jpg',
     },
   ],
 }
