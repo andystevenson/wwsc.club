@@ -1,4 +1,14 @@
 section.benefits {
+  .home-dine img {
+    padding: var(--size-2);
+    background-color: var(--text-1);
+    border-radius: var(--radius-2);
+    margin-block-start: var(--size-1);
+    max-block-size: var(--size-8);
+    [data-theme='dark'] & {
+      background-color: unset;
+    }
+  }
   & h2 {
     place-self: center;
     text-align: center;

@@ -10,6 +10,7 @@ section.hero {
   & header {
     display: flex;
     flex-direction: column;
+    gap: var(--size-fluid-1);
 
     @media (--xs-n-above) {
       flex-direction: row;
