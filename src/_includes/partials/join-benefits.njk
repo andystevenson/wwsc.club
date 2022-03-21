@@ -1,0 +1,18 @@
+{% if benefits %}
+  <section class="join-benefits">
+    <h2>Member Benefits</h2>
+    <ul>
+      {% for benefit in benefits %}
+        <li>
+          <svg viewBox="0 0 24 24">
+            <use href="#checkmark-icon"/>
+          </svg>
+          <p>{{benefit.description | safe}}</p>
+          {% for link in benefit.links %}
+            <a class="{{link.class}}" href="{{link.href}}"><img src="{{link.img}}" alt="{{link.alt}}"></a>
+          {% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

@@ -1,0 +1,743 @@
+{% if category %}
+  <section class="join-category" id="{{category.name}}-category">
+    <a class="download-prices" href="/files/membership-prices.pdf" title="download prices">
+      <span>download prices</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+      </svg>
+    </a>
+    {% for product in category.products %}
+      {% include 'partials/join-product.njk' %}
+    {% endfor %}
+  </section>
+{% endif %}
+
+{# <section class="join-prices">
+  <a class="download-prices" href="/files/membership-prices.pdf" title="download prices">
+    download prices
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+    </svg>
+  </a>
+  <article class="family annual">
+    <header>
+      <h2>Family</h2>
+      <p>All sports and gym access with classes.<br>(Up to 3 children under 18)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£1000</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym + Classes
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="adult annual">
+    <header>
+      <h2>Adult</h2>
+      <p>All sports and gym access.</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£550</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="with-classes annual">
+    <header>
+      <h2>
+        <span>+Classes</span>
+      </h2>
+      <p>All sports and gym access with classes.</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£600</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym + Classes
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="off-peak annual">
+    <header>
+      <h2>
+        <span>Off-Peak</span>
+      </h2>
+      <p>All sports and gym access.<br>(Mon-Fri 08:00-16:00)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£400</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="over-65 annual">
+    <header>
+      <h2>
+        <span>Over-65</span>
+      </h2>
+      <p>All sports and gym access with classes.<br>(Aged 65+)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£400</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym + Classes
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="young-adult annual">
+    <header>
+      <h2>Young Adult</h2>
+      <p>All sports and gym access.<br>(Aged 18-25).</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£400</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="teens annual">
+    <header>
+      <h2>Teens</h2>
+      <p>All sports and gym access.<br>(Aged 12-17).</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£105</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="juniors annual">
+    <header>
+      <h2>Junior</h2>
+      <p>All sports and gym access.<br>(Aged 7-11).</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£75</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="social annual">
+    <header>
+      <h2>Social</h2>
+      <p>Access to Bar + Restaurant at discount prices.</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£100</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social
+      </li>
+    </ul>
+  </article>
+
+  <article class="family monthly">
+    <header>
+      <h2>Family</h2>
+      <p>All sports and gym access with classes.<br>(Upto 3 children under 18)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£100</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym + Classes
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="adult monthly">
+    <header>
+      <h2>Adult</h2>
+      <p>All sports and gym access.</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£50</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="with-classes monthly">
+    <header>
+      <h2>
+        <span>+Classes</span>
+      </h2>
+      <p>All sports and gym access with classes.</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£55</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym + Classes
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="off-peak monthly">
+    <header>
+      <h2>
+        <span>Off-Peak</span>
+      </h2>
+      <p>All sports and gym access.<br>(Mon-Fri 08:00-16:00)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£37.50</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="over-65 monthly">
+    <header>
+      <h2>
+        <span>Over-65</span>
+      </h2>
+      <p>All sports and gym access with classes.<br>(Aged 65+)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£37.50</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym + Classes
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+  <article class="young-adult monthly">
+    <header>
+      <h2>Young Adult</h2>
+      <p>All sports and gym access.<br>(Aged 18-25).</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£37.50</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Hockey</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Cricket</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Social</li>
+    </ul>
+  </article>
+
+  <article class="member-guest visitor">
+    <header>
+      <h2>Guest</h2>
+      <p>Sports and gym access.<br>(With a member)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£5</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+    </ul>
+  </article>
+  <article class="session visitor">
+    <header>
+      <h2>
+        <span>Session</span>
+      </h2>
+      <p>Sports and gym access.<br>(A single booking)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£10</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+
+    </ul>
+  </article>
+  <article class="day visitor">
+    <header>
+      <h2>
+        <span>Day</span>
+      </h2>
+      <p>Sports and gym access.<br>(Upto 3 bookings)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£15</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+    </ul>
+  </article>
+  <article class="week visitor">
+    <header>
+      <h2>Week</h2>
+      <p>Sports and gym access.<br>(7 days, 2 bookings a day)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£20</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+
+    </ul>
+  </article>
+  <article class="two-week visitor">
+    <header>
+      <h2>Two Week</h2>
+      <p>Sports and gym access.<br>(14 days, 2 bookings a day)</p>
+      <button>buy</button>
+    </header>
+    <p class="price">£30</p>
+    <ul class="sports">
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Gym
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Tennis</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Squash</li>
+      <li>
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>Racketball</li>
+
+    </ul>
+  </article>
+
+</section> #}

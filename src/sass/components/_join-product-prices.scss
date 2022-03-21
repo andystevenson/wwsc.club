@@ -1,0 +1,39 @@
+ul.prices {
+  display: grid;
+  gap: var(--size-fluid-1);
+  & button {
+    --_size: var(--font-size-fluid-0);
+  }
+
+  & li {
+    max-inline-size: unset;
+  }
+
+  & > .price {
+    width: 100%;
+    display: flex;
+    grid-template-columns: repeat(3, min-content);
+    gap: var(--size-fluid-1);
+    align-items: center;
+    justify-content: space-between;
+
+    & p {
+      max-inline-size: unset;
+    }
+
+    & > * {
+      font-size: var(--font-size-fluid-0);
+
+      @media (--sm-n-above) {
+        font-size: var(--font-size-fluid-1);
+      }
+    }
+
+    & > .interval {
+      text-transform: uppercase;
+    }
+    & > .value {
+      color: var(--brand);
+    }
+  }
+}

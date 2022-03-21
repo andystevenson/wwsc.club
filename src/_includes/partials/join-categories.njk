@@ -1,0 +1,12 @@
+{% if categories %}
+  <section class="join-categories">
+    {% for category in categories %}
+      <button id="join-{{category.name}}" title="{{category.name}} price options">
+        <svg viewBox="0 0 24 24">
+          <use href="#checkmark-icon"/>
+        </svg>
+        {{category.name}}
+      </button>
+    {% endfor %}
+  </section>
+{% endif %}

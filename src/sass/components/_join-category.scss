@@ -1,0 +1,23 @@
+main.page section.join-category {
+  position: relative;
+  grid-template-columns: repeat(auto-fit, minmax(var(--size-header-1), 1fr));
+  padding-block-start: var(--size-7);
+  background-color: var(--surface-3);
+  border-radius: var(--radius-2);
+
+  @media (--sm-n-above) {
+    grid-template-columns: repeat(auto-fit, minmax(27ch, 1fr));
+  }
+
+  & .download-prices {
+    position: absolute;
+    top: var(--size-1);
+    right: var(--size-6);
+
+    --link: var(--brand);
+    --link-visited: var(--brand);
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+  }
+}

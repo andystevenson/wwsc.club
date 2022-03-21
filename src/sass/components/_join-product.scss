@@ -1,0 +1,30 @@
+article.join-product {
+  border-radius: var(--radius-3);
+  padding: var(--size-fluid-2);
+  background-color: var(--surface-1);
+  box-shadow: var(--shadow-2);
+
+  & > header {
+    grid-auto-rows: min-content;
+
+    place-items: center;
+    text-align: center;
+    gap: var(--size-1);
+    padding-block-end: var(--size-3);
+    border-block-end: 1px solid var(--brand);
+    block-size: 6rem;
+
+    & > h2 {
+      width: max-content;
+      font-size: clamp(1.5rem, 5vw, 2.3rem);
+    }
+
+    & > p {
+      line-height: var(--font-lineheight-0);
+    }
+
+    & > p.conditions {
+      font-size: var(--font-size-fluid-0);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{% if prices %}
+  <ul class="prices">
+    {% for price in prices %}
+      <li class="price">
+        {% if price.interval != 'once' %}
+          <p class="interval">{{price.interval}}</p>
+        {% endif %}
+        {% if price.qty == 1 %}
+          <p class=>{{price.qty}} class</p>
+        {% elif price.qty > 1 %}
+          <p class=>{{price.qty}} classes</p>
+        {% endif %}
+        <p class="value">£{{price.price}}</p>
+        <form action="/function?{{price.nickname}}">
+          <button>Buy</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
