@@ -6,9 +6,9 @@
           <p class="interval">{{price.interval}}</p>
         {% endif %}
         {% if price.qty == 1 %}
-          <p class=>{{price.qty}} class</p>
+          <p>{{price.qty}} class</p>
         {% elif price.qty > 1 %}
-          <p class=>{{price.qty}} classes</p>
+          <p>{{price.qty}} classes</p>
         {% endif %}
         <p class="value">£{{price.price}}</p>
         <form action="/function?{{price.nickname}}">
