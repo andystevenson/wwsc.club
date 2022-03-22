@@ -3,7 +3,7 @@ main.page {
   gap: var(--size-3);
   grid-column: 1 / -1;
 
-  & > *:not(header, form, h1, .description) {
+  & > :where(*:not(header, form, h1, .description)) {
     border-radius: var(--radius-2);
     box-shadow: var(--shadow-2);
     padding: var(--size-fluid-1);
