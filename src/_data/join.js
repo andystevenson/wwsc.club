@@ -1,6 +1,7 @@
 module.exports = {
   name: 'Prices',
-  description: 'Pricing options at West Warwicks',
+  description:
+    'Explore membership and visitor pricing options at West Warwicks',
   benefits: [
     { description: 'No court booking fees!<br>No light fees!' },
     {
