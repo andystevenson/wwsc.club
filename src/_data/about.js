@@ -33,7 +33,7 @@ module.exports = {
       {
         name: 'Andy Stevenson',
         role: 'Acting GM, Squash',
-        image: '/images/me.webp',
+        image: '/cloudinaried/squash/squash-andy-stevenson.avif',
       },
     ],
   },

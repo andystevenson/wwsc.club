@@ -22,17 +22,18 @@ ul.prices {
     }
 
     & > * {
-      font-size: var(--font-size-fluid-0);
-
-      @media (--sm-n-above) {
-        font-size: var(--font-size-fluid-1);
-      }
+      font-size: var(--font-size-fluid-1);
     }
 
-    & > .interval {
-      // text-transform: uppercase;
+    & .interval {
+      font-size: var(--font-size-0);
+      line-height: var(--font-lineheight-0);
+      color: var(--text-1);
     }
-    & > .value {
+    & .value {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       color: var(--brand);
     }
   }

@@ -46,25 +46,28 @@ module.exports = {
           name: 'Family',
           description: 'All sports and gym with classes.',
           conditions: 'Up to 3 children under 18',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
-            { interval: 'annual', price: 1000, nickname: 'family-annual' },
-            { interval: 'monthly', price: 100, nickname: 'family-monthly' },
+            { interval: 'year', price: 1000, nickname: 'family-annual' },
+            { interval: 'month', price: 100, nickname: 'family-monthly' },
           ],
         },
         {
           name: '+Classes',
           description: 'All sports and gym with classes.',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
-            { interval: 'annual', price: 600, nickname: 'classes-annual' },
-            { interval: 'monthly', price: 55, nickname: 'classes-monthly' },
+            { interval: 'year', price: 600, nickname: 'classes-annual' },
+            { interval: 'month', price: 55, nickname: 'classes-monthly' },
           ],
         },
         {
           name: 'Adult',
           description: 'All sports and gym.',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
-            { interval: 'annual', price: 550, nickname: 'adult-annual' },
-            { interval: 'monthly', price: 50, nickname: 'adult-monthly' },
+            { interval: 'year', price: 550, nickname: 'adult-annual' },
+            { interval: 'month', price: 50, nickname: 'adult-monthly' },
           ],
         },
 
@@ -72,11 +75,12 @@ module.exports = {
           name: 'Off-Peak',
           description: 'All sports and gym with classes.',
           conditions: 'Mon-Fri 08:00-16:00',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
-            { interval: 'annual', price: 400, nickname: 'off-peak-annual' },
+            { interval: 'year', price: 400, nickname: 'off-peak-annual' },
             {
-              interval: 'monthly',
-              price: '37.50',
+              interval: 'month',
+              price: 37.5,
               nickname: 'off-peak-monthly',
             },
           ],
@@ -85,11 +89,12 @@ module.exports = {
           name: 'Over-65',
           description: 'All sports and gym with classes.',
           conditions: 'Aged 65+',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
-            { interval: 'annual', price: 400, nickname: 'over-65-annual' },
+            { interval: 'year', price: 400, nickname: 'over-65-annual' },
             {
-              interval: 'monthly',
-              price: '37.50',
+              interval: 'month',
+              price: 37.5,
               nickname: 'over-65-monthly',
             },
           ],
@@ -98,11 +103,12 @@ module.exports = {
           name: 'Young Adult',
           description: 'All sports and gym.',
           conditions: 'Aged 18-25',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
-            { interval: 'annual', price: 400, nickname: 'young-adult-annual' },
+            { interval: 'year', price: 400, nickname: 'young-adult-annual' },
             {
-              interval: 'monthly',
-              price: '37.50',
+              interval: 'month',
+              price: 37.5,
               nickname: 'young-adult-monthly',
             },
           ],
@@ -111,24 +117,21 @@ module.exports = {
           name: 'Teens',
           description: 'All sports and gym.',
           conditions: 'Aged 12-17',
-          prices: [
-            { interval: 'annual', price: 105, nickname: 'teens-annual' },
-          ],
+          images: ['https://westwarwicks.club/favicon.svg'],
+          prices: [{ interval: 'year', price: 105, nickname: 'teens-annual' }],
         },
         {
           name: 'Junior',
           description: 'All sports and gym.',
           conditions: 'Aged 7-11',
-          prices: [
-            { interval: 'annual', price: 75, nickname: 'junior-annual' },
-          ],
+          images: ['https://westwarwicks.club/favicon.svg'],
+          prices: [{ interval: 'year', price: 75, nickname: 'junior-annual' }],
         },
         {
           name: 'Social',
           description: 'Access to Bar + Restaurant at discount prices.',
-          prices: [
-            { interval: 'annual', price: 100, nickname: 'social-annual' },
-          ],
+          images: ['https://westwarwicks.club/favicon.svg'],
+          prices: [{ interval: 'year', price: 100, nickname: 'social-annual' }],
         },
       ],
     },
@@ -139,6 +142,7 @@ module.exports = {
           name: 'Member',
           description: 'Group Exercise Class',
           conditions: '12 for the price of 10!',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
             {
               interval: 'once',
@@ -158,6 +162,7 @@ module.exports = {
           name: 'Visitor',
           description: 'Group Exercise Class',
           conditions: '12 for the price of 10!',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
             {
               interval: 'once',
@@ -182,12 +187,14 @@ module.exports = {
           name: 'Guest',
           description: 'Rackets and gym access.',
           conditions: 'With a member',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [{ interval: 'once', price: 5, nickname: 'visitors-guest' }],
         },
         {
           name: 'Session',
           description: 'Rackets and gym access.',
           conditions: 'A single booking',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
             { interval: 'once', price: 10, nickname: 'visitors-session' },
           ],
@@ -196,18 +203,21 @@ module.exports = {
           name: 'Day',
           description: 'Rackets and gym access.',
           conditions: 'Up to 3 bookings',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [{ interval: 'once', price: 15, nickname: 'visitors-day' }],
         },
         {
           name: 'Week',
           description: 'Rackets and gym access.',
           conditions: '7 days, 2 bookings per day',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [{ interval: 'once', price: 20, nickname: 'visitors-week' }],
         },
         {
           name: '2 Weeks',
           description: 'Rackets and gym access.',
           conditions: '14 days, 2 bookings per day',
+          images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
             { interval: 'once', price: 30, nickname: 'visitors-2-week' },
           ],

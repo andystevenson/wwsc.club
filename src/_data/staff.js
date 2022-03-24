@@ -8,7 +8,7 @@ module.exports = {
       {
         name: 'Andy Stevenson',
         role: 'Acting General Manager',
-        image: '/files/me.webp',
+        image: '/cloudinaried/squash/squash-andy-stevenson.avif',
       },
       {
         name: 'Catherine Aucott',

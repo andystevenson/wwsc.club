@@ -105,7 +105,7 @@ module.exports = {
         image: '/files/tennis-andy-jeffs.avif',
       },
       {
-        name: 'Alison Own',
+        name: 'Alison Owen',
         role: 'Ladies',
         image: '/files/tennis-alison-owen.avif',
       },
