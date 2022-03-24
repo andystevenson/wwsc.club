@@ -46,7 +46,7 @@ module.exports = {
     {
       name: 'lawn tennis association',
       website: 'https://www.lta.org.uk/',
-      logo: '/files/lta-logo_neg@2x.png',
+      logo: '/cloudinaried/tennis/tennis-lta-logo_neg2x.png',
       darkBackground: '#16316f',
     },
     {
@@ -77,37 +77,37 @@ module.exports = {
       {
         name: 'Terry Dight',
         role: 'Chairman',
-        image: '/files/tennis-terry-dight.avif',
+        image: '/cloudinaried/tennis/tennis-terry-dight.avif',
       },
       {
         name: 'Tim Kennedy',
         role: 'Treasurer',
-        image: '/files/tennis-tim-kennedy.avif',
+        image: '/cloudinaried/tennis/tennis-tim-kennedy.avif',
       },
       {
         name: 'Terri Gough',
         role: 'Secretary',
-        image: '/files/tennis-terri-gough.avif',
+        image: '/cloudinaried/tennis/tennis-terri-gough.avif',
       },
       {
         name: 'Matthew Tully',
         role: 'Coach',
-        image: '/files/tennis-matt-tully-headshot.avif',
+        image: '/cloudinaried/tennis/tennis-matt-tully-headshot.avif',
       },
       {
         name: 'Matthew Corp',
         role: 'Coach',
-        image: '/files/tennis-matt-corp-headshot.avif',
+        image: '/cloudinaried/tennis/tennis-matt-corp-headshot.avif',
       },
       {
         name: 'Andy Jeffs',
         role: 'Juniors',
-        image: '/files/tennis-andy-jeffs.avif',
+        image: '/cloudinaried/tennis/tennis-andy-jeffs.avif',
       },
       {
         name: 'Alison Owen',
         role: 'Ladies',
-        image: '/files/tennis-alison-owen.avif',
+        image: '/cloudinaried/tennis/tennis-alison-owen.avif',
       },
     ],
   },

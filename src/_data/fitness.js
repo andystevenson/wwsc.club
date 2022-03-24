@@ -18,7 +18,7 @@ module.exports = {
       {
         name: 'Dan Spiridon',
         title: 'Personal Trainer',
-        image: '/files/dan-spiridon-latest.avif',
+        image: '/cloudinaried/600/fitness/fitness-dan-spiridon-latest.avif',
         bio: 'Dan is an ex-professional footballer with an extensive knowledge as an exceptional Personal Trainer.',
         telephone: '+44 7492 924542',
         email: 'fitness@westwarwicks.co.uk',

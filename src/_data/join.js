@@ -19,7 +19,7 @@ module.exports = {
         {
           href: 'https://www.home-dine.co.uk/home',
           class: 'home-dine',
-          img: '/files/home-dine-logo.avif',
+          img: '/cloudinaried/restaurant/restaurant-home-dine-logo.avif',
           alt: 'home dine solihull',
         },
       ],
