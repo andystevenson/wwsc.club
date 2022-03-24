@@ -1,0 +1,146 @@
+const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET_KEY)
+
+const join = require('./join.js')
+
+let products = []
+let prices = []
+let paymentLinks = []
+
+const listProducts = async () => {
+  products = await stripe.products.list({ limit: 100, active: true })
+  return products
+}
+
+const listPrices = async () => {
+  prices = await stripe.prices.list({ limit: 100 })
+  return prices
+}
+
+const listPaymentLinks = async () => {
+  paymentLinks = await stripe.paymentLinks.list({
+    limit: 100,
+  })
+  return paymentLinks
+}
+
+const alreadyExists = []
+
+const createPrices = async (stripeProduct, price) => {
+  const nickname = price.nickname
+  const unit_amount = price.price * 100
+  const currency = 'gbp'
+  const tax_behavior = 'inclusive'
+  const recurring =
+    price.interval === 'once' ? null : { interval: price.interval }
+  const product = stripeProduct.id
+
+  let newPrice = null
+  if (recurring) {
+    newPrice = await stripe.prices.create({
+      nickname,
+      currency,
+      unit_amount,
+      tax_behavior,
+      recurring,
+      product,
+    })
+  } else {
+    newPrice = await stripe.prices.create({
+      nickname,
+      currency,
+      unit_amount,
+      tax_behavior,
+      product,
+    })
+  }
+
+  const paymentLink = await stripe.paymentLinks.create({
+    metadata: { name: `payment-link-${newPrice.nickname}` },
+    billing_address_collection: 'required',
+    phone_number_collection: { enabled: true },
+    line_items: [
+      {
+        price: newPrice.id,
+        quantity: 1,
+      },
+    ],
+  })
+
+  price.paymentLink = paymentLink
+
+  return newPrice
+}
+
+const createProducts = async () => {
+  for (const category of join.categories) {
+    console.log('category', category.name)
+
+    for (const product of category.products) {
+      let stripeProduct = null
+      const exists = product.name in normalized
+      if (exists) {
+        alreadyExists.push(product.name)
+        stripeProduct = normalized[product.name]
+      }
+
+      if (!exists) {
+        console.log('new product', product.name, exists)
+        const { name, description, images } = product
+        stripeProduct = images
+          ? await stripe.products.create({ name, description, images })
+          : await stripe.products.create({ name, description })
+      }
+
+      let stripePrice = null
+      for (const price of product.prices) {
+        const exists = price.nickname in normalized
+        if (exists) {
+          alreadyExists.push(price.nickname)
+          stripePrice = normalized[price.nickname]
+          const stripePaymentLink = normalized[`payment-link-${price.nickname}`]
+          if (stripePaymentLink) {
+            price.paymentLink = stripePaymentLink
+          }
+        }
+
+        if (!exists) {
+          console.log('new price', price.nickname, exists)
+
+          stripePrice = await createPrices(stripeProduct, price)
+        }
+      }
+    }
+  }
+}
+
+const normalized = {}
+
+const normalize = () => {
+  // take the products and prices from stripe and normalize them into a lookup structure
+  paymentLinks.data.forEach((link) => {
+    const name = link.metadata.name
+    if (name) {
+      normalized[name] = link
+    }
+  })
+  products.data.forEach((product) => (normalized[product.name] = product))
+  prices.data.forEach((price) => {
+    if (price.nickname) {
+      normalized[price.nickname] = price
+    }
+  })
+}
+
+const assets = async () => {
+  // await createProducts()
+  await listProducts()
+  await listPrices()
+  await listPaymentLinks()
+  normalize()
+  await createProducts()
+
+  return Promise.resolve({ join })
+  // return Promise.resolve({ products, prices, paymentLinks })
+}
+
+module.exports = assets()

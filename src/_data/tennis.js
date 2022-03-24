@@ -105,7 +105,7 @@ module.exports = {
         image: '/images/person-circle.svg',
       },
       {
-        name: 'Alison Own',
+        name: 'Alison Owen',
         role: 'Ladies',
         image: '/images/person-circle.svg',
       },
