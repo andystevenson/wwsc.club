@@ -23,7 +23,7 @@ module.exports = {
       {
         name: 'Terry Dight',
         role: 'Tennis',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/tennis/tennis-terry-dight.avif',
       },
       {
         name: 'Scott Key',

@@ -19,7 +19,7 @@ module.exports = {
       {
         name: 'Sarah Harrison',
         role: 'Customer Services Manager',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/sarah-harrison.avif',
         reportsTo: 'Andy Stevenson',
       },
       {
