@@ -13,7 +13,7 @@ module.exports = {
       {
         name: 'Catherine Aucott',
         role: 'Operations Manager',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/catherine-aucott.avif',
         reportsTo: 'Andy Stevenson',
       },
       {
@@ -25,55 +25,44 @@ module.exports = {
       {
         name: 'Robert Powell',
         role: 'Head Chef',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/rob-powell.avif',
         reportsTo: 'Sarah Harrison',
       },
       {
         name: 'Terry Powell',
         role: 'Assistant Chef',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/terry-powell.avif',
         reportsTo: 'Robert Powell',
       },
       {
         name: 'Larisa Arcip',
         role: 'Head of Fitness',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/larisa-arcip-headshot.avif',
         reportsTo: 'Andy Stevenson',
       },
       {
         name: 'Dan Spiridon',
         role: 'Personal Trainer',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/dan-spiridon-headshot.avif',
         reportsTo: 'Larisa Arcip',
       },
       {
         name: 'Robert Stretton',
         role: 'Head Groundsman',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/robert-stretton.avif',
         reportsTo: 'Catherine Aucott',
       },
       {
         name: 'Ben Hunt',
         role: 'Food & Beverage Supervisor',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/ben-hunt.avif',
         reportsTo: 'Sarah Harrison',
       },
-      {
-        name: 'Jack Harrison',
-        role: 'Food & Beverage Supervisor',
-        image: '/images/person-circle.svg',
-        reportsTo: 'Sarah Harrison',
-      },
+
       {
         name: 'Angela Taylor',
         role: 'Sports & Events Administrator',
-        image: '/images/person-circle.svg',
-        reportsTo: 'Sarah Harrison',
-      },
-      {
-        name: 'Olivia Kunneke',
-        role: 'Sports & Events Administrator',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/angela-taylor.avif',
         reportsTo: 'Sarah Harrison',
       },
     ],

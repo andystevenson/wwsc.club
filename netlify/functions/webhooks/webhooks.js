@@ -15,7 +15,9 @@ const handler = async (event) => {
     )
 
     const { type } = stripeEvent
-    console.log({ type })
+    if (type === 'invoice.created') {
+      console.log('invoice.created', stripeEvent.data.object)
+    }
 
     return {
       statusCode: 200,
