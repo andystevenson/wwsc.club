@@ -13,22 +13,17 @@ module.exports = {
       {
         name: "Andy O'Brien",
         role: 'Treasurer, Hockey',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/hockey/hocket-andy-obrien.avif',
       },
       {
         name: 'James Neale',
         role: 'Cricket',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/cricket/cricket-james-neale.avif',
       },
       {
         name: 'Terry Dight',
         role: 'Tennis',
         image: '/cloudinaried/tennis/tennis-terry-dight.avif',
-      },
-      {
-        name: 'Scott Key',
-        role: 'Social',
-        image: '/images/person-circle.svg',
       },
       {
         name: 'Andy Stevenson',
