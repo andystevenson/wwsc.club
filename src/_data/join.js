@@ -73,7 +73,7 @@ module.exports = {
 
         {
           name: 'Off-Peak',
-          description: 'All sports and gym with classes.',
+          description: 'All sports and gym.',
           conditions: 'Mon-Fri 08:00-16:00',
           images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
