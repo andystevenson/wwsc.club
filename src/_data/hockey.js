@@ -1,6 +1,6 @@
 module.exports = {
   name: 'Olton & West Warwickshire Hockey Club',
-  website: 'https://www.oltonhockeyclub.co.uk/',
+  website: 'https://www.oltonhockeyclub.com/',
   logo: '/files/hockey-wwsc-logo.png',
   description:
     'A founding member of West Warwickshire Sports Complex back in 1898. \

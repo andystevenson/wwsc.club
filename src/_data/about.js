@@ -1,7 +1,7 @@
 module.exports = {
   name: 'about',
   people: {
-    title: 'Trustees',
+    title: 'Board of Trustees',
     email: 'trustees@westwarwicks.co.uk',
     emailMessage: 'email trustees',
     members: [
@@ -13,7 +13,7 @@ module.exports = {
       {
         name: "Andy O'Brien",
         role: 'Treasurer, Hockey',
-        image: '/cloudinaried/hockey/hocket-andy-obrien.avif',
+        image: '/cloudinaried/hockey/hockey-andy-obrien.avif',
       },
       {
         name: 'James Neale',
