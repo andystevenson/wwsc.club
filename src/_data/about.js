@@ -8,7 +8,7 @@ module.exports = {
       {
         name: 'Richard Rigg',
         role: 'Chairman',
-        image: '/images/person-circle.svg',
+        image: '/cloudinaried/staff/richard-rigg.avif',
       },
       {
         name: "Andy O'Brien",
