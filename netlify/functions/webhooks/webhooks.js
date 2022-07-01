@@ -2,6 +2,7 @@ const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
 const { stripe, webhook } = env
 
+console.log({ env })
 // email handling ... TODO: split this into its own function
 const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
