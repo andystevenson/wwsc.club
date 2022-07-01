@@ -1,3 +1,4 @@
+const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
 const { stripe, webhook } = env
 
