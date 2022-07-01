@@ -23,7 +23,7 @@ async function sendMail(subject, message) {
   try {
     const accessToken = await auth.getAccessToken()
 
-    const transport = nodemailer.createTransport({
+    const transport = await nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
       secure: true,
@@ -49,7 +49,7 @@ async function sendMail(subject, message) {
 
     const result = await transport.sendMail(email)
     transport.close()
-    console.log('transport.sendMail called')
+    console.log('transport.sendMail called', result)
   } catch (error) {
     console.log('sendMail failed', error.message)
   }
