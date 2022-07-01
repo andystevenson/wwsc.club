@@ -130,11 +130,15 @@ const handler = async (event) => {
       console.log(' >>>>> customer.deleted <<<<')
     }
 
+    if (type === 'customer.updated') {
+      console.log(' >>>>> customer.updated <<<<')
+    }
+
     if (type === 'customer.subscription.created') {
       console.log(' >>>>> customer.subscription.created <<<<')
       console.log({ object })
       sendMail(
-        'customer.subscription.succeeded',
+        'customer.subscription.created',
         await subscriptionSucceededHtml(object),
       )
     }
