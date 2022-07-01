@@ -2,7 +2,6 @@ const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
 const { stripe, webhook } = env
 
-console.log({ env })
 // email handling ... TODO: split this into its own function
 const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
@@ -19,37 +18,43 @@ const options = {
 }
 
 async function sendMail(subject, message) {
-  const accessToken = await auth.getAccessToken()
+  console.log('sendMail', { subject, message })
 
-  const transport = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      type: 'OAuth2',
-      user: env.emailUser,
-      clientId: env.emailClientId,
-      clientSecret: env.emailClientSecret,
-      refreshToken: env.emailRefreshToken,
-      accessToken,
-      expires: 1484314697598,
-    },
-  })
+  try {
+    const accessToken = await auth.getAccessToken()
 
-  const email = {
-    ...options,
-    subject,
-    html: message,
-  }
+    const transport = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        type: 'OAuth2',
+        user: env.emailUser,
+        clientId: env.emailClientId,
+        clientSecret: env.emailClientSecret,
+        refreshToken: env.emailRefreshToken,
+        accessToken,
+        expires: 1484314697598,
+      },
+    })
 
-  transport.sendMail(email, (error, result) => {
-    if (error) {
-      console.log('email error', { error })
-    } else {
-      console.log('email sent', result)
+    const email = {
+      ...options,
+      subject,
+      html: message,
     }
-    transport.close()
-  })
+
+    transport.sendMail(email, (error, result) => {
+      if (error) {
+        console.log('email error', { error })
+      } else {
+        console.log('email sent', result)
+      }
+      transport.close()
+    })
+  } catch (error) {
+    console.log('sendMail failed', error.message)
+  }
 }
 
 // chargeSucceededHtml (data)
