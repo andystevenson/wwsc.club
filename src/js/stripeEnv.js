@@ -1,8 +1,7 @@
-console.log('stripeEnv')
+let env = null
 
-if (process.env.STRIPE_TEST_SECRET_KEY) {
+if (!env && process.env.STRIPE_TEST_SECRET_KEY) {
   // we're in a test environment
-  console.log('stripe test environment')
   const secret = process.env.STRIPE_TEST_SECRET_KEY
   const publishable = process.env.STRIPE_TEST_PUBLISHABLE_KEY
   const webhook = process.env.STRIPE_TEST_WEBHOOK_KEY
@@ -14,7 +13,7 @@ if (process.env.STRIPE_TEST_SECRET_KEY) {
   const emailRefreshToken = process.env.STRIPE_TEST_EMAIL_REFRESH_TOKEN
 
   const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET_KEY)
-  module.exports = {
+  env = {
     stripe,
     secret,
     publishable,
@@ -25,10 +24,9 @@ if (process.env.STRIPE_TEST_SECRET_KEY) {
     emailClientSecret,
     emailRefreshToken,
   }
-  return
 }
 
-if (process.env.STRIPE_SECRET_KEY) {
+if (!env && process.env.STRIPE_SECRET_KEY) {
   // we're in a production environment
   console.log('stripe production environment')
   const secret = process.env.STRIPE_SECRET_KEY
@@ -42,7 +40,7 @@ if (process.env.STRIPE_SECRET_KEY) {
   const emailRefreshToken = process.env.STRIPE_EMAIL_REFRESH_TOKEN
 
   const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-  module.exports = {
+  env = {
     stripe,
     secret,
     publishable,
@@ -56,4 +54,4 @@ if (process.env.STRIPE_SECRET_KEY) {
   return
 }
 
-module.exports = {}
+module.exports = env
