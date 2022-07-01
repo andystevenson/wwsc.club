@@ -38,20 +38,26 @@ async function sendMail(subject, message) {
       },
     })
 
+    console.log('sendMail transport created')
+
     const email = {
       ...options,
       subject,
       html: message,
     }
+    console.log('calling transport.sendMail')
 
     transport.sendMail(email, (error, result) => {
+      console.log('email callback', error, result)
       if (error) {
         console.log('email error', { error })
       } else {
         console.log('email sent', result)
       }
       transport.close()
+      console.log('transport closed')
     })
+    console.log('transport.sendMail called')
   } catch (error) {
     console.log('sendMail failed', error.message)
   }
@@ -143,7 +149,6 @@ const handler = async (event) => {
 
     if (type === 'customer.subscription.created') {
       console.log(' >>>>> customer.subscription.created <<<<')
-      console.log({ object })
       sendMail(
         'customer.subscription.created',
         await subscriptionSucceededHtml(object),
