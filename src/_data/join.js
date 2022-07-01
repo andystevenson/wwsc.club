@@ -43,6 +43,16 @@ module.exports = {
       name: 'membership',
       products: [
         {
+          name: 'Dummy',
+          description: 'Dummy dummy dummy.',
+          conditions: 'No conditions dummy',
+          images: ['https://westwarwicks.club/favicon.svg'],
+          prices: [
+            { interval: 'year', price: 1, nickname: 'dummy-annual' },
+            { interval: 'month', price: 1, nickname: 'dummy-monthly' },
+          ],
+        },
+        {
           name: 'Family',
           description: 'All sports and gym with classes.',
           conditions: 'Up to 3 children under 18',
@@ -183,6 +193,13 @@ module.exports = {
     {
       name: 'visitors',
       products: [
+        {
+          name: 'DummyVisit',
+          description: 'Dummy dummy dummy.',
+          conditions: 'With a member',
+          images: ['https://westwarwicks.club/favicon.svg'],
+          prices: [{ interval: 'once', price: 1, nickname: 'visitors-dummy' }],
+        },
         {
           name: 'Guest',
           description: 'Rackets and gym access.',

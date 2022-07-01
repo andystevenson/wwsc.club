@@ -1,4 +1,5 @@
-const stripe = require('stripe')(process.env.STRIPE_TEST_SECRET_KEY)
+const env = require('../js/stripeEnv.js')
+const { stripe } = env
 
 const join = require('./join.js')
 
@@ -58,6 +59,7 @@ const createPrices = async (stripeProduct, price) => {
     metadata: { name: `payment-link-${newPrice.nickname}` },
     billing_address_collection: 'required',
     phone_number_collection: { enabled: true },
+    automatic_tax: { enabled: true },
     line_items: [
       {
         price: newPrice.id,
@@ -72,12 +74,18 @@ const createPrices = async (stripeProduct, price) => {
 }
 
 const createProducts = async () => {
+  const withDummies = process.env.TEST_DUMMIES
+  if (withDummies) console.log('processing with test dummies')
+
   for (const category of join.categories) {
     console.log('category', category.name)
 
     for (const product of category.products) {
       let stripeProduct = null
       const exists = product.name in normalized
+
+      if (!withDummies && product.name.startsWith('Dummy')) continue
+
       if (exists) {
         alreadyExists.push(product.name)
         stripeProduct = normalized[product.name]
