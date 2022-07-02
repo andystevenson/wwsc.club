@@ -7,6 +7,9 @@ const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
 const OAuth2 = google.auth.OAuth2
 
+const auth = new OAuth2(env.emailClientId, env.emailClientSecret)
+auth.setCredentials({ refresh_token: env.emailRefreshToken })
+
 const options = {
   from: `CLUB WEBSITE <${env.emailUser}>`,
   to: env.emailRecipient,
@@ -15,46 +18,44 @@ const options = {
 }
 
 async function sendMail(subject, message) {
+  console.log('sendMail', { subject, message })
+
   try {
-    const auth = new OAuth2(env.emailClientId, env.emailClientSecret)
-    auth.setCredentials({ refresh_token: env.emailRefreshToken })
-
-    console.log('sendMail', { subject, message })
-
     console.log('accessToken')
     const accessToken = await auth.getAccessToken()
-    console.log('createTransport')
-
-    const transport = await nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: {
-        type: 'OAuth2',
-        user: env.emailUser,
-        clientId: env.emailClientId,
-        clientSecret: env.emailClientSecret,
-        refreshToken: env.emailRefreshToken,
-        accessToken,
-        expires: 1484314697598,
-      },
-    })
-
-    console.log('sendMail transport created')
-
-    const email = {
-      ...options,
-      subject,
-      html: message,
-    }
-    console.log('calling transport.sendMail')
-
-    const result = await transport.sendMail(email)
-    transport.close()
-    console.log('transport.sendMail called', result)
   } catch (error) {
     console.log('sendMail failed', error.message)
   }
+
+  console.log('createTransport')
+
+  const transport = await nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      type: 'OAuth2',
+      user: env.emailUser,
+      clientId: env.emailClientId,
+      clientSecret: env.emailClientSecret,
+      refreshToken: env.emailRefreshToken,
+      accessToken,
+      expires: 1484314697598,
+    },
+  })
+
+  console.log('sendMail transport created')
+
+  const email = {
+    ...options,
+    subject,
+    html: message,
+  }
+  console.log('calling transport.sendMail')
+
+  const result = await transport.sendMail(email)
+  transport.close()
+  console.log('transport.sendMail called', result)
 }
 
 // chargeSucceededHtml (data)
