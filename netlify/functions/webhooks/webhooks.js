@@ -7,9 +7,6 @@ const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
 const OAuth2 = google.auth.OAuth2
 
-const auth = new OAuth2(env.emailClientId, env.emailClientSecret)
-auth.setCredentials({ refresh_token: env.emailRefreshToken })
-
 const options = {
   from: `CLUB WEBSITE <${env.emailUser}>`,
   to: env.emailRecipient,
@@ -18,10 +15,15 @@ const options = {
 }
 
 async function sendMail(subject, message) {
-  console.log('sendMail', { subject, message })
-
   try {
+    const auth = new OAuth2(env.emailClientId, env.emailClientSecret)
+    auth.setCredentials({ refresh_token: env.emailRefreshToken })
+
+    console.log('sendMail', { subject, message })
+
+    console.log('accessToken')
     const accessToken = await auth.getAccessToken()
+    console.log('createTransport')
 
     const transport = await nodemailer.createTransport({
       host: 'smtp.gmail.com',
