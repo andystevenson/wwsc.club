@@ -2,64 +2,27 @@ const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
 const { stripe, webhook } = env
 
-// email handling ... TODO: split this into its own function
-const nodemailer = require('nodemailer')
-const { google } = require('googleapis')
-const OAuth2 = google.auth.OAuth2
+const emailService = `${process.env.URL}/.netlify/functions/email`
 
-const auth = new OAuth2(env.emailClientId, env.emailClientSecret)
-auth.setCredentials({ refresh_token: env.emailRefreshToken })
-
-const options = {
-  from: `CLUB WEBSITE <${env.emailUser}>`,
-  to: env.emailRecipient,
-  subject: 'WWSC test email',
-  html: '<h1>WWSC test email</h1>',
-}
-
-async function sendMail(subject, message) {
-  console.log('sendMail', { subject, message })
-
+function sendMail(subject, html) {
   try {
-    console.log('accessToken')
-    const accessToken = await auth.getAccessToken()
+    fetch(emailService, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ subject, html }),
+    })
+    console.log('sendMail done')
   } catch (error) {
-    console.log('sendMail failed', error.message)
+    console.log('sendMail error', { error })
   }
-
-  console.log('createTransport')
-
-  const transport = await nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      type: 'OAuth2',
-      user: env.emailUser,
-      clientId: env.emailClientId,
-      clientSecret: env.emailClientSecret,
-      refreshToken: env.emailRefreshToken,
-      accessToken,
-      expires: 1484314697598,
-    },
-  })
-
-  console.log('sendMail transport created')
-
-  const email = {
-    ...options,
-    subject,
-    html: message,
-  }
-  console.log('calling transport.sendMail')
-
-  const result = await transport.sendMail(email)
-  transport.close()
-  console.log('transport.sendMail called', result)
 }
 
 // chargeSucceededHtml (data)
 function chargeSucceededHtml(data) {
+  console.log('charge', { data })
+
   const amount = data.amount / 100
   const html = `
   <h1>Stripe Charge Succeeded</h1>
@@ -70,15 +33,17 @@ function chargeSucceededHtml(data) {
   <p>${data.billing_details.address.city}</p>
   <p>${data.billing_details.address.postal_code}</p>
   <h2>Receipt</h2>
-  <p>Amount <strong>£${amount.toFixed(2)}</strong></p>
+  <p>Amount <strong>£${amount.toFixed(2)}</strong> by ${
+    data.payment_method_details.type
+  }</p>
   <p>${data.receipt_url}</p>
   `
   return html
 }
 
 // customer.subscription.succeeded
-
 async function subscriptionSucceededHtml(data) {
+  console.log('subscription', { data })
   const amount = data.plan.amount / 100
   const product = data.plan.nickname
     .replace(/-.*/, '')
@@ -91,7 +56,7 @@ async function subscriptionSucceededHtml(data) {
   <p>Amount <strong>£${amount.toFixed(2)}</strong></p>
   `
   try {
-    const customer = await stripe.customers.retrieve('cus_LvjpJCjOWYLO9X')
+    const customer = await stripe.customers.retrieve(data.customer)
     html += `
     <p>${customer.name}</p>
     <p>${customer.email}</p>
