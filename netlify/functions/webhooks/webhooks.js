@@ -2,9 +2,13 @@ const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
 const { stripe, webhook } = env
 
+const fetch = (...args) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args))
+
 const emailService = `${process.env.URL}/.netlify/functions/email`
 
 function sendMail(subject, html) {
+  console.log('sendMail')
   try {
     fetch(emailService, {
       method: 'POST',
