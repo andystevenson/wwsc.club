@@ -35,7 +35,7 @@ exports.handler = async function (event) {
 
   try {
     const result = await transport.sendMail(email)
-    console.log('sendMail success', { result })
+    console.log('sendMail success')
     return { statusCode: 200, body: 'Ok' }
   } catch (error) {
     console.log('sendMail ', { error })

@@ -10,7 +10,7 @@ const fetch = (...args) =>
 const emailService = `${process.env.URL}/.netlify/functions/email`
 
 function sendMail(subject, html) {
-  console.log('sendMail', emailService)
+  console.log('sendMail')
   try {
     axios({
       url: emailService,
@@ -25,8 +25,6 @@ function sendMail(subject, html) {
 
 // chargeSucceededHtml (data)
 function chargeSucceededHtml(data) {
-  console.log('charge', { data })
-
   const amount = data.amount / 100
   const html = `
   <h1>Stripe Charge Succeeded</h1>
@@ -47,7 +45,6 @@ function chargeSucceededHtml(data) {
 
 // customer.subscription.succeeded
 async function subscriptionSucceededHtml(data) {
-  console.log('subscription', { data })
   const amount = data.plan.amount / 100
   const product = data.plan.nickname
     .replace(/-.*/, '')
