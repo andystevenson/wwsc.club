@@ -15,9 +15,6 @@ function sendMail(subject, html) {
     axios({
       url: emailService,
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       data: { subject, html },
     })
     console.log('sendMail done')
