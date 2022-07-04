@@ -7,11 +7,11 @@ const fetch = (...args) =>
 
 const emailService = `${process.env.URL}/.netlify/functions/email`
 
-async function sendMail(subject, html) {
+function sendMail(subject, html) {
   console.log('sendMail', emailService)
   try {
-    await fetch(emailService, {
-      method: 'POST',
+    fetch(emailService, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
