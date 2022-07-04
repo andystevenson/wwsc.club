@@ -51,7 +51,6 @@ if (!env && process.env.STRIPE_SECRET_KEY) {
     emailClientSecret,
     emailRefreshToken,
   }
-  return
 }
 
 module.exports = env
