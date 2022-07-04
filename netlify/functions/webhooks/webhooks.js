@@ -2,6 +2,8 @@ const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
 const { stripe, webhook } = env
 
+const axios = require('axios').default
+
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args))
 
@@ -10,12 +12,13 @@ const emailService = `${process.env.URL}/.netlify/functions/email`
 function sendMail(subject, html) {
   console.log('sendMail', emailService)
   try {
-    fetch(emailService, {
-      method: 'GET',
+    axios({
+      url: emailService,
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ subject, html }),
+      data: { subject, html },
     })
     console.log('sendMail done')
   } catch (error) {
