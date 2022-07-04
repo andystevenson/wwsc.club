@@ -8,7 +8,7 @@ const fetch = (...args) =>
 const emailService = `${process.env.URL}/.netlify/functions/email`
 
 function sendMail(subject, html) {
-  console.log('sendMail')
+  console.log('sendMail', emailService)
   try {
     fetch(emailService, {
       method: 'POST',
@@ -97,14 +97,6 @@ const handler = async (event) => {
     if (type === 'charge.succeeded') {
       console.log(' >>>>> charge.succeeded <<<<')
       sendMail('charge.succeeded', chargeSucceededHtml(object))
-    }
-
-    if (type === 'customer.created') {
-      console.log(' >>>>> customer.created <<<<')
-    }
-
-    if (type === 'customer.deleted') {
-      console.log(' >>>>> customer.deleted <<<<')
     }
 
     if (type === 'customer.updated') {

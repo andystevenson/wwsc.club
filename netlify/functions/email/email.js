@@ -1,9 +1,10 @@
 const x = require('stripe')
-const env = require('../../../src/js//stripeEnv.js')
+const env = require('../../../src/js/stripeEnv.js')
 
 const nodemailer = require('nodemailer')
-console.log(process.env.URL)
 exports.handler = async function (event) {
+  console.log('functions/email', process.env.URL)
+
   const transport = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
