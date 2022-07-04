@@ -2,7 +2,10 @@ const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
 const { stripe, webhook } = env
 
-const axios = require('axios').default
+const https = require('https')
+const axios = require('axios').default.create({
+  httpsAgent: new https.Agent({ keepAlive: true }),
+})
 
 const emailService = `${process.env.URL}/.netlify/functions/email`
 

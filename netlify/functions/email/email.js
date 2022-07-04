@@ -34,7 +34,7 @@ exports.handler = async function (event) {
   if (html) email = { ...email, html }
 
   try {
-    transport.sendMail(email)
+    await transport.sendMail(email)
     console.log('sendMail success')
     return { statusCode: 200, body: 'Ok' }
   } catch (error) {
