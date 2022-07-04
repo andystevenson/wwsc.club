@@ -4,9 +4,6 @@ const { stripe, webhook } = env
 
 const axios = require('axios').default
 
-const fetch = (...args) =>
-  import('node-fetch').then(({ default: fetch }) => fetch(...args))
-
 const emailService = `${process.env.URL}/.netlify/functions/email`
 
 function sendMail(subject, html) {
