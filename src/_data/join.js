@@ -111,7 +111,7 @@ module.exports = {
         },
         {
           name: 'Young Adult',
-          description: 'All sports and gym.',
+          description: 'All sports and gym with classes.',
           conditions: 'Aged 18-25',
           images: ['https://westwarwicks.club/favicon.svg'],
           prices: [
