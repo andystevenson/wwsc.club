@@ -14,13 +14,13 @@ module.exports = {
     },
     {
       description:
-        '15% discount on all drinks at the bar!<br>Food discounts through home dine',
+        '15% discount on all drinks at the bar!<br>Food discounts through belocal solihull',
       links: [
         {
-          href: 'https://www.home-dine.co.uk/home',
+          href: 'https://www.be-local.uk',
           class: 'home-dine',
-          img: '/cloudinaried/restaurant/restaurant-home-dine-logo.avif',
-          alt: 'home dine solihull',
+          img: '/cloudinaried/restaurant/be-local.png',
+          alt: 'belocal solihull',
         },
       ],
     },
@@ -125,7 +125,7 @@ module.exports = {
         },
         {
           name: 'Teens',
-          description: 'All sports and gym.',
+          description: 'All sports and gym, kids & family classes.',
           conditions: 'Aged 12-17',
           images: ['https://westwarwicks.club/favicon.svg'],
           prices: [{ interval: 'year', price: 105, nickname: 'teens-annual' }],
@@ -165,6 +165,26 @@ module.exports = {
               price: 30,
               qty: 12,
               nickname: 'classes-member-12',
+            },
+          ],
+        },
+        {
+          name: 'Social Member',
+          description: 'Group Exercise Class',
+          conditions: '12 for the price of 10!',
+          images: ['https://westwarwicks.club/favicon.svg'],
+          prices: [
+            {
+              interval: 'once',
+              price: 5,
+              qty: 1,
+              nickname: 'classes-visitor-1',
+            },
+            {
+              interval: 'once',
+              price: 50,
+              qty: 12,
+              nickname: 'classes-visitor-12',
             },
           ],
         },

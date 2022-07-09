@@ -9,9 +9,18 @@
               <img src="{{ member.image }}" alt="{{member.name}}" loading='lazy'>
             </picture>
             {% if member.role %}
-              <h3>{{member.role}}</h3>
+              {% if member.link %}
+                <a href={{member.link}}>
+                  <h3>{{member.role}}</h3>
+                </a>
+              {% else %}
+                <h3>{{member.role}}</h3>
+              {% endif %}
             {% endif %}
-            <p>{{member.name}}</p>
+            {% if member.name %}
+              <p>{{member.name}}</p>
+            {% endif %}
+
           </section>
         {% endfor %}
       </section>

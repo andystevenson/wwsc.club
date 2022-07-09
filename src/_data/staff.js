@@ -65,6 +65,12 @@ module.exports = {
         image: '/cloudinaried/staff/angela-taylor.avif',
         reportsTo: 'Sarah Harrison',
       },
+      {
+        name: 'Juliette Clarke',
+        role: 'Sports & Events Administrator',
+        image: '/cloudinaried/staff/juliette-clarke.avif',
+        reportsTo: 'Sarah Harrison',
+      },
     ],
   },
 }
