@@ -27,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="{{ meta.company }}">
+    <meta itemprop="name" content="{{ company if company else meta.company }}">
     <meta itemprop="description" content="{{ description if description else meta.description }}">
     <meta itemprop="image" content="{{ site if site else meta.site }}/west-warwicks-social-image.png">
 
