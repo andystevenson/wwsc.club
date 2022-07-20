@@ -21,8 +21,18 @@ module.exports = {
         image: '/files/document.svg',
       },
       {
+        link: '/files/health-and-safety.doc',
+        role: 'Health and Safety',
+        image: '/files/document.svg',
+      },
+      {
         link: '/files/social-media-policy.doc',
         role: 'Social Media',
+        image: '/files/document.svg',
+      },
+      {
+        link: '/files/recruitment.doc',
+        role: 'Recruitment',
         image: '/files/document.svg',
       },
     ],
