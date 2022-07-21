@@ -35,6 +35,11 @@ module.exports = {
         role: 'Recruitment',
         image: '/files/document.svg',
       },
+      {
+        link: '/files/anti-bribery-and-corruption.doc',
+        role: 'Anti-Bribery and Corruption',
+        image: '/files/document.svg',
+      },
     ],
   },
 }
