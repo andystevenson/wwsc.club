@@ -53,13 +53,6 @@ module.exports = {
         reportsTo: 'Catherine Aucott',
       },
       {
-        name: 'Ben Hunt',
-        role: 'Food & Beverage Supervisor',
-        image: '/cloudinaried/staff/ben-hunt.avif',
-        reportsTo: 'Sarah Harrison',
-      },
-
-      {
         name: 'Angela Taylor',
         role: 'Sports & Events Administrator',
         image: '/cloudinaried/staff/angela-taylor.avif',

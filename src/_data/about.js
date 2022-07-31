@@ -30,6 +30,11 @@ module.exports = {
         role: 'Acting GM, Squash',
         image: '/cloudinaried/squash/squash-andy-stevenson.avif',
       },
+      {
+        name: 'Scott Key',
+        role: 'Social',
+        image: '/cloudinaried/misc/scott-key.avif',
+      },
     ],
   },
 }

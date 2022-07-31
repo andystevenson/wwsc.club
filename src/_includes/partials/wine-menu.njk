@@ -1,0 +1,39 @@
+{% if wineMenu %}
+  <section class="wine-menu-section" id="wine-menu-section">
+    <h2 class="wine-menu-title">Wine Menu</h2>
+    <ul class="wine-menu-categories">
+      {% for tag, category in wineMenu %}
+        <section class="wine-menu-category">
+          <img class="wine-category-image" src={{"/cloudinaried/wine/" + tag + "-landscape.avif"}} alt={{tag + "-category"}} loading="lazy">
+          <h3 class='wine-category'>{{tag | replace('-wine','')}}</h3>
+          <section class="wine-menu-wines">
+            {% for wine in category %}
+              <li class="wine-type">
+                {% set hasVariants = wine.has_variant %}
+                {% if hasVariants %}
+                  <p class="has-variants">
+                    <span class="wine-name">{{ wine.product_name}}</span>
+                  </p>
+                  {% for variant in wine.current_variants %}
+                    <p class="wine-price">
+                      <span class="wine-qty">{{variant.display_name}}</span>
+                      <span class="wine-price">{{variant.selling_price}}</span>
+                    </p>
+                  {% endfor %}
+                {% else %}
+                  <p class="no-variants">
+                    <span class="wine-name">{{wine.product_name}}</span>
+                  </p>
+                  <p class='wine-price'>
+                    <span class="wine-qty">bottle</span>
+                    <span class="wine-price">{{wine.selling_price}}</span>
+                  </p>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </section>
+        </section>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

@@ -1,33 +1,37 @@
 {% if prices %}
   <ul class="prices">
     {% for price in prices %}
-      <li class="price">
-        {% if price.interval != 'once' %}
-          <p class="value">
-            <span>£{{price.price | decimal}}</span>
-            <span class="interval">per<br>{{price.interval}}</span>
-          </p>
-        {% endif %}
-        {% if price.interval == 'once' and not price.qty %}
-          <p class="value">£{{price.price | decimal}}</p>
-        {% endif %}
-        {% if price.qty == 1 %}
-          <p class="value">
-            <span>£{{price.price | decimal}}</span>
-            <span class="interval">per<br>class</span>
-          </p>
-        {% elif price.qty > 1 %}
-          <p class="value">
-            <span>£{{price.price | decimal}}</span>
-            <span class="interval">per<br>{{price.qty}} classes</span>
-          </p>
-        {% endif %}
-        <form action="{{price.paymentLink.url}}" target="_blank">
-          <button>
+      {% set showPrices = (not price.discounted and not discountsOnly) %}
+      {% set showDiscounts = (price.discounted and discountsOnly) %}
+      {% if showPrices or showDiscounts %}
+        <li class="price">
+          {% if price.interval != 'once' %}
+            <p class="value">
+              <span>£{{price.price | decimal}}</span>
+              <span class="interval">per<br>{{price.interval}}</span>
+            </p>
+          {% endif %}
+          {% if price.interval == 'once' and not price.qty %}
+            <p class="value">£{{price.price | decimal}}</p>
+          {% endif %}
+          {% if price.qty == 1 %}
+            <p class="value">
+              <span>£{{price.price | decimal}}</span>
+              <span class="interval">per<br>class</span>
+            </p>
+          {% elif price.qty > 1 %}
+            <p class="value">
+              <span>£{{price.price | decimal}}</span>
+              <span class="interval">per<br>{{price.qty}} classes</span>
+            </p>
+          {% endif %}
+          <form action="{{price.paymentLink.url}}" target="_blank">
+            <button>
             Buy
             </button>
-        </form>
-      </li>
+          </form>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 {% endif %}

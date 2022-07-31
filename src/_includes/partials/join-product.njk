@@ -3,17 +3,23 @@
     .name
     .startsWith("Dummy") %}
   {% set skipDummy = (dummy and not env.TEST_DUMMIES) %}
-  {% if not skipDummy %}
-    <article class="join-product">
-      <header>
-        <h2>{{product.name}}</h2>
-        <p>{{product.description}}</p>
-        {% if product.conditions %}
-          <p class="conditions">({{product.conditions}})</p>
-        {% endif %}
-      </header>
-      {% set prices = product.prices %}
-      {% include "partials/join-product-prices.njk" %}
-    </article>
+  {% set showProducts = (not discountsOnly) %}
+  {% set showProductDiscounts = (product.discounted and discountsOnly) %}
+
+  {% if (showProducts or showProductDiscounts) %}
+    {% if not skipDummy %}
+
+      <article class="join-product">
+        <header>
+          <h2>{{product.name}}</h2>
+          <p>{{product.description}}</p>
+          {% if product.conditions %}
+            <p class="conditions">({{product.conditions}})</p>
+          {% endif %}
+        </header>
+        {% set prices = product.prices %}
+        {% include "partials/join-product-prices.njk" %}
+      </article>
+    {% endif %}
   {% endif %}
 {% endif %}

@@ -9,10 +9,10 @@ const axios = require('axios').default.create({
 
 const emailService = `${process.env.URL}/.netlify/functions/email`
 
-function sendMail(subject, html) {
+async function sendMail(subject, html) {
   console.log('sendMail')
   try {
-    axios({
+    await axios({
       url: emailService,
       method: 'POST',
       data: { subject, html },
@@ -77,6 +77,7 @@ async function subscriptionSucceededHtml(data) {
 }
 
 // webhook handler
+const success = { statusCode: 200 }
 
 const handler = async (event) => {
   try {
@@ -93,97 +94,113 @@ const handler = async (event) => {
 
     if (type === 'charge.succeeded') {
       console.log(' >>>>> charge.succeeded <<<<')
-      sendMail('charge.succeeded', chargeSucceededHtml(object))
+      await sendMail('charge.succeeded', chargeSucceededHtml(object))
+      return success
     }
 
-    if (type === 'customer.updated') {
-      console.log(' >>>>> customer.updated <<<<')
-    }
+    // if (type === 'customer.updated') {
+    //   console.log(' >>>>> customer.updated <<<<')
+    //   return success
+    // }
 
     if (type === 'customer.subscription.created') {
       console.log(' >>>>> customer.subscription.created <<<<')
-      sendMail(
+      await sendMail(
         'customer.subscription.created',
         await subscriptionSucceededHtml(object),
       )
+      return success
     }
 
-    if (type === 'customer.subscription.updated') {
-      console.log(' >>>>> customer.subscription.updated <<<<')
-    }
+    // if (type === 'customer.subscription.updated') {
+    //   console.log(' >>>>> customer.subscription.updated <<<<')
+    //   return success
+    // }
 
-    if (type === 'customer.subscription.deleted') {
-      console.log(' >>>>> customer.subscription.deleted <<<<')
-    }
+    // if (type === 'customer.subscription.deleted') {
+    //   console.log(' >>>>> customer.subscription.deleted <<<<')
+    //   return success
+    // }
 
-    if (type === 'customer.subscription.trial_will_end') {
-      console.log(' >>>>> customer.subscription.trial_will_end <<<<')
-    }
+    // if (type === 'customer.subscription.trial_will_end') {
+    //   console.log(' >>>>> customer.subscription.trial_will_end <<<<')
+    //   return success
+    // }
 
-    if (type === 'invoice.created') {
-      console.log(' >>>>> invoice.created <<<<')
-    }
-    if (type === 'invoice.deleted') {
-      console.log(' >>>>> invoice.deleted <<<<')
-    }
+    // if (type === 'invoice.created') {
+    //   console.log(' >>>>> invoice.created <<<<')
+    //   return success
+    // }
+    // if (type === 'invoice.deleted') {
+    //   console.log(' >>>>> invoice.deleted <<<<')
+    //   return success
+    // }
 
-    if (type === 'invoice.finalized') {
-      console.log(' >>>>> invoice.finalized <<<<')
-    }
-    if (type === 'invoice.finalization_failed') {
-      console.log(' >>>>> invoice.finalization_failed <<<<')
-    }
-    if (type === 'invoice.paid') {
-      console.log(' >>>>> invoice.paid <<<<')
-    }
+    // if (type === 'invoice.finalized') {
+    //   console.log(' >>>>> invoice.finalized <<<<')
+    //   return success
+    // }
+    // if (type === 'invoice.finalization_failed') {
+    //   console.log(' >>>>> invoice.finalization_failed <<<<')
+    //   return success
+    // }
+    // if (type === 'invoice.paid') {
+    //   console.log(' >>>>> invoice.paid <<<<')
+    //   return success
+    // }
 
-    if (type === 'invoice.sent') {
-      console.log(' >>>>> invoice.sent <<<<')
-    }
+    // if (type === 'invoice.sent') {
+    //   console.log(' >>>>> invoice.sent <<<<')
+    //   return success
+    // }
 
-    if (type === 'invoice.payment_action_required') {
-      console.log(' >>>>> invoice.payment_action_required <<<<')
-    }
-    if (type === 'invoice.payment_failed') {
-      console.log(' >>>>> invoice.payment_failed <<<<')
-    }
+    // if (type === 'invoice.payment_action_required') {
+    //   console.log(' >>>>> invoice.payment_action_required <<<<')
+    //   return success
+    // }
+    // if (type === 'invoice.payment_failed') {
+    //   console.log(' >>>>> invoice.payment_failed <<<<')
+    //   return success
+    // }
 
-    if (type === 'invoice.payment_succeeded') {
-      console.log(' >>>>> invoice.payment_succeeded <<<<')
-    }
-    if (type === 'invoice.upcoming') {
-      console.log(' >>>>> invoice.upcoming <<<<')
-    }
-    if (type === 'invoice.updated') {
-      console.log(' >>>>> invoice.updated <<<<')
-    }
-    if (type === 'invoice.voided') {
-      console.log(' >>>>> invoice.voided <<<<')
-    }
+    // if (type === 'invoice.payment_succeeded') {
+    //   console.log(' >>>>> invoice.payment_succeeded <<<<')
+    //   return success
+    // }
+    // if (type === 'invoice.upcoming') {
+    //   console.log(' >>>>> invoice.upcoming <<<<')
+    //   return success
+    // }
+    // if (type === 'invoice.updated') {
+    //   console.log(' >>>>> invoice.updated <<<<')
+    //   return success
+    // }
+    // if (type === 'invoice.voided') {
+    //   console.log(' >>>>> invoice.voided <<<<')
+    //   return success
+    // }
 
-    if (type === 'payment_intent.created') {
-      console.log(' >>>>> payment_intent.created <<<<')
-    }
-    if (type === 'payment_intent.cancelled') {
-      console.log(' >>>>> payment_intent.cancelled <<<<')
-    }
-    if (type === 'payment_intent.paymemnt_failed') {
-      console.log(' >>>>> payment_intent.paymemnt_failed <<<<')
-    }
-    if (type === 'payment_intent.succeeded') {
-      console.log(' >>>>> payment_intent.succeeded <<<<')
-    }
+    // if (type === 'payment_intent.created') {
+    //   console.log(' >>>>> payment_intent.created <<<<')
+    //   return success
+    // }
+    // if (type === 'payment_intent.cancelled') {
+    //   console.log(' >>>>> payment_intent.cancelled <<<<')
+    //   return success
+    // }
+    // if (type === 'payment_intent.paymemnt_failed') {
+    //   console.log(' >>>>> payment_intent.paymemnt_failed <<<<')
+    //   return success
+    // }
+    // if (type === 'payment_intent.succeeded') {
+    //   console.log(' >>>>> payment_intent.succeeded <<<<')
+    //   return success
+    // }
 
-    return {
-      statusCode: 200,
-      // body: JSON.stringify({ message: `Hello ${subject}` }),
-      // // more keys you can return:
-      // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
-    }
+    return success
   } catch (error) {
     console.log(error.message)
-    return { statusCode: 500, body: error.toString() }
+    return { statusCode: 500, body: error.message }
   }
 }
 

@@ -1,0 +1,7 @@
+.cocktail-menu-section {
+  display: grid;
+  place-content: center;
+  & img {
+    max-height: 90vh;
+  }
+}

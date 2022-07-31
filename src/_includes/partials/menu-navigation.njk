@@ -1,0 +1,25 @@
+<section class="menu-navigation">
+  <h2>Menus</h2>
+  <nav>
+    <ul>
+      <li>
+        {% if page.fileSlug === "bar" %}
+          <a href="#bar-food-menu-section">
+            <span>bar food</span></a>
+        {% endif %}
+        {% if page.fileSlug === "restaurant" %}
+          <a href="#sunday-lunch-menu-section">
+            <span>sunday lunch</span></a>
+        {% endif %}
+      </li>
+      <li>
+        <a href="#wine-menu-section">
+          <span>wines</span></a>
+      </li>
+      <li>
+        <a href="#cocktail-menu-section">
+          <span>cocktails</span></a>
+      </li>
+    </ul>
+  </nav>
+</section>
