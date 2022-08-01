@@ -17,6 +17,7 @@
                   {% for variant in wine.current_variants %}
                     <p class="wine-price">
                       <span class="wine-qty">{{variant.display_name}}</span>
+                      <span class="wine-measure">{{variant.milliliters}}</span>
                       <span class="wine-price">{{variant.selling_price}}</span>
                     </p>
                   {% endfor %}
@@ -26,6 +27,7 @@
                   </p>
                   <p class='wine-price'>
                     <span class="wine-qty">bottle</span>
+                    <span class="wine-measure">{{wine.milliliters}}</span>
                     <span class="wine-price">{{wine.selling_price}}</span>
                   </p>
                 {% endif %}

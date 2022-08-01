@@ -6,6 +6,15 @@ const formatPoundValue = (value) => {
   return result
 }
 
+const measures = {
+  bottle: '750ml',
+  large: '250ml',
+  medium: '175ml',
+  small: '125ml',
+  spritzer: '175ml',
+  caggioMini: '20cl',
+}
+
 const orderVariants = (wine) => {
   const ordered = {
     bottle: {},
@@ -39,6 +48,9 @@ const wineCategory = async () => {
     if (firstTag) {
       const { tag_name } = firstTag
       wine.selling_price = formatPoundValue(wine.selling_price)
+      wine.milliliters = measures.bottle
+      if (wine.product_name.toLowerCase() === 'il caggio mini')
+        wine.milliliters = measures.caggioMini
 
       reCategorizedWines[tag_name]
         ? reCategorizedWines[tag_name].push(wine)
@@ -47,6 +59,7 @@ const wineCategory = async () => {
 
     wine.current_variants.forEach((variant) => {
       variant.selling_price = formatPoundValue(variant.selling_price)
+      variant.milliliters = measures[variant.display_name.toLowerCase()]
     })
 
     orderVariants(wine)

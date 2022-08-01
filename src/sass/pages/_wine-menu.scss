@@ -51,12 +51,17 @@
     .wine-price {
       white-space: pre;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--size-1);
+      font-size: var(--font-size-1);
 
-      gap: var(--size-fluid-3);
       & .wine-qty {
         text-transform: lowercase;
         text-align: right;
+      }
+
+      & .wine-measure {
+        font-weight: var(--font-weight-1);
       }
     }
   }

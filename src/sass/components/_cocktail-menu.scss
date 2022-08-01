@@ -1,7 +1,19 @@
 .cocktail-menu-section {
-  display: grid;
-  place-content: center;
-  & img {
-    max-height: 90vh;
+  & .images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+    & img {
+      max-height: 90vh;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & .introduction {
+    text-align: center;
+    font-style: italic;
+    p {
+      max-inline-size: unset;
+    }
   }
 }
