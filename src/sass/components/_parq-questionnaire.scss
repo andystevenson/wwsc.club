@@ -1,0 +1,40 @@
+.parq-questionnaire {
+  place-content: center;
+
+  header {
+    place-items: center;
+    h2 {
+      text-align: center;
+      max-inline-size: unset;
+    }
+  }
+
+  footer {
+    display: grid;
+    gap: var(--size-2);
+    place-content: center;
+  }
+
+  .questionnaire {
+    gap: var(--size-2);
+    @media (--xs-n-above) {
+      grid-template-columns: 1fr max-content;
+    }
+
+    & > p {
+      border-radius: var(--radius-2);
+      box-shadow: var(--shadow-2);
+      padding: var(--size-2);
+      background-color: var(--surface-1);
+    }
+
+    textarea {
+      background-color: var(--surface-1);
+    }
+    .no-yes {
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      gap: unset;
+    }
+  }
+}

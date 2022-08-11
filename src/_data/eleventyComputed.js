@@ -15,7 +15,7 @@ module.exports = {
       : `${filePathStem}/index.html`
 
     console.log('permalink', filePathStem, rootPage, link)
-    return link
+    return link === '//index.html' ? '/index.html' : link
   },
   script: (data) => {
     let src = `${data.page.fileSlug || 'WWSC'}.js`

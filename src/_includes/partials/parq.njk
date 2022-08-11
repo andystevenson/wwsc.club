@@ -1,0 +1,148 @@
+{% if parq %}
+
+  <section class="parq-questionnaire">
+    <header>
+      <h2>Physical Activity Readiness<br>Questionnaire (PAR-Q)</h2>
+
+      <p>Many health benefits are associated with regular exercise, and the completion of PAR-Q is a sensible first step to take if you are planning to increase the amount of physical activity in your life.</p>
+
+      <p>For most people physical activity should not pose any problem or hazard. PAR-Q is designed to identify the small number of adults for whom physical activity might be inappropriate or those who should have medical advice concerning the type of activity most suitable for them.</p>
+
+      <p>Common sense is the best guide in answering these few questions. Please read them carefully and check the correct answer opposite the question if it applies to you.</p>
+
+    </header>
+    <form action="" id="parq-questionnaire">
+
+      <fieldset class="questionnaire">
+        <p>Has your doctor ever said that you have a bone or joint problem, such as arthritis, that has been aggravated by exercise or might be made worse with exercise?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="bone-problem-no-yes" id="bone-problem-no">
+          <label for="bone-problem-no">no</label>
+          <input type="radio" required name="bone-problem-no-yes" id="bone-problem-yes">
+          <label for="bone-problem-yes">yes</label>
+        </fieldset>
+        <p>Do you have high blood pressure?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="high-blood-pressure-no-yes" id="high-blood-pressure-no">
+          <label for="high-blood-pressure-no">no</label>
+          <input type="radio" required name="high-blood-pressure-no-yes" id="high-blood-pressure-yes">
+          <label for="high-blood-pressure-yes">yes</label>
+        </fieldset>
+        <p>Do you have low blood pressure?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="low-blood-pressure-no-yes" id="low-blood-pressure-no">
+          <label for="low-blood-pressure-no">no</label>
+          <input type="radio" required name="low-blood-pressure-no-yes" id="low-blood-pressure-yes">
+          <label for="low-blood-pressure-yes">yes</label>
+        </fieldset>
+        <p>Do you have Diabetes Mellitus or any other metabolic disease?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="diabetes-no-yes" id="diabetes-no">
+          <label for="diabetes-no">no</label>
+          <input type="radio" required name="diabetes-no-yes" id="diabetes-yes">
+          <label for="diabetes-yes">yes</label>
+        </fieldset>
+        <p>Has your doctor ever said you have raised cholesterol (serum level above 6.2mmol/L)?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="raised-cholesterol-no-yes" id="raised-cholesterol-no">
+          <label for="raised-cholesterol-no">no</label>
+          <input type="radio" required name="raised-cholesterol-no-yes" id="raised-cholesterol-yes">
+          <label for="raised-cholesterol-yes">yes</label>
+        </fieldset>
+        <p>Has your doctor ever said that you have a heart condition and that you should only do physical activity recommended by a doctor?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="heart-condition-no-yes" id="heart-condition-no">
+          <label for="heart-condition-no">no</label>
+          <input type="radio" required name="heart-condition-no-yes" id="heart-condition-yes">
+          <label for="heart-condition-yes">yes</label>
+        </fieldset>
+        <p>Have you ever felt pain in your chest when you do physical exercise?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="chest-pain-no-yes" id="chest-pain-no">
+          <label for="chest-pain-no">no</label>
+          <input type="radio" required name="chest-pain-no-yes" id="chest-pain-yes">
+          <label for="chest-pain-yes">yes</label>
+        </fieldset>
+        <p>Is your doctor currently prescribing you drugs or medication?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="prescribed-drugs-no-yes" id="prescribed-drugs-no">
+          <label for="prescribed-drugs-no">no</label>
+          <input type="radio" required name="prescribed-drugs-no-yes" id="prescribed-drugs-yes">
+          <label for="prescribed-drugs-yes">yes</label>
+        </fieldset>
+        <p>Have you ever suffered from unusual shortness of breath at rest or with mild exertion?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="shortage-of-breath-no-yes" id="shortage-of-breath-no">
+          <label for="shortage-of-breath-no">no</label>
+          <input type="radio" required name="shortage-of-breath-no-yes" id="shortage-of-breath-yes">
+          <label for="shortage-of-breath-yes">yes</label>
+        </fieldset>
+        <p>Is there any history of Coronary Heart Disease in your family?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="heredity-heart-disease-no-yes" id="heredity-heart-disease-no">
+          <label for="heredity-heart-disease-no">no</label>
+          <input type="radio" required name="heredity-heart-disease-no-yes" id="heredity-heart-disease-yes">
+          <label for="heredity-heart-disease-yes">yes</label>
+        </fieldset>
+        <p>Do you often feel faint, have spells of severe dizziness or have lost consciousness?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="dizziness-no-yes" id="dizziness-no">
+          <label for="dizziness-no">no</label>
+          <input type="radio" required name="dizziness-no-yes" id="dizziness-yes">
+          <label for="dizziness-yes">yes</label>
+        </fieldset>
+        <p>Do you currently drink more than the average amount of alcohol per week (21 units for men and 14 units for women)?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="alcohol-consumption-no-yes" id="alcohol-consumption-no">
+          <label for="alcohol-consumption-no">no</label>
+          <input type="radio" required name="alcohol-consumption-no-yes" id="alcohol-consumption-yes">
+          <label for="alcohol-consumption-yes">yes</label>
+        </fieldset>
+        <p>Do you currently smoke?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="smoker-no-yes" id="smoker-no">
+          <label for="smoker-no">no</label>
+          <input type="radio" required name="smoker-no-yes" id="smoker-yes">
+          <label for="smoker-yes">yes</label>
+        </fieldset>
+        <p>Do you currently exercise less than 3 times a week?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="exercise-infrequently-no-yes" id="exercise-infrequently-no">
+          <label for="exercise-infrequently-no">no</label>
+          <input type="radio" required name="exercise-infrequently-no-yes" id="exercise-infrequently-yes">
+          <label for="exercise-infrequently-yes">yes</label>
+        </fieldset>
+        <p>Do you know of any other reason why you should not participate in a program of physical activity?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="any-reason-no-yes" id="any-reason-no">
+          <label for="any-reason-no">no</label>
+          <input type="radio" required name="any-reason-no-yes" id="any-reason-yes">
+          <label for="any-reason-yes">yes</label>
+        </fieldset>
+        <p>Are you, or is there any possibility that you might be pregnant?</p>
+        <fieldset class="no-yes">
+          <input type="radio" checked required name="pregnant-no-yes" id="pregnant-no">
+          <label for="pregnant-no">no</label>
+          <input type="radio" required name="pregnant-no-yes" id="pregnant-yes">
+          <label for="pregnant-yes">yes</label>
+        </fieldset>
+        <fieldset>
+          <legend>additional information</legend>
+          <textarea name="additional-info" id="additional-info" cols="30" rows="10" placeholder="please enter additional information you feel is necessary">
+            get rid of this
+          </textarea>
+        </fieldset>
+        <span></span>
+        <section>
+          <p>If you answered "<b>no</b>"" accurately to all questions, you have reasonable assurance of your ability to enrol in any of the sporting activities at WWSC.</p>
+          <p>If you answered "<b>yes</b>"" to one or more questions then, if you have not recently done so consult with your doctor by telephone or in person before increasing your physical activity and/or taking a fitness appraisal.</p>
+          <p>Tell your doctor what questions you answered "<b>yes</b>" to on PAR-Q or present your PAR-Q copy.</p>
+          <p>After medical evaluation, seek advice from your doctor as to your suitability for unrestricted physical activity starting off easily and progressing gradually, and restricted or supervised activity to meet your specific needs, at least on an initial basis.</p>
+        </section>
+        <span></span>
+        <button>submit</button>
+      </fieldset>
+    </form>
+
+  </section>
+{% endif %}

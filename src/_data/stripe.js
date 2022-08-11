@@ -4,24 +4,32 @@ const { stripe } = env
 const join = require('./join.js')
 
 let products = []
-let prices = []
-let paymentLinks = []
-
 const listProducts = async () => {
   products = await stripe.products.list({ limit: 100, active: true })
   return products
 }
 
+let prices = []
 const listPrices = async () => {
   prices = await stripe.prices.list({ limit: 100 })
   return prices
 }
 
+let paymentLinks = []
 const listPaymentLinks = async () => {
   paymentLinks = await stripe.paymentLinks.list({
     limit: 100,
   })
   return paymentLinks
+}
+
+let subscriptions = []
+const listSubscriptions = async () => {
+  subscriptions = await stripe.subscriptions
+    .list({ status: 'active', expand: ['data.customer'] })
+    .autoPagingToArray({ limit: 10000 })
+  // console.log({ subscriptions })
+  return subscriptions
 }
 
 const alreadyExists = []
@@ -144,6 +152,7 @@ const assets = async () => {
   await listProducts()
   await listPrices()
   await listPaymentLinks()
+  await listSubscriptions()
   normalize()
   await createProducts()
 
