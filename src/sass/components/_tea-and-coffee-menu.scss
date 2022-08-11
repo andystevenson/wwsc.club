@@ -1,0 +1,29 @@
+section.tea-and-coffee {
+  h2 {
+    text-align: center;
+    max-inline-size: unset;
+  }
+  img {
+    max-block-size: 30vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20ch, 1fr));
+    gap: var(--size-3);
+  }
+
+  article {
+    .name {
+      font-weight: var(--font-weight-7);
+    }
+
+    background-color: var(--surface-1);
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-3);
+    padding: var(--size-3);
+    place-items: center;
+  }
+}

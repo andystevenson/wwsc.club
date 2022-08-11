@@ -1,0 +1,20 @@
+{% if teaAndCoffee %}
+  <section class="tea-and-coffee" id="tea-and-coffee-menu-section">
+    <h2>Tea & Coffee Menu</h2>
+    <img src="/cloudinaried/tea-and-coffee/coffee-at-westwarwicks.avif" alt="coffee on the balcony at west warwicks" loading="lazy">
+    <ul>
+      {% for tAc in teaAndCoffee.children %}
+        <li>
+          <article>
+            <p class="name">
+              {{tAc.product_name}}
+            </p>
+            <p class="price">
+              {{tAc.selling_price}}
+            </p>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
