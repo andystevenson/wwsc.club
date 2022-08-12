@@ -1,0 +1,51 @@
+section.soft-drinks-menu-section {
+  header {
+    gap: var(--size-2);
+    > * {
+      text-align: center;
+      max-inline-size: unset;
+    }
+  }
+
+  img {
+    max-height: 33vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .soft-drinks-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+    gap: var(--size-4);
+  }
+
+  .soft-drinks-type {
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-3);
+    padding: var(--size-fluid-3);
+    background-color: var(--surface-1);
+    text-align: center;
+  }
+
+  .soft-drinks-name {
+    font-weight: var(--font-weight-7);
+  }
+
+  .soft-drinks-price {
+    white-space: pre;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--size-1);
+    font-size: var(--font-size-1);
+    text-align: center;
+
+    & .soft-drinks-qty {
+      text-transform: lowercase;
+      text-align: right;
+    }
+  }
+
+  .no-variants + .soft-drinks-price {
+    grid-template-columns: 1fr;
+  }
+}

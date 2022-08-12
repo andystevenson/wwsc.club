@@ -1,0 +1,41 @@
+{% if softDrinksMenu %}
+  <section class="soft-drinks-menu-section" id="soft-drinks-menu-section">
+    <header>
+      <h2 class="soft-drinks-menu-title">Soft Drinks</h2>
+      <small>(WWSC members enjoy 15% discount!)</small>
+      <img src="/cloudinaried/bar/soft-drinks.avif" alt="soft drinks at west warwicks" loading="lazy">
+    </header>
+
+    <ul class="soft-drinks-menu">
+      {% for drink in softDrinksMenu.children %}
+        <li class="soft-drinks-type">
+          <article>
+
+            {% set hasVariants = drink.has_variant %}
+            {% if hasVariants %}
+              <p class="has-variants">
+                <span class="soft-drinks-name">{{ drink.product_name}}</span>
+              </p>
+              <div>
+
+                {% for variant in drink.current_variants %}
+                  <p class="soft-drinks-price">
+                    <span class="soft-drinks-qty">{{variant.display_name}}</span>
+                    <span class="soft-drinks-price">{{variant.selling_price}}</span>
+                  </p>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="no-variants">
+                <span class="soft-drinks-name">{{drink.product_name}}</span>
+              </p>
+              <p class='soft-drinks-price'>
+                <span>{{drink.selling_price}}</span>
+              </p>
+            {% endif %}
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
