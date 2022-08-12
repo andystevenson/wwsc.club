@@ -1,7 +1,10 @@
 {% if spiritsMenu %}
   <section class="spirits-menu-section" id="spirits-menu-section">
-    <h2 class="spirits-menu-title">Spirits</h2>
-    <img src="/cloudinaried/bar/spirits.avif" alt="alcoholic spirits at west warwicks" loading="lazy">
+    <header>
+      <h2 class="spirits-menu-title">Spirits</h2>
+      <small>(WWSC members enjoy 15% discount!)</small>
+      <img src="/cloudinaried/bar/spirits.avif" alt="alcoholic spirits at west warwicks" loading="lazy">
+    </header>
 
     <ul class="spirits-menu-spirits">
       {% for spirits in spiritsMenu.children %}

@@ -10,9 +10,10 @@
   }
 
   & .introduction {
+    gap: var(--size-2);
     text-align: center;
     font-style: italic;
-    p {
+    > * {
       max-inline-size: unset;
     }
   }

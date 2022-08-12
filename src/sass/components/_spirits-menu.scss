@@ -1,7 +1,10 @@
 section.spirits-menu-section {
-  h2 {
-    text-align: center;
-    max-inline-size: unset;
+  header {
+    gap: var(--size-2);
+    > * {
+      text-align: center;
+      max-inline-size: unset;
+    }
   }
 
   img {

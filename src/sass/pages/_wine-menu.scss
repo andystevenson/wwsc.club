@@ -1,4 +1,12 @@
 .wine-menu-section {
+  header {
+    gap: var(--size-2);
+    > * {
+      text-align: center;
+      max-inline-size: unset;
+    }
+  }
+
   display: grid;
   text-align: center;
 

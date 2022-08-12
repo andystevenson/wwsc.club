@@ -1,7 +1,11 @@
 {% if beerMenu %}
   <section class="beer-menu-section" id="beer-menu-section">
-    <h2 class="beer-menu-title">Beer</h2>
-    <img src="/cloudinaried/bar/beers.avif" alt="beers at west warwicks" loading="lazy">
+    <header>
+      <h2 class="beer-menu-title">Beer</h2>
+      <small>(WWSC members enjoy 15% discount!)</small>
+      <img src="/cloudinaried/bar/beers.avif" alt="beers at west warwicks" loading="lazy">
+
+    </header>
 
     <ul class="beer-menu-beers">
       {% for beer in beerMenu.children %}
