@@ -1,0 +1,30 @@
+section.spirits-menu-section {
+  h2 {
+    text-align: center;
+    max-inline-size: unset;
+  }
+
+  img {
+    max-height: 33vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .spirits-menu-spirits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+    gap: var(--size-4);
+  }
+
+  .spirits-type {
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-3);
+    padding: var(--size-fluid-3);
+    background-color: var(--surface-1);
+    text-align: center;
+  }
+
+  .spirits-name {
+    font-weight: var(--font-weight-7);
+  }
+}
