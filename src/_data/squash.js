@@ -59,7 +59,7 @@ module.exports = {
   charities: [
     {
       name: 'campaign against living miserably',
-      website: '',
+      website: 'https://www.thecalmzone.net/',
       logo: '/images/calm-logo.svg',
     },
   ],
