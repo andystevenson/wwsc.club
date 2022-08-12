@@ -1,10 +1,5 @@
 const getCategories = require('../js/productCategories.js')
-
-const formatPoundValue = (value) => {
-  const { length } = value
-  const result = `£${Number(value).toFixed(2)}`.padStart(7, ' ')
-  return result
-}
+const formatPoundValue = require('../js/formatPoundValue.js')
 
 const measures = {
   bottle: '750ml',

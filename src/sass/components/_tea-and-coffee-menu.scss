@@ -4,8 +4,10 @@ section.tea-and-coffee {
     max-inline-size: unset;
   }
   img {
-    max-block-size: 30vh;
-    place-self: center;
+    max-block-size: 33vh;
+    object-position: 0% 25%;
+    object-fit: cover;
+    width: 100%;
   }
 
   ul {

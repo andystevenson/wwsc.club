@@ -1,0 +1,38 @@
+{% if beerMenu %}
+  <section class="beer-menu-section" id="beer-menu-section">
+    <h2 class="beer-menu-title">Beer Menu</h2>
+    <img src="/cloudinaried/bar/beers.avif" alt="beers at west warwicks" loading="lazy">
+
+    <ul class="beer-menu-beers">
+      {% for beer in beerMenu.children %}
+        <li class="beer-type">
+          <article>
+
+            {% set hasVariants = beer.has_variant %}
+            {% if hasVariants %}
+              <p class="has-variants">
+                <span class="beer-name">{{ beer.product_name}}</span>
+              </p>
+              <div>
+
+                {% for variant in beer.current_variants %}
+                  <p class="beer-price">
+                    <span class="beer-qty">{{variant.display_name}}</span>
+                    <span class="beer-price">{{variant.selling_price}}</span>
+                  </p>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="no-variants">
+                <span class="beer-name">{{beer.product_name}}</span>
+              </p>
+              <p class='beer-price'>
+                <span class="beer-price">{{beer.selling_price}}</span>
+              </p>
+            {% endif %}
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
