@@ -10,6 +10,10 @@
   status = 200
 
 [[redirects]]
+  from = "/home"
+  to = "/"
+
+[[redirects]]
   from = "/cloudinaried/:height/:sport/:image"
   to = "https://res.cloudinary.com/andystevenson/image/fetch/c_scale,q_auto,f_auto,h_:height/https://raw.githubusercontent.com/andystevenson/wwsc-assets/master/images/:sport/:image"
   status = 200

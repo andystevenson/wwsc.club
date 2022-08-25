@@ -29,11 +29,15 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@andystevenson/goodtill": "^0.1.4",
+    "autoprefixer": "^10.4.8",
+    "cssnano": "^5.1.13",
+    "node-fetch": "^3.2.10",
     "postcss": "^8.4.5",
     "postcss-custom-media": "^8.0.0",
     "postcss-jit-props": "^1.0.4",
     "sass": "^1.49.0",
-    "slinkity": "^0.6.1"
+    "slinkity": "^0.6.1",
+    "vite-plugin-minify": "^1.5.2"
   },
   "dependencies": {
     "@andystevenson/11ty": "^0.1.3",

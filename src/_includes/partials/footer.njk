@@ -1,26 +1,16 @@
-<section>
-  <section class="social">
-    {% for platform, link in social %}
-      <a href="{{link}}" title="{{platform}}" class="social-link {{platform}}">
-        <img src="/images/{{platform}}.svg" alt="image for social media {{platform}}">
-      </a>
-    {% endfor %}
+<footer>
+  <section>
+    {% include "./social.njk" %}
+    {% include "./contact.njk" %}
   </section>
-  <section class="contacts">
-    <a href="mailto:{{email}}" title="email {{email}}">
-      <img src="/images/envelope.svg" alt="email west warwicks">
-    </a>
-    <a href="tel:{{ telephone }}" title="telephone {{ telephone }}">
-      <img src="/images/telephone.svg" alt="telephone west warwicks">
-    </a>
+
+  <section class="company">
+    <p class="copyright">Copyright &copy 2022 - <span class="longname">West Warwickshire Sports Complex</span>
+      <span class="shortname">WWSC</span>
+    </p>
+    <p class="registration">
+      <span class="longname">(Company registered in England: {{charity.wwsc.companyId}})</span>
+      <span class="shortname">(Company Reg: {{charity.wwsc.companyId}})</span>
+    </p>
   </section>
-</section>
-<section class="company">
-  <p class="copyright">Copyright &copy 2022 - <span class="longname">West Warwickshire Sports Complex</span>
-    <span class="shortname">WWSC</span>
-  </p>
-  <p class="registration">
-    <span class="longname">(Company registered in England: {{charity.wwsc.companyId}})</span>
-    <span class="shortname">(Company Reg: {{charity.wwsc.companyId}})</span>
-  </p>
-</section>
+</footer>

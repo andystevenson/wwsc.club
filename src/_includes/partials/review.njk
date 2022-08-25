@@ -1,6 +1,11 @@
 {% set review = page.fileSlug %}
 {% if review %}
-  <a class="review" href="mailto:review@westwarwicks.co.uk?Subject={{ review }}">
-    <h2>Leave a Review <img src="/images/envelope.svg" alt="email"></h2>
+  <a aria-label="leave a review" class="review" href="mailto:review@westwarwicks.co.uk?Subject={{ review }}">
+    <h2>Leave a Review 
+      {%- if cms.icons.envelope %}
+        {% set icon = cms.icons.envelope %}
+        {% include "./icon.njk" %}
+      {% endif -%}
+    </h2>
   </a>
 {% endif %}

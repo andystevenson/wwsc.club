@@ -27,6 +27,8 @@ section.join-benefits {
 
       & > *:first-child {
         place-self: center;
+        filter: var(--filter);
+        inline-size: var(--size-fluid-3);
       }
     }
   }
