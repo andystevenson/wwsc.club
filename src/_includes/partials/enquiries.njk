@@ -1,0 +1,21 @@
+{% set enquiries = ["General Enquiry", "About Joining", "Host an Event", "Already a Member"] %}
+<section class="enquiries">
+  {% for enquiry in enquiries %}
+    <article data-theme="light">
+      <h2>{{enquiry}}</h2>
+      <section>
+        {% set link = cms.links.email %}
+        {% set args = {
+          link: {
+            params: "?Subject=" + enquiry
+          }
+        } %}
+        {% set noid = true %}
+        {% include "./link.njk" %}
+        {% set link = cms.links.telephone %}
+        {% include "./link.njk" %}
+
+      </section>
+    </article>
+  {% endfor %}
+</section>

@@ -1,4 +1,6 @@
 .join main {
+  --filter: invert(66%) sepia(39%) saturate(5572%) hue-rotate(357deg)
+    brightness(98%) contrast(103%);
   & svg {
     width: var(--size-5);
     stroke: var(--brand);

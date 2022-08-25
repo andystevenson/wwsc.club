@@ -11,6 +11,11 @@ section.join-categories.join-categories {
   font-size: 0.75rem;
   font-size: var(--size-fluid-2);
 
+  button > img {
+    place-self: center;
+    filter: var(--filter);
+    inline-size: var(--size-fluid-3);
+  }
   @media (--sm-n-above) {
     flex-direction: row;
     gap: var(--size-fluid-2);

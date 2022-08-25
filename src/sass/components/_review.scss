@@ -15,6 +15,6 @@ a.booking {
       filter: invert(1);
     }
     transform: translateY(10%);
-    block-size: var(--size-fluid-3);
+    inline-size: var(--size-fluid-3);
   }
 }

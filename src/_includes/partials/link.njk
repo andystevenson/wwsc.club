@@ -1,0 +1,18 @@
+{%- if link %}
+  {% set name = args.link.name if args.link.name else 
+    link.name %}
+  {% set href = args.link.href if args.link.href else 
+    link.href %}
+  {% set params = args.link.params if args.link.params else 
+    link.params %}
+  {% set description = args.link.description if args.link.description else 
+    link.description %}
+  {% set external = args.link.external if args.link.external else 
+    link.external %}
+  {% set id = 'id=' + name if not noid %}
+  <a {{id}} href="{{link.href}}{{params}}" aria-label="{{link.description}}" title="{{link.description}}" target='{{ "_blank" if link.external else "_self"}}'>
+    {% set icon = link.image %}
+    {% set args = args.image %}
+    {%-include "./icon.njk" %}
+  </a>
+{% endif -%}

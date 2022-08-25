@@ -1,0 +1,7 @@
+{%- if cms.links.contact %}
+  <section class="contacts">
+    {%- for link in cms.links.contact %}
+      {%- include "./link.njk" -%}
+    {% endfor -%}
+  </section>
+{%- endif %}
