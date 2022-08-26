@@ -1,0 +1,11 @@
+{% set events = cms.tags.events %}
+{{ events | log }}
+{% if events %}
+  <section class="events">
+    <ul class="images">
+      {% for special in events %}
+        <img title="special.description" src="{{special.url}}" width="{{special.width}}" height="{{special.height}}" alt="{{special.description}}">
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
