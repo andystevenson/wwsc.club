@@ -27,7 +27,7 @@ section.hero {
     }
   }
 
-  & section {
+  & .gallery {
     --columns: 3;
     gap: var(--size-1);
     grid-template-columns: repeat(var(--columns), 1fr);

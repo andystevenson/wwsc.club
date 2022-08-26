@@ -2,6 +2,9 @@
 <h1>{{ title | capitalize }}</h1>
 <p class="description">{{group.description}}</p>
 
+
+{% include "partials/events.njk" %}
+
 {% include "partials/gallery.njk" %}
 
 <a class="booking" href="mailto:{{group.name}}@westwarwicks.co.uk?Subject={{group.subject}}">

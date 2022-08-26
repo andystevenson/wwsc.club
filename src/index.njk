@@ -5,7 +5,10 @@
       <button>join us</button>
     </form>
   </header>
-  <section title="gallery" id="home-gallery">
+
+  {% include "partials/events.njk" %}
+
+  <section title="gallery" id="home-gallery" class="gallery">
     <a title="bar" href="/bar">
       <picture>
         <img src="/cloudinaried/300/main/bar-main.avif" width="300" height="450" alt="west warwicks bar" loading="lazy">
