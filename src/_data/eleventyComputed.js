@@ -2,20 +2,8 @@
 const { statSync } = require('fs')
 
 module.exports = {
-  layout: 'base.njk',
   title: (data) => {
     return data.page.fileSlug || 'WWSC'
-  },
-  permalink: (data) => {
-    const { filePathStem, fileSlug } = data.page
-    const rootPage =
-      filePathStem === `/pages/${fileSlug}` || filePathStem === '/index'
-    const link = rootPage
-      ? `/${fileSlug}/index.html`
-      : `${filePathStem}/index.html`
-
-    console.log('permalink', filePathStem, rootPage, link)
-    return link === '//index.html' ? '/index.html' : link
   },
   script: (data) => {
     let src = `${data.page.fileSlug || 'WWSC'}.js`

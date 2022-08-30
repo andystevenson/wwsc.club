@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@andystevenson/11ty": "^0.1.3",
+    "@andystevenson/lib": "^0.1.2",
     "@andystevenson/sass": "^0.1.2",
     "@andystevenson/theme-toggle": "^0.1.5",
     "axios": "^0.27.2",

@@ -9,7 +9,7 @@
 
   & > .enquiries {
     background-size: cover;
-    background-image: url('https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp');
+    background-image: url('https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp?w=768');
     background-position: bottom;
     border-radius: var(--radius-2);
     gap: var(--size-fluid-1);
@@ -20,6 +20,18 @@
     @media (--sm-n-above) {
       padding: var(--size-fluid-2);
       gap: var(--size-fluid-2);
+    }
+
+    @media (--lg-n-above) {
+      background-image: url('https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp?w=1024');
+    }
+
+    @media (--xl-n-above) {
+      background-image: url('https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp?w=1440');
+    }
+
+    @media (--xxl-n-above) {
+      background-image: url('https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp?w=1920');
     }
 
     & > article {
