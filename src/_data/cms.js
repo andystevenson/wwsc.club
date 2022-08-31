@@ -137,7 +137,51 @@ const links = {
             }
   `,
 }
-const collections = [asset, links]
+
+const people = {
+  name: 'people',
+  transform: (data) => {
+    // screwed up the not renaming the content-type-id!
+    let { items: all } = data?.staffCollection
+    const content = {
+      people: { all },
+    }
+    // console.log(util.inspect(content, undefined, null, true))
+
+    return content
+  },
+  query: `
+            {
+              staffCollection {
+                items {
+                  sequence
+                  email
+                  fullname
+                  roles
+                  section
+                  bio
+                  image {
+                    title
+                    description
+                    contentType
+                    fileName
+                    url
+                    width
+                    height
+                    contentfulMetadata {
+                      tags {
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }
+  `,
+}
+// all the collections we are going to gather
+
+const collections = [asset, links, people]
 
 module.exports = async () => {
   const fetch = (...args) =>

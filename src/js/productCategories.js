@@ -5,7 +5,7 @@ let categories = null
 const getCategories = async () => {
   // if we have already fetched them then leave it at that
   if (categories) {
-    console.log('CACHED CATEGORIES!')
+    // console.log('CACHED CATEGORIES!')
     return categories
   }
 

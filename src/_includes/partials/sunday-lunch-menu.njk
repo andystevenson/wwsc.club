@@ -1,6 +1,8 @@
 {% if sundayLunchMenu %}
   <section class="sunday-lunch-menu-section" id="sunday-lunch-menu-section">
-    <img src="/cloudinaried/misc/sunday-lunch-menu.avif" alt="sunday lunch menu" loading="lazy">
+    {% set menu = cms.tags.restaurant | find(["title","Sunday Lunch"]) %}
+    {{ menu | inspect }}
+    <img src="{{menu.url}}" alt="sunday lunch menu" loading="lazy">
     <ul class="sunday-lunch-menu">
       {% for lunch in sundayLunchMenu.children %}
         <li class="sunday-lunch-type">
