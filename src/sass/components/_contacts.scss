@@ -13,7 +13,8 @@ section.contacts {
     padding-inline: var(--size-1);
 
     & img {
-      block-size: var(--size-fluid-2);
+      pointer-events: none;
+      inline-size: var(--size-fluid-2);
     }
   }
   [data-theme='dark'] & > a {

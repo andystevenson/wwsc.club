@@ -1,0 +1,26 @@
+{% if cms.tags.policy %}
+  <section class="policies">
+    <h2>Policies</h2>
+    <ul>
+      {% set policies = cms.tags.policy %}
+      {% for policy in policies %}
+        {% if policy.contentType === 'application/pdf' %}
+          <li>
+            <a  aria-label="{{policy.description}}" href="{{policy.url}}">
+              <img aria-hidden="true" src="{{ cms.icons.pdf.url }}" alt="{{policy.description}}" width="64" height="64" loading='lazy'>
+              <h3>{{policy.title}}</h3>
+            </a>
+          </li>
+        {% endif %}    
+      {% endfor %}
+    </ul>
+    <section class="contacts">
+        {% set link = cms.links.email %}
+        {% set args = {
+          link: {
+            params: "?Subject=Policies"
+          }
+        } %}
+    </section>
+  </section>
+{% endif %}

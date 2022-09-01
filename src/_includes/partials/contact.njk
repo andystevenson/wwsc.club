@@ -1,7 +1,8 @@
 {%- if cms.links.contact %}
   <section class="contacts">
-    {%- for link in cms.links.contact %}
-      {%- include "./link.njk" -%}
-    {% endfor -%}
+    {% set link = cms.links.contact | find(["name", "email"]) %}
+    {%- include "./link.njk" -%}
+    {% set link = cms.links.contact | find(["name","telephone"]) %}
+    {%- include "./link.njk" -%}
   </section>
 {%- endif %}

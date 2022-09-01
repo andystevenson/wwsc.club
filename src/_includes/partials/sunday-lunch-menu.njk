@@ -1,13 +1,11 @@
 {% if sundayLunchMenu %}
   <section class="sunday-lunch-menu-section" id="sunday-lunch-menu-section">
     {% set menu = cms.tags.restaurant | find(["title","Sunday Lunch"]) %}
-    {{ menu | inspect }}
-    <img src="{{menu.url}}" alt="sunday lunch menu" loading="lazy">
+    <img src="{{menu.url}}?fm=webp" alt="{{menu.description}}" width="{{menu.width}}" height="{{menu.height}}" loading="lazy">
     <ul class="sunday-lunch-menu">
       {% for lunch in sundayLunchMenu.children %}
         <li class="sunday-lunch-type">
           <article>
-
             {% set hasVariants = lunch.has_variant %}
             {% if hasVariants %}
               <p class="has-variants">

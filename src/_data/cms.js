@@ -1,5 +1,6 @@
 // process all the content from CONTENTFUL CMS
 const util = require('util')
+const { sortBy, without } = require('lodash')
 
 const createTags = (assets) => {
   const tags = {}
@@ -138,14 +139,62 @@ const links = {
   `,
 }
 
+const createSections = (people) => {
+  return people.reduce((sections, person) => {
+    person.section.forEach((section) => {
+      section in sections
+        ? sections[section].members.push(person)
+        : (sections[section] = {
+            title: section,
+            email: `${section}@westwarwicks.co.uk`,
+            members: [person],
+          })
+    })
+
+    // sort the members into presentation 'sequence'
+    for (const section in sections) {
+      const sorted = sortBy(sections[section].members, ['sequence'])
+      sections[section].members = sorted
+    }
+
+    return sections
+  }, {})
+}
+
+const annotateTrustees = (trustees) => {
+  trustees.forEach((trustee) => {
+    let roles =
+      trustee.roles.length > 1
+        ? without(trustee.roles, 'chairman')
+        : trustee.roles
+    const role = without(roles, 'committee member')[0]
+    const section = without(trustee.section, 'staff', 'trustees')[0]
+    trustee.trustees = { role, section }
+  })
+  return trustees
+}
+
+const annotateStaff = (staff) => {
+  staff.forEach((member) => {
+    const role = without(member.roles, 'committee member')[0]
+    member.staff = { role }
+  })
+  return staff
+}
+
 const people = {
   name: 'people',
   transform: (data) => {
     // screwed up the not renaming the content-type-id!
     let { items: all } = data?.staffCollection
+
+    const sections = createSections(all)
     const content = {
-      people: { all },
+      people: { all, ...sections },
     }
+
+    annotateTrustees(content.people.trustees.members)
+    annotateStaff(content.people.staff.members)
     // console.log(util.inspect(content, undefined, null, true))
 
     return content

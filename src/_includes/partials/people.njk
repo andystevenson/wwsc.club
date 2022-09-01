@@ -1,35 +1,33 @@
-{% if group.people %}
+{% if people %}
   <section class="people">
-    <h2>{{group.people.title}}</h2>
-    {% if group.people.members %}
-      <section class="members">
-        {% for member in group.people.members %}
-          <section class="member">
-            <picture>
-              <img src="{{ member.image }}" alt="{{member.name}}" width="64" height="64" loading='lazy'>
-            </picture>
-            {% if member.role %}
-              {% if member.link %}
-                <a href={{member.link}}>
-                  <h3>{{member.role}}</h3>
-                </a>
-              {% else %}
-                <h3>{{member.role}}</h3>
-              {% endif %}
-            {% endif %}
-            {% if member.name %}
-              <p>{{member.name}}</p>
-            {% endif %}
-
-          </section>
-        {% endfor %}
-      </section>
-    {% endif %}
+    <h2>{{people.title | capitalize }}</h2>
+    <section class="members">
+      {% for member in people.members %}
+        <section class="member">
+          <picture>
+            <img src="{{ member.image.url }}" alt="{{member.fullname}}" width="64" height="64" loading='lazy'>
+          </picture>
+          {% set role = member[people.title].role %}
+          {% if role %}
+            <h3>{{role}}</h3>
+          {% endif %}
+          {% set section = member[people.title].section %}
+          {% if section %}
+            <h3>{{section}}</h3>
+          {% endif %}
+          <p>{{member.fullname}}</p>
+        </section>
+      {% endfor %}
+    </section>
     <section class="contacts">
-      <a href="mailto:{{group.people.email}}?Subject=Feedback" 
-          title="{{group.people.emailMessage}}">
-        <img src="/images/envelope.svg" alt="{{group.people.emailMessage}}" loading='lazy'>
-      </a>
+        {% set link = cms.links['email-' + people.title] %}
+        {% set args = {
+          link: {
+            params: "?Subject=Feedback"
+          }
+        } %}
+        {% set noid = true %}
+        {% include "./link.njk" %}
     </section>
   </section>
 {% endif %}

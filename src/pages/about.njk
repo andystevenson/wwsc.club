@@ -1,14 +1,13 @@
 <h1>{{ title | capitalize }}</h1>
 
 <picture>
-  <img src="/cloudinaried/misc/west-warwicks-social-image.avif" alt="sky view of west warwicks">
+  {% img 'https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp', 'aerial view of west warwicks' %}
 </picture>
 
-{% set group = staff %}
+{% set people = cms.people.staff %}
 {% include 'partials/people.njk' %}
 
-{% set group = about %}
+{% set people = cms.people.trustees %}
 {% include 'partials/people.njk' %}
 
-{% set group = policies %}
-{% include 'partials/people.njk' %}
+{% include 'partials/policies.njk' %}
