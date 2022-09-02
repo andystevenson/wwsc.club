@@ -1,6 +1,4 @@
 section.hero {
-  gap: var(--size-6);
-
   & img {
     width: 100%;
     aspect-ratio: var(--ratio-portrait);
@@ -8,14 +6,14 @@ section.hero {
   }
 
   & > header {
-    margin-block-start: var(--size-2);
+    margin-block-start: var(--size-1);
     display: flex;
+    gap: var(--size-2);
     flex-direction: column;
-
-    @media (--lg-n-above) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+    padding: var(--size-3);
+    background-color: var(--surface-3);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-3);
 
     & > * {
       text-align: center;
