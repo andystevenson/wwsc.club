@@ -9,7 +9,13 @@ ul.images {
     object-fit: contain;
   }
 
-  a > img {
-    pointer-events: none;
+  a {
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    > img {
+      pointer-events: none;
+    }
   }
 }

@@ -73,6 +73,10 @@
     }
 
     li {
+      &:first-of-type {
+        display: block;
+      }
+
       a {
         padding-inline: var(--size-3);
         padding-block: var(--size-1);
