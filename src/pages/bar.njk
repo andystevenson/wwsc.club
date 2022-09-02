@@ -46,7 +46,8 @@
   </div>
 </section>
 
-{% include 'partials/specials.njk' %}
+{% set promotions = cms.tags.specials %}
+{% include 'partials/promotions.njk' %}
 
 {% include 'partials/menu-navigation.njk' %}
 

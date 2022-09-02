@@ -10,7 +10,8 @@ layout: 'base.njk'
     </form>
   </header>
 
-  {% include "partials/events.njk" %}
+  {% set promotions = cms.tags.events %}
+  {% include "partials/promotions.njk" %}
 
   <section title="gallery" id="home-gallery" class="gallery">
     <a title="bar" href="/bar">

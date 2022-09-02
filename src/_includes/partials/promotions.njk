@@ -1,0 +1,19 @@
+{% if promotions %}
+  <section class="promotions">
+    <ul class="images">
+      {% for promotion in promotions %}
+        {% set isBrochure = promotion.tags.includes("brochure") %}
+        {% if not isBrochure %}
+          {% set brochure = cms.tags.brochure | find(["title", promotion.title]) %}
+          {% if brochure %}
+            <a aria-label="{{brochure.description}}" href="{{brochure.url}}" title="{{'click to download -> ' + brochure.description }}" target="_blank">
+              <img aria-hidden="true" title="{{promotion.description}}" src="{{promotion.url}}" width="{{promotion.width}}" height="{{promotion.height}}" alt="{{promotion.description}}">
+            </a>
+          {% else %}
+            <img title="{{promotion.description}}" src="{{promotion.url}}" width="{{promotion.width}}" height="{{promotion.height}}" alt="{{promotion.description}}">              
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

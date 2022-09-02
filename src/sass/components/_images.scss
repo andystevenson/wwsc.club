@@ -8,4 +8,8 @@ ul.images {
     max-block-size: 70vh;
     object-fit: contain;
   }
+
+  a > img {
+    pointer-events: none;
+  }
 }
