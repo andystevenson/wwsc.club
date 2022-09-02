@@ -3,7 +3,7 @@
   <section class="specials">
     <ul class="images">
       {% for special in specials %}
-        <img title="special.description" src="{{special.url}}" width="{{special.width}}" height="{{special.height}}" alt="{{special.description}}">
+        <img title="special.description" src="{{special.url}}?fm=webp" width="{{special.width}}" height="{{special.height}}" alt="{{special.title}}">
       {% endfor %}
     </ul>
   </section>
