@@ -148,7 +148,6 @@ const normalize = () => {
 }
 
 const assets = async () => {
-  // await createProducts()
   await listProducts()
   await listPrices()
   await listPaymentLinks()
