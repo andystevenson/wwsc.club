@@ -1,7 +1,7 @@
 {%- if cms.links.social %}
   <section class="social">
-    {%- for link in cms.links.social %}
-      {%- include "./link.njk" -%}
+    {%- for social in cms.links.social %}
+      {{ link(social, id=social.name) }}
     {% endfor -%}
   </section>
 {%- endif %}

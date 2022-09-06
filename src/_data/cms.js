@@ -1,13 +1,20 @@
+const { permutateAll } = require('@andystevenson/lib/permutations')
+const inspect = require('@andystevenson/lib/inspect')
+
 // process all the content from CONTENTFUL CMS
-const util = require('util')
+
 const { sortBy, without } = require('lodash')
 
 const createTags = (assets) => {
   const tags = {}
   assets.forEach((asset) => {
-    asset.tags.forEach((tag) => {
-      if (tag in tags) return tags[tag].push(asset)
-      tags[tag] = [asset]
+    const permutations = permutateAll(asset.tags)
+    // inspect('asset', asset.title, asset.tags, permutations)
+    permutations.forEach((permutation) => {
+      const { name } = permutation
+      // inspect(`adding ${asset.title} to tag ${permutation.name}`)
+      if (name in tags) return tags[name].push(asset)
+      tags[name] = [asset]
     })
   })
   return tags

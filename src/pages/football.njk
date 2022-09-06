@@ -5,6 +5,4 @@
 
 {% include 'partials/gallery.njk' %}
 
-<a class="booking" href="mailto:{{group.name}}@westwarwicks.co.uk?Subject={{group.subject}}">
-  <h2>{{group.booking}}<img src="/images/envelope.svg" alt="email"></h2>
-</a>
+{{ link(cms.links['email-football'], h2('Book the Astro'), '?Subject=Book the Astro', class='booking') }}

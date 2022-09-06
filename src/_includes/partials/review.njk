@@ -1,11 +1,1 @@
-{% set review = page.fileSlug %}
-{% if review %}
-  <a aria-label="leave a review" class="review" href="mailto:review@westwarwicks.co.uk?Subject={{ review }}">
-    <h2>Leave a Review 
-      {%- if cms.icons.envelope %}
-        {% set icon = cms.icons.envelope %}
-        {% include "./icon.njk" %}
-      {% endif -%}
-    </h2>
-  </a>
-{% endif %}
+{{ link(cms.links['email-review'], h2('Leave a Review'), '?Subject=' + page.fileSlug, class='review') }}

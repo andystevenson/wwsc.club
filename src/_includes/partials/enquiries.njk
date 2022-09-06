@@ -4,17 +4,9 @@
     <article data-theme="light">
       <h2>{{enquiry}}</h2>
       <section>
-        {% set link = cms.links.email %}
-        {% set args = {
-          link: {
-            params: "?Subject=" + enquiry
-          }
-        } %}
-        {% set noid = true %}
-        {% include "./link.njk" %}
-        {% set link = cms.links.telephone %}
-        {% include "./link.njk" %}
-
+        {% set params = "?Subject=" + enquiry %}
+        {{ link(cms.links.email, params) }}
+        {{ link(cms.links.telephone) }}
       </section>
     </article>
   {% endfor %}

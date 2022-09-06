@@ -1,4 +1,2 @@
-{% set link = cms.links['scroll-to-top'] %}
-{% if link %}
-  {% include './link.njk' %}
-{% endif %}
+{% set scroll = cms.links['scroll-to-top'] %}
+{{ link(scroll, id='scroll-to-top' )}}

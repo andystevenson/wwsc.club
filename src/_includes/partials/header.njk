@@ -1,9 +1,5 @@
 <header>
-  {# <a href="/" id='logo' aria-label="west warwicks logo">
-    {% set icon = cms.icons.favicon %}
-    <img aria-hidden="true" src="{{icon.url}}" width="64" height="64" alt="{{icon.description}}" loading="lazy">
-  </a> #}
-  {% include "./logo.njk" %}
+  {{ link(cms.links.logo, width=64, height=64, id='logo') }}
 
   <a id='mobile-menu' class='mobile-menu' href="#primary-navigation" aria-label="mobile menu">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">

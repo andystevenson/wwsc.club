@@ -1,8 +1,4 @@
-{%- if cms.links.contact %}
-  <section class="contacts">
-    {% set link = cms.links.contact | find(["name", "email"]) %}
-    {%- include "./link.njk" -%}
-    {% set link = cms.links.contact | find(["name","telephone"]) %}
-    {%- include "./link.njk" -%}
-  </section>
-{%- endif %}
+<section class="contacts">
+  {{ link(cms.links.email, id='email') }}
+  {{ link(cms.links.telephone, id='telephone') }}
+</section>

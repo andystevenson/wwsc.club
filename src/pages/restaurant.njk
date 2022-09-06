@@ -4,9 +4,7 @@
 
 {% include "partials/gallery.njk" %}
 
-<a class="booking" href="mailto:{{group.name}}@westwarwicks.co.uk?Subject={{group.subject}}">
-  <h2>{{group.booking}}<img src="/images/envelope.svg" alt="email"></h2>
-</a>
+{{ link(cms.links['email-restaurant'], h2('Book a Table'), '?Subject=Book a Table', class='booking') }}
 
 {% include 'partials/menu-navigation.njk' %}
 

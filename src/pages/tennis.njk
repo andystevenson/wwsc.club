@@ -1,32 +1,33 @@
+{% h1 title | capitalize %}
+{% p tennis.description, class="description" %}
+
 {% set group = tennis %}
-
-<h1>{{ title | capitalize }}</h1>
-<p class="description">{{ tennis.description }}</p>
-
 {% include 'partials/gallery.njk' %}
 
-<form class='book-a-court' action="{{ bookNow }}">
-  <button>book a court</button>
-</form>
+{{ button('book a court') | form(class='book-a-court', action=bookNow)}}
 
-<section class="clubspark">
-  <a href="{{tennis.clubspark}}" target="_blank">
-    <picture>
-      <img src="/cloudinaried/tennis/tennis-kids-classes.avif" alt="kids classes schedule" loading='lazy'>
-    </picture>
-  </a>
+{% set images = [
+  {url: "/cloudinaried/tennis/tennis-kids-classes.avif", alt:"kids classes schedule"},
+  {url: "/cloudinaried/tennis/tennis-adult-classes.avif", alt:"adult classes schedule"}
+  ] 
+%}
 
-  <a href="{{tennis.clubspark}}" target="_blank">
-    <picture>
-      <img src="/cloudinaried/tennis/tennis-adult-classes.avif" alt="adult classes schedule" loading='lazy'>
-    </picture>
-  </a>
+{% set links %}
+  {% for image in images %}
+    {{ img(
+      src="/cloudinaried/tennis/tennis-kids-classes.avif", 
+      alt="kids classes schedule", 
+      loading='lazy')
+      | picture 
+      | a(href=tennis.clubspark, target="_blank")
+    }}
+  {% endfor %}
+{% endset %}
 
-</section>
+{{ links | section(class="clubspark")}}
 
-<form class='book-tennis-coaching' action="{{ tennis.clubspark }}">
-  <button>book a coaching session</button>
-</form>
+{{ button("book a coaching session") 
+    | form(class='book-tennis-coaching', action=tennis.clubspark) }}
 
 {% include 'partials/coaches.njk' %}
 {% include 'partials/people.njk' %}

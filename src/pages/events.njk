@@ -1,12 +1,13 @@
-{% set group = events %}
 <h1>{{ title | capitalize }}</h1>
-<p class="description">{{group.description}}</p>
 
-{% set promotions = cms.tags.events %}
+<p class="description">West Warwicks has several large function rooms to accomodate many different types of events. We regularly hold birthday parties, weddings, board meetings, funeral wakes, discos, quiz nights, etc. We offer open bar, waiter service and excellent food and buffet services.</p>
+
+{% set promotions = cms.tags['events-promotion'] %}
 {% include "partials/promotions.njk" %}
 
-{% include "partials/gallery.njk" %}
+{% set images = cms.tags['events-gallery'] %}
+{% include "partials/section-gallery.njk" %}
 
-<a class="booking" href="mailto:{{group.name}}@westwarwicks.co.uk?Subject={{group.subject}}">
-  <h2>{{group.booking}}<img src="/images/envelope.svg" alt="email"></h2>
-</a>
+{% set mailto = "mailto:" + page.fileSlug + "@westwarwicks.co.uk?Subject=Book an Event" %}
+{{ a(h2("Book an Event" + img('aria-hidden'=true, src=cms.icons.envelope.url, alt='email')),
+class='booking', href=mailto) }}

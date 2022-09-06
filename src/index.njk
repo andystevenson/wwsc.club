@@ -10,7 +10,7 @@ layout: 'base.njk'
     </form>
   </header>
 
-  {% set promotions = cms.tags.main %}
+  {% set promotions = cms.tags['main-promotion'] %}
   {% include "partials/promotions.njk" %}
 
   <section title="gallery" id="home-gallery" class="gallery">

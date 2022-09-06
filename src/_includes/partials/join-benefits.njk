@@ -4,8 +4,7 @@
     <ul>
       {% for benefit in benefits %}
         <li>
-          {% set icon = cms.icons.checkmark %}
-          {% include "partials/icon.njk" %}
+          {{ icon(cms.icons.checkmark) }}
 
           <p>{{benefit.description | safe}}</p>
           {% for link in benefit.links %}

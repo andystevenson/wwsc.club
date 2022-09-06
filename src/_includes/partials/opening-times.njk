@@ -2,8 +2,7 @@
   <form action="/opening-times" data-theme="light">
     <button>
       <h2>Opening times</h2>
-      {% set icon = cms.icons.clock %}
-      {% include "./icon.njk" %}
+      {{ icon(cms.icons.clock) }}
     </button>
   </form>
 {% endif %}

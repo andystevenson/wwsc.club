@@ -1,0 +1,9 @@
+{% if images %}
+  <section title="gallery" class="gallery">
+    {% for image in images %}
+      <picture>
+        <img src="{{ image.url }}" alt="{{ image.description }}" title="{{ image.description }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy">
+      </picture>
+    {% endfor %}
+  </section>
+{% endif %}

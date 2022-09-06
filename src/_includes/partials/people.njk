@@ -3,31 +3,20 @@
     <h2>{{people.title | capitalize }}</h2>
     <section class="members">
       {% for member in people.members %}
+        {% set role = member[people.title].role %}
+        {% set section = member[people.title].section %}
         <section class="member">
-          <picture>
-            <img src="{{ member.image.url }}" alt="{{member.fullname}}" width="64" height="64" loading='lazy'>
-          </picture>
-          {% set role = member[people.title].role %}
-          {% if role %}
-            <h3>{{role}}</h3>
-          {% endif %}
-          {% set section = member[people.title].section %}
-          {% if section %}
-            <h3>{{section}}</h3>
-          {% endif %}
-          <p>{{member.fullname}}</p>
+          {{ img(src=member.image.url, alt=member.fullname, width=64, height=64, loading='lazy') 
+              | picture }}
+          {{ h3(role) if role }}
+          {{ h3(section) if section }}
+          {{ p(member.fullname) }}</p>
         </section>
       {% endfor %}
     </section>
     <section class="contacts">
-        {% set link = cms.links['email-' + people.title] %}
-        {% set args = {
-          link: {
-            params: "?Subject=Feedback"
-          }
-        } %}
-        {% set noid = true %}
-        {% include "./link.njk" %}
+      {% set email = cms.links['email-' + people.title] %}
+      {{ link(email, '?Subject=Feedback')}}
     </section>
   </section>
 {% endif %}

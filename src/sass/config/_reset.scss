@@ -29,3 +29,7 @@ li {
 picture {
   place-self: center;
 }
+
+img[aria-hidden] {
+  pointer-events: none;
+}
