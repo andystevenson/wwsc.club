@@ -6,8 +6,8 @@
       {% for policy in policies %}
         {% if policy.contentType === 'application/pdf' %}
           <li>
-            <a  aria-label="{{policy.description}}" href="{{policy.url}}">
-              <img aria-hidden="true" src="{{ cms.icons.pdf.url }}" alt="{{policy.description}}" width="64" height="64" loading='lazy' target="_blank">
+            <a  aria-label="{{policy.description}}" href="{{policy.url}}" target="_blank">
+              <img aria-hidden="true" src="{{ cms.icons.pdf.url }}" alt="{{policy.description}}" width="64" height="64" loading='lazy'>
               <h3>{{policy.title}}</h3>
             </a>
           </li>
