@@ -18,8 +18,6 @@ module.exports = function link(...args) {
 
   // did they pass any link text
   let linkText = ''
-  console.log(`linkText`, isString(args[next]))
-
   if (isString(args[next]) && !args[next].startsWith('?')) {
     // assume this argument is linkText
     linkText = args[next].toString()
