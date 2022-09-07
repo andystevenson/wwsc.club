@@ -15,9 +15,9 @@
     "clean:cache-opening-times": "rm -rf ./public/cache/opening-times/*",
     "clean:cache-sumup": "rm -rf ./public/cache/sumup/*",
     "build-cache": "concurrently --timings 'npm:build:*'",
-    "build:cache-stripe": "cache-stripe",
-    "build:cache-opening-times": "cache-opening-times",
-    "build:cache-sumup": "cache-sumup",
+    "build:cache-stripe": "npx cache-stripe",
+    "build:cache-opening-times": "npx cache-opening-times",
+    "build:cache-sumup": "npx cache-sumup",
     "clean-build": "run-s clean-cache build-cache"
   },
   "bin": {
