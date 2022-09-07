@@ -7,7 +7,7 @@
     "init": "npm link",
     "start": "run-s build-cache dev",
     "dev": "slinkity --serve --incremental",
-    "build": "run-s build-cache production",
+    "build": "run-s init build-cache production",
     "production": "slinkity",
     "clean": "rm -rf _site .11ty* ./public/cache/*/*",
     "clean-cache": "concurrently --timings 'npm:clean:*'",
