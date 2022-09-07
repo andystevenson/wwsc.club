@@ -40,8 +40,8 @@ const createIcons = (tags) => {
   return icons
 }
 
-const asset = {
-  name: 'asset',
+const assets = {
+  name: 'assets',
   transform: (data) => {
     let { items } = data?.assetCollection
     const assets = createAssets(items)
@@ -237,7 +237,7 @@ const people = {
 }
 // all the collections we are going to gather
 
-const collections = [asset, links, people]
+const collections = [assets, links, people]
 
 module.exports = async () => {
   const fetch = (...args) =>

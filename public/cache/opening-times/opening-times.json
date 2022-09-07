@@ -1,0 +1,931 @@
+{
+  "element": "section",
+  "class": "opening-times",
+  "children": [
+    {
+      "element": "section",
+      "class": "section-times",
+      "id": "reception",
+      "children": [
+        {
+          "element": "h2",
+          "children": [
+            {
+              "element": "a",
+              "href": "/reception",
+              "value": "reception"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "filler"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "monday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "tuesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "wednesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "thursday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "friday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "saturday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "sunday"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "short-days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fil"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "mon"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "tue"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "wed"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "thu"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fri"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sat"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sun"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "open-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "opens"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "close-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "closes"
+            },
+            {
+              "element": "p",
+              "value": "19:00"
+            },
+            {
+              "element": "p",
+              "value": "19:00"
+            },
+            {
+              "element": "p",
+              "value": "19:00"
+            },
+            {
+              "element": "p",
+              "value": "19:00"
+            },
+            {
+              "element": "p",
+              "value": "19:00"
+            },
+            {
+              "element": "p",
+              "value": "15:00"
+            },
+            {
+              "element": "p",
+              "value": "15:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element": "section",
+      "class": "section-times",
+      "id": "bar",
+      "children": [
+        {
+          "element": "h2",
+          "children": [
+            {
+              "element": "a",
+              "href": "/bar",
+              "value": "bar"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "filler"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "monday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "tuesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "wednesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "thursday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "friday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "saturday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "sunday"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "short-days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fil"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "mon"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "tue"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "wed"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "thu"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fri"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sat"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sun"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "open-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "opens"
+            },
+            {
+              "element": "p",
+              "value": "16:00"
+            },
+            {
+              "element": "p",
+              "value": "16:00"
+            },
+            {
+              "element": "p",
+              "value": "16:00"
+            },
+            {
+              "element": "p",
+              "value": "16:00"
+            },
+            {
+              "element": "p",
+              "value": "16:00"
+            },
+            {
+              "element": "p",
+              "value": "10:00"
+            },
+            {
+              "element": "p",
+              "value": "10:00"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "close-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "closes"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "23:00"
+            },
+            {
+              "element": "p",
+              "value": "23:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element": "section",
+      "class": "section-times",
+      "id": "restaurant",
+      "children": [
+        {
+          "element": "h2",
+          "children": [
+            {
+              "element": "a",
+              "href": "/restaurant",
+              "value": "restaurant"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "filler"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "monday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "tuesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "wednesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "thursday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "friday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "saturday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "sunday"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "short-days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fil"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "mon"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "tue"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "wed"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "thu"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fri"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sat"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sun"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "open-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "opens"
+            },
+            {
+              "element": "p",
+              "value": "closed"
+            },
+            {
+              "element": "p",
+              "value": "closed"
+            },
+            {
+              "element": "p",
+              "value": "closed"
+            },
+            {
+              "element": "p",
+              "value": "17:00"
+            },
+            {
+              "element": "p",
+              "value": "17:00"
+            },
+            {
+              "element": "p",
+              "value": "10:00"
+            },
+            {
+              "element": "p",
+              "value": "12:00"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "close-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "closes"
+            },
+            {
+              "element": "p",
+              "value": "closed"
+            },
+            {
+              "element": "p",
+              "value": "closed"
+            },
+            {
+              "element": "p",
+              "value": "closed"
+            },
+            {
+              "element": "p",
+              "value": "21:00"
+            },
+            {
+              "element": "p",
+              "value": "21:00"
+            },
+            {
+              "element": "p",
+              "value": "20:00"
+            },
+            {
+              "element": "p",
+              "value": "18:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element": "section",
+      "class": "section-times",
+      "id": "gym",
+      "children": [
+        {
+          "element": "h2",
+          "children": [
+            {
+              "element": "a",
+              "href": "/gym",
+              "value": "gym"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "filler"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "monday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "tuesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "wednesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "thursday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "friday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "saturday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "sunday"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "short-days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fil"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "mon"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "tue"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "wed"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "thu"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fri"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sat"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sun"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "open-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "opens"
+            },
+            {
+              "element": "p",
+              "value": "7:00"
+            },
+            {
+              "element": "p",
+              "value": "7:00"
+            },
+            {
+              "element": "p",
+              "value": "7:00"
+            },
+            {
+              "element": "p",
+              "value": "7:00"
+            },
+            {
+              "element": "p",
+              "value": "7:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "close-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "closes"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "20:00"
+            },
+            {
+              "element": "p",
+              "value": "20:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element": "section",
+      "class": "section-times",
+      "id": "sports",
+      "children": [
+        {
+          "element": "h2",
+          "children": [
+            {
+              "element": "a",
+              "href": "/sports",
+              "value": "sports"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "filler"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "monday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "tuesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "wednesday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "thursday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "friday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "saturday"
+            },
+            {
+              "element": "p",
+              "class": "day-long",
+              "value": "sunday"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "short-days",
+          "children": [
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fil"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "mon"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "tue"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "wed"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "thu"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "fri"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sat"
+            },
+            {
+              "element": "p",
+              "class": "day-short",
+              "value": "sun"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "open-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "opens"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            },
+            {
+              "element": "p",
+              "value": "9:00"
+            }
+          ]
+        },
+        {
+          "element": "section",
+          "class": "close-times",
+          "children": [
+            {
+              "element": "p",
+              "value": "closes"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "22:00"
+            },
+            {
+              "element": "p",
+              "value": "20:00"
+            },
+            {
+              "element": "p",
+              "value": "20:00"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-const env = require('../js/stripeEnv.js')
+const env = require('./stripeEnv.js')
 const { stripe } = env
 
-const join = require('./join.js')
+const join = require('../../src/_data/join.js')
 
 let products = []
 const listProducts = async () => {
@@ -156,7 +156,6 @@ const assets = async () => {
   await createProducts()
 
   return Promise.resolve({ join })
-  // return Promise.resolve({ products, prices, paymentLinks })
 }
 
-module.exports = assets()
+module.exports = assets

@@ -1,5 +1,5 @@
-const getCategories = require('../js/productCategories.js')
-const formatPoundValue = require('../js/formatPoundValue.js')
+const getCategories = require('../js/getSumupProductCategories')
+const formatPoundValue = require('../js/formatPoundValue')
 
 const orderVariants = (beer) => {
   const ordered = {

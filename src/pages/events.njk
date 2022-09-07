@@ -8,6 +8,4 @@
 {% set images = cms.tags['events-gallery'] %}
 {% include "partials/section-gallery.njk" %}
 
-{% set mailto = "mailto:" + page.fileSlug + "@westwarwicks.co.uk?Subject=Book an Event" %}
-{{ a(h2("Book an Event" + img('aria-hidden'=true, src=cms.icons.envelope.url, alt='email')),
-class='booking', href=mailto) }}
+{{ link(cms.links['email-events'], h2('Book an Event'), '?Subject=Book an Event', class='booking') }}
