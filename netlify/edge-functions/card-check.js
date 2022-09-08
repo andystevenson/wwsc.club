@@ -1,16 +1,20 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
 
 const path = './public/cache/ashbourne/ashbourne.json'
-let members = []
 
-const find = (cardnumber) =>
-  members.find((member) => member['Card No'] === cardnumber)
-try {
-  const file = await Deno.readTextFile(path)
-  members = JSON.parse(file)
-  console.log(members[0])
-} catch (error) {
-  console.log(`cannot load ashbourne [${path}] because [${error.message}]`)
+const find = (members, cardnumber) =>
+  members.find((member) => +member['Card No'] === +cardnumber)
+
+const loadCache = async (context) => {
+  try {
+    const file = await Deno.readTextFile(path)
+    const members = JSON.parse(file)
+    context.log('loaded cache-ashbourne')
+    return members
+  } catch (error) {
+    context.log(`cannot load ashbourne [${path}] because [${error.message}]`)
+    return []
+  }
 }
 
 const formatDate = (string) => {
@@ -25,6 +29,8 @@ const formatDate = (string) => {
 }
 
 export default async (request, context) => {
+  const members = await loadCache(context)
+
   const url = new URL(request.url)
   let cardnumber = url.searchParams.get('cardnumber')
   if (!cardnumber) {
@@ -35,7 +41,7 @@ export default async (request, context) => {
 
   const response = await context.next()
   let page = await response.text()
-  const member = find(cardnumber.trim())
+  const member = find(members, cardnumber.trim())
   if (!member) {
     page = page.replace(/<cardcheck>/, '<section class="invalid">')
     page = page.replace(/<\/cardcheck>/, '</section>')
@@ -47,12 +53,8 @@ export default async (request, context) => {
     return new Response(page, response)
   }
 
-  /*   <validity>
-  <fullname>
-  <status>
-  <email>
-  <age> */
   const status = member.Status.toLowerCase()
+
   const fullname =
     (member['First Name'] ? `${member['First Name']} ` : '') + member.Surname
   const email = member.Email.toLowerCase()
