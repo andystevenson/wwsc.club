@@ -1,15 +1,32 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
 
 const path = './public/cache/ashbourne/ashbourne.json'
+const alt = '/cache/ashbourne/ashbourne.json'
 
 const find = (members, cardnumber) =>
   members.find((member) => +member['Card No'] === +cardnumber)
 
 const loadCache = async (context) => {
   try {
-    context.log('loadibg cache-ashbourne', Deno.cwd())
-    const file = await Deno.readTextFile(path)
-    const members = JSON.parse(file)
+    let file = null
+    try {
+      Deno.statSync(path)
+      file = path
+    } catch (error) {
+      context.log(`${path} does not exist [${error.message}]`)
+    }
+    try {
+      Deno.statSync(alt)
+      file = alt
+    } catch (error) {
+      context.log(`${alt} does not exist [${error.message}]`)
+    }
+
+    if (!file) return context.log('cache-ashbourne not found')
+
+    context.log(`loadibg cache-ashbourne from ${file}`)
+    const data = await Deno.readTextFile(file)
+    const members = JSON.parse(data)
     context.log('loaded cache-ashbourne')
     return members
   } catch (error) {
