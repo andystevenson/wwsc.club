@@ -7,6 +7,7 @@ const find = (members, cardnumber) =>
 
 const loadCache = async (context) => {
   try {
+    context.log('loadibg cache-ashbourne', Deno.cwd())
     const file = await Deno.readTextFile(path)
     const members = JSON.parse(file)
     context.log('loaded cache-ashbourne')
