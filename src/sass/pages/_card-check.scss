@@ -1,0 +1,55 @@
+body.card-check {
+  main {
+    min-block-size: 60vh;
+    strong {
+      font-size: var(--font-size-5);
+    }
+    label {
+      display: grid;
+      gap: var(--size-2);
+    }
+
+    input {
+      inline-size: 100%;
+      background-color: var(--surface-1);
+      border: var(--border-size-2) solid var(--text-1);
+      border-radius: var(--radius-2);
+    }
+
+    > * {
+      place-self: center;
+      min-inline-size: 50vw;
+      max-inline-size: unset;
+      text-align: center;
+    }
+
+    a.review {
+      inline-size: 100%;
+    }
+
+    section:where(.invalid, .valid) {
+      strong {
+        color: white;
+      }
+      h2 {
+        border: var(--border-size-2) solid white;
+        border-radius: var(--radius-3);
+        padding-block: var(--size-2);
+        color: white;
+      }
+      p {
+        place-self: center;
+        color: white;
+        display: flex;
+        gap: var(--size-3);
+      }
+    }
+    section.invalid {
+      background-color: red;
+    }
+
+    section.valid {
+      background-color: green;
+    }
+  }
+}

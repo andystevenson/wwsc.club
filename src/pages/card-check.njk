@@ -1,7 +1,19 @@
 {{ h1('card checker')}}
-<form action="?">
-  <label for="cardnumber">Card Number</label>
-  <input type="text" name="cardnumber" id="cardnumber">
-  <button>submit</button>
-</form>
-<pre></pre>
+<section class="card-checker">
+  <form class='card-checker' action="?">
+    <label for="cardnumber">
+      <strong>Card Number</strong>
+      <input type="text" name="cardnumber" id="cardnumber" autofocus>
+    </label>
+    <button>submit</button>
+  </form>
+</section>
+
+{# this gets replaced by the check #}
+<cardcheck>
+  <validity>
+  <fullname>
+  <status>
+  <email>
+  <age>
+</cardcheck>
