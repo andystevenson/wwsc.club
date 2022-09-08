@@ -155,7 +155,7 @@ const assets = async () => {
   normalize()
   await createProducts()
 
-  return Promise.resolve({ join })
+  return Promise.resolve(join)
 }
 
 module.exports = assets

@@ -4,6 +4,14 @@
   functions = "netlify/functions"
   publish = "_site"
 
+[[edge_functions]]
+  path = '/hello'
+  function = 'hello-world'
+
+[[edge_functions]]
+  path = '/card-check'
+  function = 'card-check'
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
@@ -43,3 +51,4 @@
 
 
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
+

@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
 const { parse } = require('node:path')
-const { statSync, writeFileSync, mkdirSync } = require('node:fs')
+const { log } = require('@andystevenson/lib/logger')
+
+const { statSync, writeFileSync } = require('node:fs')
 const download = require('download')
 const assetsByTitle = require('../src/contentful/assetsByTitle')
-const inspect = require('@andystevenson/lib/inspect')
 const date = require('dayjs')
 const parseOpeningTimes = require('./src/parse-opening-times')
 const createCacheDir = require('./src/createCacheDir')
-
-const command = parse(__filename).name
-inspect(command)
 
 const cacheDir = './public/cache/opening-times'
 createCacheDir(cacheDir)
@@ -25,7 +23,7 @@ const cacheRequiresRebuild = (publishedAt, url) => {
     const after = publishedAt.isAfter(lastModified)
     return after
   } catch (error) {
-    inspect(`${filename} does not exist, cache rebuild required`)
+    log.error(`${filename} does not exist, cache rebuild required`)
     return true
   }
 }
@@ -33,7 +31,7 @@ const cacheRequiresRebuild = (publishedAt, url) => {
 const buildCache = async (url) => {
   const { base, name } = parse(url)
   const filename = `${cacheDir}/${base}`
-  inspect(`building cache [${filename}]`)
+  log.info(`building cache [${filename}]`)
 
   // first thing to do is download the file
   try {
@@ -44,14 +42,14 @@ const buildCache = async (url) => {
     const output = `${cacheDir}/${name}.json`
     try {
       writeFileSync(output, JSON.stringify(xlsx, null, 2))
-    } catch (error) {
-      inspect(
-        `failed to write output file [${output}] because [${error.message}]`,
+    } catch (err) {
+      log.error(
+        `failed to write output file [${output}] because [${err.message}]`,
       )
       process.exit(1)
     }
   } catch (error) {
-    inspect(`failed to download [${url}]`)
+    log.error(`failed to download [${url}] because [${error.message}]`)
     process.exit(1)
   }
 }
@@ -60,12 +58,12 @@ const buildCache = async (url) => {
   // lets get the opening times
   const assets = await assetsByTitle('opening-times')
   if (assets.length === 0) {
-    inspect(`asset 'opening-times' not in contentful`)
+    log.error(`asset 'opening-times' not in contentful`)
     process.exit(1)
   }
 
   if (assets.length > 1) {
-    inspect(`more than 1 asset in contentful with the title 'opening-times'`)
+    log.error(`more than 1 asset in contentful with the title 'opening-times'`)
     process.exit(1)
   }
 
@@ -76,6 +74,6 @@ const buildCache = async (url) => {
   if (cacheRequiresRebuild(published, url)) {
     await buildCache(url)
   } else {
-    inspect(`${command} is up to date`)
+    log.info(`cache-opening-times is up to date`)
   }
 })()

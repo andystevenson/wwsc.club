@@ -1,4 +1,4 @@
-module.exports = {
+const join = {
   name: 'Prices',
   description:
     'Explore membership and visitor pricing options at West Warwicks',
@@ -350,3 +350,18 @@ module.exports = {
     },
   ],
 }
+
+const { statSync, readFileSync } = require('node:fs')
+const cacheFile = './public/cache/stripe/join.json'
+const date = require('dayjs')
+
+const processJoin = () => {
+  const statFile = statSync(cacheFile, { throwIfNoEntry: false })
+  if (statFile) {
+    const cachedJoin = readFileSync(cacheFile)
+    return JSON.parse(cachedJoin)
+  }
+  return join
+}
+
+module.exports = processJoin()

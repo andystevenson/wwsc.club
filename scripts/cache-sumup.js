@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 const { statSync, writeFileSync } = require('node:fs')
+const { log } = require('@andystevenson/lib/logger')
 const date = require('dayjs')
+
 const createCacheDir = require('./src/createCacheDir')
 
 // make sure the cache directory exists
@@ -17,7 +19,7 @@ const buildProductCategories = async () => {
     let categories = await categorize()
     return categories
   } catch (error) {
-    console.error(
+    log.error(
       `failed building sumup product categories because [${error.message}]`,
     )
     process.exit(1)
@@ -27,11 +29,11 @@ const buildProductCategories = async () => {
 // buildCache
 const buildCache = async () => {
   try {
-    console.log(`building cache-sumup...`)
+    log.log(`building cache-sumup...`)
     const categories = await buildProductCategories()
     writeFileSync(cacheFile, JSON.stringify(categories, null, 2))
   } catch (error) {
-    console.error(`failed to build cache for sumup because [${error.message}]`)
+    log.error(`failed to build cache for sumup because [${error.message}]`)
     process.exit(1)
   }
 }
@@ -41,7 +43,7 @@ const process = async () => {
   try {
     const cacheStat = statSync(cacheFile, { throwIfNoEntry: false })
     if (!cacheStat) {
-      console.info(`cache-sumup is empty, build required`)
+      log.info(`cache-sumup is empty, build required`)
       return await buildCache()
     }
 
@@ -52,9 +54,9 @@ const process = async () => {
 
     // if cache is a day older then rebuild it
     if (after) return await buildCache()
-    console.info(`cache-sumup is up to date`)
+    log.info(`cache-sumup is up to date`)
   } catch (error) {
-    console.error(`failed to build cache-sumup because [${error.message}]`)
+    log.error(`failed to build cache-sumup because [${error.message}]`)
     process.exit(1)
   }
 }

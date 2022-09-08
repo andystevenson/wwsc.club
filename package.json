@@ -14,16 +14,19 @@
     "clean:cache-stripe": "rm -rf ./public/cache/stripe/*",
     "clean:cache-opening-times": "rm -rf ./public/cache/opening-times/*",
     "clean:cache-sumup": "rm -rf ./public/cache/sumup/*",
+    "clean:cache-ashbourne": "rm -rf ./public/cache/ashbourne/*",
     "build-cache": "concurrently --timings 'npm:build:*'",
     "build:cache-stripe": "npx cache-stripe",
     "build:cache-opening-times": "npx cache-opening-times",
     "build:cache-sumup": "npx cache-sumup",
+    "build:cache-ashbourne": "npx cache-ashbourne",
     "clean-build": "run-s clean-cache build-cache"
   },
   "bin": {
     "cache-stripe": "./scripts/cache-stripe.js",
     "cache-opening-times": "./scripts/cache-opening-times.js",
-    "cache-sumup": "./scripts/cache-sumup.js"
+    "cache-sumup": "./scripts/cache-sumup.js",
+    "cache-ashbourne": "./scripts/cache-ashbourne.js"
   },
   "repository": {
     "type": "git",
@@ -44,12 +47,15 @@
   },
   "homepage": "https://github.com/andystevenson/wwsc.club#readme",
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
     "@andystevenson/goodtill": "^0.1.4",
     "autoprefixer": "^10.4.8",
     "commander": "^9.4.0",
     "concurrently": "^7.3.0",
     "cssnano": "^5.1.13",
+    "csv-parse": "^5.3.0",
     "download": "^8.0.0",
+    "netlify-cli": "^11.5.1",
     "node-fetch": "^3.2.10",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.5",
@@ -57,11 +63,11 @@
     "postcss-jit-props": "^1.0.4",
     "sass": "^1.49.0",
     "slinkity": "^0.6.1",
-    "vite-plugin-minify": "^1.5.2"
+    "stripe": "^10.7.0",
+    "vite-plugin-minify": "^1.5.2",
+    "xlsx": "^0.18.5"
   },
   "dependencies": {
-    "@11ty/eleventy": "^1.0.2",
-    "@andystevenson/11ty": "^0.1.3",
     "@andystevenson/lib": "^0.2.0",
     "@andystevenson/sass": "^0.1.2",
     "@andystevenson/theme-toggle": "^0.1.5",
@@ -69,10 +75,7 @@
     "dayjs": "^1.11.4",
     "googleapis": "^104.0.0",
     "lodash": "^4.17.21",
-    "netlify-cli": "^11.5.0",
     "nodemailer": "^6.7.6",
-    "open-props": "^1.3.3",
-    "stripe": "^8.210.0",
-    "xlsx": "^0.18.2"
+    "open-props": "^1.3.3"
   }
 }
