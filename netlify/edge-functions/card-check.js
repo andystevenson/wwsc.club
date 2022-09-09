@@ -1,36 +1,22 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
 
-const path = './public/cache/ashbourne/ashbourne.json'
-const alt = '/cache/ashbourne/ashbourne.json'
+const cache = 'cache/ashbourne/ashbourne.json'
 
 const find = (members, cardnumber) =>
   members.find((member) => +member['Card No'] === +cardnumber)
 
-const loadCache = async (context) => {
+const loadCache = async (url, context) => {
+  const path = `${url.origin}/${cache}`
   try {
-    let file = null
-    try {
-      Deno.statSync(path)
-      file = path
-    } catch (error) {
-      context.log(`${path} does not exist [${error.message}]`)
-    }
-    try {
-      Deno.statSync(alt)
-      file = alt
-    } catch (error) {
-      context.log(`${alt} does not exist [${error.message}]`)
-    }
+    context.log(`loading cache-ashbourne...`)
+    let file = await fetch(path)
+    file = await file.text()
 
-    if (!file) return context.log('cache-ashbourne not found')
-
-    context.log(`loadibg cache-ashbourne from ${file}`)
-    const data = await Deno.readTextFile(file)
-    const members = JSON.parse(data)
+    const members = JSON.parse(file)
     context.log('loaded cache-ashbourne')
     return members
   } catch (error) {
-    context.log(`cannot load ashbourne [${path}] because [${error.message}]`)
+    context.log(`cannot load ashbourne because [${error.message}]`)
     return []
   }
 }
@@ -47,12 +33,12 @@ const formatDate = (string) => {
 }
 
 export default async (request, context) => {
-  const members = await loadCache(context)
-
   const url = new URL(request.url)
+  const members = await loadCache(url, context)
+
   let cardnumber = url.searchParams.get('cardnumber')
   if (!cardnumber) {
-    console.log('card missing')
+    context.log('card missing')
     return
   }
   cardnumber = cardnumber.trim()
@@ -60,6 +46,7 @@ export default async (request, context) => {
   const response = await context.next()
   let page = await response.text()
   const member = find(members, cardnumber.trim())
+
   if (!member) {
     page = page.replace(/<cardcheck>/, '<section class="invalid">')
     page = page.replace(/<\/cardcheck>/, '</section>')
@@ -98,7 +85,6 @@ export default async (request, context) => {
     )
   } else {
     page = page.replace(/<cardcheck>/, '<section class="valid">')
-    page = page.replace(/<\/cardcheck>/, '</section>')
     page = page.replace(/<status>/, `<p>${status}</p>`)
     page = page.replace(/<validity>/, '<h2>Valid Card</h2>')
   }

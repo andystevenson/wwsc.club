@@ -33,12 +33,6 @@
 
 
 [[redirects]]
-  from = "/cache/*"
-  to = "/not-found"
-  status = 404
-  force = true
-
-[[redirects]]
   from = "*"
   to = "/not-found"
   status = 404
