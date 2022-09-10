@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const { statSync, readFileSync, writeFileSync, readFile } = require('node:fs')
+const { statSync, readFileSync, writeFileSync } = require('node:fs')
 
 const date = require('dayjs')
 
 const { log } = require('@andystevenson/lib/logger')
 
 const createCacheDir = require('./src/createCacheDir')
-const csv = require('csv-parse/sync')
+const toJson = require('./src/ashbourne2json')
 
 const cacheDir = './public/cache/ashbourne'
 createCacheDir(cacheDir)
@@ -17,11 +17,7 @@ const sourceFile = './scripts/src/ashbourne.csv'
 
 const buildCache = () => {
   try {
-    let members = csv.parse(readFileSync(sourceFile), {
-      columns: true,
-      skipEmptyLines: true,
-      skipRecordsWithError: true,
-    })
+    let members = toJson(sourceFile)
     writeFileSync(cacheFile, JSON.stringify(members, null, 2))
     log.info('cache-ashbourne built')
   } catch (error) {
