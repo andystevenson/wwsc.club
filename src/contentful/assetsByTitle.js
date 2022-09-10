@@ -6,6 +6,7 @@ module.exports = async (title) => {
     assetCollection(where: {title: "${title}"}) {
       items {
         title
+        description
         url
         sys {
           publishedAt
