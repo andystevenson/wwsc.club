@@ -1,6 +1,7 @@
 const { capitalize } = require('lodash')
 
 const transform = (address) => {
+  if (address === '') return null
   let newAddress = address.trim()
   newAddress = newAddress.replace(/#+$/, '') // trim ending ######
   newAddress = newAddress.trimEnd()

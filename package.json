@@ -27,6 +27,7 @@
     "cache-stripe": "./scripts/cache-stripe.js",
     "cache-opening-times": "./scripts/cache-opening-times.js",
     "cache-sumup-products": "./scripts/cache-sumup-products.js",
+    "sumup-updates": "./scripts/sumup-updates.js",
     "cache-ashbourne": "./scripts/cache-ashbourne.js"
   },
   "repository": {

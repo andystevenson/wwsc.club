@@ -36,9 +36,9 @@ const mapper = {
   mobile(source) {
     return source.Mobile.trim().replace(/\s/, '')
   },
-  phone(source) {
-    return source['Phone No'].trim().replace(/\s/, '')
-  },
+  // phone(source) {
+  //   return source['Phone No'].trim().replace(/\s/, '')
+  // },
   opt_in_email() {
     return 1
   },
@@ -112,24 +112,14 @@ const mapper = {
   },
 }
 
-const toJson = require('./ashbourne2json')
-
-const sourceFile = './scripts/src/ashbourne.csv'
-
 const transforms = Object.entries(mapper)
 
 const member2sumup = (member) =>
   transforms.reduce((customer, [key, transform]) => {
-    customer[key] = transform(member)
+    let transformed = transform(member)
+    if (transformed === '') transformed = null
+    customer[key] = transformed
     return customer
   }, {})
 
-const process = () => {
-  const members = toJson(sourceFile)
-  const transformed = members.map(member2sumup)
-  log.info(transformed)
-  return transformed
-}
-
-process()
-module.exports = process
+module.exports = member2sumup

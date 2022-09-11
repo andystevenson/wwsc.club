@@ -1,18 +1,33 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
 
-const cache = 'cache/ashbourne/ashbourne.json'
+// hack to get round not loading cjs in deno??!!
+const memberStatuses = [
+  'live',
+  'dd hold',
+  'dd presale',
+  'defaulter',
+  'paid in full',
+  'freeze',
+]
 
-const find = (members, cardnumber) =>
-  members.find((member) => +member['Card No'] === +cardnumber)
+const isMember = (status) =>
+  memberStatuses.includes(status.trim().toLowerCase())
+
+const cache = '.netlify/builders/ashbourne-json'
+
+const find = (members, cardnumber) => {
+  if (cardnumber === '') return null
+  if (+cardnumber === 0) return null
+  return members.find((member) => +member['Card No'] === +cardnumber)
+}
 
 const loadCache = async (url, context) => {
   const path = `${url.origin}/${cache}`
   try {
     context.log(`loading cache-ashbourne...`)
-    let file = await fetch(path)
-    file = await file.text()
-
-    const members = JSON.parse(file)
+    const file = await fetch(path)
+    const members = await file.json()
+    // console.log({ members })
     context.log('loaded cache-ashbourne')
     return members
   } catch (error) {
@@ -47,6 +62,8 @@ export default async (request, context) => {
   let page = await response.text()
   const member = find(members, cardnumber.trim())
 
+  // console.log(`found`, member)
+
   if (!member) {
     page = page.replace(/<cardcheck>/, '<section class="invalid">')
     page = page.replace(/<\/cardcheck>/, '</section>')
@@ -75,18 +92,17 @@ export default async (request, context) => {
     `<p><strong>Age:</strong><strong>${years}</strong></p>`,
   )
 
-  if (status === 'expired') {
-    page = page.replace(/<cardcheck>/, '<section class="invalid">')
-    page = page.replace(/<validity>/, '<h2>Invalid Card</h2>')
-    const expired = formatDate(member['Expire Date'])
-    page = page.replace(
-      /<status>/,
-      `<p>expired ${expired.format('DD/MM/YYYY')}</p>`,
-    )
-  } else {
+  // console.log(`isMember(${status}) = ${isMember(status)}`)
+  if (isMember(status)) {
     page = page.replace(/<cardcheck>/, '<section class="valid">')
     page = page.replace(/<status>/, `<p>${status}</p>`)
     page = page.replace(/<validity>/, '<h2>Valid Card</h2>')
+  } else {
+    page = page.replace(/<cardcheck>/, '<section class="invalid">')
+    page = page.replace(/<validity>/, '<h2>Invalid Card</h2>')
+    const expired = formatDate(member['Expire Date'])
+    const displayDate = expired.isValid() ? expired.format('DD/MM/YYYY') : ''
+    page = page.replace(/<status>/, `<p>${status} ${displayDate}</p>`)
   }
   return new Response(page, response)
 }
