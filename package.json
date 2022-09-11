@@ -15,12 +15,10 @@
     "clean:cache-stripe": "rm -rf ./public/cache/stripe/*",
     "clean:cache-opening-times": "rm -rf ./public/cache/opening-times/*",
     "clean:cache-sumup-products": "rm -rf ./public/cache/sumup/sumup-products.json",
-    "clean:cache-ashbourne": "rm -rf ./public/cache/ashbourne/*",
     "build-cache": "concurrently --timings npm:build:*",
     "build:cache-stripe": "npx cache-stripe",
     "build:cache-opening-times": "npx cache-opening-times",
     "build:cache-sumup-products": "npx cache-sumup-products",
-    "build:cache-ashbourne": "npx cache-ashbourne",
     "clean-build": "run-s clean-cache build-cache"
   },
   "bin": {
