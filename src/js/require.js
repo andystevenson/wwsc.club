@@ -1,4 +1,4 @@
-import { createRequire } from 'https://deno.land/std@0.109.0/node/module.ts'
+import { createRequire } from 'https://deno.land/std@0.155.0/node/module.ts'
 
 // import.meta.url will be the location of "this" module (like `__filename` in
 // Node.js), and then serve as the root for your "package", where the
