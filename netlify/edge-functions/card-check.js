@@ -1,7 +1,9 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
-import require from '../../src/js/require.js'
+// import require from '../../src/js/require.js'
+// const token = require('../../src/js/authorization-token.js')
+// causes the function to crash when deployed... fine locally
 
-const token = require('../../src/js/authorization-token.js')
+const token = 'wibble'
 // hack to get round not loading cjs in deno??!!
 const memberStatuses = [
   'live',
