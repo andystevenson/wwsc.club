@@ -4,9 +4,9 @@
   functions = "netlify/functions"
   publish = "_site"
 
-[[edge_functions]]
-  path = '/.netlify/*'
-  function = 'authenticate'
+# [[edge_functions]]
+#   path = '/.netlify/*'
+#   function = 'authenticate'
 
 [[edge_functions]]
   path = '/hello'
