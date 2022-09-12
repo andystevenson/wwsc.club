@@ -1,5 +1,7 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
+import require from '../../src/js/require.js'
 
+const token = require('../../src/js/authorization-token.js')
 // hack to get round not loading cjs in deno??!!
 const memberStatuses = [
   'live',
@@ -21,17 +23,24 @@ const find = (members, cardnumber) => {
   return members.find((member) => +member['Card No'] === +cardnumber)
 }
 
-const loadCache = async (url, context) => {
+const loadCache = async (url, { log }) => {
   const path = `${url.origin}/${cache}`
   try {
-    context.log(`loading cache-ashbourne...`)
-    const file = await fetch(path)
-    const members = await file.json()
-    // console.log({ members })
-    context.log('loaded cache-ashbourne')
-    return members
+    log(`loading cache-ashbourne...`)
+    const file = await fetch(path, {
+      headers: { authorization: token },
+    })
+    if (file.ok) {
+      const members = await file.json()
+      // console.log({ members })
+      log('loaded cache-ashbourne')
+      return members
+    } else {
+      log(`cache-ashbourne not accessible`, file.statusText)
+      throw Error(file.statusText)
+    }
   } catch (error) {
-    context.log(`cannot load ashbourne because [${error.message}]`)
+    log(`cannot load ashbourne because [${error.message}]`)
     return []
   }
 }

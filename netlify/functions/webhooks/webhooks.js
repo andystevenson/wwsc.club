@@ -10,6 +10,7 @@ const https = require('https')
 const axios = require('axios')
 const emailService = `${process.env.URL}/.netlify/functions/email`
 
+const token = require('../../../src/js/authorization-token')
 async function sendMail(subject, html) {
   console.log('sendMail')
   try {
@@ -17,6 +18,7 @@ async function sendMail(subject, html) {
       url: emailService,
       method: 'POST',
       data: { subject, html },
+      headers: { authorization: token },
     })
     console.log('sendMail done')
   } catch (error) {

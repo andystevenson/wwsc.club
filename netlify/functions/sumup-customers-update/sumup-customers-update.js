@@ -59,17 +59,19 @@ const prepareUpdates = (sumup, ashbourne) => {
   return updates
 }
 
+const token = require('../../../src/js/authorization-token')
+
 const ashbourne = async (fetch, origin) => {
   const ashbourneJson = '.netlify/builders/ashbourne-json'
   const endpoint = `${origin}/${ashbourneJson}`
-  const data = await fetch(endpoint)
+  const data = await fetch(endpoint, { headers: { authorization: token } })
   return data.json()
 }
 
 const sumup = async (fetch, origin) => {
   const sumupJson = '.netlify/builders/sumup-customers'
   const endpoint = `${origin}/${sumupJson}`
-  const data = await fetch(endpoint)
+  const data = await fetch(endpoint, { headers: { authorization: token } })
   return await data.json()
 }
 

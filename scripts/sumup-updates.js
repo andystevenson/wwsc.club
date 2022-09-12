@@ -39,18 +39,28 @@ if (argv[2]) server = argv[2]
 const endpoint = `${server}/${route}`
 console.log({ argv, endpoint })
 
+const token = require('../src/js/authorization-token')
+console.log({ token })
 const doUpdates = async () => {
   const fetch = (await import('node-fetch')).default
 
   if (!fetch) throw Error('cannot load fetch')
 
-  const data = await fetch(endpoint)
-  const json = await data.json()
-  const { updates, newMembers } = json
-  const nUpdates = Object.keys(updates).length
-  const nNewMembers = Object.keys(newMembers).length
-  console.log({ nUpdates, nNewMembers })
-  await goodtill(updates, newMembers)
+  const data = await fetch(endpoint, { headers: { authorization: token } })
+  console.log(`status `, data.status)
+  if (data.ok) {
+    const json = await data.json()
+    const { updates, newMembers } = json
+    const nUpdates = Object.keys(updates).length
+    const nNewMembers = Object.keys(newMembers).length
+    console.log({ nUpdates, nNewMembers })
+    await goodtill(updates, newMembers)
+    return
+  } else {
+    console.error(
+      `failed to process sumup updates because [${data.statusText}]`,
+    )
+  }
 }
 
 doUpdates()
