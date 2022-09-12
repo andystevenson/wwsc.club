@@ -1,3 +1,3 @@
-export default process.env.WWSC_SECRET
-  ? `Bearer ${process.env.WWSC_SECRET}`
+export default Deno.env.get('WWSC_SECRET')
+  ? `Bearer ${Deno.env.get('WWSC_SECRET')}`
   : null
