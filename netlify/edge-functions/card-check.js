@@ -29,9 +29,8 @@ const loadCache = async (url, { log }) => {
   const path = `${url.origin}/${cache}`
   try {
     log(`loading cache-ashbourne...`)
-    const file = await fetch(path, {
-      headers: { authorization: token },
-    })
+    // const options = {headers: { authorization: token }}
+    const file = await fetch(path)
     if (file.ok) {
       const members = await file.json()
       // console.log({ members })

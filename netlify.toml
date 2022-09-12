@@ -10,7 +10,7 @@
 
 [[edge_functions]]
   path = '/hello'
-  function = 'hello-world'
+  function = 'hello'
 
 [[edge_functions]]
   path = '/card-check'
