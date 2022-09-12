@@ -1,10 +1,7 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
-// import require from '../../src/js/require.js'
-// const token = require('../../src/js/authorization-token.js')
-// causes the function to crash when deployed... fine locally
+import token from 'https://raw.githubusercontent.com/andystevenson/wwsc.club/master/src/deno/authorization-token.js'
+import validate from 'https://raw.githubusercontent.com/andystevenson/wwsc.club/master/src/deno/valid-autorization.js'
 
-const token = 'wibble'
-// hack to get round not loading cjs in deno??!!
 const memberStatuses = [
   'live',
   'dd hold',
@@ -29,8 +26,8 @@ const loadCache = async (url, { log }) => {
   const path = `${url.origin}/${cache}`
   try {
     log(`loading cache-ashbourne...`)
-    // const options = {headers: { authorization: token }}
-    const file = await fetch(path)
+    const options = { headers: { authorization: token } }
+    const file = await fetch(path, options)
     if (file.ok) {
       const members = await file.json()
       // console.log({ members })
