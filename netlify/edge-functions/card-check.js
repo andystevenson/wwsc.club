@@ -1,4 +1,5 @@
 import date from 'https://deno.land/x/deno_dayjs@v0.2.1/mod.ts'
+import ashbourne from './ashbourne.json' assert { type: 'json' }
 // import require from '../../src/js/require.js'
 // const token = require('../../src/js/authorization-token.js')
 // causes the function to crash when deployed... fine locally
@@ -25,27 +26,30 @@ const find = (members, cardnumber) => {
   return members.find((member) => +member['Card No'] === +cardnumber)
 }
 
-const loadCache = async (url, { log }) => {
-  const path = `${url.origin}/${cache}`
-  try {
-    log(`loading cache-ashbourne...`)
-    // const options = {headers: { authorization: token }}
-    const file = await fetch(path)
-    if (file.ok) {
-      const members = await file.json()
-      console.log(members[0])
-      log('loaded cache-ashbourne')
-      return members
-    } else {
-      log(`cache-ashbourne not accessible`, file.statusText)
-      throw Error(file.statusText)
-    }
-  } catch (error) {
-    log(`cannot load ashbourne because [${error.message}]`)
-    return []
-  }
-}
+// const loadCache = async (url, { log }) => {
+//   const path = `${url.origin}/${cache}`
+//   try {
+//     log(`loading cache-ashbourne...`)
+//     // const options = {headers: { authorization: token }}
+//     const file = await fetch(path)
+//     if (file.ok) {
+//       const members = await file.json()
+//       console.log(members[0])
+//       log('loaded cache-ashbourne')
+//       return members
+//     } else {
+//       log(`cache-ashbourne not accessible`, file.statusText)
+//       throw Error(file.statusText)
+//     }
+//   } catch (error) {
+//     log(`cannot load ashbourne because [${error.message}]`)
+//     return []
+//   }
+// }
 
+const loadCache = () => {
+  return ashbourne
+}
 const formatDate = (string) => {
   const dateString = string.split(/\s+/)[0]
   const [day, month, year] = dateString.split('/')
