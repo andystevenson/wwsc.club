@@ -17,7 +17,7 @@ const memberStatuses = [
 const isMember = (status) =>
   memberStatuses.includes(status.trim().toLowerCase())
 
-const cache = '.netlify/builders/ashbourne-json'
+const cache = 'api/ashbourne-json'
 
 const find = (members, cardnumber) => {
   if (cardnumber === '') return null
