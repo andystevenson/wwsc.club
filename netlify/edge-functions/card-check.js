@@ -33,7 +33,7 @@ const loadCache = async (url, { log }) => {
     const file = await fetch(path)
     if (file.ok) {
       const members = await file.json()
-      // console.log({ members })
+      console.log(members[0])
       log('loaded cache-ashbourne')
       return members
     } else {
