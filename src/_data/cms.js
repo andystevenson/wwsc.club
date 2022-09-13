@@ -1,5 +1,4 @@
 const { permutateAll } = require('@andystevenson/lib/permutations')
-const inspect = require('@andystevenson/lib/inspect')
 
 // process all the content from CONTENTFUL CMS
 
@@ -53,7 +52,7 @@ const assets = {
   },
   query: `
 {
-  assetCollection {
+  assetCollection(limit: 1000) {
     items {
       title
       contentType

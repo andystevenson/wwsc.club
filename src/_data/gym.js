@@ -17,7 +17,8 @@ module.exports = {
     },
     {
       name: 'leg machines',
-      image: '/files/fitness-leg-press.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/2Z0ICm12N1zVVGwCG8lnbn/3d6d0fc8a41b67617fd63a46cdad224e/fitness-leg-press.webp',
     },
     {
       name: 'curved runner',
@@ -29,7 +30,8 @@ module.exports = {
     },
     {
       name: 'barbells',
-      image: '/files/fitness-bar-bells.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/7wxo8Zu95ZiN5oc6HyRGN8/83f0fcfd0e60a96d3dbfae44e1e9774b/fitness-bar-bells.webp',
     },
 
     {
@@ -46,7 +48,8 @@ module.exports = {
     },
     {
       name: 'spin bikes',
-      image: '/files/fitness-spin-bikes.jpeg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/2WZuZTxSy2UiiTieNhZHoF/d9c105fd6da128e03e20a7eab16390ae/fitness-spin-bikes.webp',
     },
     {
       name: 'lat machine',

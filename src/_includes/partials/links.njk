@@ -2,7 +2,7 @@
   {% if group.affiliates %}
     <section class="affiliates" data-theme="light">
       {% for affiliate in group.affiliates%}
-        <a title="{{ affiliate.name }}" href="{{ affiliate.website }}">
+        <a title="{{ affiliate.name }}" href="{{ affiliate.website }}" target="_blank">
           {% if affiliate.darkBackground %}
             {% set dark = 'data-dark={{affiliate.darkBackground}}' %}
           {% else %}
@@ -16,7 +16,7 @@
   {% if group.channels %}
     <section class="channels" data-theme="light">
       {% for channel in group.channels %}
-        <a title="{{ channel.name }}" href="{{ channel.website }}">
+        <a title="{{ channel.name }}" href="{{ channel.website }}" target="_blank">
           {% if channel.darkBackground %}
             {% set dark = 'data-dark={{ channel.darkBackground }}' %}
           {% else %}
@@ -30,7 +30,7 @@
   {% if group.tournaments %}
     <section class="tournaments" data-theme="light">
       {% for tournament in group.tournaments %}
-        <a title="{{ tournament.name }}" href="{{ tournament.website }}">
+        <a title="{{ tournament.name }}" href="{{ tournament.website }}" target="_blank">
           {% if tournament.darkBackground %}
             {% set dark = 'data-dark={{ tournament.darkBackground }}' %}
           {% else %}
@@ -44,7 +44,7 @@
   {% if group.charities %}
     <section class="charities" data-theme="light">
       {% for charity in group.charities%}
-        <a title="{{ charity.name }}" href="{{ charity.website }}">
+        <a title="{{ charity.name }}" href="{{ charity.website }}" target="_blank">
           {% if charity.darkBackground %}
             {% set dark = 'data-dark={{charity.darkBackground}}' %}
           {% else %}
@@ -59,8 +59,8 @@
     <section class="social" data-theme="light">
       {% for social in group.social %}
         {% for name, link in social %}
-          <a title="{{ name }}" href="{{ link }}" class="social-link {{name}}">
-            <img src="/images/{{name}}.svg" alt="">
+          <a title="{{ name }}" href="{{ link.link }}" class="social-link {{name}}" target="_blank">
+            <img src="{{link.image}}" alt="{{name}}" >
           </a>
         {% endfor %}
       {% endfor %}

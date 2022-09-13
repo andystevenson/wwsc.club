@@ -52,20 +52,38 @@ module.exports = {
     {
       name: 'clubspark lta',
       website: 'https://clubspark.lta.org.uk/',
-      logo: '/images/clubspark-logo.svg',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/VQqBkmHlQsRI5LOHGIdeg/4b64f99d4c4e00a9f1b140a94b28ae93/clubspark-logo.svg',
       darkBackground: '#16316f',
     },
   ],
   social: [
-    { twitter: 'https://twitter.com/WestWarwickTenn' },
-    { facebook: 'https://www.facebook.com/WestWarwicksTennisClub' },
-    { youtube: 'https://www.youtube.com/user/britishtennislta' },
+    {
+      twitter: {
+        link: 'https://twitter.com/WestWarwickTenn',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/6YMgneuD50QlfDh1cfnr76/36576d086f9bfbd53ab3f825ac8506f7/twitter.svg',
+      },
+    },
+    {
+      facebook: {
+        link: 'https://www.facebook.com/WestWarwicksTennisClub',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/5Q3RtYKw5wYexLwepWR7Qz/e0a369980699cd7e1f6eaa9e518eff6f/facebook.svg',
+      },
+    },
+    {
+      youtube: {
+        link: 'https://www.youtube.com/user/britishtennislta',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/5QEt2Qdrye55JFcHTvKO9d/ed1b8077438f3918315fe746919bbb1f/youtube.svg',
+      },
+    },
   ],
   charities: [
     {
       name: 'campaign against living miserably',
       website: 'https://www.thecalmzone.net/',
-      logo: '/images/calm-logo.svg',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/3Sjti8aBXsYleYt9A921kJ/da6963f0ab6be5cc84038e30c7138bc8/calm-logo.svg',
     },
   ],
 

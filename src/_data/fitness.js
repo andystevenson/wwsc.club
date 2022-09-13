@@ -40,36 +40,44 @@ module.exports = {
     },
     {
       name: 'yoga',
-      image: '/files/fitness-yoga.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/3BIPKuEsKvnycd4Bs2ceLT/a2029f99cf084edc5ffa8b0b14951cd5/fitness-yoga.webp',
     },
     {
       name: 'circuits',
-      image: '/files/fitness-circuits.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/1L6OU81H7nwaPRMDiMHRzI/243eccfd8bbc99a9301d9b13cd4adc78/fitness-circuits.webp',
     },
     {
       name: 'fire up',
-      image: '/files/hayley.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/4EUvikUGtwzuUh0f6gGKOg/cf6d232e9485722b47944cd0b70945ca/fitness-fire-up.webp',
     },
     {
       name: 'pilates',
-      image: '/files/fitness-pilates.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/1ZJH2lSWJnl67HSlw73Y5h/ad17f5bbed8b100d18b2beace193652c/fitness-pilates.webp',
     },
     {
       name: 'group running',
-      image: '/files/fitness-group-running.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/5nnDwkzeGvu4yOe0V70JK4/9bda09390828d4e0c3d604368142d9aa/fitness-group-running.webp',
     },
     {
       name: 'zumba',
-      image: '/files/fitness-zumba.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/3IQw63yDQ8n3mfZXlIjcfj/6da205b23a191c6abd2fe68927b4b411/fitness-zumba.webp',
     },
 
     {
       name: 'boot camp',
-      image: '/files/fitness-boot-camp.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/4iHzpNBRakGXCZQQubQGqR/e069c5809f6812ca388cf616aa4a0247/fitness-boot-camp.webp',
     },
     {
       name: 'leg workout',
-      image: '/files/fitness-leg-workout.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/2PRLljnfgOCZGfslsSiI7Q/9fddf02f2a5cfd8348792a6c63cb6508/fitness-leg-workout.webp',
     },
     {
       name: 'fit kids',
@@ -77,15 +85,18 @@ module.exports = {
     },
     {
       name: 'spinning',
-      image: '/files/fitness-spinning.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/2gOtjeNHSDtnFeYPzqctO1/195ef9f94c501b5dbcf0df95ba31865a/fitness-spinning.webp',
     },
     {
       name: '',
-      image: '/files/fitness-insanity.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/4FqQ8wWdW8jpJtH4KQq6M/13a9a8302ed6ce2ced704abcb0e33efb/fitness-insanity.webp',
     },
     {
       name: 'stretching',
-      image: '/files/christina.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/5oWMsGYBq3cOwOJPExDQMV/e181aaf866cf365c1f8d261352bcf7d2/fitness-stretching.webp',
     },
   ],
 }

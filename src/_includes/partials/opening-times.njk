@@ -2,6 +2,8 @@
   <form action="/opening-times" data-theme="light">
     <button>
       <h2>Opening times</h2>
+      {{ "clock" | inspect }}
+      {{ cms.icons.clock | inspect }}
       {{ icon(cms.icons.clock) }}
     </button>
   </form>

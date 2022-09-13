@@ -27,40 +27,52 @@ module.exports = {
     {
       name: 'squash england',
       website: 'https://www.englandsquash.com/',
-      logo: '/images/squash-england.png',
+      logo: '/https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp',
     },
     {
       name: 'psa world tour',
       website: 'https://psaworldtour.com/',
-      logo: '/files/psa-world-tour-colour.png',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/08UEDp2Sa6Asdex2d8UaX/08b9c01ad7530f968277e12b975d0ec4/psa-world-tour.webp',
     },
     {
       name: 'psa squash tv',
       website: 'https://psaworldtour.com/tv',
-      logo: '/files/stv-colour.png',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/64REiY7RPBtNvEqk3sR4zj/4be764294c269494bd3daa247e7e09f8/squashtv.webp',
       darkBackground: '#252B33',
     },
     {
       name: 'squashskills',
       website: 'https://squashskills.com/',
-      logo: '/images/squashskills-logo.png',
-      darkBackground: '#363738',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/2KK585g5EJxOhCbp7EcOap/9d71ca16f3977a7bc17fe6a3eee58437/squashskills-logo.svg',
+      darkBackground: '#0B0A11',
     },
     {
       name: 'warwickshire squash',
       website: 'https://www.warwickshiresquash.org/',
-      logo: '/files/warwickshire-squash-logo.png',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/3BFDKfF7Df3gp3VzSGgJTK/eb472fd901f3a6d0dd2249fef6db2b6a/warwickshire-squash.webp',
     },
   ],
   social: [
-    { youtube: 'https://www.youtube.com/psasquashtv' },
-    { facebook: 'https://www.facebook.com/PSAworldtour' },
+    {
+      youtube: {
+        link: 'https://www.youtube.com/psasquashtv',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/5QEt2Qdrye55JFcHTvKO9d/ed1b8077438f3918315fe746919bbb1f/youtube.svg',
+      },
+    },
+    {
+      facebook: {
+        link: 'https://www.facebook.com/PSAworldtour',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/5Q3RtYKw5wYexLwepWR7Qz/e0a369980699cd7e1f6eaa9e518eff6f/facebook.svg',
+      },
+    },
   ],
   charities: [
     {
       name: 'campaign against living miserably',
       website: 'https://www.thecalmzone.net/',
-      logo: '/images/calm-logo.svg',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/3Sjti8aBXsYleYt9A921kJ/da6963f0ab6be5cc84038e30c7138bc8/calm-logo.svg',
     },
   ],
   people: {
@@ -76,7 +88,8 @@ module.exports = {
       {
         name: 'Mike Hawkswood',
         role: 'Treasurer',
-        image: '/images/person-circle.svg',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/6Eb5BcS0rV1mI1ymrcZUnz/ba371224eb24b131ab9591a1875c7b01/person-circle.svg',
       },
       {
         name: 'Daniel Suarez-Mash',
@@ -86,7 +99,8 @@ module.exports = {
       {
         name: 'Duncan Campbell',
         role: 'Member',
-        image: '/files/duncan-campbell.jpeg',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/7ugBVDZ7Kh2EcTTihwX6pc/52e3095ad7ec6c81b2b460fcdf540c1f/duncan-campbell.webp',
       },
       {
         name: 'David Harper',
@@ -96,7 +110,8 @@ module.exports = {
       {
         name: 'Mick Mulroy',
         role: 'Member',
-        image: '/images/person-circle.svg',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/6Eb5BcS0rV1mI1ymrcZUnz/ba371224eb24b131ab9591a1875c7b01/person-circle.svg',
       },
       {
         name: 'Ali Jafari',
