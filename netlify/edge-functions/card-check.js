@@ -26,7 +26,7 @@ const find = (members, cardnumber) => {
 }
 
 const loadCache = async (url, { log }) => {
-  const path = `${url.origin}/${cache}`
+  const path = `/${cache}`
   try {
     log(`loading cache-ashbourne...`)
     // const options = {headers: { authorization: token }}
