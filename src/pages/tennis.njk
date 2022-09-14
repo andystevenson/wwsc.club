@@ -7,7 +7,7 @@
 {{ button('book a court') | form(class='book-a-court', action=bookNow)}}
 
 {% set images = [
-  {url: "/cloudinaried/tennis/tennis-kids-classes.avif", alt:"kids classes schedule"},
+  {url: "https://images.ctfassets.net/ffrbyg3cfykl/3EW8IVQgmn3AKNfqJsNxds/50558adf69464c30da72c3598ab19ba1/tennis-kids-classes.webp", alt:"kids classes schedule"},
   {url: "/cloudinaried/tennis/tennis-adult-classes.avif", alt:"adult classes schedule"}
   ] 
 %}
@@ -15,8 +15,8 @@
 {% set links %}
   {% for image in images %}
     {{ img(
-      src="/cloudinaried/tennis/tennis-kids-classes.avif", 
-      alt="kids classes schedule", 
+      src=image.url, 
+      alt=image.alt, 
       loading='lazy')
       | picture 
       | a(href=tennis.clubspark, target="_blank")

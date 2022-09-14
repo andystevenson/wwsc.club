@@ -21,7 +21,13 @@ module.exports = {
       image:
         'https://images.ctfassets.net/ffrbyg3cfykl/0idvyzGeH5BK6x7I43Inv/c30b5b2fe8ee0c995d10a7f7ba06d98b/football-pitch.webp',
     },
-    { image: '/cloudinaried/600/football/football-main.jpg' },
-    { image: '/cloudinaried/600/football/football-i6.jpg' },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/1tgxElkVJWtAl8z9lKMrcg/99021ba394076a0c387e7b4d32185c54/football-juniors.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/5TpmguFU6BMTcfPyI6NhS2/d607b964608e00ce6065183fa3e046b3/football-goal-nets.webp',
+    },
   ],
 }

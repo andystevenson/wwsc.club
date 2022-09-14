@@ -11,17 +11,36 @@ module.exports = {
   coach: {
     name: 'Ali Jafari',
     email: 'ali@westwarwicks.co.uk',
-    image: '/cloudinaried/600/squash/squash-ali-jafari.jpg',
+    image:
+      'https://images.ctfassets.net/ffrbyg3cfykl/4S37t7PSlIdX2gJX4orkax/19f4d913b1ea7db94470db02acf5bcb8/squash-ali-jafari.webp',
     telephone: '07307 247584',
     social: [{ twitter: '' }, { facebook: '' }],
   },
   gallery: [
-    { image: '/cloudinaried/600/squash/squash-i44.jpg' },
-    { image: '/cloudinaried/600/squash/squash-i23.jpg' },
-    { image: '/cloudinaried/600/squash/squash-i46.png' },
-    { image: '/cloudinaried/600/squash/squash-i22.jpg' },
-    { image: '/cloudinaried/600/squash/squash-i45.png' },
-    { image: '/cloudinaried/600/squash/squash-i20.jpg' },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/Gmk5IccKogT02F3CbAq3N/aa192c3678523e42f40ee92f5a1d3e9d/squash-kids-session.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/4btsLO8eJ0R4EIQHmlQkQo/25191cae0a9108b73f36efb379c3fc58/squash-training-session.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/1wUO5dDkP7DmmaNNPrhaw0/5a1b30b96027e21ed10fae1aa29467a7/squash-team-players.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/4NfcSL3rJ2Sl1zMJj5V1D1/dc66bdd3d5421ac69eeb28223c8e3bb7/squash-professional-coaches.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/101GrhnwfX43JssQGIP5pf/41a029988374a74e3b32ef227e9abc2f/squash-junior-teams.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/5pqLfPkDVRaDWEpjo6xfoE/68272d33694354c7a382861434d889dc/squash-professionals.webp',
+    },
   ],
   affiliates: [
     {
@@ -83,7 +102,8 @@ module.exports = {
       {
         name: 'Jamie Roberts',
         role: 'Chairman',
-        image: '/cloudinaried/squash/squash-jamie-roberts.png',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/1FBAmLZfDcd1mPi9Az0r32/68d04aa47d81fcf49c4d474f8b973d5a/squash-jamie-roberts.webp',
       },
       {
         name: 'Mike Hawkswood',
@@ -94,7 +114,8 @@ module.exports = {
       {
         name: 'Daniel Suarez-Mash',
         role: 'Member',
-        image: '/cloudinaried/squash/squash-daniel-suarez-mash.avif',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/7dvxxXL8GR8lZOFR8g6iki/247a677b3b38c3745a87d55242f0cd12/squash-daniel-suarez-mash.webp',
       },
       {
         name: 'Duncan Campbell',
@@ -105,7 +126,8 @@ module.exports = {
       {
         name: 'David Harper',
         role: 'Member',
-        image: '/cloudinaried/squash/squash-david-harper.avif',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/3ImMmCrXlURG90CbwmJbHD/0513f335128ec26e4a08eff28a359c49/squash-david-harper.webp',
       },
       {
         name: 'Mick Mulroy',
@@ -116,12 +138,14 @@ module.exports = {
       {
         name: 'Ali Jafari',
         role: 'Head Coach',
-        image: '/cloudinaried/squash/squash-ali-jafari-profile.avif',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/6jrytptU2nt1kBM5eJGCoR/3dd841c18c40f3caba84d938d7f090d6/squash-ali-jafari-profile.webp',
       },
       {
         name: 'Andy Stevenson',
         role: 'Member',
-        image: '/cloudinaried/squash/squash-andy-stevenson.avif',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/4f6GusQ1NNrh2ObQ93XJpC/fbe5e48083ec2d2f8621dbdc1af7b141/me.webp',
       },
     ],
   },

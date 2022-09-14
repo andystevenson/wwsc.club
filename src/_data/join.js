@@ -19,7 +19,7 @@ const join = {
         {
           href: 'https://www.be-local.uk',
           class: 'home-dine',
-          img: '/cloudinaried/restaurant/be-local.png',
+          img: 'https://images.ctfassets.net/ffrbyg3cfykl/49dxUFtEFQy6fNgoaXEZ7V/dd51f1b62f9d6165d36c9d76becf1605/be-local.png',
           alt: 'belocal solihull',
         },
       ],
