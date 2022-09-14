@@ -56,7 +56,7 @@ const prepareMemberUpdates = (ashbourne, sumup) => {
       // do a diff
       const equal = hasSameValues(update, original, verbose)
       if (equal) {
-        console.log(`update to ${updates[memberNo].name} not required`)
+        // console.log(`update to ${updates[memberNo].name} not required`)
         delete updates[memberNo]
       } else {
         // update required

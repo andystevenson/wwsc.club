@@ -352,8 +352,7 @@ const join = {
 }
 
 const { statSync, readFileSync } = require('node:fs')
-const cacheFile = './public/cache/stripe/join.json'
-const date = require('dayjs')
+const cacheFile = '.cache/stripe/join.json'
 
 const processJoin = () => {
   const statFile = statSync(cacheFile, { throwIfNoEntry: false })

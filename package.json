@@ -10,7 +10,7 @@
     "serve": "slinkity --serve --incremental",
     "build": "run-s init build-cache production",
     "production": "slinkity",
-    "clean": "rm -rf _site .11ty* ./public/cache/*/*",
+    "clean": "rm -rf _site .11ty* .cache/*",
     "clean-cache": "concurrently --timings npm:clean:*",
     "clean:cache-ashbourne": "rm .cache/ashbourne/ashbourne.csv",
     "clean:cache-ashbourne-json": "rm .cache/ashbourne/ashbourne.json",
