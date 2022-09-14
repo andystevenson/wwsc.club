@@ -1,4 +1,5 @@
 {
   "layout": "base.njk",
-  "permalink": "{{page.filePathStem}}/index.html"
+  "permalink": "{{page.filePathStem}}/index.html",
+  "draft": true
 }

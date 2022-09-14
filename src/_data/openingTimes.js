@@ -17,7 +17,7 @@ const render = (el) => {
 
 let json = null
 try {
-  const filename = './public/cache/opening-times/opening-times.json'
+  const filename = '.cache/opening-times/opening-times.json'
   json = JSON.parse(readFileSync(filename))
 } catch (error) {
   throw Error(`failed to read opening-times because [${error.message}]`)

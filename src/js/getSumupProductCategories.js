@@ -1,5 +1,5 @@
 const { readFileSync } = require('node:fs')
-const cache = './public/cache/sumup/sumup-product-categories.json'
+const cache = '.cache/sumup/sumup-product-categories.json'
 
 let categories = null
 const getCategories = () => {

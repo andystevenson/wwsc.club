@@ -1,17 +1,8 @@
-console.log(`xlsx parser [${process.cwd()}]`)
-const { writeFileSync } = require('fs')
-const util = require('util')
 const XLSX = require('xlsx')
-
-const log = (obj) =>
-  console.log(util.inspect(obj, { depth: null, colors: true }))
 
 const parse = (filename) => {
   const workbook = XLSX.readFile(filename)
-  // console.log({ workbook });
-  /* to_json returns an object-mode stream */
   const worksheet = workbook.Sheets['opening-times']
-  // console.log({ worksheet });
 
   worksheet.cell = (name) => worksheet[name].w.toLowerCase()
   const openingTimes = (sheet) => {

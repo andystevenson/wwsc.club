@@ -1,0 +1,4 @@
+Sitemap: https://www.westwarwicks.club/sitemap.xml
+
+User-agent: *
+Disallow:

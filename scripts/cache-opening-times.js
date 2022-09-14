@@ -10,7 +10,7 @@ const date = require('dayjs')
 const parseOpeningTimes = require('./src/parse-opening-times')
 const createCacheDir = require('./src/createCacheDir')
 
-const cacheDir = './public/cache/opening-times'
+const cacheDir = '.cache/opening-times'
 createCacheDir(cacheDir)
 
 const cacheRequiresRebuild = (publishedAt, url) => {
@@ -23,7 +23,7 @@ const cacheRequiresRebuild = (publishedAt, url) => {
     const after = publishedAt.isAfter(lastModified)
     return after
   } catch (error) {
-    log.error(`${filename} does not exist, cache rebuild required`)
+    log.info(`${filename} does not exist, cache-opening-times rebuild required`)
     return true
   }
 }
@@ -31,7 +31,7 @@ const cacheRequiresRebuild = (publishedAt, url) => {
 const buildCache = async (url) => {
   const { base, name } = parse(url)
   const filename = `${cacheDir}/${base}`
-  log.info(`building cache [${filename}]`)
+  log.info(`building cache-opening-times...`)
 
   // first thing to do is download the file
   try {
@@ -42,14 +42,17 @@ const buildCache = async (url) => {
     const output = `${cacheDir}/${name}.json`
     try {
       writeFileSync(output, JSON.stringify(xlsx, null, 2))
+      log.info(`cache-opening-times updated`)
     } catch (err) {
       log.error(
-        `failed to write output file [${output}] because [${err.message}]`,
+        `cache-opening-times failed to write output file [${output}] because [${err.message}]`,
       )
       process.exit(1)
     }
   } catch (error) {
-    log.error(`failed to download [${url}] because [${error.message}]`)
+    log.error(
+      `cache-opening-times failed to download [${url}] because [${error.message}]`,
+    )
     process.exit(1)
   }
 }
@@ -58,12 +61,14 @@ const buildCache = async (url) => {
   // lets get the opening times
   const assets = await assetsByTitle('opening-times')
   if (assets.length === 0) {
-    log.error(`asset 'opening-times' not in contentful`)
+    log.error(`cache-opening-times asset 'opening-times' not in contentful`)
     process.exit(1)
   }
 
   if (assets.length > 1) {
-    log.error(`more than 1 asset in contentful with the title 'opening-times'`)
+    log.error(
+      `cache-opening-times more than 1 asset in contentful with the title 'opening-times'`,
+    )
     process.exit(1)
   }
 

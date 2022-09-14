@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 let env = null
 
 if (!env && process.env.STRIPE_TEST_SECRET_KEY) {

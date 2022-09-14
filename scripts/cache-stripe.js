@@ -7,22 +7,22 @@ const createCacheDir = require('./src/createCacheDir')
 const buildProducts = require('./src/build-stripe-products')
 
 // make sure the cache directory exists
-const cacheDir = './public/cache/stripe'
+const cacheDir = '.cache/stripe'
 createCacheDir(cacheDir)
 
 const cacheFile = `${cacheDir}/join.json`
 
 const joinFile = './src/_data/join.js'
-const join = require(`.${joinFile}`) // need to require it a level up
 
 // buildCache
 const buildCache = async () => {
   try {
-    log.info(`building cache-stripe...`)
+    log.info(`cache-stripe building...`)
     const fullJoin = await buildProducts()
     writeFileSync(cacheFile, JSON.stringify(fullJoin, null, 2))
+    log.info(`cache-stripe updated`)
   } catch (error) {
-    log.error(`failed to build cache for stripe because [${error.message}]`)
+    log.error(`cache-stripe failed because [${error.message}]`)
     process.exit(1)
   }
 }
@@ -48,7 +48,7 @@ const process = async () => {
     // otherwise...
     log.info(`cache-stripe is up to date`)
   } catch (error) {
-    log.error(`failed to build cache-stripe because [${error.message}]`)
+    log.error(`cache-stripe failed because [${error.message}]`)
     process.exit(1)
   }
 }

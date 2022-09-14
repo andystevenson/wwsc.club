@@ -7,9 +7,7 @@ const date = require('dayjs')
 const createCacheDir = require('./src/createCacheDir')
 
 // make sure the cache directory exists
-const cacheDir = './public/cache/sumup'
-createCacheDir(cacheDir)
-
+const cacheDir = '.cache/sumup'
 const cacheFile = `${cacheDir}/sumup-product-categories.json`
 
 const buildProductCategories = async () => {
@@ -20,7 +18,7 @@ const buildProductCategories = async () => {
     return categories
   } catch (error) {
     log.error(
-      `failed building sumup product categories because [${error.message}]`,
+      `cache-sumup-products failed building product categories because [${error.message}]`,
     )
     process.exit(1)
   }
@@ -29,11 +27,13 @@ const buildProductCategories = async () => {
 // buildCache
 const buildCache = async () => {
   try {
-    log.log(`building cache-sumup...`)
+    log.log(`cache-sumup-products building...`)
+    createCacheDir(cacheDir)
+
     const categories = await buildProductCategories()
     writeFileSync(cacheFile, JSON.stringify(categories, null, 2))
   } catch (error) {
-    log.error(`failed to build cache for sumup because [${error.message}]`)
+    log.error(`cache-sumup-products failed because [${error.message}]`)
     process.exit(1)
   }
 }
@@ -43,7 +43,7 @@ const process = async () => {
   try {
     const cacheStat = statSync(cacheFile, { throwIfNoEntry: false })
     if (!cacheStat) {
-      log.info(`cache-sumup is empty, build required`)
+      log.info(`cache-sumup-products is empty, build required`)
       return await buildCache()
     }
 
@@ -54,9 +54,9 @@ const process = async () => {
 
     // if cache is a day older then rebuild it
     if (after) return await buildCache()
-    log.info(`cache-sumup is up to date`)
+    log.info(`cache-sumup-products is up to date`)
   } catch (error) {
-    log.error(`failed to build cache-sumup because [${error.message}]`)
+    log.error(`cache-sumup-products failed because [${error.message}]`)
     process.exit(1)
   }
 }
