@@ -5,44 +5,39 @@ export default async (request, context) => {
 
   const url = new URL(request.url)
   let cardnumber = url.searchParams.get('cardnumber')
-  if (!cardnumber) {
-    context.log('card missing')
-    return
-  }
+  if (!cardnumber) return
+
   cardnumber = +cardnumber.trim()
 
   const response = await context.next()
   let page = await response.text()
   const member = cardnumber in members ? members[cardnumber] : null
 
+  const regex = /<section class="placeholder"><\/section>/
+
   if (!member) {
-    page = page.replace(/<cardcheck>/, '<section class="invalid">')
-    page = page.replace(/<\/cardcheck>/, '</section>')
-    page = page.replace(/<validity>/, '<h2>Invalid Card</h2>')
-    page = page.replace(/<fullname>/, '')
-    page = page.replace(/<status>/, '')
-    page = page.replace(/<email>/, '')
-    page = page.replace(/<age>/, '')
+    // there is no such card
+    const template = `
+      <section class="invalid">
+        <h2>Invalid Card</h2>
+      </section>`
+    page = page.replace(regex, template)
     return new Response(page, response)
   }
 
+  // card existed at some point
   const [valid, fullname, status, email, age] = member
+  const validity = valid ? 'valid' : 'invalid'
+  const cardValidity = valid ? 'Card Valid' : 'Invalid Card'
+  const template = `
+    <section class="${validity}">
+      <h2>${cardValidity}</h2>
+      <strong>${fullname}</strong>
+      <p>${status}</p>
+      <p>${email}</p>
+      <p><strong>Age:</strong><strong>${age}</strong></p>
+    </section>`
+  page = page.replace(regex, template)
 
-  page = page.replace(/<\/cardcheck>/, '</section>')
-  page = page.replace(/<fullname>/, `<strong>${fullname}</strong>`)
-  page = page.replace(/<email>/, `<p>${email}</p>`)
-  page = page.replace(
-    /<age>/,
-    `<p><strong>Age:</strong><strong>${age}</strong></p>`,
-  )
-  page = page.replace(/<status>/, `<p>${status}</p>`)
-
-  if (valid) {
-    page = page.replace(/<cardcheck>/, '<section class="valid">')
-    page = page.replace(/<validity>/, '<h2>Valid Card</h2>')
-  } else {
-    page = page.replace(/<cardcheck>/, '<section class="invalid">')
-    page = page.replace(/<validity>/, '<h2>Invalid Card</h2>')
-  }
   return new Response(page, response)
 }

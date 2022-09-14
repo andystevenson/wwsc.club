@@ -10,7 +10,8 @@ module.exports = {
       {
         name: 'Laris Arcip',
         title: 'Head of Health & Fitness',
-        image: '/cloudinaried/600/fitness/fitness-larisa-arcip.avif',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/3oiAOjkdaibbiZsyGlYRww/9fe82d1a3886b2b28344c889e7ae2370/fitness-larisa-arcip.webp',
         bio: 'Larisa is an ex-professional athlete and elite Personal Trainer qualified to develop members of all ages to their highest potential.',
         telephone: '+44 7472 676672',
         email: 'fitness@westwarwicks.co.uk',
@@ -18,7 +19,8 @@ module.exports = {
       {
         name: 'Dan Spiridon',
         title: 'Personal Trainer',
-        image: '/cloudinaried/600/fitness/fitness-dan-spiridon-latest.avif',
+        image:
+          'https://images.ctfassets.net/ffrbyg3cfykl/5RPlHkCbkQevJNFLmvhNK8/d25d4d6186641af65dbfbfb44845ff3b/fitness-dan-spiridon-latest.webp',
         bio: 'Dan is an ex-professional footballer with an extensive knowledge as an exceptional Personal Trainer.',
         telephone: '+44 7492 924542',
         email: 'fitness@westwarwicks.co.uk',
@@ -26,17 +28,36 @@ module.exports = {
     ],
   },
   gallery: [
-    { image: '/cloudinaried/600/fitness/fitness-i66.jpg' },
-    { image: '/cloudinaried/600/fitness/fitness-i10.jpg' },
-    { image: '/cloudinaried/600/fitness/fitness-i5.jpg' },
-    { image: '/cloudinaried/600/fitness/fitness-i41.jpg' },
-    { image: '/cloudinaried/600/fitness/fitness-i29.jpg' },
-    { image: '/cloudinaried/600/fitness/fitness-i60.jpg' },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/3hOGgY9stZuTw4J2KIDbey/05afa67521427d1ec8b733731c36ed09/fitness-kids-aerobics.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/2jVPlFAZ0zdvxreSg2LRUy/a92094bbc2a4faeefc42e3994758c484/fitness-planking.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/5mVdgGM59GMmF4nHVXs8fy/a8011dcbdb8dc93f2f5ea5bf33bb76cf/fitness-dumbell-lifts.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/2nZd1XW8LEWy8l8tktamxJ/4747d6c9d35bc94c1ac59c4e5c2f314d/fitness-mums-and-toddlers.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/3hVl5xsC3gXUqDSTHQ813X/c88296d3800c365c068aac3acbd75bde/fitness-barbell-fun.webp',
+    },
+    {
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/5Ap4qz6xBwh4y3s55pu8Lb/7ad167e4caa9d129d670080db2f02e8f/fitness-family-time.webp',
+    },
   ],
   classes: [
     {
       name: 'personal trainer',
-      image: '/cloudinaried/600/fitness/fitness-i1.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/7ce5oAxYGuZd8i9WJE2iFT/5b623f99e2b581f6928dd9be78288e86/fitness-circuits-jogging.webp',
     },
     {
       name: 'yoga',
@@ -81,7 +102,8 @@ module.exports = {
     },
     {
       name: 'fit kids',
-      image: '/cloudinaried/600/fitness/fitness-i65.jpg',
+      image:
+        'https://images.ctfassets.net/ffrbyg3cfykl/6F29MGwG7AgjpKEeAB92y4/292dc940a094031e54f57eae2debda6f/fitness-kids-all-ages.webp',
     },
     {
       name: 'spinning',

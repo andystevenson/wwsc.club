@@ -9,7 +9,7 @@ module.exports = {
     {
       name: 'lawn tennis association',
       website: 'https://www.lta.org.uk/',
-      logo: '/cloudinaried/tennis/tennis-lta-logo_neg2x.png',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/LRL8O9pGFWUlMSTf5THNW/3241aeb14a29c0b2186269710d5b8669/tennis-lta-logo.webp',
       darkBackground: '#16316f',
     },
     {

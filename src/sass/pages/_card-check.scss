@@ -1,6 +1,5 @@
 body.card-check {
   main {
-    min-block-size: 60vh;
     strong {
       font-size: var(--font-size-5);
     }
@@ -27,11 +26,16 @@ body.card-check {
       inline-size: 100%;
     }
 
-    section:where(.invalid, .valid) {
+    section:where(.invalid, .valid, .placeholder) {
+      min-block-size: 40vh;
+      place-items: center;
+      background-color: var(--surface-1);
+
       strong {
         color: white;
       }
       h2 {
+        width: 100%;
         border: var(--border-size-2) solid white;
         border-radius: var(--radius-3);
         padding-block: var(--size-2);
