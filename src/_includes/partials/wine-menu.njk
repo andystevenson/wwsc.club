@@ -1,4 +1,10 @@
 {% if wineMenu %}
+  {% set images = {
+    'rose-wine': 'https://images.ctfassets.net/ffrbyg3cfykl/2kOoYIMz2sanuKnjCODl1x/cabe29bc0f1edf4e4acaae2cb1c47ee0/rose-wine-landscape.webp',
+    'red-wine': 'https://images.ctfassets.net/ffrbyg3cfykl/4aBHtknVXItvk3Bs75YRzt/22c45d95326aff493769e7bbdab72d22/red-wine-landscape.webp',
+    'white-wine': 'https://images.ctfassets.net/ffrbyg3cfykl/1pxd5xel69Bzslk3u9el09/89bb4127358bc5109d5091de43421332/white-wine-landscape.webp',
+    'prosecco-wine': 'https://images.ctfassets.net/ffrbyg3cfykl/7aQ8KK93f5KOfcEmo2j8eK/2ce2cc5cefb58157287537c4a71db5d0/prosecco-wine-landscape.webp'} 
+  %}
   <section class="wine-menu-section" id="wine-menu-section">
     <header>
       <h2 class="wine-menu-title">Wine</h2>
@@ -8,7 +14,7 @@
     <ul class="wine-menu-categories">
       {% for tag, category in wineMenu %}
         <section class="wine-menu-category">
-          <img class="wine-category-image" src={{"/cloudinaried/wine/" + tag + "-landscape.avif"}} alt={{tag + "-category"}} loading="lazy">
+          <img class="wine-category-image" src={{ images[tag] }} alt={{tag + "-category"}} loading="lazy">
           <h3 class='wine-category'>{{tag | replace('-wine','')}}</h3>
           <section class="wine-menu-wines">
             {% for wine in category %}

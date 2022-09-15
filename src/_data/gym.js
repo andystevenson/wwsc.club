@@ -31,7 +31,7 @@ module.exports = {
     {
       name: 'battle ropes',
       image:
-        'https://images.ctfassets.net/ffrbyg3cfykl/3lbghipT34NzkDem0e4dYL/2f8fc50ad653cc1cc2e0f477e779bf7a/fitness-battle-ropes.webp?h=250',
+        'https://images.ctfassets.net/ffrbyg3cfykl/3lbghipT34NzkDem0e4dYL/2f8fc50ad653cc1cc2e0f477e779bf7a/fitness-battle-ropes.webp',
     },
     {
       name: 'barbells',

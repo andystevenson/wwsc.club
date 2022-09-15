@@ -8,7 +8,7 @@ module.exports = {
     {
       name: 'guiness six nations',
       website: 'https://www.sixnationsrugby.com/',
-      logo: '/https://images.ctfassets.net/ffrbyg3cfykl/pi7sXCX06BtEklIqZKq11/1579949c74bbe9a1a15bf2aa9818e5ab/guiness-6-nations.webp',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/pi7sXCX06BtEklIqZKq11/1579949c74bbe9a1a15bf2aa9818e5ab/guiness-6-nations.webp',
     },
     {
       name: 'ATP',
