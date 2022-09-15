@@ -16,6 +16,10 @@
   path = '/card-check'
   function = 'card-check'
 
+[[edge_functions]]
+  path = '/card-find'
+  function = 'card-find'
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
