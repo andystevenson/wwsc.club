@@ -46,7 +46,7 @@ module.exports = {
     {
       name: 'squash england',
       website: 'https://www.englandsquash.com/',
-      logo: '/https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp',
     },
     {
       name: 'psa world tour',

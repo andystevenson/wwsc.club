@@ -24,12 +24,12 @@ module.exports = {
     {
       name: 'warwickshire cricket board',
       website: 'https://warwickshirecricketboard.co.uk/',
-      logo: '/https://images.ctfassets.net/ffrbyg3cfykl/5Qp4D3pLGEpKKNKVJ6ZyxO/e402f4843498b8825f2f420dc663e09e/warwickshire-cricket-board.webp',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/5Qp4D3pLGEpKKNKVJ6ZyxO/e402f4843498b8825f2f420dc663e09e/warwickshire-cricket-board.webp',
     },
     {
       name: 'play-cricket.com',
       website: 'https://www.play-cricket.com/',
-      logo: '/https://images.ctfassets.net/ffrbyg3cfykl/73mCVkxV2uJhgBvMaZst38/86ae8a95eea2b3bb5be242b39f11ab1e/play-cricket.webp',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/73mCVkxV2uJhgBvMaZst38/86ae8a95eea2b3bb5be242b39f11ab1e/play-cricket.webp',
     },
     {
       name: 'tudor grange academy',
