@@ -29,14 +29,10 @@
         }
       }
 
-      & h2 {
+      & h1 {
         line-height: var(--font-lineheight-0);
         max-inline-size: var(--size-header-3);
         text-align: center;
-
-        @media (--md-n-above) {
-          text-align: left;
-        }
       }
     }
     & p {

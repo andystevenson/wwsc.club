@@ -1,15 +1,15 @@
 const { htmlAttributes } = require('@andystevenson/lib/html')
 
-module.exports = function icon(...args) {
+module.exports = function imgc(...args) {
   if (args.length < 1)
-    throw SyntaxError('icon expects at least 1 argument [icon-object]')
+    throw SyntaxError('imgc expects at least 1 argument [contentful-image]')
 
   const object = args[0]
   // object needs to be typeof === 'object'
   let type = typeof object
   if (type !== 'object') {
     throw TypeError(
-      `icon expects an object as its 1st argument, got [typeof=${type},${object}] instead`,
+      `imgc expects an object as its 1st argument, got [typeof=${type},${object}] instead`,
     )
   }
 
@@ -40,7 +40,6 @@ module.exports = function icon(...args) {
   }
 
   const imgAttributes = htmlAttributes({
-    'aria-hidden': true,
     src,
     width,
     height,

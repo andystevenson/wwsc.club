@@ -1,4 +1,5 @@
 const { permutateAll } = require('@andystevenson/lib/permutations')
+const { log } = require('@andystevenson/lib/logger')
 
 // process all the content from CONTENTFUL CMS
 
@@ -39,6 +40,73 @@ const createIcons = (tags) => {
   return icons
 }
 
+const createAssetByTitle = (assets) => {
+  const collection = {}
+  assets.forEach((asset) => {
+    const { title } = asset
+    if (title in collection) {
+      log.warn(`asset has a duplicate [${title}]`)
+      // don't overwrite the existing one
+      return
+    }
+    collection[title] = asset
+  })
+
+  return collection
+}
+
+const createImageByTitle = (assets) => {
+  const collection = {}
+  assets.forEach((asset) => {
+    const { title, contentType } = asset
+    if (!contentType.startsWith('image/')) return
+
+    if (title in collection) {
+      log.warn(`image has a duplicate [${title}]`)
+      // don't overwrite the existing one
+      return
+    }
+    collection[title] = asset
+  })
+
+  return collection
+}
+
+const createVideoByTitle = (assets) => {
+  const collection = {}
+  assets.forEach((asset) => {
+    const { title, contentType } = asset
+    if (!contentType.startsWith('video/')) return
+
+    if (title in collection) {
+      log.warn(`video has a duplicate [${title}]`)
+      // don't overwrite the existing one
+      return
+    }
+    collection[title] = asset
+  })
+
+  return collection
+}
+
+const createDocByTitle = (assets) => {
+  const collection = {}
+  assets.forEach((asset) => {
+    const { title, contentType } = asset
+    if (contentType.startsWith('image/') || contentType.startsWith('video/'))
+      return
+
+    if (title in collection) {
+      log.warn(`document has a duplicate [${title}]`)
+      // don't overwrite the existing one
+      return
+    }
+    collection[title] = asset
+  })
+
+  return collection
+}
+
 const assets = {
   name: 'assets',
   transform: (data) => {
@@ -46,8 +114,13 @@ const assets = {
     const assets = createAssets(items)
     const tags = createTags(assets)
     const icons = createIcons(tags)
+    const asset = createAssetByTitle(assets)
+    const image = createImageByTitle(assets)
+    const video = createVideoByTitle(assets)
+    const doc = createDocByTitle(assets)
+    // log.info(asset)
 
-    const content = { assets, tags, icons }
+    const content = { asset, assets, tags, icons, image, video, doc }
     return content
   },
   query: `

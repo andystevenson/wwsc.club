@@ -1,7 +1,7 @@
 <h1>{{ title | capitalize }}</h1>
 
 <picture>
-  {% img src='https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp', alt='aerial view of west warwicks' %}
+  {{ imgc(cms.image['west warwicks social image'])}}
 </picture>
 
 {% set people = cms.people.staff %}

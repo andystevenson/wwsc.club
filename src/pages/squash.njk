@@ -12,13 +12,13 @@
   <section class="identity">
     <h2>Ali Jafari</h2>
     <picture>
-      <img src="{{squash.coach.image}}" alt="ali jafari squash head coach">
+      {{ imgc(cms.image['ali.jafari.coach']) }}
     </picture>
   </section>
   <section class="bio">
     <h2>Head Coach</h2>
     <picture data-theme='light'>
-      <img class="england-squash-logo" src="https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp" alt="england squash logo">
+      {{ imgc(cms.image['england-squash']) }}
     </picture>
 
     <p>I am passionate about squash & my approach to coaching is holistic, taking into account nutrition, strength training and a positive mental attitude. I see myself as a role-model for younger players, I not only want to coach them to victory on the court, I also want to successfully demonstrate how to conduct themselves properly on and off the courts. I have an impressive track record of coaching several nationally ranked juniors and champions in Australia, Middle East and England. In England they include top 5 ranked players and the #1 ranked player in the recent National Championship.</p>
@@ -42,12 +42,8 @@
         <span>£30.00</span></li>
     </ul>
     <section class="contacts">
-      <a href="mailto:{{squash.coach.email}}" title="email {{squash.coach.email}}">
-        <img src="https://images.ctfassets.net/ffrbyg3cfykl/1PAJHMm10h6d0KfktWsZjk/535567565381e972b54e12c7b6380a52/envelope.svg" alt="email west warwicks">
-      </a>
-      <a href="tel:{{ squash.coach.telephone }}" title="telephone {{ squash.coach.telephone }}">
-        <img src="https://images.ctfassets.net/ffrbyg3cfykl/4O3dgbpqDx83aUkE5vcFye/20c419a19cc7b5bf717d6f1432e985b3/telephone.svg" alt="telephone west warwicks">
-      </a>
+      {{ link(cms.links['email-ali']) }}
+      {{ link(cms.links['telephone-ali']) }}
     </section>
     <footer>
       <small>Sessions are 40 minutes.<sup>1</sup>
@@ -61,22 +57,22 @@
 
 <section title="gallery" class="gallery reasons">
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/5Dhk6RcuCGzcJUJeMZ6ru8/1fc5f47a879c44e2a76b20f964110f93/squash-gets-you-fit.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['squash-gets-you-fit']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/78UcfN72aiQoFL4ZKIdTSw/7b79e39957ebf48566907e00ca30bae7/squash-is-a-quick-workout.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['squash-is-a-quick-workout']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/1sAqvFepj7k2mYT4eeVpSv/a4db45b216cedd6b36b0d3a1670a1b2e/squash-burns-calories.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['squash-burns-calories']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/7ahcHqpg3vH9yX0yjiNcpC/b4c029f3af22616fe4ce934fbc20e2bf/squash-is-fun.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['squash-is-fun']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/6eqysoKqPrpIOfcAIVsf5S/6496721b151d219b50b6ea53b27c99ce/squash-is-all-weather.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['squash-is-all-weather']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/7eqQ2YbOSX1BJjZfQLJ4Ym/f018a0c55127aec8d67f05c76b3923ad/squash-is-for-everyone.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['squash-is-for-everyone']) }}
   </picture>
 </section>
 
@@ -86,7 +82,7 @@
     <section class="junior-squash-stars">
       <a href="{{squash.warwickshireSquashStars}}" target="_blank">
         <picture>
-          <img src="https://images.ctfassets.net/ffrbyg3cfykl/3nzI7ffpfSKHhOJmZb0FcD/0fa808d42ea1323cf230a85aa388bbd7/warwickshire-junior-squash.webp" alt="warwickshire junior squash stars">
+          {{ imgc(cms.image['warwickshire-junior-squash']) }}
         </picture>
       </a>
       <section class="schedule">
@@ -99,12 +95,8 @@
             <span>10-11am</span></li>
         </ul>
         <section class="contacts">
-          <a href="mailto:ali@westwarwicks.co.uk?Subject=Junior Squash Stars" title="email ali@westwarwicks.co.uk">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/1PAJHMm10h6d0KfktWsZjk/535567565381e972b54e12c7b6380a52/envelope.svg" alt="email west warwicks">
-          </a>
-          <a href="tel:07307 247584" title="telephone 07307 247584">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/4O3dgbpqDx83aUkE5vcFye/20c419a19cc7b5bf717d6f1432e985b3/telephone.svg" alt="telephone west warwicks">
-          </a>
+          {{ link(cms.links['email-ali'],'?Subject=Junior Squash Stars') }}
+          {{ link(cms.links['telephone-ali']) }}
         </section>
       </section>
     </section>
@@ -112,11 +104,11 @@
       <section>
         <h3>intermediate</h3>
         <picture data-theme='light'>
-          <img class="england-squash-logo" src="https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp" alt="england squash logo">
+          {{ imgc(cms.image['england-squash']) }}
         </picture>
       </section>
       <picture>
-        <img src="https://images.ctfassets.net/ffrbyg3cfykl/6mGPYQq5ecXaWLPM5MDmQT/dc22c40f2eee4335eb8167c0ff8f6f6b/squash-coaching.webp" alt="warwickshire junior squash coaching">
+          {{ imgc(cms.image['squash-coaching']) }}
       </picture>
       <section class="schedule">
         <ul class="times">
@@ -126,12 +118,8 @@
           </li>
         </ul>
         <section class="contacts">
-          <a href="mailto:ali@westwarwicks.co.uk?Subject=Juniors Intermediate" title="email ali@westwarwicks.co.uk">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/1PAJHMm10h6d0KfktWsZjk/535567565381e972b54e12c7b6380a52/envelope.svg" alt="email west warwicks">
-          </a>
-          <a href="tel:07307 247584" title="telephone 07307 247584">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/4O3dgbpqDx83aUkE5vcFye/20c419a19cc7b5bf717d6f1432e985b3/telephone.svg" alt="telephone west warwicks">
-          </a>
+          {{ link(cms.links['email-ali'],'?Subject=Juniors Intermediate') }}
+          {{ link(cms.links['telephone-ali']) }}
         </section>
       </section>
     </section>
@@ -139,11 +127,11 @@
       <section>
         <h3>advanced</h3>
         <picture data-theme='light'>
-          <img class="england-squash-logo" src="https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp" alt="england squash logo">
+          {{ imgc(cms.image['england-squash']) }}
         </picture>
       </section>
       <picture>
-        <img src="https://images.ctfassets.net/ffrbyg3cfykl/6mGPYQq5ecXaWLPM5MDmQT/dc22c40f2eee4335eb8167c0ff8f6f6b/squash-coaching.webp" alt="warwickshire junior squash coaching">
+        {{ imgc(cms.image['squash-coaching']) }}
       </picture>
       <section class="schedule">
         <ul class="times">
@@ -153,12 +141,8 @@
           </li>
         </ul>
         <section class="contacts">
-          <a href="mailto:ali@westwarwicks.co.uk?Subject=Advanced Juniors" title="email ali@westwarwicks.co.uk">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/1PAJHMm10h6d0KfktWsZjk/535567565381e972b54e12c7b6380a52/envelope.svg" alt="email west warwicks">
-          </a>
-          <a href="tel:07307 247584" title="telephone 07307 247584">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/4O3dgbpqDx83aUkE5vcFye/20c419a19cc7b5bf717d6f1432e985b3/telephone.svg" alt="telephone west warwicks">
-          </a>
+          {{ link(cms.links['email-ali'],'?Subject=Advanced Juniors') }}
+          {{ link(cms.links['telephone-ali']) }}
         </section>
       </section>
     </section>
@@ -174,11 +158,11 @@
         <h3>skills & drills</h3>
         <p>Hone your skills!</p>
         <picture data-theme='light'>
-          <img class="england-squash-logo" src="https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp" alt="england squash logo">
+          {{ imgc(cms.image['england-squash']) }}
         </picture>
       </section>
       <picture>
-        <img src="https://images.ctfassets.net/ffrbyg3cfykl/6FbKGNwy5zLyMcTuOo3Kja/27385a65eacec47694ad9516c37ccbcd/squash-skills-and-drills.webp" alt="skills and drills">
+        {{ imgc(cms.image['squash-skills-and-drills']) }}
       </picture>
       <section class="schedule">
         <ul class="times">
@@ -188,12 +172,8 @@
           </li>
         </ul>
         <section class="contacts">
-          <a href="mailto:ali@westwarwicks.co.uk?Subject=Skills and Drills" title="email ali@westwarwicks.co.uk">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/1PAJHMm10h6d0KfktWsZjk/535567565381e972b54e12c7b6380a52/envelope.svg" alt="email west warwicks">
-          </a>
-          <a href="tel:07307 247584" title="telephone 07307 247584">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/4O3dgbpqDx83aUkE5vcFye/20c419a19cc7b5bf717d6f1432e985b3/telephone.svg" alt="telephone ali jafari">
-          </a>
+          {{ link(cms.links['email-ali'],'?Subject=Club Night') }}
+          {{ link(cms.links['telephone-ali']) }}
         </section>
       </section>
     </section>
@@ -202,11 +182,11 @@
         <h3>club night</h3>
         <p>Everyone is welcome!</p>
         <picture data-theme='light'>
-          <img class="england-squash-logo" src="https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp" alt="england squash logo">
+          {{ imgc(cms.image['england-squash']) }}
         </picture>
       </section>
       <picture>
-        <img src="https://images.ctfassets.net/ffrbyg3cfykl/7eqQ2YbOSX1BJjZfQLJ4Ym/f018a0c55127aec8d67f05c76b3923ad/squash-is-for-everyone.webp" alt="squash is for everyone">
+        {{ imgc(cms.image['squash-is-for-everyone']) }}
       </picture>
       <section class="schedule">
         <ul class="times">
@@ -216,12 +196,8 @@
           </li>
         </ul>
         <section class="contacts">
-          <a href="mailto:ali@westwarwicks.co.uk?Subject=Advanced Juniors" title="email ali@westwarwicks.co.uk">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/1PAJHMm10h6d0KfktWsZjk/535567565381e972b54e12c7b6380a52/envelope.svg" alt="email west warwicks">
-          </a>
-          <a href="tel:07307 247584" title="telephone 07307 247584">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/4O3dgbpqDx83aUkE5vcFye/20c419a19cc7b5bf717d6f1432e985b3/telephone.svg" alt="telephone west warwicks">
-          </a>
+          {{ link(cms.links['email-ali'],'?Subject=Club Night') }}
+          {{ link(cms.links['telephone-ali']) }}
         </section>
       </section>
     </section>
@@ -230,11 +206,11 @@
         <h3>round robin</h3>
         <p>Some gentle weekend competition!</p>
         <picture data-theme='light'>
-          <img class="england-squash-logo" src="https://images.ctfassets.net/ffrbyg3cfykl/1hr3yaS8fPeisPsE1Odj8K/f513f665f90d54da9bfd8ed8b2a4cf52/squash-england.webp" alt="england squash logo">
+          {{ imgc(cms.image['england-squash']) }}
         </picture>
       </section>
       <picture>
-        <img src="https://images.ctfassets.net/ffrbyg3cfykl/5RSLMqD0rhEDnTw7P1BK54/eed06d73dbbe4db8407685febd5037bb/squash-round-robin.webp" alt="squash round robin">
+        {{ imgc(cms.image['squash-round-robin']) }}
       </picture>
       <section class="schedule">
         <ul class="times">
@@ -244,12 +220,8 @@
           </li>
         </ul>
         <section class="contacts">
-          <a href="mailto:ali@westwarwicks.co.uk?Subject=Advanced Juniors" title="email ali@westwarwicks.co.uk">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/1PAJHMm10h6d0KfktWsZjk/535567565381e972b54e12c7b6380a52/envelope.svg" alt="email west warwicks">
-          </a>
-          <a href="tel:07307 247584" title="telephone 07307 247584">
-            <img src="https://images.ctfassets.net/ffrbyg3cfykl/4O3dgbpqDx83aUkE5vcFye/20c419a19cc7b5bf717d6f1432e985b3/telephone.svg" alt="telephone west warwicks">
-          </a>
+          {{ link(cms.links['email-ali'],'?Subject=Round Robin') }}
+          {{ link(cms.links['telephone-ali']) }}
         </section>
       </section>
     </section>
@@ -263,7 +235,7 @@
     <section class="team">
       <a href="{{squash.warwickshireLeague}}" target="_blank">
         <picture>
-          <img src="https://images.ctfassets.net/ffrbyg3cfykl/3BFDKfF7Df3gp3VzSGgJTK/eb472fd901f3a6d0dd2249fef6db2b6a/warwickshire-squash.webp" alt="warwickshire league">
+          {{ imgc(cms.image['warwickshire-squash']) }}
         </picture>
       </a>
       <h2>Warwickshire<br>League</h2>
@@ -271,14 +243,14 @@
     <section class="team">
       <a href="{{squash.wwsc1stTeam}}" target="_blank">
         <picture>
-          <img src="https://images.ctfassets.net/ffrbyg3cfykl/1SSO0G7ZOEqQjPhIL6aUqi/3ff00c58d1f7f2ebc2d90a88b4cf6ecc/squash-1st-team.webp" alt="west warwicks squash 1st team">
+          {{ imgc(cms.image['squash-1st-team']) }}
         </picture>
       </a>
     </section>
     <section class="team">
       <a href="{{squash.wwsc2ndTeam}}" target="_blank">
         <picture>
-          <img src="https://images.ctfassets.net/ffrbyg3cfykl/4qihw3zEXW8TTvQOFVcJz2/f22038a36b6ef81fad84b5d758408b5c/squash-2nd-team.webp" alt="west warwicks 1st team squash">
+          {{ imgc(cms.image['squash-2nd-team']) }}
         </picture>
       </a>
 

@@ -4,24 +4,23 @@
 
 <section title="gallery" class="gallery">
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/7o5HSN55tU2az1Ubwvul0O/2293c0a569673616a5fb29d13173f49e/racketball-main.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['racketball-main']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/66izL6StKMsQubdh8wQ28p/8d46702beeb6b11b69412ebdd54b2238/racketball-rally.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['racketball-rally']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/1qjamRstAIhsguKEDowVRd/7a488be18cbfa540200ec995448bceba/racketball-drop-shot.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['racketball-drop-shot']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/1WMvXQC9iNCTIra2FtDMPD/fd5c335aa18b9370d26788dd8595d2cd/racketball-lunge.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['racketball-lunge']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/49kN9IGg1pc7Q8RMp8Kzr3/817f77a3d6b978329c4bb08608487080/racketball-coaching-session.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['racketball-coaching-session']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/7I0WbTeMb8U5o9I8NuhOb8/0fd28b4bf864ed160aa52a2909845b1e/racketball-lob-shot.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['racketball-lob-shot']) }}
   </picture>
-
 </section>
 
 <form class='book-a-court' action="{{ bookNow }}">
@@ -29,13 +28,13 @@
 </form>
 
 <picture>
-  <img src="https://images.ctfassets.net/ffrbyg3cfykl/6wsPI4DdvYfdgsmEIwbS5/3ae542239a012ff6dbab22346ddedd8d/racketball-club-night.webp" alt="" loading='lazy'>
+  {{ imgc(cms.image['racketball-club-night']) }}
 </picture>
 <picture>
-  <img src="https://images.ctfassets.net/ffrbyg3cfykl/7slyjzJ55cF0RHpDevsoGA/2bbeead2cc1fbbc44eba84c6947d7190/racketball-8-rules.webp" alt="" loading='lazy'>
+  {{ imgc(cms.image['racketball-8-rules']) }}
 </picture>
 <picture>
-  <img src="https://images.ctfassets.net/ffrbyg3cfykl/2E65iuFlWgiWK0AjQYfuJF/1922e85e5787fe055d65abdf51733bf0/racketball-key-rules.webp" alt="" loading='lazy'>
+  {{ imgc(cms.image['racketball-key-rules']) }}
 </picture>
 
 {% set group = racketball %}

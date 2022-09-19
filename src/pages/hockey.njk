@@ -1,6 +1,6 @@
 <header>
   <section class="title">
-    <h2>{{hockey.name}}</h2>
+    <h1>{{hockey.name}}</h1>
     <a title="{{hockey.name}}" href="{{hockey.website}}">
       <picture>
         <img src="{{hockey.logo}}" alt="">
@@ -13,22 +13,22 @@
 
 <section title="gallery" class="gallery">
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/2EVxxtKNM0fkqhMZfegWsk/0170a58d354bae3f8db0fd46632a6ae2/hockey-team-talk.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['hockey-team-talk']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/760rgcwYGh8ukqWeBRveVK/243087530ce5f9a65b5c9ece171c0d1b/hockey-shooting-chance.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['hockey-shooting-chance']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/6cTBzwwL8p5YcSmql573F4/dacc109c6e6f7b997036ca6bb894ca99/hockey-defence.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['hockey-defence']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/7eBYtJT5lxxAHGSAqEGNKM/f283b2629a6813099271d8ba5d5b7c99/hockey-dugout.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['hockey-dugout']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/2ExjXwEKWEopDkon28FxBf/ae3f62ad44fdd3be9b496652a881fe37/hockey-dribbling.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['hockey-dribbling']) }}
   </picture>
   <picture>
-    <img src="https://images.ctfassets.net/ffrbyg3cfykl/1tLFKFm8NTJeFfvNrvhi1v/e99728e3ae14c05cbae5611f93ff5afc/hockey-straight-pass.webp" alt="" loading="lazy">
+    {{ imgc(cms.image['hockey-straight-pass']) }}
   </picture>
 
 </section>

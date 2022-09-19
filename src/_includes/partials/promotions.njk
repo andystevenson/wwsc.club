@@ -4,14 +4,14 @@
       {% for promotion in promotions %}
         {% set isBrochure = promotion.tags.includes("brochure") %}
         {% if not isBrochure %}
-          {% set brochure = cms.tags.brochure | find(["title", promotion.title]) %}
+          {% set brochure = cms.tags.brochure | find(["title", promotion.title + ' (pdf)']) %}
           {% if brochure %}
             {% set title = 'click to download -> ' + brochure.description %}
-            {{ img(src=promotion.url, alt=promotion.description, width=promotion.width,      height=promotion.height, 'aria-hidden'='true') 
+            {{ imgc(promotion, 'aria-hidden'='true') 
             | a('aria-label'=brochure.description, href=brochure.url, title=title, target='_blank' )
             | li }}
           {% else %}
-          {{ img(src=promotion.url, alt=promotion.description, title=promotion.description,width=promotion.width, height=promotion.height, 'aria-hidden'='true') | li }}
+          {{ imgc(promotion, 'aria-hidden'='true') | li }}
           {% endif %}
         {% endif %}
       {% endfor %}

@@ -3,7 +3,7 @@
     <header>
       <h2>Tea & Coffee</h2>
       <small>(WWSC members enjoy 15% discount!)</small>
-      <img src="https://images.ctfassets.net/ffrbyg3cfykl/5jeJCYSIfedhTMBsWEao5M/03b8cd229ab9aef10d8c3f50f87340b6/coffee.webp" alt="coffee at west warwicks" loading="lazy">
+      {{ imgc(cms.image.coffee)}}
     </header>
     <ul>
       {% for tAc in teaAndCoffee.children %}

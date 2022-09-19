@@ -3,5 +3,6 @@
   place-content: center;
   & img {
     max-height: 90vh;
+    object-fit: contain;
   }
 }
