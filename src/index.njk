@@ -10,6 +10,10 @@ layout: 'base.njk'
     </form>
   </header>
 
+  <section class="queen">
+    {{imgc(cms.image['her majesty queen elizabeth'])}}
+  </section>
+  
   {% set promotions = cms.tags['main-promotion'] %}
   {% include "partials/promotions.njk" %}
 

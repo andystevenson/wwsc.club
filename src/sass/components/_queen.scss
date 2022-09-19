@@ -1,0 +1,9 @@
+section.queen {
+  background-color: var(--surface-4);
+  border-radius: var(--radius-2);
+  padding: var(--size-2);
+  img {
+    max-block-size: 70vh;
+    object-fit: contain;
+  }
+}
