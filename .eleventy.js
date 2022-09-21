@@ -4,6 +4,6 @@ const shortcodes = require('./src/shortcodes/shortcodes')
 module.exports = function (eleventyConfig) {
   const newConfig = config(eleventyConfig)
   shortcodes(eleventyConfig)
-  // eleventyConfig.addPassthroughCopy('./public/**')
+  eleventyConfig.addPassthroughCopy('./public/*')
   return newConfig
 }
