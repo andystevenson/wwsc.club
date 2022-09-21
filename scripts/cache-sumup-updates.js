@@ -65,7 +65,10 @@ const prepareMemberUpdates = (ashbourne, sumup) => {
       }
     } else {
       // there is no
-      console.log(`member ${memberNo} does not exist in ashbourne`)
+      const { name } = updates[memberNo]
+      console.log(
+        `member ${name}, number ${memberNo}, does not exist in ashbourne`,
+      )
       delete updates[memberNo]
     }
   }

@@ -72,7 +72,7 @@ function transform(ashbourne) {
       const dob = date2dayjs(member.DOB)
       const age = now.diff(dob, 'years')
       // log.info({ now, dob, age })
-      checks[cardNo] = [valid, name, displayStatus, email, age]
+      checks[+cardNo] = [valid, name, displayStatus, email, age]
     }
     return checks
   }, {})
