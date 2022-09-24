@@ -135,8 +135,8 @@ const join = {
             },
             {
               interval: 'year',
-              price: 40 * 0.8,
-              nickname: 'off-peak-annual-family-member',
+              price: 400 * 0.8,
+              nickname: 'off-peak-annual-family-member-new',
               discounted: true,
             },
             {

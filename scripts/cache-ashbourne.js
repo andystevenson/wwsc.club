@@ -21,7 +21,7 @@ const ashbourne = async () => {
     createCacheDir(cacheDir)
 
     // fetch the 'ashbourne' asset from contentful
-    const assets = await assetsByTitle('ashbourne')
+    const assets = await assetsByTitle('ashbourne.csv')
 
     // if the asset is not there or, is ambiguous it is an error
     if (assets.length === 0) throw Error(`ashbourne asset is not present`)

@@ -31,7 +31,7 @@ const prepareNewMembers = (ashbourne, sumup) => {
     const memberExists = memberNo in sumup
 
     if (memberExists) {
-      // console.log(`member ${sumup[memberNo].name} already on sumup`)
+      // log.info(`member ${sumup[memberNo].name} already on sumup`)
       continue
     }
 
@@ -40,7 +40,7 @@ const prepareNewMembers = (ashbourne, sumup) => {
     // otherwise we're going to create
     const transformed = ashbourne2sumup(member)
     newMembers[memberNo] = transformed
-    // console.log(`new sumup member ${transformed.name}`)
+    // log.info(`new sumup member ${transformed.name}`)
   }
   return newMembers
 }
@@ -51,22 +51,30 @@ const prepareMemberUpdates = (ashbourne, sumup) => {
   for (const memberNo in updates) {
     if (memberNo in ashbourne) {
       const original = updates[memberNo]
+
+      // only update active members (inactive sumup members are mistakes!)
+      if (!original.active) {
+        log.info(`skipping update to inactive member ${original.name}`)
+        delete updates[memberNo]
+        continue
+      }
+
       const update = ashbourne2sumup(ashbourne[memberNo])
       update.id = updates[memberNo].id
       // do a diff
       const equal = hasSameValues(update, original, verbose)
       if (equal) {
-        // console.log(`update to ${updates[memberNo].name} not required`)
+        // log.info(`update to ${updates[memberNo].name} not required`)
         delete updates[memberNo]
       } else {
         // update required
-        console.log(`updating ${updates[memberNo].name}`)
+        log.info(`updating ${updates[memberNo].name}`)
         updates[memberNo] = update
       }
     } else {
       // there is no
       const { name } = updates[memberNo]
-      console.log(
+      log.info(
         `member ${name}, number ${memberNo}, does not exist in ashbourne`,
       )
       delete updates[memberNo]
@@ -177,7 +185,7 @@ const readCustomers = () => {
     const ashbourne = JSON.parse(readFileSync(ashbourneCacheFile))
     const sumup = JSON.parse(readFileSync(sumupCacheFile))
 
-    console.log('readCustomers', ashbourne.length, sumup.length)
+    log.info('readCustomers', ashbourne.length, sumup.length)
     return { ashbourne, sumup }
   } catch (error) {
     log.error(
