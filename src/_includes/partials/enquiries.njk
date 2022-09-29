@@ -5,8 +5,8 @@
       <h2>{{enquiry}}</h2>
       <section>
         {% set params = "?Subject=" + enquiry %}
-        {{ link(cms.links.email, params) }}
-        {{ link(cms.links.telephone) }}
+        {{ linkc(cms.links.email, params) }}
+        {{ linkc(cms.links.telephone) }}
       </section>
     </article>
   {% endfor %}

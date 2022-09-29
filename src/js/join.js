@@ -1,3 +1,4 @@
+// TODO: should move these into a js/pages subdirectory
 console.log('join join join join')
 
 const categories = document.querySelector('.join-categories')

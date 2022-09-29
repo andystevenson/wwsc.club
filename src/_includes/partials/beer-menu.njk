@@ -1,4 +1,4 @@
-{% if beerMenu %}
+{% if info.beer %}
   <section class="beer-menu-section" id="beer-menu-section">
     <header>
       <h2 class="beer-menu-title">Beer</h2>
@@ -8,30 +8,30 @@
     </header>
 
     <ul class="beer-menu-beers">
-      {% for beer in beerMenu.children %}
+      {% for beer in info.beer %}
         <li class="beer-type">
           <article>
 
-            {% set hasVariants = beer.has_variant %}
+            {% set hasVariants = beer.variants %}
             {% if hasVariants %}
               <p class="has-variants">
-                <span class="beer-name">{{ beer.product_name}}</span>
+                <span class="beer-name">{{ beer.variants[0].name}}</span>
               </p>
               <div>
 
-                {% for variant in beer.current_variants %}
+                {% for variant in beer.variants %}
                   <p class="beer-price">
-                    <span class="beer-qty">{{variant.display_name}}</span>
-                    <span class="beer-price">{{variant.selling_price}}</span>
+                    <span class="beer-qty">{{variant.display}}</span>
+                    <span class="beer-price">{{variant.price}}</span>
                   </p>
                 {% endfor %}
               </div>
             {% else %}
               <p class="no-variants">
-                <span class="beer-name">{{beer.product_name}}</span>
+                <span class="beer-name">{{beer.name}}</span>
               </p>
               <p class='beer-price'>
-                <span class="beer-price">{{beer.selling_price}}</span>
+                <span class="beer-price">{{beer.price}}</span>
               </p>
             {% endif %}
           </article>

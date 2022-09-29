@@ -1,34 +1,36 @@
-{% if sundayLunchMenu %}
+{% if info['sunday-lunch'] %}
   <section class="sunday-lunch-menu-section" id="sunday-lunch-menu-section">
     {{ imgc(cms.image['Sunday Lunch']) }}
     <ul class="sunday-lunch-menu">
-      {% for lunch in sundayLunchMenu.children %}
+      {% for lunch in info['sunday-lunch'] %}
+        {% if lunch.active %}
         <li class="sunday-lunch-type">
           <article>
-            {% set hasVariants = lunch.has_variant %}
+            {% set hasVariants = lunch.variants %}
             {% if hasVariants %}
               <p class="has-variants">
-                <span class="name">{{ lunch.product_name}}</span>
+                <span class="name">{{ lunch.name}}</span>
               </p>
               <div>
 
-                {% for variant in lunch.current_variants %}
+                {% for variant in lunch.variants %}
                   <p class="sunday-lunch-price">
-                    <span class="sunday-lunch-qty">{{variant.display_name}}</span>
-                    <span class="sunday-lunch-price">{{variant.selling_price}}</span>
+                    <span class="sunday-lunch-qty">{{variant.display}}</span>
+                    <span class="sunday-lunch-price">{{variant.price}}</span>
                   </p>
                 {% endfor %}
               </div>
             {% else %}
               <p class="no-variants">
-                <span class="name">{{lunch.product_name}}</span>
+                <span class="name">{{lunch.name}}</span>
               </p>
               <p class='sunday-lunch-price'>
-                <span class="sunday-lunch-price">{{lunch.selling_price}}</span>
-              </p>
+                <span class="sunday-lunch-price">{{lunch.price}}</span>
+              </p>              
             {% endif %}
           </article>
         </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </section>

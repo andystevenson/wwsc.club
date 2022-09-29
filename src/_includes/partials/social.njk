@@ -1,7 +1,7 @@
 {%- if cms.links.social %}
   <section class="social">
     {%- for social in cms.links.social %}
-      {{ link(social, id=social.name) }}
+      {{ linkc(social, id=social.name) }}
     {% endfor -%}
   </section>
 {%- endif %}

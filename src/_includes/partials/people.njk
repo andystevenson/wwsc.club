@@ -16,7 +16,7 @@
     </section>
     <section class="contacts">
       {% set email = cms.links['email-' + people.title] %}
-      {{ link(email, '?Subject=Feedback')}}
+      {{ linkc(email, '?Subject=Feedback')}}
     </section>
   </section>
 {% endif %}

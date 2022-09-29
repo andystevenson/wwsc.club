@@ -1,4 +1,4 @@
-{% if spiritsMenu %}
+{% if info.spirits %}
   <section class="spirits-menu-section" id="spirits-menu-section">
     <header>
       <h2 class="spirits-menu-title">Spirits</h2>
@@ -7,34 +7,35 @@
     </header>
 
     <ul class="spirits-menu-spirits">
-      {% for spirits in spiritsMenu.children %}
+      {% for spirit in info.spirits %}
+      {% if spirit.active %}
         <li class="spirits-type">
           <article>
-
-            {% set hasVariants = spirits.has_variant %}
+            {% set hasVariants = spirit.variants %}
             {% if hasVariants %}
               <p class="has-variants">
-                <span class="spirits-name">{{ spirits.product_name}}</span>
+                <span class="spirits-name">{{ spirit.name}}</span>
               </p>
               <div>
 
-                {% for variant in spirits.current_variants %}
+                {% for variant in spirit.variants %}
                   <p class="spirits-price">
-                    <span class="spirits-qty">{{variant.display_name}}</span>
-                    <span class="spirits-price">{{variant.selling_price}}</span>
+                    <span class="spirits-qty">{{variant.display}}</span>
+                    <span class="spirits-price">{{variant.price}}</span>
                   </p>
                 {% endfor %}
               </div>
             {% else %}
               <p class="no-variants">
-                <span class="spirits-name">{{spirits.product_name}}</span>
+                <span class="spirits-name">{{spirit.name}}</span>
               </p>
               <p class='spirits-price'>
-                <span class="spirits-price">{{spirits.selling_price}}</span>
+                <span class="spirits-price">{{spirit.price}}</span>
               </p>
             {% endif %}
           </article>
         </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </section>

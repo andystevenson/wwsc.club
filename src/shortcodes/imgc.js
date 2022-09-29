@@ -1,6 +1,7 @@
 const { htmlAttributes } = require('@andystevenson/lib/html')
 
 module.exports = function imgc(...args) {
+  // console.log('imgc', args)
   if (args.length < 1)
     throw SyntaxError('imgc expects at least 1 argument [contentful-image]')
 

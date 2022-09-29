@@ -2,7 +2,7 @@
   <section class="join-categories">
     {% for category in categories %}
       <button id="join-{{category.name}}" title="{{category.name}} price options">
-        {{ icon(cms.icons.checkmark) }}
+        {{ iconc(cms.icons.checkmark) }}
         <span>{{category.name}}</span>
       </button>
     {% endfor %}

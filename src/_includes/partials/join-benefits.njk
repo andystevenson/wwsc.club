@@ -4,7 +4,7 @@
     <ul>
       {% for benefit in benefits %}
         <li>
-          {{ icon(cms.icons.checkmark) }}
+          {{ iconc(cms.icons.checkmark) }}
 
           <p>{{benefit.description | safe}}</p>
           {% for link in benefit.links %}

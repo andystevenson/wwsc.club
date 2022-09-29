@@ -1,4 +1,4 @@
-{% if teaAndCoffee %}
+{% if info['tea-coffee'] %}
   <section class="tea-and-coffee" id="tea-and-coffee-menu-section">
     <header>
       <h2>Tea & Coffee</h2>
@@ -6,17 +6,19 @@
       {{ imgc(cms.image.coffee)}}
     </header>
     <ul>
-      {% for tAc in teaAndCoffee.children %}
+      {% for tAc in info['tea-coffee'] %}
+        {% if tAc.active %}          
         <li>
           <article>
             <p class="name">
-              {{tAc.product_name}}
+              {{tAc.name}}
             </p>
             <p class="price">
-              {{tAc.selling_price}}
+              {{tAc.price}}
             </p>
           </article>
         </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </section>

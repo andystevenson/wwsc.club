@@ -1,4 +1,4 @@
-{# {{ page | inspect }} #}
+{# {{ eleventy | inspect }} #}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +13,7 @@
 
   <body class="{{page.fileSlug}}">
 
-    {{ link(cms.links['skip-to-content'], 'skip to content', id='skip-to-content') }}
+    {{ linkc(cms.links['skip-to-content'], 'skip to content', id='skip-to-content') }}
     <div class="site container">
       {% include 'partials/header.njk' %}
       {% include 'partials/main.njk' %}

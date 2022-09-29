@@ -1,6 +1,7 @@
 const { htmlAttributes } = require('@andystevenson/lib/html')
 
 module.exports = function icon(...args) {
+  // console.log('iconc', args)
   if (args.length < 1)
     throw SyntaxError('icon expects at least 1 argument [icon-object]')
 

@@ -1,44 +1,51 @@
-{% if wineMenu %}
+{% if info.wine %}
   {% set images = {
-    'rose-wine': 'rose-wine-landscape',
-    'red-wine': 'red-wine-landscape',
-    'white-wine': 'white-wine-landscape',
-    'prosecco-wine': 'prosecco-wine-landscape'} 
+    'white': 'white-wine-landscape', 
+    'prosecco': 'prosecco-wine-landscape', 
+    'rose': 'rose-wine-landscape',
+    'red': 'red-wine-landscape'} 
   %}
+
+  {% set milliliters = {Small: '125ml', Medium: '175ml', Spritzer: '175ml', Large:'250ml', Bottle: '750ml', 'Il Caggio Mini': '20cl'} %}
+
+  {% set white = info.wine | filter(['tag','white']) %}
+  {% set prosecco = info.wine | filter(['tag','prosecco']) %}
+  {% set rose = info.wine | filter(['tag','rose']) %}
+  {% set red = info.wine | filter(['tag','red']) %}
+  {% set categories = {'white': white, 'prosecco': prosecco, 'rose': rose, 'red': red} %}
   <section class="wine-menu-section" id="wine-menu-section">
     <header>
       <h2 class="wine-menu-title">Wine</h2>
       <small>(WWSC members enjoy 15% discount!)</small>
-
     </header>
     <ul class="wine-menu-categories">
-      {% for tag, category in wineMenu %}
+      {% for tag, category in categories %}
         <section class="wine-menu-category">
           {{ imgc(cms.image[images[tag]], class='wine-category-image')}}
-          <h3 class='wine-category'>{{tag | replace('-wine','')}}</h3>
+          <h3 class='wine-category'>{{tag}}</h3>
           <section class="wine-menu-wines">
             {% for wine in category %}
               <li class="wine-type">
-                {% set hasVariants = wine.has_variant %}
+                {% set hasVariants = wine.variants %}
                 {% if hasVariants %}
                   <p class="has-variants">
-                    <span class="wine-name">{{ wine.product_name}}</span>
+                    <span class="wine-name">{{wine.name}}</span>
                   </p>
-                  {% for variant in wine.current_variants %}
+                  {% for variant in wine.variants %}
                     <p class="wine-price">
-                      <span class="wine-qty">{{variant.display_name}}</span>
-                      <span class="wine-measure">{{variant.milliliters}}</span>
-                      <span class="wine-price">{{variant.selling_price}}</span>
+                      <span class="wine-qty">{{variant.display}}</span>
+                      <span class="wine-measure">{{milliliters[variant.display]}}</span>
+                      <span class="wine-price">{{variant.price}}</span>
                     </p>
                   {% endfor %}
                 {% else %}
                   <p class="no-variants">
-                    <span class="wine-name">{{wine.product_name}}</span>
+                    <span class="wine-name">{{wine.name}}</span>
                   </p>
                   <p class='wine-price'>
                     <span class="wine-qty">bottle</span>
-                    <span class="wine-measure">{{wine.milliliters}}</span>
-                    <span class="wine-price">{{wine.selling_price}}</span>
+                    <span class="wine-measure">{{milliliters[wine.display] or milliliters.Bottle}}</span>
+                    <span class="wine-price">{{wine.price}}</span>
                   </p>
                 {% endif %}
               </li>

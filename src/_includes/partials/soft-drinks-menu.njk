@@ -1,4 +1,4 @@
-{% if softDrinksMenu %}
+{% if info['soft-drinks'] %}
   <section class="soft-drinks-menu-section" id="soft-drinks-menu-section">
     <header>
       <h2 class="soft-drinks-menu-title">Soft Drinks</h2>
@@ -7,34 +7,34 @@
     </header>
 
     <ul class="soft-drinks-menu">
-      {% for drink in softDrinksMenu.children %}
+      {% for drink in info['soft-drinks'] %}
+      {% if drink.active %}
         <li class="soft-drinks-type">
           <article>
-
-            {% set hasVariants = drink.has_variant %}
+            {% set hasVariants = drink.variants %}
             {% if hasVariants %}
               <p class="has-variants">
-                <span class="soft-drinks-name">{{ drink.product_name}}</span>
+                <span class="soft-drinks-name">{{drink.name}}</span>
               </p>
               <div>
-
-                {% for variant in drink.current_variants %}
+                {% for variant in drink.variants %}
                   <p class="soft-drinks-price">
-                    <span class="soft-drinks-qty">{{variant.display_name}}</span>
-                    <span class="soft-drinks-price">{{variant.selling_price}}</span>
+                    <span class="soft-drinks-qty">{{variant.display}}</span>
+                    <span class="soft-drinks-price">{{variant.price}}</span>
                   </p>
                 {% endfor %}
               </div>
             {% else %}
               <p class="no-variants">
-                <span class="soft-drinks-name">{{drink.product_name}}</span>
+                <span class="soft-drinks-name">{{drink.name}}</span>
               </p>
               <p class='soft-drinks-price'>
-                <span>{{drink.selling_price}}</span>
+                <span>{{drink.price}}</span>
               </p>
             {% endif %}
           </article>
         </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </section>

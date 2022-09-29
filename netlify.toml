@@ -4,22 +4,6 @@
   functions = "netlify/functions"
   publish = "_site"
 
-# [[edge_functions]]
-#   path = '/.netlify/*'
-#   function = 'authenticate'
-
-[[edge_functions]]
-  path = '/hello'
-  function = 'hello'
-
-[[edge_functions]]
-  path = '/card-check'
-  function = 'card-check'
-
-[[edge_functions]]
-  path = '/card-find'
-  function = 'card-find'
-
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
@@ -32,6 +16,14 @@
 [[redirects]]
   from = "/reception"
   to = "/opening-times"
+
+[[redirects]]
+  from = "/card-check"
+  to = "https://westwarwicks.info/card"
+
+[[redirects]]
+  from = "/card-find"
+  to = "https://westwarwicks.info/finder"
 
 [[redirects]]
   from = "*"
