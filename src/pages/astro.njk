@@ -1,1 +1,4 @@
 <h1>{{ title | capitalize }}</h1>
+
+{% set promotions = cms.tags['astro-promotion'] %}
+{% include "partials/promotions.njk" %}
