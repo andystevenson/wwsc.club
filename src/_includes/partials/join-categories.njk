@@ -1,10 +1,12 @@
 {% if categories %}
   <section class="join-categories">
     {% for category in categories %}
+    {% if category.name !== 'test' %}
       <button id="join-{{category.name}}" title="{{category.name}} price options">
         {{ iconc(cms.icons.checkmark) }}
         <span>{{category.name}}</span>
       </button>
+    {% endif %}
     {% endfor %}
   </section>
 {% endif %}
