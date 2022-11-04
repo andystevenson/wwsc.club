@@ -6,7 +6,7 @@ ul.images {
 
   img {
     max-block-size: 70vh;
-    // object-fit: contain;
+    aspect-ratio: var(--ratio-portrait);
   }
 
   a {
