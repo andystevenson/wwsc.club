@@ -18,6 +18,10 @@ h3 {
   line-height: var(--font-lineheight-00);
 }
 
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
 h2 {
   font-size: var(--font-size-fluid-2);
 }

@@ -18,12 +18,12 @@
         background: var(--surface-1);
         grid-auto-rows: min-content;
 
+        p {
+          font-size: var(--font-size-fluid-1);
+        }
+
         & > * {
           place-self: center;
-
-          @media (--lg-n-above) {
-            place-self: unset;
-          }
         }
 
         & > .cto {
@@ -37,6 +37,11 @@
 
       & form {
         place-self: center;
+        @media (--xl-n-above) {
+          button {
+            --_size: var(--font-size-fluid-1);
+          }
+        }
       }
 
       & .aerial-video {
