@@ -32,13 +32,18 @@ async function wwscInfo() {
   log.info(`wwscInfo fetched = [${assets !== null}]`)
   if (assets) return assets
 
-  const fetched = await Promise.all(
-    resources.map(async (resource) => await info(resource)),
-  )
+  assets = {}
+  for await (const resource of resources) {
+    console.log(`fetching ${resource}`)
+    assets[resource] = await info(resource)
+  }
+  // const fetched = await Promise.all(
+  //   resources.map(async (resource) => await info(resource)),
+  // )
 
-  assets = Object.fromEntries(
-    resources.map((resource, index) => [resource, fetched[index]]),
-  )
+  // assets = Object.fromEntries(
+  //   resources.map((resource, index) => [resource, fetched[index]]),
+  // )
 
   return assets
 }
