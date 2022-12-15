@@ -37,7 +37,7 @@
 
       & form {
         place-self: center;
-        @media (--xl-n-above) {
+        @media (--xxl-n-above) {
           button {
             --_size: var(--font-size-fluid-1);
           }
