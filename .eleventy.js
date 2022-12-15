@@ -34,7 +34,7 @@ async function wwscInfo() {
 
   assets = {}
   for await (const resource of resources) {
-    console.log(`fetching ${resource}`)
+    log.info(`fetching ${resource}`)
     assets[resource] = await info(resource)
   }
   // const fetched = await Promise.all(

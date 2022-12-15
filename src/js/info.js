@@ -10,11 +10,14 @@ module.exports = async (resource = 'hello', params = {}) => {
 
   try {
     log.info(`${resource}...`)
-    const fetch = (await import('node-fetch')).default
+    // const fetch = (await import('node-fetch')).default
     const response = await fetch(url)
-    const join = await response.json()
-    log.info(`${resource} succeeded`)
-    return join
+    if (response.ok) {
+      const join = await response.json()
+      log.info(`${resource} succeeded`)
+      return join
+    }
+    log.error(`${resource} failed [${response.status}, ${response.statusText}]`)
   } catch (error) {
     log.error(`${resource} failed [${error.message}]`)
     throw error
