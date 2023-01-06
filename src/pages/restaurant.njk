@@ -4,6 +4,9 @@
 
 {% include "partials/gallery.njk" %}
 
+{% set promotions = cms.tags['restaurant-promotion'] %}
+{% include "partials/promotions.njk" %}
+
 {{ linkc(cms.links['email-restaurant'], h2('Book a Table'), '?Subject=Book a Table', class='booking') }}
 
 {% include 'partials/menu-navigation.njk' %}
