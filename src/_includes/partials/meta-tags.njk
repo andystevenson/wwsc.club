@@ -1,19 +1,25 @@
 <meta charset="UTF-8"/>
-<meta name="generator" content="{{ eleventy.generator }}">
-<meta name="description" content="{{ description if description else meta.description }}">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="{{ eleventy.generator }}">
+
+<meta name="description" content="{{ description if description else meta.description }} - {{title}}, tennis, squash, gym, fitness, cricket, hockey, football, racketball, padel, junior, juniors, coach, coaching, lesson, lessons, camps, active, activity, healthy, sport, bar, restaurant, events, social, solihull, olton, warwickshire" />
+
+
+<meta name="keywords" content="{{ title }}, tennis, squash, gym, fitness, cricket, hockey, football, racketball, padel, junior, juniors, coach, coaching, lesson, lessons, camps, active, activity, healthy, sport, bar, restaurant, events, social,solihull, olton, warwickshire" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Google / Search Engine Tags -->
 <meta itemprop="name" content="{{ company if company else meta.company }}">
-<meta itemprop="description" content="{{ description if description else meta.description }}">
+
+<meta itemprop="description" content="{{ description if description else meta.description }} - {{title}}, tennis, squash, gym, fitness, cricket, hockey, football, racketball, padel, junior, juniors, coach, coaching, lesson, lessons, camps, active, activity, healthy, sport, bar, restaurant, events, social, solihull, olton, warwickshire">
+
 <meta itemprop="image" content="{{ site if site else meta.site }}/west-warwicks-social-image.png">
 
 <!-- Facebook Meta Tags -->
+<meta property="og:site_name" content="{{ title }} - Solihull - West Warwickshire Sports Complex - Olton" />
 <meta property="og:url" content="{{ site if site else meta.site }}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ company if company else meta.company }}">
+<meta property="og:title" content="{{ title }} - Solihull - {{ company if company else meta.company }}">
 <meta property="og:description"
     content="{{ description if description else meta.description }}">
 <meta property="og:image" content="{{ site if site else meta.site }}/west-warwicks-social-image.png">
