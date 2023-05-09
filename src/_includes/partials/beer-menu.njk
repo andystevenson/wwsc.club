@@ -9,33 +9,36 @@
 
     <ul class="beer-menu-beers">
       {% for beer in info.beer %}
-        <li class="beer-type">
-          <article>
+        {% set active = beer.active %}
+        {% if active %}
+          <li class="beer-type">
+            <article>
 
-            {% set hasVariants = beer.variants %}
-            {% if hasVariants %}
-              <p class="has-variants">
-                <span class="beer-name">{{ beer.variants[0].name}}</span>
-              </p>
-              <div>
+              {% set hasVariants = beer.variants %}
+              {% if hasVariants %}
+                <p class="has-variants">
+                  <span class="beer-name">{{ beer.name}}</span>
+                </p>
+                <div>
 
-                {% for variant in beer.variants %}
-                  <p class="beer-price">
-                    <span class="beer-qty">{{variant.display}}</span>
-                    <span class="beer-price">{{variant.price}}</span>
-                  </p>
-                {% endfor %}
-              </div>
-            {% else %}
-              <p class="no-variants">
-                <span class="beer-name">{{beer.name}}</span>
-              </p>
-              <p class='beer-price'>
-                <span class="beer-price">{{beer.price}}</span>
-              </p>
-            {% endif %}
-          </article>
-        </li>
+                  {% for variant in beer.variants %}
+                    <p class="beer-price">
+                      <span class="beer-qty">{{variant.display}}</span>
+                      <span class="beer-price">{{variant.price}}</span>
+                    </p>
+                  {% endfor %}
+                </div>
+              {% else %}
+                <p class="no-variants">
+                  <span class="beer-name">{{beer.name}}</span>
+                </p>
+                <p class='beer-price'>
+                  <span class="beer-price">{{beer.price}}</span>
+                </p>
+              {% endif %}
+            </article>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </section>
