@@ -1,7 +1,7 @@
 ul.images {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
   gap: var(--size-3);
 
   img {
