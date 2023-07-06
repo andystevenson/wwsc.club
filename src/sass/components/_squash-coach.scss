@@ -79,6 +79,7 @@ section.squash-coach {
         grid-auto-flow: column;
         grid-auto-columns: 1fr;
         gap: var(--size-fluid-1);
+        align-items: center;
 
         & .type {
           font-weight: 700;

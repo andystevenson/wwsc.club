@@ -7,8 +7,12 @@
   }
 }
 
-.squash .junior-squash-programme img {
-  max-block-size: 60vh;
+.squash .junior-squash-programme {
+  display: flex;
+  place-content: center;
+  img {
+    max-block-size: 60vh;
+  }
 }
 
 .squash .skills-and-drills img {
