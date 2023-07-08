@@ -6,7 +6,7 @@
       gap: var(--size-fluid-2);
       text-align: center;
 
-      @media (--xl-n-above) {
+      @media (--xxl-n-above) {
         text-align: left;
         grid-template-columns: repeat(2, 1fr);
       }
@@ -46,7 +46,6 @@
 
       & .aerial-video {
         display: none;
-        place-self: center;
 
         @media (--sm-n-above) {
           display: block;
