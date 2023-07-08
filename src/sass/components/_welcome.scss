@@ -6,7 +6,7 @@
       gap: var(--size-fluid-2);
       text-align: center;
 
-      @media (--lg-n-above) {
+      @media (--xl-n-above) {
         text-align: left;
         grid-template-columns: repeat(2, 1fr);
       }
@@ -29,7 +29,7 @@
         & > .cto {
           place-self: center;
 
-          @media (--xs-n-above) {
+          @media (--sm-n-above) {
             display: flex;
           }
         }
