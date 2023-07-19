@@ -9,7 +9,8 @@ main.page {
     padding: var(--size-fluid-1);
     background-color: var(--surface-2);
   }
-  & > h1 {
+  & > h1,
+  img {
     place-self: center;
   }
 }

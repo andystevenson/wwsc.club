@@ -1,0 +1,22 @@
+.media-scroller {
+  --image-size: 20ch;
+  @media (--xl-n-above) {
+    --image-size: 30ch;
+  }
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  gap: var(--size-3);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1em;
+
+  & > * {
+    scroll-snap-align: start;
+  }
+
+  & img {
+    max-inline-size: var(--image-size);
+  }
+}

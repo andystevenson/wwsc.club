@@ -1,8 +1,170 @@
 {% set group = squash %}
+
 <h1>{{ title | capitalize }}</h1>
+{{imgc(cms.image["squash-banner"])}}
+
 <p class="description">{{ squash.description }}</p>
 
-{% include 'partials/gallery.njk' %}
+<section title="squash is fun" class="media-scroller squash-is-fun">
+  {% for image in squash.englandSquashMedia %}
+    {{ imgc(cms.image[image]) }}
+  {% endfor %}
+</section>
+
+<p class="description">{{ squash.newToSquash }}</p>
+
+<section title='rob owen academy' class="roa">
+  {{imgc(cms.image["squash-roa-welcome"], width='100%')}}
+
+  <section class="roa-coaches">
+    <h2>Coaches</h2>
+      
+    <section class="roa-team media-scroller">
+      {% for member in squash.team %}
+        <article>
+          {{imgc(cms.image[member.image], class='roa-coach-image')}}
+          <h3 class="roa-coach-name">{{member.name}}</h3>
+          <p class="roa-coach-role">{{member.role}}</p>
+          <details>
+            <summary>
+              Bio
+            </summary>
+            <p class="roa-coach-bio">{{member.bio}}</p>
+          </details>
+        </article>
+      {% endfor %}
+    </section>
+  </section>
+
+  <section class="roa-junior-programmes">
+    <h2>Junior Programmes</h2>
+    <section title="roa images" class="media-scroller roa-images">
+      {% for image in squash.roaImages %}
+        {{ imgc(cms.image[image]) }}
+      {% endfor %}
+    </section>
+
+    <section title="junior programmes" class="media-scroller roa-junior-programme-articles">
+      {% for programme in squash.juniorProgrammes %}
+        <article class='roa-junior-programme' id='{{programme.name}}'>
+          {{ imgc(cms.image[programme.name]) }}
+          <button class='book-now-action'>Book Now</button>
+          <details>
+            <summary>Description</summary>
+            <p class="description">{{programme.description}}</p>
+          </details>
+          <form></form>
+          {# <form action="" class="inactive" >
+            <fieldset id="{{programme.name}}-form">
+              <legend>booking</legend>
+              <p class="description">{{programme.name}}</p>
+              <section>
+                <label for="{{programme.name}}-name">
+                  <span>Name</span>
+                  <input type="text" name="{{programme.name}}-name" id="{{programme.name}}-name" placeholder="Full Name ... e.g.: Joe Bloggs" autofocus required>
+                </label>
+                <label for="{{programme.name}}-email">
+                  <span>Email</span>
+                  <input type="email" name="{{programme.name}}-email" id="{{programme.name}}-email" placeholder="e.g.: someone@example.com" required>
+                </label>
+                <label for="{{programme.name}}-mobile">
+                  <span>Mobile</span>
+                  <input type="text" name="{{programme.name}}-mobile" id="{{programme.name}}-mobile" placeholder="Mobile Number ... e.g.: 07920 027695">
+                </label>
+                <fieldset class="pricing">
+                  <legend>price</legend>
+                  <p class="description">
+                  {% set price = programme.prices[0].price %}
+                  {% set unit = programme.prices[0].unit %}
+                  <span class="price" data-price={{price}}>£{{price}}</span>
+                  <span class="unit" data-unit="{{unit}}">per {{unit}}</span>
+                </p>
+                </fieldset>
+                <fieldset class="sessions">
+                  <legend>select sessions to attend</legend>
+                  <label for="{{programme.name}}-july-31-2023">
+                    <input type="checkbox" name="{{programme.name}}-july-31-2023" id="{{programme.name}}-july-31-2023">
+                    <span>July 31st,2023</span>
+                  </label>
+                  <label for="{{programme.name}}-august-1-2023">
+                    <input type="checkbox" name="{{programme.name}}-august-1-2023" id="{{programme.name}}-august-1-2023">
+                    <span>August 1st,2023</span>
+                  </label>
+                  <label for="{{programme.name}}-august-2-2023">
+                    <input type="checkbox" name="{{programme.name}}-august-2-2023" id="{{programme.name}}-august-2-2023">
+                    <span>August 2nd,2023</span>
+                  </label>
+                </fieldset>
+                <section class="submit">
+                  <button type="button" id="{{programme.name}}-cancel">Cancel</button>
+                  <button type="submit" id="{{programme.name}}-submit" disabled>Buy</button>
+                </section>
+                <input type="hidden" value="" name="booking-reference" id="booking-reference">
+              </section>
+            </fieldset>
+          </form> #}
+        </article>
+      {% endfor %}
+    </section>
+
+  </section>
+
+  <section class="roa-adult-programme">
+    <h2>Adult Programmes</h2>
+    <section title="roa images" class="media-scroller roa-images">
+      {% for image in squash.roaImages %}
+        {{ imgc(cms.image[image]) }}
+      {% endfor %}
+    </section>
+  </section>
+
+  <section class="alumni">
+    <h2>Professionals & Alumni</h2>
+        <section class="roa-alumni media-scroller">
+      {% for member in squash.alumni %}
+        <article>
+          {{imgc(cms.image[member.image], class='roa-alumni-image')}}
+          <h3 class="roa-alumni-name">{{member.name}}</h3>
+          <details>
+            <summary>
+              Bio
+            </summary>
+            <p class="roa-alumni-bio">{{member.bio}}</p>
+          </details>
+        </article>
+      {% endfor %}
+    </section>
+    <p class="see-the-professionals description">{{squash.seeTheProfessionals}}</p>
+  </section>
+
+  <section class="jonah-legend">
+    <h2>Where it all started for West Warwicks...</h2>
+    {{imgc(cms.image["squash-jonah-barrington-legend"], class="jonah-legend")}}
+    <section class="roa-history">
+      {{imgc(cms.image["squash-jonah-barrington-1"], class="jonah-image")}}
+      <div>
+        <p class="description">{{squash.history | first}}</p>
+        <details class="roa-history-details">
+          <summary>... more</summary>
+          {% for paragraph in squash.history | slice(1) %}
+            <p class="description">{{paragraph}}</p>
+        {% endfor %}
+        </details>
+      </div>
+      {{imgc(cms.image["squash-jonah-barrington-2"], class="jonah-image")}}
+    </section>
+    <section class="roa-courts">
+      {{imgc(cms.image["squash-jonah-barrington-court"])}}
+      {{imgc(cms.image["squash-rob-owen-court"])}}
+    </section>
+    
+  </section>
+
+  {{imgc(cms.image["squash-roa-tin"], width="100%")}}
+</section>
+
+{# old stuff here #}
+{# {% include 'partials/gallery.njk' %} #}
 
 <form class='book-a-court' action="{{ bookNow }}">
   <button>book a court</button>
@@ -12,7 +174,7 @@
   <section class="identity">
     <h2>Sam Osborne-Wylde<br>Jonah Bryant</h2>
     <picture>
-      {{ imgc(cms.image['squash.coaches']) }}
+      {{ imgc(cms.image['roa-individual-coaching']) }}
     </picture>
   </section>
   <section class="bio">
@@ -55,26 +217,7 @@
   </section>
 </section>
 
-<section title="gallery" class="gallery reasons">
-  <picture>
-    {{ imgc(cms.image['squash-gets-you-fit']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-a-quick-workout']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-burns-calories']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-fun']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-all-weather']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-for-everyone']) }}
-  </picture>
-</section>
+
 
 <section class="group juniors">
   <h2>Juniors</h2>
@@ -82,7 +225,7 @@
     <section class="junior-squash-programme">
 
         <picture>
-          {{ imgc(cms.image['junior-squash-programme']) }}
+          {{ imgc(cms.image['roa-junior-squash-programme']) }}
         </picture>
 
       <section class="schedule">

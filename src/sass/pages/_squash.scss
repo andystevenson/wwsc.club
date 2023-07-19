@@ -7,10 +7,261 @@
   }
 }
 
+input {
+  background-color: var(--surface-3);
+}
+::placeholder {
+  font-size: 0.8em;
+}
+.squash .active {
+  display: grid;
+}
+
+.squash .inactive {
+  display: none;
+}
+
+.squash summary {
+  font-size: var(--font-size-fluid-1);
+}
+.squash .squash-is-fun {
+  img {
+    aspect-ratio: var(--ratio-square);
+  }
+}
 .squash .junior-squash-programme img {
   max-block-size: 60vh;
 }
 
 .squash .skills-and-drills img {
   max-block-size: 60vh;
+}
+
+.squash .roa-images {
+  img {
+    min-inline-size: 50vw;
+    @media (--xl-n-above) {
+      min-inline-size: 35vw;
+    }
+  }
+}
+
+.squash .roa-team,
+.roa-alumni {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--size-3);
+}
+
+.squash .roa-team > article,
+.roa-alumni > article {
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+  grid-template-areas: 'image' 'bio';
+  grid-auto-rows: min-content;
+  gap: unset;
+  margin-block-end: 0.25em;
+
+  & .roa-coach-image,
+  .roa-alumni-image {
+    grid-area: image;
+  }
+
+  & .roa-coach-name,
+  .roa-coach-role,
+  .roa-alumni-name {
+    text-align: center;
+    grid-area: image;
+    place-self: center;
+    background-color: var(--surface-3);
+    padding-inline: 1em;
+    padding-block: 0.25em;
+    opacity: 0.7;
+    font-size: var(--font-size-fluid-1);
+  }
+
+  & .roa-coach-role {
+    margin-bottom: 1em;
+    place-self: end center;
+    font-size: var(--font-size-fluid-1);
+  }
+
+  & .roa-coach-bio,
+  .roa-alumni-bio {
+    grid-area: bio;
+  }
+}
+
+.squash .roa-coach-image {
+  min-inline-size: 30ch;
+
+  @media (--lg-n-above) {
+    min-inline-size: 35ch;
+  }
+
+  @media (--xl-n-above) {
+    min-inline-size: 40ch;
+  }
+  aspect-ratio: var(--ratio-portrait);
+  object-fit: cover;
+  object-position: top;
+  place-self: start;
+}
+
+.squash .jonah-legend {
+  inline-size: 100%;
+}
+
+.squash .roa-courts {
+  place-self: center;
+  gap: var(--size-2);
+  @media (--md-n-above) {
+    grid-auto-flow: column;
+    img {
+      min-inline-size: 30vw;
+      object-fit: cover;
+    }
+  }
+}
+
+.squash .roa-history {
+  & .jonah-image {
+    display: none;
+  }
+
+  @media (--lg-n-above) {
+    & .jonah-image {
+      display: block;
+    }
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  & > * {
+    place-self: center;
+  }
+
+  & img:first-of-type {
+    place-self: start left;
+  }
+
+  & img:last-of-type {
+    place-self: start right;
+  }
+}
+
+.squash .roa-history-details {
+  // min-inline-size: var(--size-content-3);
+  place-self: center;
+  p {
+    margin-bottom: 1em;
+  }
+}
+
+.squash .roa-junior-programme {
+  grid-template-areas:
+    'article'
+    'description';
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+  grid-auto-rows: min-content;
+  gap: unset;
+  margin-block-end: 0.25em;
+  & > img,
+  & > form {
+    min-inline-size: 30ch;
+    grid-area: article;
+  }
+
+  & > button {
+    grid-area: article;
+    place-self: center;
+    opacity: 0.85;
+  }
+
+  & > details {
+    grid-area: description;
+  }
+
+  & > form {
+    grid-area: article;
+
+    fieldset {
+      gap: unset;
+    }
+
+    & .description {
+      line-height: 1;
+      margin-block-end: 0.5em;
+      & > * {
+        place-self: center;
+      }
+    }
+
+    & .sessions {
+      place-content: center;
+      gap: unset;
+    }
+    & .submit {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.squash {
+  fieldset {
+    & > section {
+      gap: var(--size-1);
+    }
+  }
+  label[for] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--label-space);
+    align-items: center;
+    input[type='text'],
+    input[type='email'] {
+      min-inline-size: 10ch;
+      inline-size: 100%;
+    }
+
+    input[type='checkbox'] {
+      margin-inline-end: var(--size-1);
+    }
+    input[type='text'][id='let-me-say'] {
+      min-inline-size: 10ch;
+      inline-size: 10ch;
+    }
+    span {
+      inline-size: var(--label-size);
+    }
+  }
+}
+
+#roa-junior-squash-summer-camps-form {
+  & .sessions {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+}
+
+#roa-junior-squash-programme {
+  input[type='number'] {
+    inline-size: 6ch;
+    margin-inline-end: var(--size-2);
+  }
+
+  & .sessions small:last-of-type {
+    margin-block-end: 1em;
+  }
+}
+#roa-individual-coaching {
+  fieldset.notice {
+    margin-block-end: 1em;
+  }
+  p.notice {
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+  }
 }
