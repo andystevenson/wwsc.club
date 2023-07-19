@@ -1,14 +1,8 @@
-console.log('welcome to WWSC squash')
-
 import { nearestDayOfWeek, ordinalDate } from '../utilities/dates.mjs'
 import { v4 as uuid } from 'uuid'
 
-let squashData = await fetch('/api/squash')
-squashData = await squashData.json()
-
-const juniorProgrammes = Array.from(
-  document.querySelectorAll('article.roa-junior-programme'),
-)
+// data configuration for squash
+let squashData = null
 
 const articleElements = (article) => {
   const id = article.id
@@ -430,7 +424,142 @@ const individualForm = (name, prices) => {
   return template
 }
 
+const skillsAndDrillsForm = (name, prices) => {
+  const bookingFrom = nearestDayOfWeek('tuesday')
+  const nextTuesday = ordinalDate(bookingFrom[0])
+  const template = `
+  <form action="" class="inactive" >
+    <fieldset id="${name}-form">
+      <legend>booking</legend>
+      <p class="description">${name}</p>
+      <section>
+        <label for="${name}-name">
+          <span>Name</span>
+          <input type="text" name="${name}-name" id="${name}-name" placeholder="Full Name ... e.g.: Joe Bloggs" autofocus required>
+        </label>
+        <label for="${name}-email">
+          <span>Email</span>
+          <input type="email" name="${name}-email" id="${name}-email" placeholder="e.g.: someone@example.com" required>
+        </label>
+        <label for="${name}-mobile">
+          <span>Mobile</span>
+          <input type="text" name="${name}-mobile" id="${name}-mobile" placeholder="Mobile Number ... e.g.: 07920 027695">
+        </label>
+        <label for="${name}-card">
+          <span>Membership Card</span>
+          <input type="text" name="${name}-card" id="${name}-card">
+        </label>
+        <fieldset class="pricing members" data-price1="${prices[0].price}"">
+          <legend>members price</legend>
+          <section class="description">
+            <div>
+              <span class="price" data-price=${prices[0].price}>£${
+    prices[0].price
+  }</span>
+              <span class="unit" data-unit="${prices[0].unit}">per ${
+    prices[0].unit
+  }</span>
+            </div>
+
+          </section>
+        </fieldset>
+        <fieldset class="pricing non-members" data-price2="${prices[1].price}">
+          <legend>price</legend>
+          <section class="description">
+            <div>
+              <span class="price" data-price=${prices[1].price}>£${
+    prices[1].price
+  }</span>
+              <span class="unit" data-unit="${prices[1].unit}">per ${
+    prices[1].unit
+  }</span>
+            </div>
+          </section>
+        </fieldset>
+        <fieldset class="sessions">
+          <legend>number of sessions</legend>
+          <small>${nextTuesday}</small>
+          <label for="${name}-repeat">
+            <input type="number" name="${name}-repeat" id="${name}-repeat" value=0 min=0 max=8>
+            <span>week(s)</span>
+            <sup>(max 8)</sup>            
+          </label>
+        </fieldset>
+        <section class="submit">
+          <button type="button" id="${name}-cancel">Cancel</button>
+          <button type="submit" id="${name}-submit" disabled>Buy</button>
+        </section>
+        <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="" name="price-paid">
+      </section>
+    </fieldset>
+  </form>`
+
+  return template
+}
+
+const clubNightForm = (name, prices) => {
+  const template = `
+  <form action="" class="inactive" >
+    <fieldset id="${name}-form">
+      <legend>booking</legend>
+      <p class="description">${name}</p>
+      <section>
+        <label for="${name}-name">
+          <span>Name</span>
+          <input type="text" name="${name}-name" id="${name}-name" placeholder="Full Name ... e.g.: Joe Bloggs" autofocus required>
+        </label>
+        <label for="${name}-email">
+          <span>Email</span>
+          <input type="email" name="${name}-email" id="${name}-email" placeholder="e.g.: someone@example.com" required>
+        </label>
+        <label for="${name}-mobile">
+          <span>Mobile</span>
+          <input type="text" name="${name}-mobile" id="${name}-mobile" placeholder="Mobile Number ... e.g.: 07920 027695">
+        </label>
+        <label for="${name}-card">
+          <span>Membership Card</span>
+          <input type="text" name="${name}-card" id="${name}-card">
+        </label>
+        <fieldset class="pricing">
+          <legend>price</legend>
+          <p class="description">FREE</p>
+        </fieldset>
+        <fieldset class="sessions">
+          <legend>number of sessions</legend>
+          <label for="${name}-repeat">
+            <input type="number" name="${name}-repeat" id="${name}-repeat" value=0 min=0 max=8>
+            <span>week(s)</span>
+            <sup>(max 8)</sup>            
+          </label>
+        </fieldset>
+        <section class="submit">
+          <button type="button" id="${name}-cancel">Cancel</button>
+          <button type="submit" id="${name}-submit" disabled>Buy</button>
+        </section>
+        <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="" name="price-paid">
+      </section>
+    </fieldset>
+  </form>`
+
+  return template
+}
 // init
+
+const handleInit = (form, id, generateForm) => {
+  const programme = findSquashData(id)
+  const { name, prices } = programme
+
+  const newForm = generateForm(name, prices)
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(newForm, 'text/html')
+  const replaceForm = doc.querySelector('form')
+  form.replaceWith(replaceForm)
+  return replaceForm
+}
 
 const handleEliteInit = (form) => {
   const programme = findSquashData('roa-elite-junior-camp')
@@ -469,8 +598,9 @@ const handleJuniorProgrammeInit = (form) => {
   return replaceForm
 }
 
-const handleIndividualInit = (form) => {
-  const programme = findSquashData('roa-individual-coaching')
+const handleIndividualInit = (form, id) => {
+  console.log('handleIndividualInit', id)
+  const programme = findSquashData(id)
   const { name, prices } = programme
 
   console.log({ programme, name, prices })
@@ -593,62 +723,138 @@ const handleIndividualForm = (e) => {
   if (weeks > 0) updatePricePaid(article, price)
 }
 
-// controller
-const handlers = {
-  'roa-elite-junior-camp': {
-    init: handleEliteInit,
-    form: handleEliteForm,
-    bookNow: handleBookNow,
-    cancel: handleCancel,
-    submit: handleSubmit,
-    data: findSquashData('roa-elite-junior-camp'),
-  },
+const handleClubNightForm = (e) => {
+  console.log('handleClubNightForm')
 
-  'roa-junior-squash-summer-camps': {
-    init: handleSummerCampsInit,
-    form: handleSummerCampsForm,
-    bookNow: handleBookNow,
-    cancel: handleCancel,
-    submit: handleSubmit,
-    data: findSquashData('roa-junior-squash-summer-camps'),
-  },
-  'roa-junior-squash-programme': {
-    init: handleJuniorProgrammeInit,
-    form: handleJuniorProgrammeForm,
-    bookNow: handleBookNow,
-    cancel: handleCancel,
-    submit: handleSubmit,
-    data: findSquashData('roa-junior-squash-programme'),
-  },
-  'roa-individual-coaching': {
-    init: handleIndividualInit,
-    form: handleIndividualForm,
-    bookNow: handleBookNow,
-    cancel: handleCancel,
-    submit: handleSubmit,
-    data: findSquashData('roa-individual-coaching'),
-  },
+  const article = e.target.closest('article')
+
+  const { submit } = articleElements(article)
+
+  let weeks = +article.querySelector('input[type=number]').value
+  weeks > 0 ? (submit.disabled = false) : (submit.disabled = true)
+}
+// controller
+const buildHandlers = () => {
+  const handlers = {
+    'roa-elite-junior-camp': {
+      generate: eliteForm,
+      init: handleEliteInit,
+      form: handleEliteForm,
+      bookNow: handleBookNow,
+      cancel: handleCancel,
+      submit: handleSubmit,
+      data: findSquashData('roa-elite-junior-camp'),
+    },
+
+    'roa-junior-squash-summer-camps': {
+      generate: summerCampsForm,
+      init: handleSummerCampsInit,
+      form: handleSummerCampsForm,
+      bookNow: handleBookNow,
+      cancel: handleCancel,
+      submit: handleSubmit,
+      data: findSquashData('roa-junior-squash-summer-camps'),
+    },
+    'roa-junior-squash-programme': {
+      generate: juniorProgrammeForm,
+      init: handleJuniorProgrammeInit,
+      form: handleJuniorProgrammeForm,
+      bookNow: handleBookNow,
+      cancel: handleCancel,
+      submit: handleSubmit,
+      data: findSquashData('roa-junior-squash-programme'),
+    },
+    'roa-individual-coaching': {
+      generate: individualForm,
+      init: handleIndividualInit,
+      form: handleIndividualForm,
+      bookNow: handleBookNow,
+      cancel: handleCancel,
+      submit: handleSubmit,
+      data: findSquashData('roa-individual-coaching'),
+    },
+
+    'roa-skills-and-drills': {
+      generate: skillsAndDrillsForm,
+      init: handleInit,
+      form: handleSummerCampsForm,
+      bookNow: handleBookNow,
+      cancel: handleCancel,
+      submit: handleSubmit,
+      data: findSquashData('roa-skills-and-drills'),
+    },
+    'roa-club-night': {
+      generate: clubNightForm,
+      init: handleInit,
+      form: handleClubNightForm,
+      bookNow: handleBookNow,
+      cancel: handleCancel,
+      submit: handleSubmit,
+      data: findSquashData('roa-club-night'),
+    },
+    'roa-individual-adult-coaching': {
+      generate: individualForm,
+      init: handleIndividualInit,
+      form: handleIndividualForm,
+      bookNow: handleBookNow,
+      cancel: handleCancel,
+      submit: handleSubmit,
+      data: findSquashData('roa-individual-adult-coaching'),
+    },
+  }
+  return handlers
 }
 
-juniorProgrammes.forEach((programme) => {
-  const id = programme.id
-  const {
-    init: initAction,
-    form: formAction,
-    bookNow: bookNowAction,
-    cancel: cancelAction,
-    submit: submitAction,
-  } = handlers[id]
+// initialise
+;(async () => {
+  console.log('welcome to WWSC squash')
 
-  const { form } = articleElements(programme)
+  try {
+    squashData = await fetch('/api/squash')
+    squashData = await squashData.json()
 
-  initAction(form)
-  const { bookNow, form: newForm, cancel, submit } = articleElements(programme)
+    const juniorProgrammes = Array.from(
+      document.querySelectorAll('article.roa-junior-programme'),
+    )
 
-  bookNow.addEventListener('click', bookNowAction)
-  cancel?.addEventListener('click', cancelAction)
-  submit?.addEventListener('submit', submitAction)
+    const adultProgrammes = Array.from(
+      document.querySelectorAll('article.roa-adult-programme'),
+    )
 
-  newForm.addEventListener('click', formAction)
-  newForm.addEventListener('input', formAction)
-})
+    const allProgrammes = [...juniorProgrammes, ...adultProgrammes]
+
+    const handlers = buildHandlers()
+
+    allProgrammes.forEach((programme) => {
+      const id = programme.id
+      const {
+        generate,
+        init: initAction,
+        form: formAction,
+        bookNow: bookNowAction,
+        cancel: cancelAction,
+        submit: submitAction,
+      } = handlers[id]
+
+      const { form } = articleElements(programme)
+
+      initAction(form, id, generate)
+      const {
+        bookNow,
+        form: newForm,
+        cancel,
+        submit,
+      } = articleElements(programme)
+
+      bookNow.addEventListener('click', bookNowAction)
+      cancel?.addEventListener('click', cancelAction)
+      // submit?.addEventListener('submit', submitAction)
+      submit?.addEventListener('click', submitAction)
+
+      newForm.addEventListener('click', formAction)
+      newForm.addEventListener('input', formAction)
+    })
+  } catch (error) {
+    console.error('squash script failed', error)
+  }
+})()

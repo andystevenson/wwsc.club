@@ -44,7 +44,7 @@
       {% endfor %}
     </section>
 
-    <section title="junior programmes" class="media-scroller roa-junior-programme-articles">
+    <section title="junior programmes" class="media-scroller articles">
       {% for programme in squash.juniorProgrammes %}
         <article class='roa-junior-programme' id='{{programme.name}}'>
           {{ imgc(cms.image[programme.name]) }}
@@ -54,66 +54,31 @@
             <p class="description">{{programme.description}}</p>
           </details>
           <form></form>
-          {# <form action="" class="inactive" >
-            <fieldset id="{{programme.name}}-form">
-              <legend>booking</legend>
-              <p class="description">{{programme.name}}</p>
-              <section>
-                <label for="{{programme.name}}-name">
-                  <span>Name</span>
-                  <input type="text" name="{{programme.name}}-name" id="{{programme.name}}-name" placeholder="Full Name ... e.g.: Joe Bloggs" autofocus required>
-                </label>
-                <label for="{{programme.name}}-email">
-                  <span>Email</span>
-                  <input type="email" name="{{programme.name}}-email" id="{{programme.name}}-email" placeholder="e.g.: someone@example.com" required>
-                </label>
-                <label for="{{programme.name}}-mobile">
-                  <span>Mobile</span>
-                  <input type="text" name="{{programme.name}}-mobile" id="{{programme.name}}-mobile" placeholder="Mobile Number ... e.g.: 07920 027695">
-                </label>
-                <fieldset class="pricing">
-                  <legend>price</legend>
-                  <p class="description">
-                  {% set price = programme.prices[0].price %}
-                  {% set unit = programme.prices[0].unit %}
-                  <span class="price" data-price={{price}}>£{{price}}</span>
-                  <span class="unit" data-unit="{{unit}}">per {{unit}}</span>
-                </p>
-                </fieldset>
-                <fieldset class="sessions">
-                  <legend>select sessions to attend</legend>
-                  <label for="{{programme.name}}-july-31-2023">
-                    <input type="checkbox" name="{{programme.name}}-july-31-2023" id="{{programme.name}}-july-31-2023">
-                    <span>July 31st,2023</span>
-                  </label>
-                  <label for="{{programme.name}}-august-1-2023">
-                    <input type="checkbox" name="{{programme.name}}-august-1-2023" id="{{programme.name}}-august-1-2023">
-                    <span>August 1st,2023</span>
-                  </label>
-                  <label for="{{programme.name}}-august-2-2023">
-                    <input type="checkbox" name="{{programme.name}}-august-2-2023" id="{{programme.name}}-august-2-2023">
-                    <span>August 2nd,2023</span>
-                  </label>
-                </fieldset>
-                <section class="submit">
-                  <button type="button" id="{{programme.name}}-cancel">Cancel</button>
-                  <button type="submit" id="{{programme.name}}-submit" disabled>Buy</button>
-                </section>
-                <input type="hidden" value="" name="booking-reference" id="booking-reference">
-              </section>
-            </fieldset>
-          </form> #}
         </article>
       {% endfor %}
     </section>
 
   </section>
 
-  <section class="roa-adult-programme">
+  <section class="roa-adult-programmes">
     <h2>Adult Programmes</h2>
     <section title="roa images" class="media-scroller roa-images">
       {% for image in squash.roaImages %}
         {{ imgc(cms.image[image]) }}
+      {% endfor %}
+    </section>
+
+    <section title="adult programmes" class="media-scroller articles">
+      {% for programme in squash.adultProgrammes %}
+        <article class='roa-adult-programme' id='{{programme.name}}'>
+          {{ imgc(cms.image[programme.name]) }}
+          <button class='book-now-action'>Book Now</button>
+          <details>
+            <summary>Description</summary>
+            <p class="description">{{programme.description}}</p>
+          </details>
+          <form></form>
+        </article>
       {% endfor %}
     </section>
   </section>
@@ -169,208 +134,6 @@
 <form class='book-a-court' action="{{ bookNow }}">
   <button>book a court</button>
 </form>
-
-<section class="squash-coach">
-  <section class="identity">
-    <h2>Sam Osborne-Wylde<br>Jonah Bryant</h2>
-    <picture>
-      {{ imgc(cms.image['roa-individual-coaching']) }}
-    </picture>
-  </section>
-  <section class="bio">
-    <h2>Head Coaches</h2>
-    <picture data-theme='light'>
-      {{ imgc(cms.image['england-squash']) }}
-    </picture>
-
-    <p>Sam Osborne-Wylde and Jonah Bryant are elite junior members of the Rob Oweb Academy. They are passionate about helping players of all levels to improve and enjoy squash. As a team they will develop both club players and aspiring elite juniors to develop to club, county and national levels.</p>
-  </section>
-  <section class="prices">
-    <header>
-      <h2>Prices</h2>
-      <p>Looking to improve?</p>
-      <p>Book a session with our Head Coach to work on all aspects of your game.</p>
-    </header>
-
-    <ul class="price-list">
-      <li>
-        <p class="type">Junior</p>
-        <span>£20.00</span></li>
-      <li>
-        <p class="type">Adult</p>
-        <span>£25.00</span></li>
-      <li>
-        <p class="type">Pair 2:1</p>
-        <span>£30.00</span></li>
-    </ul>
-    <section class="contacts">
-      {{ linkc(cms.links['email-ali']) }}
-      {{ linkc(cms.links['telephone-ali']) }}
-    </section>
-    <footer>
-      <small>Sessions are 40 minutes.<sup>1</sup>
-      </small>
-      <small>Non-members pay additional £5 court fee.<sup>2</sup>
-      </small>
-
-    </footer>
-  </section>
-</section>
-
-
-
-<section class="group juniors">
-  <h2>Juniors</h2>
-  <section class="activities">
-    <section class="junior-squash-programme">
-
-        <picture>
-          {{ imgc(cms.image['roa-junior-squash-programme']) }}
-        </picture>
-
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Tuesday</p>
-            <span>5-6pm</span></li>
-          <li>
-            <p class="type">Saturday</p>
-            <span>10-12:45</span></li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Junior Squash Stars') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    {# <section class="junior-intermediate">
-      <section>
-        <h3>intermediate</h3>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-          {{ imgc(cms.image['squash-coaching']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Saturday<br>
-              <span>10:45-11:45</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Juniors Intermediate') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    <section class="junior-advances">
-      <section>
-        <h3>advanced</h3>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['squash-coaching']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Saturday<br>
-              <span>11:45-12:45</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Advanced Juniors') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section> #}
-  </section>
-</section>
-
-<section class="group adults">
-  <h2>Adults</h2>
-  <section class="activities">
-
-    <section class="skills-and-drills">
-      <section>
-        <h3>skills & drills</h3>
-        <p>Hone your skills!</p>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['skills-and-drills']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Tuesday<br>
-              <span>19:00-20:20</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Club Night') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    <section class="adult-club-night">
-      <section>
-        <h3>club night</h3>
-        <p>Everyone is welcome!</p>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['squash-is-for-everyone']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Friday<br>
-              <span>18:00-20:00</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Club Night') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    {# <section class="adult-round-robin">
-      <section>
-        <h3>round robin</h3>
-        <p>Some gentle weekend competition!</p>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['squash-round-robin']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Saturday<br>
-              <span>12:00-14:00</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Round Robin') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section> #}
-
-  </section>
-</section>
 
 <section class="group teams">
   <h2>WWSC Teams</h2>

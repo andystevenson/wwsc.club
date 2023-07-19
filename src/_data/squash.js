@@ -18,17 +18,15 @@ module.exports = {
   },
   newToSquash:
     "Squash is a fast-paced racquet sport that requires agility, strategy, and precision. Played in an enclosed court, the objective is to outmanoeuvre your opponent by hitting a small rubber ball against the front wall using a racquet. Squash provides a great cardiovascular workout while simultaneously enhancing hand-eye coordination, footwork, and mental sharpness. Whether you're a beginner or an experienced player, squash offers a thrilling and challenging experience that can be enjoyed at any age or skill level.",
-  juniorProgramme:
-    "The Rob Owen Junior Programme offers a comprehensive pathway catering to individuals at all skill levels, from beginner to professional. Our programme provides weekly sessions on Tuesday's and Saturday's, ensuring a structured approach tailored to specific standards and accommodating youngsters from 6-18 years old. Led by our proficient coaches, these sessions are thoughtfully designed to be engaging and address the unique requirements of each participant. Our goal is to cultivate a thriving squash community that welcomes children from every background, promoting inclusivity and accessibility for all.",
   juniorProgrammes: [
     {
       name: 'roa-elite-junior-camp',
-      description: '',
+      description: 'ROA Elite Junior Camp ...',
       prices: [{ price: 35, unit: 'session' }],
     },
     {
       name: 'roa-junior-squash-summer-camps',
-      description: '',
+      description: 'ROA Junior Squash Summer Camps ...',
       prices: [
         { price: 35, unit: 'day' },
         { price: 60, unit: '2 days' },
@@ -47,15 +45,40 @@ module.exports = {
     },
     {
       name: 'roa-individual-coaching',
-      description: 'Junior Coaching',
+      description: 'Junior Individual Coaching ...',
       prices: [
         { price: 20, unit: 'session', members: true },
         { price: 25, unit: 'session', members: false },
       ],
     },
   ],
+
   adultProgramme:
     'Our esteemed adult squash programme provides a range of offerings including regular group sessions, league and team matches, club nights, and individual coaching. Whether you seek the top tier instruction from our accomplished player-coaches or simply desire a casual game with friends while expanding your social circle, our programme caters to all preferences. With a focus delivering high-quality coaching and fostering a welcoming environment, we strive to fulfil the diverse needs of squash enthusiast at every level of expertise. ',
+  adultProgrammes: [
+    {
+      name: 'roa-skills-and-drills',
+      description: 'Skills and Drills ...',
+      prices: [
+        { price: 10, unit: 'session', member: true },
+        { price: 15, unit: 'session', members: false },
+      ],
+    },
+    {
+      name: 'roa-club-night',
+      description: 'Club Night ...',
+      prices: [],
+    },
+    {
+      name: 'roa-individual-adult-coaching',
+      description:
+        'Adult Coaching. Our esteemed adult squash programme provides a range of offerings including regular group sessions, league and team matches, club nights, and individual coaching. Whether you seek the top tier instruction from our accomplished player-coaches or simply desire a casual game with friends while expanding your social circle, our programme caters to all preferences. With a focus delivering high-quality coaching and fostering a welcoming environment, we strive to fulfil the diverse needs of squash enthusiast at every level of expertise.',
+      prices: [
+        { price: 25, unit: 'session', members: true },
+        { price: 30, unit: 'session', members: false },
+      ],
+    },
+  ],
   history: [
     "Renowned as the epitome of squash excellence, Jonah Barrington stands unrivalled in his impact on the sport. From his dominant reign during the 1960s to 1970s, securing six British Open titles and establishing himself as the preeminent British squash player of all time. Barrington's journey is nothing short of extraordinary. Born in Cornwall in 1941 to a working-class family, Barrington's ascent in squash sprouted from modest beginnings. His path to sporting greatness was far from predetermined, as he initially deviated from societal expectations, dropping out of university, and indulging in a fondness for Guinness. However, a fortuitous encounter with Nasrullah Khan, the uncle of the legendary Jahangir Khan, proved transformative for Barrington's trajectory.",
     'Khan imparted invaluable lessons, emphasizing the significance of solo practice, Barrington diligently executed 100 straight drives down the forehand wall and another 100 down the backhand every day. The dedication and commitment to being physically fitter, mentally tougher, and relentlessly wearing down his opponents on court resulted in the rest being history. His legendary climb to dominating world squash, fundamentally altered the landscape of professional squash, leaving an indelible mark on the sport.',
