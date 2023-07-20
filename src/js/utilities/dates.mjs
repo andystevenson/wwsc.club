@@ -39,7 +39,7 @@ export const nearestDay = (...days) => {
     .map((day) => nextDay(day))
     .sort((a, b) => {
       if (a.isBefore(b, 'day')) return -1
-      if (a.After(b, 'day')) return 1
+      if (a.isAfter(b, 'day')) return 1
       return 0
     })
   return nextDays
@@ -50,7 +50,7 @@ export const nearestDayOfWeek = (...days) => {
     .map((day) => nextDayOfWeek(day))
     .sort((a, b) => {
       if (a.isBefore(b, 'day')) return -1
-      if (a.After(b, 'day')) return 1
+      if (a.isAfter(b, 'day')) return 1
       return 0
     })
   return nextDaysOfWeek

@@ -31,6 +31,7 @@ module.exports = {
         { price: 35, unit: 'day' },
         { price: 60, unit: '2 days' },
       ],
+      maxPeople: 100,
     },
     {
       name: 'roa-junior-squash-programme',
@@ -167,6 +168,12 @@ module.exports = {
       current: true,
     },
     {
+      name: 'Ismail Khalil',
+      bio: 'Ismail Khalil...',
+      image: 'ismail-khalil',
+      current: true,
+    },
+    {
       name: 'Ali Khalil',
       bio: 'Ali Khalil...',
       image: 'ali-khalil',
@@ -212,6 +219,12 @@ module.exports = {
       name: 'Nathan Lake',
       bio: 'Nathan Lake...',
       image: 'nathan-lake',
+      current: false,
+    },
+    {
+      name: 'Jan Van Den Herrewegen',
+      bio: 'Jan Van Den Herrewegen...',
+      image: 'jan-van-den-herrewegen',
       current: false,
     },
     {

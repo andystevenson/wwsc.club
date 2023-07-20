@@ -14,22 +14,22 @@
 <p class="description">{{ squash.newToSquash }}</p>
 
 <section title='rob owen academy' class="roa">
-  {{imgc(cms.image["squash-roa-welcome"], width='100%')}}
+  {{imgc(cms.image["squash-roa-welcome"])}}
 
   <section class="roa-coaches">
     <h2>Coaches</h2>
       
-    <section class="roa-team media-scroller">
+    <section class="media-scroller roa-team">
       {% for member in squash.team %}
         <article>
-          {{imgc(cms.image[member.image], class='roa-coach-image')}}
-          <h3 class="roa-coach-name">{{member.name}}</h3>
-          <p class="roa-coach-role">{{member.role}}</p>
+          <picture>{{imgc(cms.image[member.image])}}</picture>
+          <h3>{{member.name}}</h3>
+          <p>{{member.role}}</p>
           <details>
             <summary>
               Bio
             </summary>
-            <p class="roa-coach-bio">{{member.bio}}</p>
+            <p>{{member.bio}}</p>
           </details>
         </article>
       {% endfor %}
@@ -40,15 +40,15 @@
     <h2>Junior Programmes</h2>
     <section title="roa images" class="media-scroller roa-images">
       {% for image in squash.roaImages %}
-        {{ imgc(cms.image[image]) }}
+        <picture>{{ imgc(cms.image[image]) }}</picture>
       {% endfor %}
     </section>
 
-    <section title="junior programmes" class="media-scroller articles">
+    <section title="junior programmes" class="media-scroller roa-programmes">
       {% for programme in squash.juniorProgrammes %}
         <article class='roa-junior-programme' id='{{programme.name}}'>
-          {{ imgc(cms.image[programme.name]) }}
-          <button class='book-now-action'>Book Now</button>
+          <picture>{{ imgc(cms.image[programme.name]) }}</picture>
+          <button>Book Now</button>
           <details>
             <summary>Description</summary>
             <p class="description">{{programme.description}}</p>
@@ -64,18 +64,18 @@
     <h2>Adult Programmes</h2>
     <section title="roa images" class="media-scroller roa-images">
       {% for image in squash.roaImages %}
-        {{ imgc(cms.image[image]) }}
+        <picture>{{ imgc(cms.image[image]) }}</picture>
       {% endfor %}
     </section>
 
-    <section title="adult programmes" class="media-scroller articles">
+    <section title="adult programmes" class="media-scroller roa-programmes">
       {% for programme in squash.adultProgrammes %}
         <article class='roa-adult-programme' id='{{programme.name}}'>
-          {{ imgc(cms.image[programme.name]) }}
-          <button class='book-now-action'>Book Now</button>
+          <picture>{{ imgc(cms.image[programme.name]) }}</picture>
+          <button>Book Now</button>
           <details>
             <summary>Description</summary>
-            <p class="description">{{programme.description}}</p>
+            <p>{{programme.description}}</p>
           </details>
           <form></form>
         </article>
@@ -83,55 +83,55 @@
     </section>
   </section>
 
-  <section class="alumni">
+  <section class="roa-alumni">
     <h2>Professionals & Alumni</h2>
-        <section class="roa-alumni media-scroller">
+
+    <section class="media-scroller roa-team">
       {% for member in squash.alumni %}
         <article>
-          {{imgc(cms.image[member.image], class='roa-alumni-image')}}
-          <h3 class="roa-alumni-name">{{member.name}}</h3>
+          <picture>{{imgc(cms.image[member.image])}}</picture>
+          <h3>{{member.name}}</h3>
           <details>
             <summary>
               Bio
             </summary>
-            <p class="roa-alumni-bio">{{member.bio}}</p>
+            <p>{{member.bio}}</p>
           </details>
         </article>
       {% endfor %}
     </section>
-    <p class="see-the-professionals description">{{squash.seeTheProfessionals}}</p>
+    <p class="description">{{squash.seeTheProfessionals}}</p>
   </section>
 
-  <section class="jonah-legend">
+  <section class="roa-jonah">
     <h2>Where it all started for West Warwicks...</h2>
-    {{imgc(cms.image["squash-jonah-barrington-legend"], class="jonah-legend")}}
+    {{imgc(cms.image["squash-jonah-barrington-legend"])}}
     <section class="roa-history">
-      {{imgc(cms.image["squash-jonah-barrington-1"], class="jonah-image")}}
+      {{imgc(cms.image["squash-jonah-barrington-1"])}}
       <div>
         <p class="description">{{squash.history | first}}</p>
-        <details class="roa-history-details">
+        <details>
           <summary>... more</summary>
           {% for paragraph in squash.history | slice(1) %}
             <p class="description">{{paragraph}}</p>
         {% endfor %}
         </details>
       </div>
-      {{imgc(cms.image["squash-jonah-barrington-2"], class="jonah-image")}}
+      {{imgc(cms.image["squash-jonah-barrington-2"])}}
     </section>
     <section class="roa-courts">
       {{imgc(cms.image["squash-jonah-barrington-court"])}}
       {{imgc(cms.image["squash-rob-owen-court"])}}
-    </section>
-    
+    </section>    
   </section>
 
-  {{imgc(cms.image["squash-roa-tin"], width="100%")}}
+  {{imgc(cms.image["squash-roa-tin"])}}
 </section>
 
 {# old stuff here #}
 {# {% include 'partials/gallery.njk' %} #}
 
-<form class='book-a-court' action="{{ bookNow }}">
+{# <form class='book-a-court' action="{{ bookNow }}">
   <button>book a court</button>
 </form>
 
@@ -162,7 +162,7 @@
 
     </section>
   </section>
-</section>
+</section> #}
 
 {# {% set people = squash.people %}  #}
 {# broken for now! #}

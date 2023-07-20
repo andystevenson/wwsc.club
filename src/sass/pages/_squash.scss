@@ -1,226 +1,57 @@
-.squash main {
-  section.gallery.reasons {
-    & img {
-      object-fit: contain;
-      aspect-ratio: unset;
-    }
-  }
-}
+// should be in reset!
 
 input {
   background-color: var(--surface-3);
 }
+
 ::placeholder {
   font-size: 0.8em;
 }
-.squash .active {
-  display: grid;
-}
 
-.squash .inactive {
-  display: none;
-}
-
-.squash summary {
-  font-size: var(--font-size-fluid-1);
-}
-.squash .squash-is-fun {
-  img {
-    aspect-ratio: var(--ratio-square);
-  }
-}
-.squash .junior-squash-programme img {
-  max-block-size: 60vh;
-}
-
-.squash .skills-and-drills img {
-  max-block-size: 60vh;
-}
-
-.squash .roa-images {
-  img {
-    min-inline-size: 50vw;
-    @media (--xl-n-above) {
-      min-inline-size: 35vw;
-    }
-  }
-}
-
-.squash .roa-team,
-.roa-alumni {
-  display: grid;
-  grid-auto-flow: column;
-  gap: var(--size-3);
-}
-
-.squash .roa-team > article,
-.roa-alumni > article {
-  border-radius: var(--radius-2);
-  box-shadow: var(--shadow-2);
-  overflow: hidden;
-  grid-template-areas: 'image' 'bio';
-  grid-auto-rows: min-content;
-  gap: unset;
-  margin-block-end: 0.25em;
-
-  & .roa-coach-image,
-  .roa-alumni-image {
-    grid-area: image;
+// squash specifics
+.squash {
+  // utilities
+  .active {
+    display: grid;
   }
 
-  & .roa-coach-name,
-  .roa-coach-role,
-  .roa-alumni-name {
-    text-align: center;
-    grid-area: image;
-    place-self: center;
-    background-color: var(--surface-3);
-    padding-inline: 1em;
-    padding-block: 0.25em;
-    opacity: 0.7;
-    font-size: var(--font-size-fluid-1);
-  }
-
-  & .roa-coach-role {
-    margin-bottom: 1em;
-    place-self: end center;
-    font-size: var(--font-size-fluid-1);
-  }
-
-  & .roa-coach-bio,
-  .roa-alumni-bio {
-    grid-area: bio;
-  }
-}
-
-.squash .roa-coach-image {
-  min-inline-size: 30ch;
-
-  @media (--lg-n-above) {
-    min-inline-size: 35ch;
-  }
-
-  @media (--xl-n-above) {
-    min-inline-size: 40ch;
-  }
-  aspect-ratio: var(--ratio-portrait);
-  object-fit: cover;
-  object-position: top;
-  place-self: start;
-}
-
-.squash .jonah-legend {
-  inline-size: 100%;
-}
-
-.squash .roa-courts {
-  place-self: center;
-  gap: var(--size-2);
-  @media (--md-n-above) {
-    grid-auto-flow: column;
-    img {
-      min-inline-size: 30vw;
-      object-fit: cover;
-    }
-  }
-}
-
-.squash .roa-history {
-  & .jonah-image {
+  .inactive {
     display: none;
   }
 
-  @media (--lg-n-above) {
-    & .jonah-image {
-      display: block;
-    }
-    grid-template-columns: 1fr 2fr 1fr;
-  }
-  & > * {
-    place-self: center;
+  ::-webkit-scrollbar {
+    height: 1em;
   }
 
-  & img:first-of-type {
-    place-self: start left;
+  --scrollbar-color: var(--surface-2);
+  --scrollbar-thumb-border: var(--surface-3);
+  --scrollbar-thumb-color: var(--surface-4);
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-color);
+    border-radius: 100vw;
+    margin-block: 0.5em;
   }
 
-  & img:last-of-type {
-    place-self: start right;
-  }
-}
-
-.squash .roa-history-details {
-  // min-inline-size: var(--size-content-3);
-  place-self: center;
-  p {
-    margin-bottom: 1em;
-  }
-}
-
-.media-scroller.articles {
-  gap: var(--size-4);
-}
-
-.roa-junior-programme,
-.roa-adult-programme {
-  grid-template-areas:
-    'article'
-    'description';
-  border-radius: var(--radius-2);
-  box-shadow: var(--shadow-2);
-  overflow: hidden;
-  grid-auto-rows: min-content;
-  margin-block-end: 0.25em;
-  gap: unset;
-
-  & > img,
-  & > form {
-    min-inline-size: 30ch;
-    grid-area: article;
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border: 0.25em solid var(--scrollbar-thumb-border);
+    border-radius: 100vw;
   }
 
-  & > button {
-    grid-area: article;
-    place-self: center;
-    opacity: 0.85;
+  ::-webkit-scrollbar-thumb:hover {
+    background: black;
   }
 
-  & > details {
-    grid-area: description;
+  summary {
+    font-size: var(--font-size-fluid-1);
   }
 
-  & > form {
-    grid-area: article;
-
-    fieldset {
-      gap: unset;
-    }
-
-    & .description {
-      line-height: 1;
-      margin-block-end: 0.5em;
-      & > * {
-        place-self: center;
-      }
-    }
-
-    & .sessions {
-      place-content: center;
-      gap: unset;
-    }
-    & .submit {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-}
-
-.squash {
   fieldset {
     & > section {
       gap: var(--size-1);
     }
   }
+
   label[for] {
     display: flex;
     flex-wrap: wrap;
@@ -235,38 +66,244 @@ input {
     input[type='checkbox'] {
       margin-inline-end: var(--size-1);
     }
+
     input[type='text'][id='let-me-say'] {
       min-inline-size: 10ch;
       inline-size: 10ch;
     }
+
     span {
       inline-size: var(--label-size);
     }
+  }
+
+  // main sections
+  article {
+    grid-template-areas:
+      'image'
+      'bio';
+    gap: unset;
+    grid-auto-rows: min-content;
+
+    border-radius: var(--radius-2);
+    box-shadow: var(--radius-2);
+    overflow: hidden;
+
+    > picture {
+      grid-area: image;
+      place-self: unset;
+
+      img {
+        object-position: top;
+      }
+    }
+
+    > details {
+      grid-area: bio;
+    }
+
+    > h3,
+    > p,
+    > button {
+      grid-area: image;
+      place-self: center;
+
+      background-color: var(--surface-3);
+      padding-inline: 1em;
+      padding-block: 0.25em;
+
+      text-align: center;
+      opacity: 0.7;
+      font-size: var(--font-size-fluid-1);
+    }
+
+    > p {
+      place-self: end center;
+      margin-block-end: 1em;
+    }
+
+    > button {
+      opacity: 0.95;
+    }
+  }
+
+  .roa {
+    > img {
+      inline-size: 100%;
+    }
+  }
+  .squash-is-fun {
+    --image-size: 20vw;
+
+    @media (--xl-n-above) {
+      --image-size: 15vw;
+    }
+  }
+
+  .roa-team {
+    --image-size: 50vw;
+
+    @media (--md-n-above) {
+      --image-size: 30vw;
+    }
+
+    @media (--xl-n-above) {
+      --image-size: 20vw;
+    }
+
+    article > picture {
+      aspect-ratio: var(--ratio-portrait);
+    }
+  }
+
+  .roa-images {
+    --image-size: 40vw;
+
+    @media (--xl-n-above) {
+      --image-size: 35vw;
+    }
+  }
+
+  .roa-programmes {
+    --image-size: 50vw;
+
+    @media (--xl-n-above) {
+      --image-size: 30vw;
+    }
+  }
+
+  .roa-jonah {
+    img {
+      inline-size: 100%;
+      place-self: start;
+    }
+
+    .roa-history {
+      @media (--lg-n-above) {
+        grid-template-columns: 1fr 4fr 1fr;
+      }
+
+      img {
+        display: none;
+        @media (--lg-n-above) {
+          display: block;
+        }
+      }
+
+      div {
+        place-self: center;
+      }
+
+      p {
+        @media (--xxl-n-above) {
+          font-size: var(--font-size-fluid-3);
+        }
+      }
+
+      details {
+        p {
+          margin-block-end: 1em;
+        }
+      }
+    }
+  }
+
+  .roa-courts {
+    place-self: center;
+    gap: var(--size-2);
+    @media (--md-n-above) {
+      grid-auto-flow: column;
+      img {
+        min-inline-size: 30vw;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+form {
+  fieldset {
+    gap: unset;
+
+    > * {
+      line-height: var(--font-lineheight-1);
+      gap: unset;
+    }
+
+    legend {
+      inline-size: max-content;
+    }
+
+    p {
+      line-height: var(--font-lineheight-00);
+    }
+    .sessions {
+      place-content: center;
+      gap: unset;
+      small:last-of-type {
+        margin-block-end: 1em;
+      }
+    }
+
+    fieldset.notice {
+      margin-block: 1em;
+    }
+
+    p.notice {
+      font-weight: 600;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .pricing {
+      place-content: center;
+      .description {
+        gap: unset;
+      }
+    }
+  }
+
+  input[type='number'] {
+    inline-size: 6ch;
+    margin-inline-end: var(--size-2);
+  }
+
+  label[for] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--label-space);
+    align-items: center;
+    input[type='text'],
+    input[type='email'] {
+      min-inline-size: 10ch;
+      inline-size: 100%;
+    }
+
+    input[type='checkbox'] {
+      margin-inline-end: var(--size-1);
+    }
+
+    input[type='text'][id='let-me-say'] {
+      min-inline-size: 10ch;
+      inline-size: 10ch;
+    }
+
+    span {
+      inline-size: var(--label-size);
+    }
+  }
+
+  .submit {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
 #roa-junior-squash-summer-camps-form {
   & .sessions {
     grid-template-columns: 1fr 1fr 2fr;
-  }
-}
-
-#roa-junior-squash-programme {
-  input[type='number'] {
-    inline-size: 6ch;
-    margin-inline-end: var(--size-2);
-  }
-}
-.squash {
-  .sessions small:last-of-type {
-    margin-block-end: 1em;
-  }
-  fieldset.notice {
-    margin-block-end: 1em;
-  }
-  p.notice {
-    font-weight: 600;
-    line-height: 1.1;
-    text-align: center;
+    padding-inline: 10%;
   }
 }

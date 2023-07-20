@@ -777,7 +777,7 @@ const buildHandlers = () => {
     'roa-skills-and-drills': {
       generate: skillsAndDrillsForm,
       init: handleInit,
-      form: handleSummerCampsForm,
+      form: handleIndividualForm,
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
@@ -848,7 +848,6 @@ const buildHandlers = () => {
 
       bookNow.addEventListener('click', bookNowAction)
       cancel?.addEventListener('click', cancelAction)
-      // submit?.addEventListener('submit', submitAction)
       submit?.addEventListener('click', submitAction)
 
       newForm.addEventListener('click', formAction)
