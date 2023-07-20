@@ -56,7 +56,7 @@ const handleSubmit = (e) => {
   // const isValid = form.checkValidity()
   const booking = bookingData(form)
   console.log({ booking })
-  // handleCancel(e)
+  handleCancel(e)
 }
 
 // utilities
