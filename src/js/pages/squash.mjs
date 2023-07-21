@@ -97,6 +97,13 @@ const findSquashData = (name) => {
   return null
 }
 
+const getWeeks = (article) => {
+  const weeksElement = article.querySelector('input[type=number]')
+  let weeks = +weeksElement.value
+  weeks = weeks > 8 ? 8 : weeks < 1 ? 0 : weeks
+  weeksElement.value = weeks
+  return weeks
+}
 // forms
 const eliteForm = (name, price, unit) => {
   const template = `
@@ -172,10 +179,10 @@ const summerCampsForm = (name, prices) => {
           <span>Mobile</span>
           <input type="text" name="${name}-mobile" id="${name}-mobile" placeholder="Mobile Number ... e.g.: 07920 027695">
         </label>
-        <fieldset class="pricing" data-price1="${
+        <fieldset class="pricing members" data-price1="${
           prices[0].price
-        }" data-price2="${prices[1].price}">
-          <legend>price</legend>
+        }" data-price2="${prices[1].price}" data-price3=${prices[2].price}>
+          <legend>members price</legend>
           <section class="description">
             <div>
               <span class="price" data-price=${prices[0].price}>£${
@@ -191,6 +198,45 @@ const summerCampsForm = (name, prices) => {
   }</span>
               <span class="unit" data-unit="${prices[1].unit}">for ${
     prices[1].unit
+  }</span>
+            </div>
+            <div>
+              <span class="price" data-price=${prices[2].price}>£${
+    prices[2].price
+  }</span>
+              <span class="unit" data-unit="${prices[2].unit}">for ${
+    prices[2].unit
+  }</span>
+            </div>
+          </section>
+        </fieldset>
+        <fieldset class="pricing non-members" data-price4="${
+          prices[3].price
+        }" data-price5="${prices[4].price}" data-price6="${prices[5].price}">
+          <legend>price</legend>
+          <section class="description">
+            <div>
+              <span class="price" data-price=${prices[3].price}>£${
+    prices[3].price
+  }</span>
+              <span class="unit" data-unit="${prices[3].unit}">per ${
+    prices[3].unit
+  }</span>
+            </div>
+            <div>
+              <span class="price" data-price=${prices[4].price}>£${
+    prices[4].price
+  }</span>
+              <span class="unit" data-unit="${prices[4].unit}">for ${
+    prices[4].unit
+  }</span>
+            </div>
+            <div>
+              <span class="price" data-price=${prices[5].price}>£${
+    prices[5].price
+  }</span>
+              <span class="unit" data-unit="${prices[5].unit}">for ${
+    prices[5].unit
   }</span>
             </div>
           </section>
@@ -631,6 +677,47 @@ const handleEliteForm = (e) => {
   if (inputs.length > 0) updatePricePaid(article, price)
 }
 
+const handleJuniorProgrammeForm = (e) => {
+  console.log('handleSummerCampsForm')
+
+  const article = e.target.closest('article')
+  const id = article.id
+
+  const inputs = Array.from(
+    article?.querySelectorAll(
+      `#${id} .sessions input[type="checkbox"]:checked`,
+    ),
+  )
+
+  const weeks = getWeeks(article)
+  // if any schedule is checked we have a potential buy scenario
+  // update the value on the submit button
+  const { submit } = articleElements(article)
+
+  let pricing = article.querySelector('.pricing.members')
+  const price1 = +pricing.dataset.price1
+  const price2 = +pricing.dataset.price2
+  pricing = article.querySelector('.pricing.non-members')
+  const price3 = +pricing.dataset.price3
+  const price4 = +pricing.dataset.price4
+
+  console.log({ price1, price2, price3, price4 })
+  let price = 0
+  const sessions = inputs.length
+
+  price = weeks < 8 ? weeks * price1 : price2
+
+  let isMember = false
+  if (!isMember) {
+    price = weeks < 8 ? weeks * price3 : price4
+  }
+  price = sessions * price
+
+  submit.textContent = sessions > 0 ? `Buy (£${price})` : 'Buy'
+  sessions > 0 ? (submit.disabled = false) : (submit.disabled = true)
+  if (sessions > 0) updatePricePaid(article, price)
+}
+
 const handleSummerCampsForm = (e) => {
   console.log('handleSummerCampsForm')
 
@@ -646,54 +733,31 @@ const handleSummerCampsForm = (e) => {
   // update the value on the submit button
   const { submit } = articleElements(article)
 
-  const pricing = article.querySelector('.pricing')
-  const price1 = +pricing.dataset.price1
-  const price2 = +pricing.dataset.price2
-  const discount = price1 * 2 - price2
-  let price = price1 * inputs.length
-
-  const pairs = countCheckboxPairs(inputs)
-  price = price - discount * pairs
-
-  submit.textContent = inputs.length > 0 ? `Buy (£${price})` : 'Buy'
-  inputs.length > 0 ? (submit.disabled = false) : (submit.disabled = true)
-  if (inputs.length > 0) updatePricePaid(article, price)
-}
-
-const handleJuniorProgrammeForm = (e) => {
-  console.log('handleJuniorProgrammeForm')
-
-  const article = e.target.closest('article')
-  const id = article.id
-
-  const inputs = Array.from(
-    article?.querySelectorAll(
-      `#${id} .sessions input[type="checkbox"]:checked`,
-    ),
-  )
-  // if any schedule is checked we have a potential buy scenario
-  // update the value on the submit button
-  const { submit } = articleElements(article)
-
   let pricing = article.querySelector('.pricing.members')
   const price1 = +pricing.dataset.price1
   const price2 = +pricing.dataset.price2
-  pricing = article.querySelector('.pricing.non-members')
   const price3 = +pricing.dataset.price3
+  pricing = article.querySelector('.pricing.non-members')
   const price4 = +pricing.dataset.price4
+  const price5 = +pricing.dataset.price5
+  const price6 = +pricing.dataset.price6
 
-  const weeks = +article.querySelector('input[type=number]').value
-  console.log({ price1, price2, price3, price4, weeks })
+  console.log({ price1, price2, price3, price4, price5, price6 })
   let price = 0
+  const sessions = inputs.length
+
+  // dayRate for members
+  let dayRate = sessions < 2 ? price1 : sessions < 6 ? price2 / 2 : price3 / 6
+
   let isMember = false
-  price = weeks >= 8 ? price2 : weeks * price1
-  if (!isMember) price = weeks >= 8 ? price4 : weeks * price3
+  if (!isMember) {
+    dayRate = sessions < 2 ? price4 : sessions < 6 ? price5 / 2 : price6 / 6
+  }
+  price = sessions * dayRate
 
-  price = price * inputs.length
-
-  submit.textContent = inputs.length > 0 ? `Buy (£${price})` : 'Buy'
-  inputs.length > 0 ? (submit.disabled = false) : (submit.disabled = true)
-  if (inputs.length > 0) updatePricePaid(article, price)
+  submit.textContent = sessions > 0 ? `Buy (£${price})` : 'Buy'
+  sessions > 0 ? (submit.disabled = false) : (submit.disabled = true)
+  if (sessions > 0) updatePricePaid(article, price)
 }
 
 const handleIndividualForm = (e) => {
@@ -708,10 +772,8 @@ const handleIndividualForm = (e) => {
   pricing = article.querySelector('.pricing.non-members')
   const price2 = +pricing.dataset.price2
 
-  let weeks = +article.querySelector('input[type=number]').value
+  let weeks = getWeeks(article)
   console.log({ price1, price2, weeks })
-  if (weeks > 8) weeks = 8
-  if (weeks < 0) weeks = 0
   let price = 0
   let isMember = false
   price = weeks * price2
@@ -730,7 +792,7 @@ const handleClubNightForm = (e) => {
 
   const { submit } = articleElements(article)
 
-  let weeks = +article.querySelector('input[type=number]').value
+  let weeks = getWeeks(article)
   weeks > 0 ? (submit.disabled = false) : (submit.disabled = true)
 }
 // controller
