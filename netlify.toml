@@ -5,6 +5,10 @@
   publish = "_site"
 
 [[redirects]]
+  from = "/api/get-card"
+  to = "https://westwarwicks.info/api/get-card"
+  
+[[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
@@ -16,6 +20,8 @@
 [[redirects]]
   from = "/reception"
   to = "/opening-times"
+
+
 
 [[redirects]]
   from = "/card-check"

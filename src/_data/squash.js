@@ -22,18 +22,54 @@ module.exports = {
     {
       name: 'roa-elite-junior-camp',
       description: 'ROA Elite Junior Camp ...',
-      prices: [{ price: 35, unit: 'session' }],
+      prices: [
+        {
+          price: 35,
+          unit: 'session',
+          stripe: { price: 'price_1NWkTqF12kDJKsuc5gA1pxPD' },
+        },
+      ],
     },
     {
       name: 'roa-junior-squash-summer-camps',
       description: 'ROA Junior Squash Summer Camps ...',
       prices: [
-        { price: 35, unit: 'day', members: true },
-        { price: 60, unit: '2 days', members: true },
-        { price: 170, unit: '6 days', members: true },
-        { price: 40, unit: 'day', members: false },
-        { price: 70, unit: '2 days', members: false },
-        { price: 200, unit: '6 days', members: false },
+        {
+          price: 35,
+          unit: 'day',
+          members: true,
+          stripe: { price: 'price_1NWz2aF12kDJKsucelFIKx5g' },
+        },
+        {
+          price: 60,
+          unit: '2 days',
+          members: true,
+          stripe: { price: 'price_1NWz3tF12kDJKsucpAXiEO54' },
+        },
+        {
+          price: 170,
+          unit: '6 days',
+          members: true,
+          stripe: { price: 'price_1NX0ILF12kDJKsucwzxY61XP' },
+        },
+        {
+          price: 40,
+          unit: 'day',
+          members: false,
+          stripe: { price: 'price_1NWz7EF12kDJKsucvj8jB8b6' },
+        },
+        {
+          price: 70,
+          unit: '2 days',
+          members: false,
+          stripe: { price: 'price_1NWz7eF12kDJKsucAReXaabT' },
+        },
+        {
+          price: 200,
+          unit: '6 days',
+          members: false,
+          stripe: { price: 'price_1NX0IjF12kDJKsuczL8XJyCW' },
+        },
       ],
       maxPeople: 100,
     },
@@ -42,18 +78,48 @@ module.exports = {
       description:
         "The Rob Owen Junior Programme offers a comprehensive pathway catering to individuals at all skill levels, from beginner to professional. Our programme provides weekly sessions on Tuesday's and Saturday's, ensuring a structured approach tailored to specific standards and accommodating youngsters from 6-18 years old. Led by our proficient coaches, these sessions are thoughtfully designed to be engaging and address the unique requirements of each participant. Our goal is to cultivate a thriving squash community that welcomes children from every background, promoting inclusivity and accessibility for all.",
       prices: [
-        { price: 6.5, unit: 'session', members: true },
-        { price: 47, unit: '8 weeks', members: true },
-        { price: 8, unit: 'session', members: false },
-        { price: 60, unit: '8 weeks', members: false },
+        {
+          price: 6.5,
+          unit: 'session',
+          members: true,
+          stripe: { price: 'price_1NWjwyF12kDJKsucYn9LkoIy' },
+        },
+        {
+          price: 47,
+          unit: '8 weeks',
+          members: true,
+          stripe: { price: 'price_1NWjxZF12kDJKsucc9Y2bKpt', quantity: 1 },
+        },
+        {
+          price: 8,
+          unit: 'session',
+          members: false,
+          stripe: { price: 'price_1NJan6F12kDJKsucuRA9rcrd' },
+        },
+        {
+          price: 60,
+          unit: '8 weeks',
+          members: false,
+          stripe: { price: 'price_1NWjyjF12kDJKsuc66v8zU2T', quantity: 1 },
+        },
       ],
     },
     {
       name: 'roa-individual-coaching',
       description: 'Junior Individual Coaching ...',
       prices: [
-        { price: 20, unit: 'session', members: true },
-        { price: 25, unit: 'session', members: false },
+        {
+          price: 20,
+          unit: 'session',
+          members: true,
+          stripe: { price: 'price_1NJaX8F12kDJKsucKUStUx67' },
+        },
+        {
+          price: 25,
+          unit: 'session',
+          members: false,
+          stripe: { price: 'price_1NWjSxF12kDJKsuctoXgarCr' },
+        },
       ],
     },
   ],
@@ -62,8 +128,18 @@ module.exports = {
       name: 'roa-skills-and-drills',
       description: 'Skills and Drills ...',
       prices: [
-        { price: 10, unit: 'session', member: true },
-        { price: 15, unit: 'session', members: false },
+        {
+          price: 10,
+          unit: 'session',
+          member: true,
+          stripe: { price: 'price_1NPsNVF12kDJKsuc59ugglDu' },
+        },
+        {
+          price: 15,
+          unit: 'session',
+          members: false,
+          stripe: { price: 'price_1NWgQUF12kDJKsucJaU14fyT' },
+        },
       ],
     },
     {
@@ -76,8 +152,18 @@ module.exports = {
       description:
         'Adult Coaching. Our esteemed adult squash programme provides a range of offerings including regular group sessions, league and team matches, club nights, and individual coaching. Whether you seek the top tier instruction from our accomplished player-coaches or simply desire a casual game with friends while expanding your social circle, our programme caters to all preferences. With a focus delivering high-quality coaching and fostering a welcoming environment, we strive to fulfil the diverse needs of squash enthusiast at every level of expertise.',
       prices: [
-        { price: 25, unit: 'session', members: true },
-        { price: 30, unit: 'session', members: false },
+        {
+          price: 25,
+          unit: 'session',
+          members: true,
+          stripe: { price: 'price_1NJaZcF12kDJKsucgy4BotVM' },
+        },
+        {
+          price: 30,
+          unit: 'session',
+          members: false,
+          stripe: { price: 'price_1NWjLDF12kDJKsucfOF2OhGX' },
+        },
       ],
     },
   ],
@@ -94,31 +180,31 @@ module.exports = {
     {
       name: 'Rob Owen',
       role: 'Programme Leader',
-      bio: "Widely considered by experts as one of the best coaches in the world, Rob Owen's squash coaching success in the last decade has been one of the biggest talking points in the squash world. Owen coaches 3 of the world’s top 10 players, as well as some of the highest-ranking juniors in the world. Under his tutorage, players are known to rapidly improve and maximise their potential. Rob is renowned for his exceptional guidance and unwavering commitment to players, providing technical and tactical expertise alongside a deep understanding of individual needs. Rob Owen oversees and reviews of all our programmes, as well as continuing the inspire and guide the next generation of squash players towards their potential.",
+      bio: "Widely considered by experts as one of the best coaches in the world, Rob Owen's squash coaching success in the last decade has been one of the biggest talking points in the squash world. Owen coaches 3 of the worlds top 10 players, as well as many other world ranked players and some of the highest-ranking juniors in the world. Under his tutorage, players are known to improve rapidly and maximise their potential. Rob is renowned for his exceptional guidance and unwavering commitment to players, providing technical, movement and tactical expertise alongside a deep understanding of individual needs. Rob Owen oversees and reviews of all our programmes, as well as continuing to inspire and guide the next generation of squash players towards their potential.",
       image: 'rob-owen-1',
     },
     {
       name: 'Sam Osborne-Wylde',
       role: 'Head Coach',
-      bio: 'Sam, aged 19, and Jonah, aged 18, possess a remarkable track record in the realm of junior squash, having competed at the highest level since the age of 10. With aspirations to embark on their professional squash career, both Sam and Jonah have started their coaching journeys at West Warwicks. Their unwavering enthusiasm to impart knowledge and share invaluable insights gained from years of involvement in the sport showcases their commitment to fostering the growth and development of aspiring squash players.',
+      bio: 'Sam was a young squash protege and reached the British open final at 12 years old. He has a wealth of experience with over 50 England junior caps to his name. He has an unwavering enthusiasm to impart knowledge for coaching as well as to pass on his insights that he has gained in the last few years from working alongside and with Rob. He is as passionate about coaching at West Warwicks as he is about playing.',
       image: 'sam-osborne-wylde',
     },
     {
       name: 'Jonah Bryant',
       role: 'Head Coach',
-      bio: '50+ junior caps for England, 10+ English and British junior National titles, England world junior team champions for the first time in 22 years.',
+      bio: 'The number one junior ranked player in the world tells you all you need to know about the future prospects of Jonah. Named after the legend Jonah Barrington and currently on track to achieve great things. He has won over 10 British junior titles as well as numerous other tournaments including the European u19 junior championships without dropping a game. Jonah has a unique insight into the sport and has a real ability to coach simply and effectively which he is looking forward to in partnership with Sam. Both Sam and Jonah are already producing rapid improvements working with juniors and adults who have been set in their ways.',
       image: 'jonah-bryant-1',
     },
     {
       name: 'Rosie Kirsch',
       role: 'Assistant Coach',
-      bio: 'Rosie and James are an integral part of the programme, both of them have reached number 1 in Warwickshire County juniors and have years of experience coaching all ages, creating a friendly and welcoming environment for all. Their dedication and commitment to the club as well as their expertise in running engaging and enjoyable sessions makes them a perfect fit for a thriving squash community at West Warwicks.',
+      bio: 'Rosie is an integral part of the coaching team at West Warwicks and has been working with the junior players for many years. She has helped to create a friendly and  welcoming environment for all. She has played at a high level herself winning numerous county championships as well as being nationally ranked for many years. Her commitment to the club and coaching has been second to none.',
       image: 'rosie-kirsch',
     },
     {
       name: 'James Averill',
       role: 'Assistant Coach',
-      bio: 'Rosie and James are an integral part of the programme, both of them have reached number 1 in Warwickshire County juniors and have years of experience coaching all ages, creating a friendly and welcoming environment for all. Their dedication and commitment to the club as well as their expertise in running engaging and enjoyable sessions makes them a perfect fit for a thriving squash community at West Warwicks.',
+      bio: 'James Averill	James is the newest recruit to the coaching team and a great example of the improvements possible. He started off as a player in the academy and within the space of 9 months went from being 10 in England to finishing third in the England national championships. James again has plenty of coaching experience and is excited to pass on what he has learned over the last 12 months. Rosie and James are both very dedicated and committed and their engaging and enjoyable sessions make them the perfect fit to coach at West Warwicks with Sam and Jonah.',
       image: 'james-averill',
     },
   ],
