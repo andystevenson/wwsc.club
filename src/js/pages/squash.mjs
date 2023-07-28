@@ -1,10 +1,21 @@
 import debounce from 'lodash.debounce'
-import { nearestDayOfWeek, ordinalDate } from '../utilities/dates.mjs'
+import {
+  nearestDayOfWeek,
+  ordinalDate,
+  nextTuesday,
+  nextFriday,
+  nextSaturday,
+  ascending,
+  today,
+} from '../utilities/dates.mjs'
 import getCard from '../utilities/getCard.mjs'
 import { v4 as uuid } from 'uuid'
 
+import dayjs from 'dayjs'
+
 // data configuration for squash
 let squashData = null
+let Handlers = null
 
 const articleElements = (article) => {
   const id = article.id
@@ -49,6 +60,33 @@ const bookingData = (form) => {
         { price: entries['stripe-price'], quantity: entries.quantity },
       ],
       mode: 'payment',
+      metadata: {
+        /*
+               <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${today.toISOString()}" name="booking-time">
+        <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="${id}" name="roa-programme">
+        <input type="hidden" value="" name="price-paid">
+        <input type="hidden" value="" name="unit-price">
+        <input type="hidden" value="" name="quantity">
+        <input type="hidden" value="" name="stripe-price">
+        <input type="hidden" value="non-member" name="status">
+        <input type="hidden" value="" name="age">
+        */
+        name: entries.name,
+        email: entries.email,
+        mobile: entries.mobile,
+        card: entries.card ? entries.card : '',
+        age: entries.age,
+        price: entries['price-paid'],
+        quantity: entries.quantity,
+        unitPrice: entries['unit-price'],
+        stripePrice: entries['stripe-price'],
+        reference: entries['booking-reference'],
+        time: entries['booking-time'],
+        programme: entries.programme,
+        roaProgramme: entries['roa-programme'],
+      },
     }
   }
 
@@ -79,7 +117,7 @@ const checkout = async (request) => {
     })
     if (response.ok) {
       const session = await response.json()
-      console.log('stripe url', session.url)
+      // console.log('stripe url', session.url)
       return session
     }
     console.error('checkout failed', response.statusText)
@@ -88,21 +126,63 @@ const checkout = async (request) => {
   }
 }
 
+const roaProgramme = async (programme) => {
+  try {
+    const response = await fetch(`/api/roa-programme/?name=${programme}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const programme = await response.json()
+      return programme
+    }
+    console.error('roa-programme failed', response.statusText)
+  } catch (error) {
+    console.error('roa-programme exception', error)
+  }
+}
+
+const bookSessions = async (booking) => {
+  try {
+    const response = await fetch('/api/roa-booking', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(booking), // body data type must match "Content-Type" header
+    })
+
+    if (response.ok) {
+      const bookingResponse = await response.json()
+      const { data } = bookingResponse
+      // console.log('booking completed', bookingResponse, { data })
+
+      return bookingResponse
+    }
+    console.error('booking failed', response.statusText)
+  } catch (error) {
+    console.error('booking exception', error)
+  }
+}
+
 const handleSubmit = async (e) => {
-  console.log('handleSubmit')
   e.preventDefault()
 
   const submit = e.target
   const form = submit.closest('form')
   const isValid = form.reportValidity()
   const booking = bookingData(form)
-  console.log('booking', booking)
 
   if (isValid) {
+    const bookingSessions = await bookSessions(booking)
     if (booking.session) {
       // stripe checkout session required
+      // update the attendee id on the session metadata
+      booking.session.metadata.attendee = bookingSessions.id
       const session = await checkout(booking)
-      console.log('session.url', session)
+      // console.log('session', session)
       window.location.href = session.url
     } else {
       window.location.href = `${window.location.origin}/roa-thanks`
@@ -122,22 +202,6 @@ const updatePricePaid = (article, price, unitPrice, quantity, stripePrice) => {
   quantityElement.value = quantity
   const stripePriceElement = article.querySelector('input[name="stripe-price"')
   stripePriceElement.value = stripePrice
-}
-
-const countCheckboxPairs = (checked) => {
-  const paired = []
-  const count = checked.reduce((sum, current) => {
-    const id = current.id
-    const pair = document.getElementById(current.dataset.pair)
-    if (paired.includes(id)) return sum
-    if (pair.checked) {
-      sum = sum + 1
-      paired.push(id, pair.id)
-    }
-    return sum
-  }, 0)
-
-  return count
 }
 
 const findSquashData = (name) => {
@@ -241,9 +305,8 @@ const checkCard = async (article) => {
   }
 }
 
-// const checkCard = debounce(rawCheckCard, 300)
 // forms
-const eliteForm = (name, prices) => {
+const eliteForm = (name, prices, id) => {
   const template = `
   <form action="" class="inactive" >
     <fieldset id="${name}-form">
@@ -299,13 +362,17 @@ const eliteForm = (name, prices) => {
           <button type="submit" id="${name}-submit" disabled>Buy</button>
         </section>
         <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${today.toISOString()}" name="booking-time">
         <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="${id}" name="roa-programme">
         <input type="hidden" value="" name="price-paid">
         <input type="hidden" value="" name="unit-price">
         <input type="hidden" value="" name="quantity">
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
+        <input type="hidden" value='{"sessions":[]}' name="sessions">
+        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -313,7 +380,7 @@ const eliteForm = (name, prices) => {
   return template
 }
 
-const summerCampsForm = (name, prices) => {
+const summerCampsForm = (name, prices, id) => {
   const template = `
   <form action="" class="inactive" >
     <fieldset id="${name}-form">
@@ -404,31 +471,31 @@ const summerCampsForm = (name, prices) => {
         <fieldset class="sessions">
           <legend>select sessions to attend</legend>
           <label for="${name}-d2023-07-27">
-            <input type="checkbox" name="d2023-07-27" id="${name}-d2023-07-27" data-pair="${name}-d2023-07-28">
+            <input type="checkbox" name="d2023-07-27" id="${name}-d2023-07-27">
             <span>27th</span>
           </label>
           <label for="${name}-d2023-07-28">
-            <input type="checkbox" name="d2023-07-28" id="${name}-d2023-07-28" data-pair="${name}-d2023-07-27">
+            <input type="checkbox" name="d2023-07-28" id="${name}-d2023-07-28">
             <span>28th</span>
           </label>
           <span>July, 2023</span>
 
-          <label for="${name}-d2024-08-07">
-            <input type="checkbox" name="d2024-08-07" id="${name}-d2024-08-07" data-pair="${name}-d2023-08-08">
+          <label for="${name}-d2023-08-07">
+            <input type="checkbox" name="d2023-08-07" id="${name}-d2023-08-07">
             <span>7th</span>
           </label>
           <label for="${name}-d2023-08-08">
-            <input type="checkbox" name="d2023-08-08" id="${name}-d2023-08-08" data-pair="${name}-d2024-08-07">
+            <input type="checkbox" name="d2023-08-08" id="${name}-d2023-08-08">
             <span>8th</span>
           </label>
           <span>August, 2023</span>
 
           <label for="${name}-d2023-08-29">
-            <input type="checkbox" name="d2023-08-29" id="${name}-d2023-08-29" data-pair="${name}-d2023-08-30">
+            <input type="checkbox" name="d2023-08-29" id="${name}-d2023-08-29">
             <span>29th</span>
           </label>
           <label for="${name}-d2023-08-30">
-            <input type="checkbox" name="d2023-08-30" id="${name}-d2023-08-30" data-pair="${name}-d2023-08-29">
+            <input type="checkbox" name="d2023-08-30" id="${name}-d2023-08-30">
             <span>30th</span>
           </label>
           <span>August, 2023</span>
@@ -439,13 +506,17 @@ const summerCampsForm = (name, prices) => {
           <button type="submit" id="${name}-submit" disabled>Buy</button>
         </section>
         <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${today.toISOString()}" name="booking-time">
         <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="${id}" name="roa-programme">
         <input type="hidden" value="" name="price-paid">
         <input type="hidden" value="" name="unit-price">
         <input type="hidden" value="" name="quantity">
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
+        <input type="hidden" value='{"sessions":[]}' name="sessions">
+        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -453,7 +524,7 @@ const summerCampsForm = (name, prices) => {
   return template
 }
 
-const juniorProgrammeForm = (name, prices) => {
+const juniorProgrammeForm = (name, prices, id) => {
   const bookingFrom = nearestDayOfWeek('tuesday', 'saturday')
   const nextDay = ordinalDate(bookingFrom[0])
   const followingDay = ordinalDate(bookingFrom[1])
@@ -556,13 +627,17 @@ const juniorProgrammeForm = (name, prices) => {
           <button type="submit" id="${name}-submit" disabled>Buy</button>
         </section>
         <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${today.toISOString()}" name="booking-time">
         <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="${id}" name="roa-programme">
         <input type="hidden" value="" name="price-paid">
         <input type="hidden" value="" name="unit-price">
         <input type="hidden" value="" name="quantity">
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
+        <input type="hidden" value='{"sessions":[]}' name="sessions">
+        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -570,7 +645,7 @@ const juniorProgrammeForm = (name, prices) => {
   return template
 }
 
-const individualForm = (name, prices) => {
+const individualForm = (name, prices, id) => {
   const template = `
   <form action="" class="inactive" >
     <fieldset id="${name}-form">
@@ -645,13 +720,17 @@ const individualForm = (name, prices) => {
           <button type="submit" id="${name}-submit" disabled>Buy</button>
         </section>
         <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${today.toISOString()}" name="booking-time">
         <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="${id}" name="roa-programme">
         <input type="hidden" value="" name="price-paid">
         <input type="hidden" value="" name="unit-price">
         <input type="hidden" value="" name="quantity">
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
+        <input type="hidden" value='{"sessions":[]}' name="sessions">
+        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -659,7 +738,7 @@ const individualForm = (name, prices) => {
   return template
 }
 
-const skillsAndDrillsForm = (name, prices) => {
+const skillsAndDrillsForm = (name, prices, id) => {
   const bookingFrom = nearestDayOfWeek('tuesday')
   const nextTuesday = ordinalDate(bookingFrom[0])
   const template = `
@@ -732,13 +811,17 @@ const skillsAndDrillsForm = (name, prices) => {
           <button type="submit" id="${name}-submit" disabled>Buy</button>
         </section>
         <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${today.toISOString()}" name="booking-time">
         <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="${id}" name="roa-programme">
         <input type="hidden" value="" name="price-paid">
         <input type="hidden" value="" name="unit-price">
         <input type="hidden" value="" name="quantity">
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
+        <input type="hidden" value='{"sessions":[]}' name="sessions">
+        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -746,7 +829,7 @@ const skillsAndDrillsForm = (name, prices) => {
   return template
 }
 
-const clubNightForm = (name, prices) => {
+const clubNightForm = (name, prices, id) => {
   const bookingFrom = nearestDayOfWeek('friday')
   const nextFriday = ordinalDate(bookingFrom[0])
   const template = `
@@ -798,13 +881,17 @@ const clubNightForm = (name, prices) => {
           <button type="submit" id="${name}-submit" disabled>Join</button>
         </section>
         <input type="hidden" value="${uuid()}" name="booking-reference">
+        <input type="hidden" value="${today.toISOString()}" name="booking-time">
         <input type="hidden" value="${name}" name="programme">
+        <input type="hidden" value="${id}" name="roa-programme">
         <input type="hidden" value="" name="price-paid">
         <input type="hidden" value="" name="unit-price">
         <input type="hidden" value="" name="quantity">
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
+        <input type="hidden" value='{"sessions":[]}' name="sessions">
+        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions"> 
       </section>
     </fieldset>
   </form>`
@@ -813,11 +900,13 @@ const clubNightForm = (name, prices) => {
 }
 // init
 
-const handleInit = (form, id, generateForm) => {
+const handleInit = async (form, id, generateForm) => {
   const programme = findSquashData(id)
   const { name, prices } = programme
+  const db = await Handlers.db(name)
+  const programmeId = db.id
 
-  const newForm = generateForm(name, prices)
+  const newForm = generateForm(name, prices, programmeId)
   const parser = new DOMParser()
   const doc = parser.parseFromString(newForm, 'text/html')
   const replaceForm = doc.querySelector('form')
@@ -825,11 +914,13 @@ const handleInit = (form, id, generateForm) => {
   return replaceForm
 }
 
-const handleEliteInit = (form) => {
+const handleEliteInit = async (form) => {
   const programme = findSquashData('roa-elite-junior-camp')
   const { name, prices } = programme
+  const db = await Handlers.db(name)
+  const programmeId = db.id
 
-  const newForm = eliteForm(name, prices)
+  const newForm = eliteForm(name, prices, programmeId)
   const parser = new DOMParser()
   const doc = parser.parseFromString(newForm, 'text/html')
   const replaceForm = doc.querySelector('form')
@@ -837,11 +928,13 @@ const handleEliteInit = (form) => {
   return replaceForm
 }
 
-const handleSummerCampsInit = (form) => {
+const handleSummerCampsInit = async (form) => {
   const programme = findSquashData('roa-junior-squash-summer-camps')
   const { name, prices } = programme
+  const db = await Handlers.db(name)
+  const programmeId = db.id
 
-  const newForm = summerCampsForm(name, prices)
+  const newForm = summerCampsForm(name, prices, programmeId)
   const parser = new DOMParser()
   const doc = parser.parseFromString(newForm, 'text/html')
   const replaceForm = doc.querySelector('form')
@@ -849,11 +942,13 @@ const handleSummerCampsInit = (form) => {
   return replaceForm
 }
 
-const handleJuniorProgrammeInit = (form) => {
+const handleJuniorProgrammeInit = async (form) => {
   const programme = findSquashData('roa-junior-squash-programme')
   const { name, prices } = programme
+  const db = await Handlers.db(name)
+  const programmeId = db.id
 
-  const newForm = juniorProgrammeForm(name, prices)
+  const newForm = juniorProgrammeForm(name, prices, programmeId)
   const parser = new DOMParser()
   const doc = parser.parseFromString(newForm, 'text/html')
   const replaceForm = doc.querySelector('form')
@@ -861,11 +956,13 @@ const handleJuniorProgrammeInit = (form) => {
   return replaceForm
 }
 
-const handleIndividualInit = (form, id) => {
+const handleIndividualInit = async (form, id) => {
   const programme = findSquashData(id)
   const { name, prices } = programme
+  const db = await Handlers.db(name)
+  const programmeId = db.id
 
-  const newForm = individualForm(name, prices)
+  const newForm = individualForm(name, prices, programmeId)
   const parser = new DOMParser()
   const doc = parser.parseFromString(newForm, 'text/html')
   const replaceForm = doc.querySelector('form')
@@ -874,6 +971,64 @@ const handleIndividualInit = (form, id) => {
 }
 
 // form handlers
+const sessionIdsFromDates = (dates, sessions) => {
+  if (dates.length < 1) return
+  if (sessions.length < 1) return
+
+  const ids = []
+  for (const date of dates) {
+    const formatted = date.format('YYYY-MM-DD')
+    // console.log(`looking for session on ${formatted}`)
+    const found = sessions.find((session) => session.date === formatted)
+    if (found) ids.push(found.id)
+    if (!found) console.warn(`session not found ${formatted}`)
+  }
+  // console.log(`sessionIdsFromDates`, ids)
+  return ids
+}
+
+const updateROASessions = async (article, sessionDates) => {
+  // console.log({ sessionDates })
+  const sessionsContent = {
+    'roa-sessions': [],
+  }
+
+  const programmeName = article.querySelector('input[name="programme"]').value
+  const roaSessionsElement = article.querySelector('input[name="roa-sessions"]')
+
+  const db = await Handlers.db(programmeName)
+
+  sessionsContent['roa-sessions'] = sessionIdsFromDates(
+    sessionDates,
+    db.sessions,
+  )
+
+  roaSessionsElement.value = JSON.stringify(sessionsContent)
+}
+
+const updateProgrammeSessions = async (article) => {
+  const form = article.querySelector('form')
+  const formData = new FormData(form)
+  const values = Object.fromEntries(formData.entries())
+
+  const dates = []
+  for (const property in values) {
+    if (property.startsWith('d')) {
+      const dateString = property.slice(1)
+      dates.push(dayjs(dateString))
+    }
+  }
+  dates.sort(ascending)
+  const sessionsContent = {
+    sessions: [],
+  }
+  const sessionsElement = article.querySelector('input[name="sessions"]')
+
+  sessionsContent.sessions = dates.map((date) => date.format('YYYY-MM-DD'))
+  sessionsElement.value = JSON.stringify(sessionsContent)
+  await updateROASessions(article, dates)
+}
+
 const handleEliteForm = (e) => {
   const article = e.target.closest('article')
   const id = article.id
@@ -891,8 +1046,48 @@ const handleEliteForm = (e) => {
   const price = unitPrice * sessions
   submit.textContent = inputs.length > 0 ? `Buy (£${price})` : 'Buy'
   sessions > 0 ? (submit.disabled = false) : (submit.disabled = true)
-  if (sessions > 0)
+  if (sessions > 0) {
     updatePricePaid(article, price, unitPrice, sessions, stripePrice)
+    updateProgrammeSessions(article)
+  }
+}
+
+const updateJuniorProgrammeSessions = async (article) => {
+  const form = article.querySelector('form')
+  const formData = new FormData(form)
+  const values = Object.fromEntries(formData.entries())
+
+  // console.log(values)
+  const onTuesdays = values.tuesday === 'on'
+  const onSaturdays = values.saturday === 'on'
+
+  const dates = []
+  const weeks = getWeeks(article)
+  let nextTue = nextTuesday()
+  let nextSat = nextSaturday()
+  for (let count = 0; count < weeks; count = count + 1) {
+    if (onTuesdays) {
+      dates.push(nextTue)
+      nextTue = nextTuesday(nextTue.add(1, 'day'))
+    }
+
+    if (onSaturdays) {
+      dates.push(nextSat)
+      nextSat = nextSaturday(nextSat.add(1, 'day'))
+    }
+  }
+
+  dates.sort(ascending)
+  const sessionsContent = {
+    sessions: [],
+  }
+  const sessionsElement = article.querySelector('input[name="sessions"]')
+
+  sessionsContent.sessions = dates.map((date) => date.format('YYYY-MM-DD'))
+  sessionsElement.value = JSON.stringify(sessionsContent)
+  // console.log(sessionsContent)
+  // console.log(sessionsElement.value)
+  await updateROASessions(article, dates)
 }
 
 const handleJuniorProgrammeForm = async (e) => {
@@ -953,12 +1148,12 @@ const handleJuniorProgrammeForm = async (e) => {
     }
   }
 
-  console.log({ isMember, price, unitPrice, quantity, stripePrice, sessions })
-
   submit.textContent = sessions > 0 ? `Buy (£${price})` : 'Buy'
   sessions > 0 ? (submit.disabled = false) : (submit.disabled = true)
-  if (sessions > 0)
+  if (sessions > 0) {
     updatePricePaid(article, price, unitPrice, quantity, stripePrice)
+    await updateJuniorProgrammeSessions(article)
+  }
 }
 
 const handleSummerCampsForm = async (e) => {
@@ -1009,8 +1204,30 @@ const handleSummerCampsForm = async (e) => {
 
   submit.textContent = sessions > 0 ? `Buy (£${price})` : 'Buy'
   sessions > 0 ? (submit.disabled = false) : (submit.disabled = true)
-  if (sessions > 0)
+  if (sessions > 0) {
     updatePricePaid(article, price, unitPrice, sessions, stripePrice)
+    await updateProgrammeSessions(article)
+  }
+}
+
+const updateIndividualSessions = async (article, weeks) => {
+  if (weeks < 1) return
+  const programme = article.querySelector('input[name="programme"]').value
+  if (programme !== 'roa-skills-and-drills') return
+
+  const sessionsContent = {
+    sessions: [],
+  }
+  const sessionsElement = article.querySelector('input[name="sessions"]')
+  let nextTue = nextTuesday()
+  const dates = []
+  for (let count = 0; count < weeks; count = count + 1) {
+    dates.push(nextTue)
+    nextTue = nextTuesday(nextTue.add(1, 'day'))
+  }
+  sessionsContent.sessions = dates.map((date) => date.format('YYYY-MM-DD'))
+  sessionsElement.value = JSON.stringify(sessionsContent)
+  await updateROASessions(article, dates)
 }
 
 const handleIndividualForm = async (e) => {
@@ -1025,7 +1242,6 @@ const handleIndividualForm = async (e) => {
   const price2 = +pricing.dataset.price2
   const stripe2 = pricing.dataset.stripe2
 
-  console.log({ price1, stripe1, price2, stripe2 })
   let weeks = getWeeks(article)
   let price = 0
   let unitPrice = 0
@@ -1045,20 +1261,48 @@ const handleIndividualForm = async (e) => {
   submit.textContent = weeks > 0 ? `Buy (£${price})` : 'Buy'
   weeks > 0 ? (submit.disabled = false) : (submit.disabled = true)
   if (weeks > 0) updatePricePaid(article, price, unitPrice, weeks, stripePrice)
+  if (weeks > 0) await updateIndividualSessions(article, weeks)
+}
+
+const updateClubNightSessions = async (article, weeks) => {
+  if (weeks < 1) return
+  const sessionsContent = {
+    sessions: [],
+  }
+  const sessionsElement = article.querySelector('input[name="sessions"]')
+  let nextFri = nextFriday()
+  const dates = []
+  for (let count = 0; count < weeks; count = count + 1) {
+    dates.push(nextFri)
+    nextFri = nextFriday(nextFri.add(1, 'day'))
+  }
+
+  sessionsContent.sessions = dates.map((date) => date.format('YYYY-MM-DD'))
+  sessionsElement.value = JSON.stringify(sessionsContent)
+  await updateROASessions(article, dates)
 }
 
 const handleClubNightForm = async (e) => {
   const article = e.target.closest('article')
 
   const { submit } = articleElements(article)
-  let isMember = await checkCard(article)
+  await checkCard(article)
 
   let weeks = getWeeks(article)
+  if (weeks > 0) {
+    await updateClubNightSessions(article, weeks)
+  }
   weeks > 0 ? (submit.disabled = false) : (submit.disabled = true)
 }
 // controller
-const buildHandlers = () => {
+const buildHandlers = async () => {
   const handlers = {
+    db: async (name) => {
+      if (!Handlers) throw Error('Handlers not initialised')
+      if (!Handlers[name].db) Handlers[name].db = await roaProgramme(name)
+      return Handlers[name].db
+    },
+
     'roa-elite-junior-camp': {
       generate: eliteForm,
       init: handleEliteInit,
@@ -1067,6 +1311,7 @@ const buildHandlers = () => {
       cancel: handleCancel,
       submit: handleSubmit,
       data: findSquashData('roa-elite-junior-camp'),
+      db: null,
     },
 
     'roa-junior-squash-summer-camps': {
@@ -1077,7 +1322,9 @@ const buildHandlers = () => {
       cancel: handleCancel,
       submit: handleSubmit,
       data: findSquashData('roa-junior-squash-summer-camps'),
+      db: null,
     },
+
     'roa-junior-squash-programme': {
       generate: juniorProgrammeForm,
       init: handleJuniorProgrammeInit,
@@ -1086,7 +1333,9 @@ const buildHandlers = () => {
       cancel: handleCancel,
       submit: handleSubmit,
       data: findSquashData('roa-junior-squash-programme'),
+      db: null,
     },
+
     'roa-individual-coaching': {
       generate: individualForm,
       init: handleIndividualInit,
@@ -1095,6 +1344,7 @@ const buildHandlers = () => {
       cancel: handleCancel,
       submit: handleSubmit,
       data: findSquashData('roa-individual-coaching'),
+      db: null,
     },
 
     'roa-skills-and-drills': {
@@ -1105,7 +1355,9 @@ const buildHandlers = () => {
       cancel: handleCancel,
       submit: handleSubmit,
       data: findSquashData('roa-skills-and-drills'),
+      db: null,
     },
+
     'roa-club-night': {
       generate: clubNightForm,
       init: handleInit,
@@ -1114,7 +1366,9 @@ const buildHandlers = () => {
       cancel: handleCancel,
       submit: handleSubmit,
       data: findSquashData('roa-club-night'),
+      db: null,
     },
+
     'roa-individual-adult-coaching': {
       generate: individualForm,
       init: handleIndividualInit,
@@ -1123,8 +1377,11 @@ const buildHandlers = () => {
       cancel: handleCancel,
       submit: handleSubmit,
       data: findSquashData('roa-individual-adult-coaching'),
+      db: null,
     },
   }
+
+  // console.log({ handlers })
   return handlers
 }
 
@@ -1146,9 +1403,9 @@ const buildHandlers = () => {
 
     const allProgrammes = [...juniorProgrammes, ...adultProgrammes]
 
-    const handlers = buildHandlers()
+    Handlers = await buildHandlers()
 
-    allProgrammes.forEach((programme) => {
+    for (const programme of allProgrammes) {
       const id = programme.id
       const {
         generate,
@@ -1157,11 +1414,11 @@ const buildHandlers = () => {
         bookNow: bookNowAction,
         cancel: cancelAction,
         submit: submitAction,
-      } = handlers[id]
+      } = Handlers[id]
 
       const { form } = articleElements(programme)
 
-      initAction(form, id, generate)
+      await initAction(form, id, generate)
       const {
         bookNow,
         form: newForm,
@@ -1175,7 +1432,7 @@ const buildHandlers = () => {
 
       newForm.addEventListener('click', formAction)
       newForm.addEventListener('input', formAction)
-    })
+    }
   } catch (error) {
     console.error('squash script failed', error)
   }
