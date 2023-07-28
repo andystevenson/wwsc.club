@@ -1,16 +1,351 @@
-.squash main {
-  section.gallery.reasons {
-    & img {
-      object-fit: contain;
-      aspect-ratio: unset;
+// should be in reset!
+
+input {
+  background-color: var(--surface-3);
+}
+
+::placeholder {
+  font-size: 0.8em;
+}
+
+// squash specifics
+.squash {
+  // utilities
+  .active {
+    display: grid;
+  }
+
+  .inactive {
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    height: 1em;
+  }
+
+  input:optional {
+    border-color: gray;
+    background-color: var(--surface-3);
+    background-image: unset;
+
+    &.valid {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>')
+        no-repeat 95% 50% var(--surface-3);
+      background-size: 25px;
+      border: 2px solid green;
+    }
+
+    &.invalid {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>')
+        no-repeat 95% 50% var(--surface-3);
+      background-size: 25px;
+      border: 2px solid red;
+    }
+  }
+
+  input:required:valid {
+    border-color: green;
+  }
+
+  input:invalid {
+    border-color: red;
+  }
+
+  input:required:focus:valid {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>')
+      no-repeat 95% 50% var(--surface-3);
+    background-size: 25px;
+    border: 2px solid green;
+  }
+
+  input:focus:invalid {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>')
+      no-repeat 95% 50% var(--surface-3);
+    background-size: 25px;
+    border: 2px solid hsl(32, 99%, 49%);
+  }
+
+  --scrollbar-color: var(--surface-2);
+  --scrollbar-thumb-border: var(--surface-3);
+  --scrollbar-thumb-color: var(--surface-4);
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-color);
+    border-radius: 100vw;
+    margin-block: 0.5em;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border: 0.25em solid var(--scrollbar-thumb-border);
+    border-radius: 100vw;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
+
+  summary {
+    font-size: var(--font-size-fluid-1);
+  }
+
+  fieldset {
+    & > section {
+      gap: var(--size-1);
+    }
+  }
+
+  label[for] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--label-space);
+    align-items: center;
+    input[type='text'],
+    input[type='email'] {
+      min-inline-size: 10ch;
+      inline-size: 100%;
+    }
+
+    input[type='checkbox'] {
+      margin-inline-end: var(--size-1);
+    }
+
+    input[type='text'][id='let-me-say'] {
+      min-inline-size: 10ch;
+      inline-size: 10ch;
+    }
+
+    span {
+      inline-size: var(--label-size);
+    }
+  }
+
+  // main sections
+  article {
+    grid-template-areas:
+      'image'
+      'bio';
+    gap: unset;
+    grid-auto-rows: min-content;
+
+    border-radius: var(--radius-2);
+    box-shadow: var(--radius-2);
+    overflow: hidden;
+
+    > picture {
+      grid-area: image;
+      place-self: unset;
+
+      img {
+        object-position: top;
+      }
+    }
+
+    > details {
+      grid-area: bio;
+    }
+
+    > h3,
+    > p,
+    > button {
+      grid-area: image;
+      place-self: center;
+
+      background-color: var(--surface-3);
+      padding-inline: 1em;
+      padding-block: 0.25em;
+
+      text-align: center;
+      opacity: 0.7;
+      font-size: var(--font-size-fluid-1);
+    }
+
+    > p {
+      place-self: end center;
+      margin-block-end: 1em;
+    }
+
+    > button {
+      opacity: 0.95;
+    }
+  }
+
+  .roa {
+    > img {
+      inline-size: 100%;
+    }
+  }
+  .squash-is-fun {
+    --image-size: 20vw;
+
+    @media (--xl-n-above) {
+      --image-size: 15vw;
+    }
+  }
+
+  .roa-team {
+    --image-size: 50vw;
+
+    @media (--md-n-above) {
+      --image-size: 30vw;
+    }
+
+    @media (--xl-n-above) {
+      --image-size: 20vw;
+    }
+
+    article > picture {
+      aspect-ratio: var(--ratio-portrait);
+    }
+  }
+
+  .roa-images {
+    --image-size: 40vw;
+
+    @media (--xl-n-above) {
+      --image-size: 35vw;
+    }
+  }
+
+  .roa-programmes {
+    --image-size: 50vw;
+
+    @media (--xl-n-above) {
+      --image-size: 30vw;
+    }
+  }
+
+  .roa-jonah {
+    img {
+      inline-size: 100%;
+      place-self: start;
+    }
+
+    .roa-history {
+      @media (--lg-n-above) {
+        grid-template-columns: 1fr 4fr 1fr;
+      }
+
+      img {
+        display: none;
+        @media (--lg-n-above) {
+          display: block;
+        }
+      }
+
+      div {
+        place-self: center;
+      }
+
+      p {
+        @media (--xxl-n-above) {
+          font-size: var(--font-size-fluid-3);
+        }
+      }
+
+      details {
+        p {
+          margin-block-end: 1em;
+        }
+      }
+    }
+  }
+
+  .roa-courts {
+    place-self: center;
+    gap: var(--size-2);
+    @media (--md-n-above) {
+      grid-auto-flow: column;
+      img {
+        min-inline-size: 30vw;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
     }
   }
 }
 
-.squash .junior-squash-programme img {
-  max-block-size: 60vh;
+form {
+  fieldset {
+    gap: unset;
+
+    > * {
+      line-height: var(--font-lineheight-1);
+      gap: unset;
+    }
+
+    legend {
+      inline-size: max-content;
+    }
+
+    p {
+      line-height: var(--font-lineheight-00);
+    }
+    .sessions {
+      place-content: center;
+      gap: unset;
+      small:last-of-type {
+        margin-block-end: 1em;
+      }
+    }
+
+    fieldset.notice {
+      margin-block: 1em;
+    }
+
+    p.notice {
+      font-weight: 600;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .pricing {
+      place-content: center;
+      .description {
+        gap: unset;
+      }
+    }
+  }
+
+  input[type='number'] {
+    inline-size: 6ch;
+    margin-inline-end: var(--size-2);
+  }
+
+  label[for] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--label-space);
+    align-items: center;
+    input[type='text'],
+    input[type='email'] {
+      min-inline-size: 10ch;
+      inline-size: 100%;
+    }
+
+    input[type='checkbox'] {
+      margin-inline-end: var(--size-1);
+    }
+
+    input[type='text'][id='let-me-say'] {
+      min-inline-size: 10ch;
+      inline-size: 10ch;
+    }
+
+    span {
+      inline-size: var(--label-size);
+    }
+  }
+
+  .submit {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.squash .skills-and-drills img {
-  max-block-size: 60vh;
+#roa-junior-squash-summer-camps-form {
+  & .sessions {
+    grid-template-columns: 1fr 1fr 2fr;
+    padding-inline: 10%;
+  }
 }

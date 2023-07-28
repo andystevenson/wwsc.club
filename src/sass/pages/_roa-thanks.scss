@@ -1,0 +1,21 @@
+.roa-thanks {
+  main {
+    min-block-size: 75vh;
+    & > img {
+      &:first-of-type {
+        place-self: start center;
+      }
+      &:last-of-type {
+        place-self: end center;
+      }
+    }
+    & > button:first-of-type {
+      place-self: center;
+    }
+
+    & > a.review {
+      place-self: end;
+      width: 100%;
+    }
+  }
+}

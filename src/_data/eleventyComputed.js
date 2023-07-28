@@ -7,15 +7,12 @@ module.exports = {
   },
   script: (data) => {
     let src = `${data.page.fileSlug || 'WWSC'}.js`
-    try {
-      // throws if file does not exist
-      const stat = statSync(`./src/js/${src}`)
-      // console.log(`${src} file exists`)
-    } catch (error) {
-      // console.log(`${src} file DOES NOT exists!!! [${error.message}]`)
-      src = undefined
-    }
-    return src
+    let msrc = `${data.page.fileSlug || 'WWSC'}.mjs`
+    const stat = statSync(`./src/js/pages/${src}`, { throwIfNoEntry: false })
+    const mstat = statSync(`./src/js/pages/${msrc}`, { throwIfNoEntry: false })
+    msrc = mstat ? msrc : null
+    src = stat ? src : null
+    return msrc || src
   },
   site: 'https://westwarwicks.club',
   company: 'West Warwickshire Sports Complex',

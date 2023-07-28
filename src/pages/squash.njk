@@ -1,233 +1,139 @@
 {% set group = squash %}
+
 <h1>{{ title | capitalize }}</h1>
+{{imgc(cms.image["squash-banner"])}}
+
 <p class="description">{{ squash.description }}</p>
 
-{% include 'partials/gallery.njk' %}
+<section title="squash is fun" class="media-scroller squash-is-fun">
+  {% for image in squash.englandSquashMedia %}
+    {{ imgc(cms.image[image]) }}
+  {% endfor %}
+</section>
 
-<form class='book-a-court' action="{{ bookNow }}">
+<p class="description">{{ squash.newToSquash }}</p>
+
+<section title='rob owen academy' class="roa" id="roa">
+  {{imgc(cms.image["squash-roa-welcome"])}}
+
+  <section class="roa-coaches">
+    <h2>Coaches</h2>
+      
+    <section class="media-scroller roa-team">
+      {% for member in squash.team %}
+        <article>
+          <picture>{{imgc(cms.image[member.image])}}</picture>
+          <h3>{{member.name}}</h3>
+          <p>{{member.role}}</p>
+          <details>
+            <summary>
+              Bio
+            </summary>
+            <p>{{member.bio}}</p>
+          </details>
+        </article>
+      {% endfor %}
+    </section>
+  </section>
+
+  <section class="roa-junior-programmes">
+    <h2>Junior Programmes</h2>
+    <section title="roa images" class="media-scroller roa-images">
+      {% for image in squash.roaImages %}
+        <picture>{{ imgc(cms.image[image]) }}</picture>
+      {% endfor %}
+    </section>
+
+    <section title="junior programmes" class="media-scroller roa-programmes">
+      {% for programme in squash.juniorProgrammes %}
+        <article class='roa-junior-programme' id='{{programme.name}}'>
+          <picture>{{ imgc(cms.image[programme.name]) }}</picture>
+          <button>Book Now</button>
+          <details>
+            <summary>Description</summary>
+            <p class="description">{{programme.description}}</p>
+          </details>
+          <form></form>
+        </article>
+      {% endfor %}
+    </section>
+
+  </section>
+
+  <section class="roa-adult-programmes">
+    <h2>Adult Programmes</h2>
+    <section title="roa images" class="media-scroller roa-images">
+      {% for image in squash.roaImages %}
+        <picture>{{ imgc(cms.image[image]) }}</picture>
+      {% endfor %}
+    </section>
+
+    <section title="adult programmes" class="media-scroller roa-programmes">
+      {% for programme in squash.adultProgrammes %}
+        <article class='roa-adult-programme' id='{{programme.name}}'>
+          <picture>{{ imgc(cms.image[programme.name]) }}</picture>
+          <button>Book Now</button>
+          <details>
+            <summary>Description</summary>
+            <p>{{programme.description}}</p>
+          </details>
+          <form></form>
+        </article>
+      {% endfor %}
+    </section>
+  </section>
+
+  <section class="roa-alumni">
+    <h2>Professionals & Alumni</h2>
+
+    <section class="media-scroller roa-team">
+      {% for member in squash.alumni %}
+        <article>
+          <picture>{{imgc(cms.image[member.image])}}</picture>
+          <h3>{{member.name}}</h3>
+          <details>
+            <summary>
+              Bio
+            </summary>
+            <p>{{member.bio}}</p>
+          </details>
+        </article>
+      {% endfor %}
+    </section>
+    <p class="description">{{squash.seeTheProfessionals}}</p>
+  </section>
+
+  <section class="roa-jonah">
+    <h2>Where it all started for West Warwicks...</h2>
+    {{imgc(cms.image["squash-jonah-barrington-legend"])}}
+    <section class="roa-history">
+      {{imgc(cms.image["squash-jonah-barrington-1"])}}
+      <div>
+        <p class="description">{{squash.history | first}}</p>
+        <details>
+          <summary>... more</summary>
+          {% for paragraph in squash.history | slice(1) %}
+            <p class="description">{{paragraph}}</p>
+        {% endfor %}
+        </details>
+      </div>
+      {{imgc(cms.image["squash-jonah-barrington-2"])}}
+    </section>
+    <section class="roa-courts">
+      {{imgc(cms.image["squash-jonah-barrington-court"])}}
+      {{imgc(cms.image["squash-rob-owen-court"])}}
+    </section>    
+  </section>
+
+  {{imgc(cms.image["squash-roa-tin"])}}
+</section>
+
+{# old stuff here #}
+{# {% include 'partials/gallery.njk' %} #}
+
+{# <form class='book-a-court' action="{{ bookNow }}">
   <button>book a court</button>
 </form>
-
-<section class="squash-coach">
-  <section class="identity">
-    <h2>Sam Osborne-Wylde<br>Jonah Bryant</h2>
-    <picture>
-      {{ imgc(cms.image['roa-individual-coaching']) }}
-    </picture>
-  </section>
-  <section class="bio">
-    <h2>Head Coaches</h2>
-    <picture data-theme='light'>
-      {{ imgc(cms.image['england-squash']) }}
-    </picture>
-
-    <p>Sam Osborne-Wylde and Jonah Bryant are elite junior members of the Rob Oweb Academy. They are passionate about helping players of all levels to improve and enjoy squash. As a team they will develop both club players and aspiring elite juniors to develop to club, county and national levels.</p>
-  </section>
-  <section class="prices">
-    <header>
-      <h2>Prices</h2>
-      <p>Looking to improve?</p>
-      <p>Book a session with our Head Coach to work on all aspects of your game.</p>
-    </header>
-
-    <ul class="price-list">
-      <li>
-        <p class="type">Junior</p>
-        <span>£20.00</span></li>
-      <li>
-        <p class="type">Adult</p>
-        <span>£25.00</span></li>
-      <li>
-        <p class="type">Pair 2:1</p>
-        <span>£30.00</span></li>
-    </ul>
-    <section class="contacts">
-      {{ linkc(cms.links['email-ali']) }}
-      {{ linkc(cms.links['telephone-ali']) }}
-    </section>
-    <footer>
-      <small>Sessions are 40 minutes.<sup>1</sup>
-      </small>
-      <small>Non-members pay additional £5 court fee.<sup>2</sup>
-      </small>
-
-    </footer>
-  </section>
-</section>
-
-<section title="gallery" class="gallery reasons">
-  <picture>
-    {{ imgc(cms.image['squash-gets-you-fit']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-a-quick-workout']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-burns-calories']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-fun']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-all-weather']) }}
-  </picture>
-  <picture>
-    {{ imgc(cms.image['squash-is-for-everyone']) }}
-  </picture>
-</section>
-
-<section class="group juniors">
-  <h2>Juniors</h2>
-  <section class="activities">
-    <section class="junior-squash-programme">
-
-        <picture>
-          {{ imgc(cms.image['roa-junior-squash-programme']) }}
-        </picture>
-
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Tuesday</p>
-            <span>5-6pm</span></li>
-          <li>
-            <p class="type">Saturday</p>
-            <span>10-12:45</span></li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Junior Squash Stars') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    {# <section class="junior-intermediate">
-      <section>
-        <h3>intermediate</h3>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-          {{ imgc(cms.image['squash-coaching']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Saturday<br>
-              <span>10:45-11:45</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Juniors Intermediate') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    <section class="junior-advances">
-      <section>
-        <h3>advanced</h3>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['squash-coaching']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Saturday<br>
-              <span>11:45-12:45</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Advanced Juniors') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section> #}
-  </section>
-</section>
-
-<section class="group adults">
-  <h2>Adults</h2>
-  <section class="activities">
-
-    <section class="skills-and-drills">
-      <section>
-        <h3>skills & drills</h3>
-        <p>Hone your skills!</p>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['skills-and-drills']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Tuesday<br>
-              <span>19:00-20:20</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Club Night') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    <section class="adult-club-night">
-      <section>
-        <h3>club night</h3>
-        <p>Everyone is welcome!</p>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['squash-is-for-everyone']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Friday<br>
-              <span>18:00-20:00</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Club Night') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section>
-    {# <section class="adult-round-robin">
-      <section>
-        <h3>round robin</h3>
-        <p>Some gentle weekend competition!</p>
-        <picture data-theme='light'>
-          {{ imgc(cms.image['england-squash']) }}
-        </picture>
-      </section>
-      <picture>
-        {{ imgc(cms.image['squash-round-robin']) }}
-      </picture>
-      <section class="schedule">
-        <ul class="times">
-          <li>
-            <p class="type">Saturday<br>
-              <span>12:00-14:00</span></p>
-          </li>
-        </ul>
-        <section class="contacts">
-          {{ linkc(cms.links['email-ali'],'?Subject=Round Robin') }}
-          {{ linkc(cms.links['telephone-ali']) }}
-        </section>
-      </section>
-    </section> #}
-
-  </section>
-</section>
 
 <section class="group teams">
   <h2>WWSC Teams</h2>
@@ -256,7 +162,7 @@
 
     </section>
   </section>
-</section>
+</section> #}
 
 {# {% set people = squash.people %}  #}
 {# broken for now! #}
