@@ -10,8 +10,8 @@ import {
 } from '../utilities/dates.mjs'
 import getCard from '../utilities/getCard.mjs'
 import { v4 as uuid } from 'uuid'
-
 import dayjs from 'dayjs'
+import spinner from '../utilities/spinner.mjs'
 
 // data configuration for squash
 let squashData = null
@@ -170,24 +170,31 @@ const bookSessions = async (booking) => {
 const handleSubmit = async (e) => {
   e.preventDefault()
 
-  const submit = e.target
-  const form = submit.closest('form')
-  const isValid = form.reportValidity()
-  const booking = bookingData(form)
+  try {
+    spinner.on()
+    const submit = e.target
+    const form = submit.closest('form')
+    const isValid = form.reportValidity()
+    const booking = bookingData(form)
 
-  if (isValid) {
-    const bookingSessions = await bookSessions(booking)
-    if (booking.session) {
-      // stripe checkout session required
-      // update the attendee id on the session metadata
-      booking.session.metadata.attendee = bookingSessions.id
-      const session = await checkout(booking)
-      // console.log('session', session)
-      window.location.href = session.url
-    } else {
-      window.location.href = `${window.location.origin}/roa-thanks`
+    if (isValid) {
+      const bookingSessions = await bookSessions(booking)
+      if (booking.session) {
+        // stripe checkout session required
+        // update the attendee id on the session metadata
+        booking.session.metadata.attendee = bookingSessions.id
+        const session = await checkout(booking)
+        // console.log('session', session)
+        window.location.href = session.url
+      } else {
+        window.location.href = `${window.location.origin}/roa-thanks`
+      }
+      handleCancel(e)
     }
-    handleCancel(e)
+    spinner.off()
+  } catch (error) {
+    console.error('handleSubmit failed', error)
+    spinner.off()
   }
 }
 
@@ -1390,6 +1397,7 @@ const buildHandlers = async () => {
   console.log('welcome to WWSC squash')
 
   try {
+    spinner.on()
     squashData = await fetch('/api/squash')
     squashData = await squashData.json()
 
@@ -1433,7 +1441,9 @@ const buildHandlers = async () => {
       newForm.addEventListener('click', formAction)
       newForm.addEventListener('input', formAction)
     }
+    spinner.off()
   } catch (error) {
+    spinner.off()
     console.error('squash script failed', error)
   }
 })()
