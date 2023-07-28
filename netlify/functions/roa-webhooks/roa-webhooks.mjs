@@ -18,8 +18,17 @@ const handler = async (event) => {
 
     const { type } = stripeEvent
     const { object } = stripeEvent.data
+
+    if (type !== 'checkout.session.completed') {
+      throw Error(`unexpected webhook event ${type}`)
+    }
     // console.log('roa-webhooks', type, object.metadata)
-    await createAttendeePayment(object.metadata)
+    if (object.payment_status === 'paid') {
+      console.log('paid', object.metadata)
+      await createAttendeePayment(object.metadata)
+    } else {
+      console.log('unpaid!', object.metadata, object.payment_status)
+    }
 
     return success
   } catch (error) {
