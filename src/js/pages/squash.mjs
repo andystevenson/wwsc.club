@@ -29,17 +29,27 @@ const articleElements = (article) => {
   return { image, bookNow, details, form, cancel, submit, firstInput }
 }
 
-const handleBookNow = (e) => {
+const handleBookNow = async (e) => {
   e.preventDefault()
 
   const bookNow = e.target
   const article = bookNow.closest('article')
   const { image, form, firstInput } = articleElements(article)
-  image.classList.add('inactive')
-  bookNow.classList.add('inactive')
-  form.classList.remove('inactive')
-  form.classList.add('active')
-  firstInput.focus()
+  const programme = form.querySelector('input[name="programme"]').value
+  const db = await Handlers.db(programme)
+  const { open } = db
+
+  if (open) {
+    image.classList.add('inactive')
+    bookNow.classList.add('inactive')
+    form.classList.remove('inactive')
+    form.classList.add('active')
+    firstInput.focus()
+    return
+  }
+
+  // the programme has closed
+  bookNow.textContent = 'Fully Booked!'
 }
 
 const bookingData = (form) => {
@@ -913,7 +923,7 @@ const handleInit = async (form, id, generateForm) => {
   const db = await Handlers.db(name)
   const programmeId = db.id
 
-  const newForm = generateForm(name, prices, programmeId)
+  const newForm = generateForm(name, prices, programmeId, open)
   const parser = new DOMParser()
   const doc = parser.parseFromString(newForm, 'text/html')
   const replaceForm = doc.querySelector('form')
@@ -921,61 +931,61 @@ const handleInit = async (form, id, generateForm) => {
   return replaceForm
 }
 
-const handleEliteInit = async (form) => {
-  const programme = findSquashData('roa-elite-junior-camp')
-  const { name, prices } = programme
-  const db = await Handlers.db(name)
-  const programmeId = db.id
+// const handleEliteInit = async (form) => {
+//   const programme = findSquashData('roa-elite-junior-camp')
+//   const { name, prices } = programme
+//   const db = await Handlers.db(name)
+//   const programmeId = db.id
 
-  const newForm = eliteForm(name, prices, programmeId)
-  const parser = new DOMParser()
-  const doc = parser.parseFromString(newForm, 'text/html')
-  const replaceForm = doc.querySelector('form')
-  form.replaceWith(replaceForm)
-  return replaceForm
-}
+//   const newForm = eliteForm(name, prices, programmeId)
+//   const parser = new DOMParser()
+//   const doc = parser.parseFromString(newForm, 'text/html')
+//   const replaceForm = doc.querySelector('form')
+//   form.replaceWith(replaceForm)
+//   return replaceForm
+// }
 
-const handleSummerCampsInit = async (form) => {
-  const programme = findSquashData('roa-junior-squash-summer-camps')
-  const { name, prices } = programme
-  const db = await Handlers.db(name)
-  const programmeId = db.id
+// const handleSummerCampsInit = async (form) => {
+//   const programme = findSquashData('roa-junior-squash-summer-camps')
+//   const { name, prices } = programme
+//   const db = await Handlers.db(name)
+//   const programmeId = db.id
 
-  const newForm = summerCampsForm(name, prices, programmeId)
-  const parser = new DOMParser()
-  const doc = parser.parseFromString(newForm, 'text/html')
-  const replaceForm = doc.querySelector('form')
-  form.replaceWith(replaceForm)
-  return replaceForm
-}
+//   const newForm = summerCampsForm(name, prices, programmeId)
+//   const parser = new DOMParser()
+//   const doc = parser.parseFromString(newForm, 'text/html')
+//   const replaceForm = doc.querySelector('form')
+//   form.replaceWith(replaceForm)
+//   return replaceForm
+// }
 
-const handleJuniorProgrammeInit = async (form) => {
-  const programme = findSquashData('roa-junior-squash-programme')
-  const { name, prices } = programme
-  const db = await Handlers.db(name)
-  const programmeId = db.id
+// const handleJuniorProgrammeInit = async (form) => {
+//   const programme = findSquashData('roa-junior-squash-programme')
+//   const { name, prices } = programme
+//   const db = await Handlers.db(name)
+//   const programmeId = db.id
 
-  const newForm = juniorProgrammeForm(name, prices, programmeId)
-  const parser = new DOMParser()
-  const doc = parser.parseFromString(newForm, 'text/html')
-  const replaceForm = doc.querySelector('form')
-  form.replaceWith(replaceForm)
-  return replaceForm
-}
+//   const newForm = juniorProgrammeForm(name, prices, programmeId)
+//   const parser = new DOMParser()
+//   const doc = parser.parseFromString(newForm, 'text/html')
+//   const replaceForm = doc.querySelector('form')
+//   form.replaceWith(replaceForm)
+//   return replaceForm
+// }
 
-const handleIndividualInit = async (form, id) => {
-  const programme = findSquashData(id)
-  const { name, prices } = programme
-  const db = await Handlers.db(name)
-  const programmeId = db.id
+// const handleIndividualInit = async (form, id) => {
+//   const programme = findSquashData(id)
+//   const { name, prices } = programme
+//   const db = await Handlers.db(name)
+//   const programmeId = db.id
 
-  const newForm = individualForm(name, prices, programmeId)
-  const parser = new DOMParser()
-  const doc = parser.parseFromString(newForm, 'text/html')
-  const replaceForm = doc.querySelector('form')
-  form.replaceWith(replaceForm)
-  return replaceForm
-}
+//   const newForm = individualForm(name, prices, programmeId)
+//   const parser = new DOMParser()
+//   const doc = parser.parseFromString(newForm, 'text/html')
+//   const replaceForm = doc.querySelector('form')
+//   form.replaceWith(replaceForm)
+//   return replaceForm
+// }
 
 // form handlers
 const sessionIdsFromDates = (dates, sessions) => {
@@ -1312,45 +1322,41 @@ const buildHandlers = async () => {
 
     'roa-elite-junior-camp': {
       generate: eliteForm,
-      init: handleEliteInit,
+      init: handleInit,
       form: handleEliteForm,
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
-      data: findSquashData('roa-elite-junior-camp'),
       db: null,
     },
 
     'roa-junior-squash-summer-camps': {
       generate: summerCampsForm,
-      init: handleSummerCampsInit,
+      init: handleInit,
       form: handleSummerCampsForm,
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
-      data: findSquashData('roa-junior-squash-summer-camps'),
       db: null,
     },
 
     'roa-junior-squash-programme': {
       generate: juniorProgrammeForm,
-      init: handleJuniorProgrammeInit,
+      init: handleInit,
       form: handleJuniorProgrammeForm,
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
-      data: findSquashData('roa-junior-squash-programme'),
       db: null,
     },
 
     'roa-individual-coaching': {
       generate: individualForm,
-      init: handleIndividualInit,
+      init: handleInit,
       form: handleIndividualForm,
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
-      data: findSquashData('roa-individual-coaching'),
       db: null,
     },
 
@@ -1361,7 +1367,6 @@ const buildHandlers = async () => {
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
-      data: findSquashData('roa-skills-and-drills'),
       db: null,
     },
 
@@ -1372,18 +1377,16 @@ const buildHandlers = async () => {
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
-      data: findSquashData('roa-club-night'),
       db: null,
     },
 
     'roa-individual-adult-coaching': {
       generate: individualForm,
-      init: handleIndividualInit,
+      init: handleInit,
       form: handleIndividualForm,
       bookNow: handleBookNow,
       cancel: handleCancel,
       submit: handleSubmit,
-      data: findSquashData('roa-individual-adult-coaching'),
       db: null,
     },
   }
@@ -1397,7 +1400,6 @@ const buildHandlers = async () => {
   console.log('welcome to WWSC squash')
 
   try {
-    spinner.on()
     squashData = await fetch('/api/squash')
     squashData = await squashData.json()
 
@@ -1441,9 +1443,7 @@ const buildHandlers = async () => {
       newForm.addEventListener('click', formAction)
       newForm.addEventListener('input', formAction)
     }
-    spinner.off()
   } catch (error) {
-    spinner.off()
     console.error('squash script failed', error)
   }
 })()
