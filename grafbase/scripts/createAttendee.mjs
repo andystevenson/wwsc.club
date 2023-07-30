@@ -13,7 +13,8 @@ export const createAttendee = async (booking) => {
   } = booking
   const member = status !== 'non-member'
   const data = JSON.stringify(booking).replace(/"/g, `\\"`)
-  // log({ data })
+  // const data = JSON.stringify(booking)
+  log({ data })
 
   // log('createAttendee', {
   //   programme,
@@ -49,14 +50,14 @@ export const createAttendee = async (booking) => {
                   }
                 }`
   let attendee = await graphql(query)
+  log(
+    'attendee returned',
+    inspect(attendee, {
+      colors: true,
+      depth: null,
+    }),
+  )
   attendee = attendee?.data?.attendeeCreate?.attendee
 
-  // log(
-  //   'attendee returned',
-  //   inspect(attendee, {
-  //     colors: true,
-  //     depth: null,
-  //   }),
-  // )
   return attendee
 }

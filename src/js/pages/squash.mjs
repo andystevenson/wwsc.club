@@ -60,29 +60,13 @@ const bookingData = (form) => {
     entries.session = {
       client_reference_id: entries['booking-reference'],
       success_url: `${window.location.origin}/roa-thanks`,
+      cancel_url: `${window.location.origin}/roa-cancel`,
       customer_email: entries.email,
-      // custom_text: {
-      //   submit: {
-      //     message: `${entries.weeks} sessions at ${entries['unit-price']}`,
-      //   },
-      // },
       line_items: [
         { price: entries['stripe-price'], quantity: entries.quantity },
       ],
       mode: 'payment',
       metadata: {
-        /*
-               <input type="hidden" value="${uuid()}" name="booking-reference">
-        <input type="hidden" value="${today.toISOString()}" name="booking-time">
-        <input type="hidden" value="${name}" name="programme">
-        <input type="hidden" value="${id}" name="roa-programme">
-        <input type="hidden" value="" name="price-paid">
-        <input type="hidden" value="" name="unit-price">
-        <input type="hidden" value="" name="quantity">
-        <input type="hidden" value="" name="stripe-price">
-        <input type="hidden" value="non-member" name="status">
-        <input type="hidden" value="" name="age">
-        */
         name: entries.name,
         email: entries.email,
         mobile: entries.mobile,
@@ -95,7 +79,9 @@ const bookingData = (form) => {
         reference: entries['booking-reference'],
         time: entries['booking-time'],
         programme: entries.programme,
+        // sessions: entries.sessions,
         roaProgramme: entries['roa-programme'],
+        // roaSessions: entries['roa-sessions'],
       },
     }
   }
@@ -167,7 +153,7 @@ const bookSessions = async (booking) => {
     if (response.ok) {
       const bookingResponse = await response.json()
       const { data } = bookingResponse
-      // console.log('booking completed', bookingResponse, { data })
+      console.log('booking completed', bookingResponse, { data })
 
       return bookingResponse
     }
@@ -189,12 +175,12 @@ const handleSubmit = async (e) => {
 
     if (isValid) {
       const bookingSessions = await bookSessions(booking)
-      if (booking.session) {
+      if (booking.session && bookingSessions) {
         // stripe checkout session required
         // update the attendee id on the session metadata
         booking.session.metadata.attendee = bookingSessions.id
         const session = await checkout(booking)
-        // console.log('session', session)
+        console.log('session', session)
         if (session) window.location.href = session.url
       } else {
         window.location.href = `${window.location.origin}/roa-thanks`
@@ -388,8 +374,8 @@ const eliteForm = (name, prices, id) => {
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
-        <input type="hidden" value='{"sessions":[]}' name="sessions">
-        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
+        <input type="hidden" value="" name="sessions">
+        <input type="hidden" value="" name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -532,8 +518,8 @@ const summerCampsForm = (name, prices, id) => {
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
-        <input type="hidden" value='{"sessions":[]}' name="sessions">
-        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
+        <input type="hidden" value="" name="sessions">
+        <input type="hidden" value="" name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -653,8 +639,8 @@ const juniorProgrammeForm = (name, prices, id) => {
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
-        <input type="hidden" value='{"sessions":[]}' name="sessions">
-        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
+        <input type="hidden" value="" name="sessions">
+        <input type="hidden" value="" name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -746,8 +732,8 @@ const individualForm = (name, prices, id) => {
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
-        <input type="hidden" value='{"sessions":[]}' name="sessions">
-        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
+        <input type="hidden" value="" name="sessions">
+        <input type="hidden" value="" name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -837,8 +823,8 @@ const skillsAndDrillsForm = (name, prices, id) => {
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
-        <input type="hidden" value='{"sessions":[]}' name="sessions">
-        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions">
+        <input type="hidden" value="" name="sessions">
+        <input type="hidden" value="" name="roa-sessions">
       </section>
     </fieldset>
   </form>`
@@ -907,8 +893,8 @@ const clubNightForm = (name, prices, id) => {
         <input type="hidden" value="" name="stripe-price">
         <input type="hidden" value="non-member" name="status">
         <input type="hidden" value="" name="age">
-        <input type="hidden" value='{"sessions":[]}' name="sessions">
-        <input type="hidden" value='{"roa-sessions":[]}' name="roa-sessions"> 
+        <input type="hidden" value="" name="sessions">
+        <input type="hidden" value="" name="roa-sessions"> 
       </section>
     </fieldset>
   </form>`
@@ -930,62 +916,6 @@ const handleInit = async (form, id, generateForm) => {
   form.replaceWith(replaceForm)
   return replaceForm
 }
-
-// const handleEliteInit = async (form) => {
-//   const programme = findSquashData('roa-elite-junior-camp')
-//   const { name, prices } = programme
-//   const db = await Handlers.db(name)
-//   const programmeId = db.id
-
-//   const newForm = eliteForm(name, prices, programmeId)
-//   const parser = new DOMParser()
-//   const doc = parser.parseFromString(newForm, 'text/html')
-//   const replaceForm = doc.querySelector('form')
-//   form.replaceWith(replaceForm)
-//   return replaceForm
-// }
-
-// const handleSummerCampsInit = async (form) => {
-//   const programme = findSquashData('roa-junior-squash-summer-camps')
-//   const { name, prices } = programme
-//   const db = await Handlers.db(name)
-//   const programmeId = db.id
-
-//   const newForm = summerCampsForm(name, prices, programmeId)
-//   const parser = new DOMParser()
-//   const doc = parser.parseFromString(newForm, 'text/html')
-//   const replaceForm = doc.querySelector('form')
-//   form.replaceWith(replaceForm)
-//   return replaceForm
-// }
-
-// const handleJuniorProgrammeInit = async (form) => {
-//   const programme = findSquashData('roa-junior-squash-programme')
-//   const { name, prices } = programme
-//   const db = await Handlers.db(name)
-//   const programmeId = db.id
-
-//   const newForm = juniorProgrammeForm(name, prices, programmeId)
-//   const parser = new DOMParser()
-//   const doc = parser.parseFromString(newForm, 'text/html')
-//   const replaceForm = doc.querySelector('form')
-//   form.replaceWith(replaceForm)
-//   return replaceForm
-// }
-
-// const handleIndividualInit = async (form, id) => {
-//   const programme = findSquashData(id)
-//   const { name, prices } = programme
-//   const db = await Handlers.db(name)
-//   const programmeId = db.id
-
-//   const newForm = individualForm(name, prices, programmeId)
-//   const parser = new DOMParser()
-//   const doc = parser.parseFromString(newForm, 'text/html')
-//   const replaceForm = doc.querySelector('form')
-//   form.replaceWith(replaceForm)
-//   return replaceForm
-// }
 
 // form handlers
 const sessionIdsFromDates = (dates, sessions) => {

@@ -23,10 +23,17 @@ const handler = async (event) => {
 
     // -- Parse the body contents into an object.
     const body = JSON.parse(event.body)
-    body.sessions = JSON.parse(body.sessions).sessions
-    body['roa-sessions'] = JSON.parse(body['roa-sessions'])['roa-sessions']
+    body.sessions = body.sessions ? JSON.parse(body.sessions).sessions : ''
+    body['roa-sessions'] = body['roa-sessions']
+      ? JSON.parse(body['roa-sessions'])['roa-sessions']
+      : ''
     const attendee = await createAttendee(body)
-    if (body.sessions.length > 0) {
+    if (
+      body.sessions &&
+      body['roa-sessions'] &&
+      body.sessions.length > 0 &&
+      body['roa-sessions'].length > 0
+    ) {
       const sessions = await createSesionAttendee(
         attendee.id,
         body['roa-sessions'],
@@ -38,7 +45,7 @@ const handler = async (event) => {
     }
   } catch (error) {
     statusCode = 500
-    console.error('roa-booking', error)
+    console.error('roa-booking error', error)
     return { statusCode, body: error.toString() }
   }
 }
