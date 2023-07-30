@@ -12,6 +12,7 @@
 </section>
 
 <p class="description">{{ squash.newToSquash }}</p>
+{{ button('book a court') | form(class='book-a-court', action=bookNow)}}
 
 <section title='rob owen academy' class="roa" id="roa">
   {{imgc(cms.image["squash-roa-welcome"])}}

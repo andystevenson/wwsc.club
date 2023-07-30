@@ -11,71 +11,7 @@ layout: 'base.njk'
   
   {# <section>{{ imgc(cms.image['Christmas Opening Hours'], style="aspect-ratio: auto; max-block-size: 80vh; object-fit: contain;") }}</section> #}
 
-  {% set promotions = cms.tags['main-promotion'] %}
-  {% include "partials/promotions.njk" %}
 
-  <section title="gallery" id="home-gallery" class="gallery">
-    <a title="bar" href="/bar">
-      <picture>
-        {{ imgc(cms.image['bar-main']) }}
-      </picture>
-    </a>
-    <a title="cricket" href="/cricket">
-      <picture>
-        {{ imgc(cms.image['cricket-pavillion']) }}
-      </picture>
-    </a>
-    <a title="tennis" href="/tennis">
-      <picture>
-        {{ imgc(cms.image['tennis-juniors']) }}
-      </picture>
-    </a>
-    <a title="gym" href="/gym">
-      <picture>
-        {{ imgc(cms.image['fitness-rowing']) }}
-      </picture>
-    </a>
-    <a title="restaurant" href="/restaurant">
-      <picture>
-        {{ imgc(cms.image['restaurant-burger-and-chips']) }}
-      </picture>
-    </a>
-    <a title="hockey" href="/hockey">
-      <picture>
-        {{ imgc(cms.image['hockey-ladies-match']) }}
-      </picture>
-    </a>
-    <a title="squash" href="/squash">
-      <picture>
-        {{ imgc(cms.image['squash-professionals']) }}
-      </picture>
-    </a>
-    <a title="football" href="/football">
-      <picture>
-        {{ imgc(cms.image['football-juniors']) }}
-      </picture>
-    </a>
-    <a title="events" href="/events">
-      <picture>
-        {{ imgc(cms.image['events-wedding-setting']) }}
-      </picture>
-    </a>
-    <a title="tennis" href="/tennis">
-      <picture>
-        {{ imgc(cms.image['tennis-courts-sunny-day']) }}
-      </picture>
-    </a>
-    <a title="fitness" href="/fitness">
-      <picture>
-        {{ imgc(cms.image['fitness-ladies-bar-bell']) }}
-      </picture>
-    </a>
-    <a title="clubhouse" href="/contact">
-      <picture>
-        {{ imgc(cms.image['clubhouse-view-from-carpark']) }}
-      </picture>
-    </a>
-  </section>
 </section>
 <section title="welcome" id="welcome" class="welcome">
   <header  data-theme="light">
@@ -104,6 +40,9 @@ layout: 'base.njk'
   </section>
 
 </section>
+
+
+
 <section id="sports-gallery">
   <h2>Sports</h2>
   <section class="sports-gallery">
@@ -111,68 +50,112 @@ layout: 'base.njk'
       <a href="/fitness">
         <h3>fitness</h3>
       </a>
-      <form action="{{ bookNow }}">
-        <button>book now</button>
-      </form>
     </article>
     <article class="gym">
       <a href="/gym">
         <h3>gym</h3>
       </a>
-      <form action="{{ bookNow }}">
-        <button>book now</button>
-      </form>
     </article>
     <article class="tennis">
       <a href="/tennis">
         <h3>tennis</h3>
       </a>
-      <form action="{{ bookNow }}">
-        <button>book now</button>
-      </form>
     </article>
     <article class="squash">
       <a href="/squash">
         <h3>squash</h3>
       </a>
-      <form action="{{ bookNow }}">
-        <button>book now</button>
-      </form>
     </article>
     <article class="racketball">
       <a href="/racketball">
         <h3>racketball</h3>
       </a>
-      <form action="{{ bookNow }}">
-        <button>book now</button>
-      </form>
     </article>
     <article class="hockey">
       <a href="/hockey">
         <h3>hockey</h3>
-      </a>
-      <a href="mailto:hockey@westwarwicks.co.uk?Subject=booking">
-        <button>contact</button>
       </a>
     </article>
     <article class="cricket">
       <a href="/cricket">
         <h3>cricket</h3>
       </a>
-      <a href="mailto:cricket@westwarwicks.co.uk?Subject=booking">
-        <button>contact</button>
-      </a>
     </article>
     <article class="football">
       <a href="/football">
         <h3>football</h3>
       </a>
-      <a href="mailto:football@westwarwicks.co.uk?Subject=booking">
-        <button>contact</button>
-      </a>
     </article>
   </section>
 </section>
+<section title="gallery" id="home-gallery" class="gallery">
+  <a title="bar" href="/bar">
+    <picture>
+      {{ imgc(cms.image['bar-main']) }}
+    </picture>
+  </a>
+  <a title="cricket" href="/cricket">
+    <picture>
+      {{ imgc(cms.image['cricket-pavillion']) }}
+    </picture>
+  </a>
+  <a title="tennis" href="/tennis">
+    <picture>
+      {{ imgc(cms.image['tennis-juniors']) }}
+    </picture>
+  </a>
+  <a title="gym" href="/gym">
+    <picture>
+      {{ imgc(cms.image['fitness-rowing']) }}
+    </picture>
+  </a>
+  <a title="restaurant" href="/restaurant">
+    <picture>
+      {{ imgc(cms.image['restaurant-burger-and-chips']) }}
+    </picture>
+  </a>
+  <a title="hockey" href="/hockey">
+    <picture>
+      {{ imgc(cms.image['hockey-ladies-match']) }}
+    </picture>
+  </a>
+  <a title="squash" href="/squash">
+    <picture>
+      {{ imgc(cms.image['squash-professionals']) }}
+    </picture>
+  </a>
+  <a title="football" href="/football">
+    <picture>
+      {{ imgc(cms.image['football-juniors']) }}
+    </picture>
+  </a>
+  <a title="events" href="/events">
+    <picture>
+      {{ imgc(cms.image['events-wedding-setting']) }}
+    </picture>
+  </a>
+  <a title="tennis" href="/tennis">
+    <picture>
+      {{ imgc(cms.image['tennis-courts-sunny-day']) }}
+    </picture>
+  </a>
+  <a title="fitness" href="/fitness">
+    <picture>
+      {{ imgc(cms.image['fitness-ladies-bar-bell']) }}
+    </picture>
+  </a>
+  <a title="clubhouse" href="/contact">
+    <picture>
+      {{ imgc(cms.image['clubhouse-view-from-carpark']) }}
+    </picture>
+  </a>
+</section>
+
+<h2>Promotions</h2>
+  {% set promotions = cms.tags['main-promotion'] %}
+  {% include "partials/promotions.njk" %}
+
+
 
 {% set group = club %}
 {% include 'partials/links.njk' %}

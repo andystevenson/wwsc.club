@@ -13,28 +13,42 @@
     }
 
     & article {
-      place-self: stretch;
-      grid-auto-rows: min-content;
-      place-content: center;
-      width: 100%;
+      grid-template-areas: 'content';
+      // place-self: stretch;
+      // grid-auto-rows: min-content;
+      // place-content: center;
+      // width: 100%;
       aspect-ratio: var(--ratio-portrait);
       background-position: bottom;
       background-size: cover;
+      overflow: hidden;
+
+      > a {
+        grid-area: content;
+      }
+
+      > form {
+        grid-area: content;
+        place-self: center;
+      }
 
       & :is(h2, h3) {
+        margin-top: 50%;
+        text-align: center;
         padding-block: var(--size-fluid-1);
         padding-inline: var(--size-fluid-3);
         font-size: var(--size-fluid-3);
-        place-self: center;
-        color: var(--brand);
-        background-color: rgba(255, 255, 255, 0.2);
+        color: var(--green-9);
+        background-color: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(2px);
+        width: max-content;
+        margin-inline: auto;
       }
 
-      & > *:last-of-type {
-        width: max-content;
-        place-self: center;
-      }
+      // & > *:last-of-type {
+      //   width: max-content;
+      //   place-self: center;
+      // }
 
       &.gym {
         background-image: url('https://images.ctfassets.net/ffrbyg3cfykl/2M8yJigOnF7LghDTavKYaN/8a9093b168fa9915a7a2dd9bd7bbf80f/fitness-happy-exercising.webp');
