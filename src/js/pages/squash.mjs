@@ -195,7 +195,7 @@ const handleSubmit = async (e) => {
         booking.session.metadata.attendee = bookingSessions.id
         const session = await checkout(booking)
         // console.log('session', session)
-        window.location.href = session.url
+        if (session) window.location.href = session.url
       } else {
         window.location.href = `${window.location.origin}/roa-thanks`
       }
