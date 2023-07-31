@@ -6,7 +6,8 @@
       {% for policy in policies %}
         {% if policy.contentType === 'application/pdf' %}
           <li>
-            <a  aria-label="{{policy.description}}" href="{{policy.url}}" target="_blank">
+            <a aria-label="{{policy.description}}" href="{{policy.url}}" target="_blank" 
+              id="{{_.kebabCase(policy.title)}}">
               {{ imgc(cms.icons.pdf, width="64", height="64" ) }}
               <h3>{{policy.title}}</h3>
             </a>
