@@ -31,19 +31,19 @@ module.exports = function link(...args) {
     next = next + 1
   }
 
-  const {
-    description: title,
-    href,
-    description: alt,
-    image,
-    description,
-  } = value
+  let { description: title, href, description: alt, image, description } = value
+
+  let target = ''
+  if (href.startsWith('http')) {
+    target = '_blank'
+  }
 
   const aAttributes = htmlAttributes({
     'aria-label': description,
     href: `${href}${params}`,
     alt,
     title,
+    target,
   })
 
   let { url: src, width, height, description: imgDescription } = image

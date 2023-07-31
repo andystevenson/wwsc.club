@@ -1,6 +1,30 @@
-.tennis main {
-  & > .clubspark {
-    grid-template-columns: repeat(auto-fit, minmax(18ch, 1fr));
-    gap: var(--size-fluid-1);
+.tennis {
+  #all-court-tennis,
+  #all-court-tennis-coaching-junior-booking,
+  #all-court-tennis-coaching-adult-booking {
+    display: grid;
+    grid-template-areas: 'content';
+    span {
+      grid-area: content;
+      place-self: center;
+      font-size: var(--font-size-fluid-2);
+      background-color: var(--surface-2);
+      padding-inline: 1em;
+      padding-block: 0.25em;
+      opacity: 0.8;
+      font-weight: var(--font-weight-6);
+      color: var(--text-1);
+      text-align: center;
+      z-index: 1;
+    }
+
+    & img {
+      grid-area: content;
+      inline-size: 100%;
+      min-block-size: 30vh;
+      max-block-size: 50vh;
+      object-fit: cover;
+      object-position: left;
+    }
   }
 }

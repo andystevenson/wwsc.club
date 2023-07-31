@@ -12,7 +12,9 @@
   ] 
 %} #}
 
-{{ linkc(cms.links['all-court-tennis'], id='all-court-tennis') }}
+{{ linkc(cms.links['all-court-tennis'], id='all-court-tennis', span('All Court Tennis')) }}
+{{ linkc(cms.links['all-court-tennis-coaching-junior-booking'], id='all-court-tennis-coaching-junior-booking',  span('Book Junior Coaching') ) }}
+{{ linkc(cms.links['all-court-tennis-coaching-adult-booking'],   id='all-court-tennis-coaching-adult-booking', span('Book Adult Coaching')) }}
 
 {% set links %}
   {% for image in images %}
@@ -25,9 +27,6 @@
     }}
   {% endfor %}
 {% endset %}
-
-{{ button("book a coaching session") 
-    | form(class='book-tennis-coaching', action=tennis.clubspark) }}
 
 {{ linkc(cms.links['mycourts'], target="_blank", id='book-a-court') }}
 
