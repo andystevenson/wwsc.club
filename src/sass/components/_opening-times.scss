@@ -1,0 +1,7 @@
+.opening-times {
+  gap: var(--size-fluid-2);
+  img {
+    transform: translateY(10%);
+    inline-size: var(--size-fluid-3);
+  }
+}

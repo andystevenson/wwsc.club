@@ -1,12 +1,4 @@
 .contact main {
-  [action='/opening-times'] {
-    gap: var(--size-fluid-2);
-    img {
-      transform: translateY(10%);
-      inline-size: var(--size-fluid-3);
-    }
-  }
-
   & > .enquiries {
     background-size: cover;
     background-image: url('https://images.ctfassets.net/ffrbyg3cfykl/1Ewq1c6dT8qPS2hy63T0th/f7002ff80a5e67a7dfaf7d392983b99a/west-warwicks-social-image.webp?w=768');

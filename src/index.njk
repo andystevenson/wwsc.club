@@ -40,6 +40,7 @@ layout: 'base.njk'
   </section>
 
 </section>
+{% include "partials/opening-times.njk" %}
 
 
 
@@ -88,6 +89,9 @@ layout: 'base.njk'
     </article>
   </section>
 </section>
+
+{{ button('book a court') | form(class='book-a-court', action=bookNow)}}
+
 <section title="gallery" id="home-gallery" class="gallery">
   <a title="bar" href="/bar">
     <picture>
@@ -151,11 +155,13 @@ layout: 'base.njk'
   </a>
 </section>
 
+
 <h2>Promotions</h2>
   {% set promotions = cms.tags['main-promotion'] %}
   {% include "partials/promotions.njk" %}
 
 
+{{ linkc(cms.links['mycourts'], id='book-a-court') }}
 
 {% set group = club %}
 {% include 'partials/links.njk' %}
