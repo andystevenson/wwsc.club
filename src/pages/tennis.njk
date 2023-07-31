@@ -6,11 +6,13 @@
 
 {{ button('book a court') | form(class='book-a-court', action=bookNow)}}
 
-{% set images = [
+{# {% set images = [
   {url: "https://images.ctfassets.net/ffrbyg3cfykl/3EW8IVQgmn3AKNfqJsNxds/50558adf69464c30da72c3598ab19ba1/tennis-kids-classes.webp", alt:"kids classes schedule"},
   {url: "https://images.ctfassets.net/ffrbyg3cfykl/6BKDmFIrCAa2l2cnaNnD7G/cba6efacede8924087e04de56c90505a/tennis-adult-classes.webp", alt:"adult classes schedule"}
   ] 
-%}
+%} #}
+
+{{ linkc(cms.links['all-court-tennis'], id='all-court-tennis') }}
 
 {% set links %}
   {% for image in images %}
@@ -24,10 +26,10 @@
   {% endfor %}
 {% endset %}
 
-{{ links | section(class="clubspark")}}
-
 {{ button("book a coaching session") 
     | form(class='book-tennis-coaching', action=tennis.clubspark) }}
+
+{{ linkc(cms.links['mycourts'], target="_blank", id='book-a-court') }}
 
 {% include 'partials/coaches.njk' %}
 {% include 'partials/people.njk' %}
