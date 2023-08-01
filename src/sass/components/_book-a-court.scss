@@ -7,6 +7,7 @@ form.book-tennis-coaching {
 }
 
 #book-a-court,
+#book-a-session,
 #scroll-to-top {
   --_width: 40px;
   position: fixed;
@@ -31,7 +32,7 @@ form.book-tennis-coaching {
 
   &:hover::before,
   &:active::before {
-    --_width: 13ch;
+    --_width: 14ch;
     content: 'scroll to top';
     display: inline-block;
     background-color: var(--surface-1);
@@ -51,6 +52,12 @@ form.book-tennis-coaching {
 #book-a-court:active::before {
   content: 'book a court';
 }
-#book-a-court {
+#book-a-session:hover::before,
+#book-a-session:active::before {
+  content: 'book a session';
+}
+
+#book-a-court,
+#book-a-session {
   bottom: calc(var(--size-3) * 4);
 }

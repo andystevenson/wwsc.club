@@ -14,6 +14,34 @@ ul.images {
     aspect-ratio: var(--ratio-portrait);
   }
 
+  li {
+    display: grid;
+    grid-template-areas: 'content';
+    a {
+      grid-area: content;
+    }
+    p {
+      grid-area: content;
+      place-self: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--size-2);
+      background-color: var(--surface-1);
+      pointer-events: none;
+      font-size: var(--font-size-fluid-1);
+      opacity: 0.8;
+      padding-inline: 1em;
+      padding-block: 0.25em;
+      z-index: 1;
+      img {
+        width: 1em;
+        html[data-theme='dark'] & {
+          filter: invert(1);
+        }
+      }
+    }
+  }
   a {
     margin: 0;
     padding: 0;

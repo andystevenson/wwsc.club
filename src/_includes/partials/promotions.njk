@@ -7,9 +7,14 @@
           {% set brochure = cms.tags.brochure | find(["title", promotion.title + ' (pdf)']) %}
           {% if brochure %}
             {% set title = 'click to download -> ' + brochure.description %}
-            {{ imgc(promotion, 'aria-hidden'='true') 
-            | a('aria-label'=brochure.description, href=brochure.url, title=title, target='_blank' )
-            | li }}
+            <li>
+              {{ imgc(promotion, 'aria-hidden'='true') 
+                  | a('aria-label'=brochure.description, href=brochure.url, title=title, target='_blank' )
+              }}
+              <p><span>download</span>{{ iconc(cms.icons.download) }}</p>
+              
+
+            </li>
           {% else %}
           {{ imgc(promotion, 'aria-hidden'='true') | li }}
           {% endif %}

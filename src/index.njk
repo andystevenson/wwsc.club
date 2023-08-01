@@ -27,6 +27,10 @@ layout: 'base.njk'
       <form action="/opening-times">
         <button>opening times</button>
       </form>
+      <form action>
+        <button><a href="{{bookNow}}" target="_blank">book a session</a></button>
+      </form>
+
     </section>
   </header>
   <section title="aerial-video" id="aerial-video" class="aerial-video">
@@ -90,7 +94,7 @@ layout: 'base.njk'
   </section>
 </section>
 
-{{ button('book a court') | form(class='book-a-court', action=bookNow)}}
+{{ button('book a session') | form(class='book-a-court', action=bookNow)}}
 
 <section title="gallery" id="home-gallery" class="gallery">
   <a title="bar" href="/bar">
@@ -161,7 +165,7 @@ layout: 'base.njk'
   {% include "partials/promotions.njk" %}
 
 
-{{ linkc(cms.links['mycourts'], id='book-a-court') }}
+{{ linkc(cms.links['mycourts'], id='book-a-session') }}
 
 {% set group = club %}
 {% include 'partials/links.njk' %}
