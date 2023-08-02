@@ -1,4 +1,11 @@
-<h1>{{ title | capitalize }}</h1>
+{% set group = football %}
 
-{% set promotions = cms.tags['astro-promotion'] %}
+<h1>{{ title | capitalize }}</h1>
+<p class="description">{{ football.description }}</p>
+
+{% set promotions = cms.tags['football-promotion'] %}
 {% include "partials/promotions.njk" %}
+
+{% include 'partials/gallery.njk' %}
+
+{{ linkc(cms.links['email-football'], h2('book the astro'), '?Subject=Book the Astro', class='booking') }}

@@ -12,6 +12,7 @@ ul.images {
   img {
     max-block-size: 70vh;
     aspect-ratio: var(--ratio-portrait);
+    // object-fit: cover;
   }
 
   li {

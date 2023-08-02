@@ -1,0 +1,14 @@
+<h1>{{ title | capitalize }}</h1>
+
+<p class="description">West Warwickshire is one of the most popular venues in the area for funeral gatherings of all sizes and can offer a friendly and personal service to assist you during this difficult time. Let us take care of your arrangements and help you and your guests relax and remember your loved one in our peaceful surroundings. All of our function rooms have access to the balcony which offers lovely views over the tennis courts and cricket pitch.</p>
+
+{% set promotions = cms.tags['funerals-promotion'] %}
+{% include "partials/promotions.njk" %}
+
+{{ linkc(cms.links['email-events'], h2('book a funeral reception'), '?Subject=Book a Funeral Reception', class='booking') }}
+
+{{ linkc(cms.links['events-terms-and-conditions'], h2('events terms & conditions'), class='review') }}
+
+
+
+

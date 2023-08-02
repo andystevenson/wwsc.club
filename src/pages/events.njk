@@ -2,12 +2,15 @@
 
 <p class="description">West Warwicks has several large function rooms to accomodate many different types of events. We regularly hold birthday parties, weddings, board meetings, funeral wakes, discos, quiz nights, etc. We offer open bar, waiter service and excellent food and buffet services.</p>
 
-{% set promotions = cms.tags['events-promotion'] %}
-{% include "partials/promotions.njk" %}
-
 {% set images = cms.tags['events-gallery'] %}
 {% include "partials/section-gallery.njk" %}
 
-{{ linkc(cms.links['email-events'], h2('Book an Event'), '?Subject=Book an Event', class='booking') }}
+{{ linkc(cms.links['email-events'], h2('book an event'), '?Subject=Book an Event', class='booking') }}
 
-{{ linkc(cms.links['events-terms-and-conditions'], h2('Events Terms & Conditions'), class='review') }}
+{{ linkc(cms.links['events-terms-and-conditions'], h2('events terms & conditions'), class='review') }}
+
+<h2>Promotions</h2>
+{% set promotions = cms.tags['events-promotion'] %}
+{% include "partials/promotions.njk" %}
+
+
