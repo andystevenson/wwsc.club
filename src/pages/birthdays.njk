@@ -1,0 +1,14 @@
+<h1>{{ title | capitalize }}</h1>
+
+<p class="description">West Warwickshire is an excellent choice for a birthday celebration. Our facilities have space for upto 150 guests with excellent view from our balcony overlooking the cricket pitch and tennis courts.</p>
+
+{% set promotions = cms.tags['birthdays-promotion'] %}
+{% include "partials/promotions.njk" %}
+
+{{ linkc(cms.links['email-events'], h2('book a birthday celebration'), '?Subject=Book a Birthday Celebration', class='booking') }}
+
+{{ linkc(cms.links['events-terms-and-conditions'], h2('events terms & conditions'), class='review') }}
+
+
+
+
