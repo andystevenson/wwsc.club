@@ -162,7 +162,9 @@
 
 {# {% set people = squash.people %}  #}
 {# broken for now! #}
+{% set people = cms.people.squash %}
 {% include 'partials/people.njk' %}
+
 {% include 'partials/links.njk' %}
 
 {% include "partials/spinner.njk" %}

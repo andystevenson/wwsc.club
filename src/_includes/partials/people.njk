@@ -1,15 +1,18 @@
 {% if people %}
   <section class="people">
-    <h2>{{people.title | capitalize }}</h2>
+  {% set committee = " Committee" if people.title === "squash" %}
+  {# {% set committee = " Committee" if people.title neq "trustees" %} #}
+    <h2>{{people.title | capitalize }}{{committee}}</h2>
     <section class="members">
       {% for member in people.members %}
+        {# {{member | log }} #}
         {% set role = member[people.title].role %}
-        {% set section = member[people.title].section %}
+        {% set sectionv = member[people.title].section %}
         <section class="member">
           {{ img(src=member.image.url, alt=member.fullname, width=64, height=64, loading='lazy') 
               | picture }}
-          {{ h3(role) if role }}
-          {{ h3(section) if section }}
+          {{ h3(role, class="people-role") if role }}
+          {{ h3(sectionv, class="people-section") if sectionv }}
           {{ p(member.fullname) }}
         </section>
       {% endfor %}

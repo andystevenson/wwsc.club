@@ -228,9 +228,9 @@ module.exports = {
       current: true,
     },
     {
-      name: 'Katie Maliff',
-      bio: 'Katie Maliff...',
-      image: 'katie-maliff',
+      name: 'Katie Malliff',
+      bio: 'Katie Malliff...',
+      image: 'katie-malliff',
       current: true,
     },
     {
@@ -423,59 +423,4 @@ module.exports = {
       logo: 'https://images.ctfassets.net/ffrbyg3cfykl/3Sjti8aBXsYleYt9A921kJ/da6963f0ab6be5cc84038e30c7138bc8/calm-logo.svg',
     },
   ],
-  people: {
-    title: 'Committee',
-    email: 'squash.committee@westwarwicks.co.uk',
-    emailMessage: 'email squash committee',
-    members: [
-      {
-        name: 'Jamie Roberts',
-        role: 'Chairman',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/1FBAmLZfDcd1mPi9Az0r32/68d04aa47d81fcf49c4d474f8b973d5a/squash-jamie-roberts.webp',
-      },
-      {
-        name: 'Mike Hawkswood',
-        role: 'Treasurer',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/6Eb5BcS0rV1mI1ymrcZUnz/ba371224eb24b131ab9591a1875c7b01/person-circle.svg',
-      },
-      {
-        name: 'Daniel Suarez-Mash',
-        role: 'Member',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/7dvxxXL8GR8lZOFR8g6iki/247a677b3b38c3745a87d55242f0cd12/squash-daniel-suarez-mash.webp',
-      },
-      {
-        name: 'Duncan Campbell',
-        role: 'Member',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/7ugBVDZ7Kh2EcTTihwX6pc/52e3095ad7ec6c81b2b460fcdf540c1f/duncan-campbell.webp',
-      },
-      {
-        name: 'David Harper',
-        role: 'Member',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/3ImMmCrXlURG90CbwmJbHD/0513f335128ec26e4a08eff28a359c49/squash-david-harper.webp',
-      },
-      {
-        name: 'Mick Mulroy',
-        role: 'Member',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/6Eb5BcS0rV1mI1ymrcZUnz/ba371224eb24b131ab9591a1875c7b01/person-circle.svg',
-      },
-      {
-        name: 'Ali Jafari',
-        role: 'Head Coach',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/6jrytptU2nt1kBM5eJGCoR/3dd841c18c40f3caba84d938d7f090d6/squash-ali-jafari-profile.webp',
-      },
-      {
-        name: 'Andy Stevenson',
-        role: 'Member',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/4f6GusQ1NNrh2ObQ93XJpC/fbe5e48083ec2d2f8621dbdc1af7b141/me.webp',
-      },
-    ],
-  },
 }

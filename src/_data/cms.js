@@ -261,6 +261,18 @@ const annotateStaff = (staff) => {
   return staff
 }
 
+const annotateSquash = (squash) => {
+  squash.members.forEach((member) => {
+    const role = without(member.roles, 'committee member')[0]
+    const section = without(member.section, 'squash', 'trustees')[0]
+
+    member.squash = { role, section }
+  })
+  const members = squash.members.filter((member) => member.sequence >= 1000)
+  squash.members = members
+  return members
+}
+
 const people = {
   name: 'people',
   transform: (data) => {
@@ -274,6 +286,7 @@ const people = {
 
     annotateTrustees(content.people.trustees.members)
     annotateStaff(content.people.staff.members)
+    annotateSquash(content.people.squash)
     // console.log(util.inspect(content, undefined, null, true))
 
     return content
