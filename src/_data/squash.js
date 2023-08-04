@@ -19,17 +19,17 @@ module.exports = {
   newToSquash:
     "Squash is a fast-paced racquet sport that requires agility, strategy, and precision. Played in an enclosed court, the objective is to outmanoeuvre your opponent by hitting a small rubber ball against the front wall using a racquet. Squash provides a great cardiovascular workout while simultaneously enhancing hand-eye coordination, footwork, and mental sharpness. Whether you're a beginner or an experienced player, squash offers a thrilling and challenging experience that can be enjoyed at any age or skill level.",
   juniorProgrammes: [
-    {
-      name: 'roa-elite-junior-camp',
-      description: 'ROA Elite Junior Camp ...',
-      prices: [
-        {
-          price: 35,
-          unit: 'session',
-          stripe: { price: 'price_1NYjd3F12kDJKsucPBQ7jhd0' },
-        },
-      ],
-    },
+    // {
+    //   name: 'roa-elite-junior-camp',
+    //   description: 'ROA Elite Junior Camp ...',
+    //   prices: [
+    //     {
+    //       price: 35,
+    //       unit: 'session',
+    //       stripe: { price: 'price_1NYjd3F12kDJKsucPBQ7jhd0' },
+    //     },
+    //   ],
+    // },
     {
       name: 'roa-junior-squash-summer-camps',
       description: 'ROA Junior Squash Summer Camps ...',

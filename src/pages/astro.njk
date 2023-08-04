@@ -1,9 +1,9 @@
-{% set group = football %}
+{% set group = astro %}
 
 <h1>{{ title | capitalize }}</h1>
-<p class="description">{{ football.description }}</p>
+<p class="description">{{ astro.description }}</p>
 
-{% set promotions = cms.tags['football-promotion'] %}
+{% set promotions = cms.tags['astro-promotion'] %}
 {% include "partials/promotions.njk" %}
 
 {% include 'partials/gallery.njk' %}

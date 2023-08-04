@@ -57,5 +57,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksGlobal('everything', function () {
     return this.getVariables()
   })
+
   return newConfig
 }
