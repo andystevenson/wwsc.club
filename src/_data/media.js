@@ -11,9 +11,9 @@ module.exports = {
       logo: 'https://images.ctfassets.net/ffrbyg3cfykl/3bOarTwF9qqcAeBv89ZQAP/58a0856718413c011720d3c68f8e2101/Amazon_Prime_Video_logo.svg',
     },
     {
-      name: 'bt sport',
-      website: 'https://www.bt.com/sport',
-      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/17LoOitmrh1KFG8sDw90Wd/1b625e79866010150e6f247e241c5c86/bt-sport.webp',
+      name: 'tnt sports',
+      website: 'https://www.tntsports.co.uk/',
+      logo: 'https://images.ctfassets.net/ffrbyg3cfykl/685U6Dx8B3Ec0TdrU06I78/1c8dcd015bc32c5a74617f01b09f053d/tnt-sports.svg',
     },
     {
       name: 'bbc sport',

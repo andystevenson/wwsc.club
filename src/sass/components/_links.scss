@@ -25,7 +25,6 @@ section.links {
     }
 
     & img {
-      // min-inline-size: 64px;
       max-block-size: min(64px, 10vh);
       // max-inline-size: max(300px, 30vw);
       &[data-dark] {
@@ -35,4 +34,9 @@ section.links {
       }
     }
   }
+}
+
+// hack!!!
+[title='tnt sports'] {
+  min-inline-size: 128px;
 }
