@@ -1,0 +1,14 @@
+<h1>{{ title | capitalize }}</h1>
+
+<p class="description">West Warwickshire is an excellent choice for a meeting. Our facilities have space for upto 150 attendees with excellent view from our balcony overlooking the cricket pitch and tennis courts. It is an ideal spot for hot desking, ideally after a decent session in the gym, squash or tennis.</p>
+
+{% set promotions = cms.tags['meetings-promotion'] %}
+{% include "partials/promotions.njk" %}
+
+{{ linkc(cms.links['email-events'], h2('book a meeting'), '?Subject=Book a Meeting', class='booking') }}
+
+{{ linkc(cms.links['events-terms-and-conditions'], h2('events terms & conditions'), class='review') }}
+
+
+
+
