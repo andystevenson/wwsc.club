@@ -30,6 +30,9 @@ picture {
   place-self: center;
 }
 
-img[aria-hidden] {
-  pointer-events: none;
+// img[aria-hidden] {
+//   pointer-events: none;
+// }
+[aria-hidden] {
+  pointer-events: revert;
 }

@@ -1,0 +1,20 @@
+:root {
+  --view-transition-timing: 1000ms;
+  --view-transition-function: cubic-bezier(0, 0, 0.2, 1);
+  --fade-out: var(--animation-fade-out);
+  --fade-in: var(--animation-fade-in);
+  --slide-right: var(--animation-slide-in-down);
+  --slide-left: var(--animation-slide-in-left);
+}
+
+// ::view-transition-old(root) {
+//   animation: var(--fade-out);
+//   animation-duration: 10ms;
+// }
+
+// ::view-transition-new(root) {
+//   animation: var(--fade-in), var(--slide-right);
+//   // animation-timing-function: var(--ease-squish-3);
+//   // animation-duration: 5s;
+//   // mix-blend-mode: normal;
+// }

@@ -41,14 +41,14 @@
           display: none;
           position: absolute;
           top: 100%;
-          inline-size: 10ch;
+          // inline-size: 10ch;
         }
 
         &:hover {
           ul {
             display: grid;
             background-color: var(--surface-2);
-            padding-inline-start: 1em;
+            padding-inline: 1em;
             padding-block: 0.5em;
             opacity: 0.9;
             border-radius: var(--radius-3);
