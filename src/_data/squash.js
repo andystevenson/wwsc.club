@@ -192,7 +192,7 @@ module.exports = {
     {
       name: 'Jonah Bryant',
       role: 'Head Coach',
-      bio: 'The number one junior ranked player in the world tells you all you need to know about the future prospects of Jonah. Named after the legend Jonah Barrington and currently on track to achieve great things. He has won over 10 British junior titles as well as numerous other tournaments including the European u19 junior championships without dropping a game. Jonah has a unique insight into the sport and has a real ability to coach simply and effectively which he is looking forward to in partnership with Sam. Both Sam and Jonah are already producing rapid improvements working with juniors and adults who have been set in their ways.',
+      bio: 'Jonah Bryant has a history of squash in his bloodline. His father was a professional player who was taught by the great Jonah Barrington, hence the name Jonah. He was a British junior open u13 winner and reached the final of  the u19 this year with another year left to try and win this prestigious trophy. He was ranked the number one junior in the world in July 2023 and turned professional the same month. He is based in Birmingham and along with Katie Malliff is coached by Rob Owen. Without doubt he is a name to look out for in 2023 and already has a win over world number 35, Lucas Serme. An attacking player with a high degree of sporting intellect he understands the intricacies and subtleties of squash needed to play at the highest level. He has won over 10 British junior titles as well as numerous other tournaments including the European u19 junior championships without dropping a game. Jonah has a unique insight into the sport and has a real ability to coach simply and effectively which he is looking forward to in partnership with Sam Osborne-Wylde. Both Sam and Jonah are already producing rapid improvements working with juniors and adults who have been set in their ways.',
       image: 'jonah-bryant-1',
     },
     {
@@ -229,7 +229,7 @@ module.exports = {
     },
     {
       name: 'Katie Malliff',
-      bio: 'Katie Malliff...',
+      bio: 'Katie Malliff is possibly the most promising of a strong group of young English woman climbing up the PSA rankings. Last year she won the European Junior Championships without dropping a game and despite injury problems throughout much of last year she managed to beat 3 players in the top 25 of the world rankings. As of August 2023 she is ranked 41 in the world and reached the last 16 of the Hong Kong Open which is a prestigious platinum event. An exciting and attacking player who has no obvious weaknesses she has the ability to become a top 10 player and hopefully become one of the great English players.',
       image: 'katie-malliff',
       current: true,
     },
@@ -241,7 +241,7 @@ module.exports = {
     },
     {
       name: 'Jonah Bryant',
-      bio: 'Jonah Bryant...',
+      bio: 'Jonah Bryant has a history of squash in his bloodline. His father was a professional player who was taught by the great Jonah Barrington, hence the name Jonah. He was a British junior open u13 winner and reached the final of  the u19 this year with another year left to try and win this prestigious trophy. He was ranked the number one junior in the world in July 2023 and turned professional the same month. He is based in Birmingham and along with Katie Malliff is coached by Rob Owen. Without doubt he is a name to look out for in 2023 and already has a win over world number 35, Lucas Serme. An attacking player with a high degree of sporting intellect he understands the intricacies and subtleties of squash needed to play at the highest level.',
       image: 'jonah-bryant-2',
       current: true,
     },
