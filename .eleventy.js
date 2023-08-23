@@ -17,15 +17,15 @@ const vite = {
 
 let assets = null
 const resources = [
-  'hello',
+  // 'hello',
   'opening-times',
   'stripe-join',
-  'beer',
-  'tea-coffee',
-  'soft-drinks',
-  'spirits',
-  'sunday-lunch',
-  'wine',
+  // 'beer',
+  // 'tea-coffee',
+  // 'soft-drinks',
+  // 'spirits',
+  // 'sunday-lunch',
+  // 'wine',
 ]
 
 async function wwscInfo() {
