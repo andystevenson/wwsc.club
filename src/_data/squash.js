@@ -30,49 +30,49 @@ module.exports = {
     //     },
     //   ],
     // },
-    {
-      name: 'roa-junior-squash-summer-camps',
-      description: 'ROA Junior Squash Summer Camps ...',
-      prices: [
-        {
-          price: 35,
-          unit: 'day',
-          members: true,
-          stripe: { price: 'price_1NYjd2F12kDJKsuclEYavJmM' },
-        },
-        {
-          price: 60,
-          unit: '2 days',
-          members: true,
-          stripe: { price: 'price_1NYjd2F12kDJKsucXK1QO0G5' },
-        },
-        {
-          price: 170,
-          unit: '6 days',
-          members: true,
-          stripe: { price: 'price_1NYjd1F12kDJKsucVMN4Bwzb' },
-        },
-        {
-          price: 40,
-          unit: 'day',
-          members: false,
-          stripe: { price: 'price_1NYjd2F12kDJKsucWFR4NF1q' },
-        },
-        {
-          price: 70,
-          unit: '2 days',
-          members: false,
-          stripe: { price: 'price_1NYjd1F12kDJKsucvnVdXzNL' },
-        },
-        {
-          price: 200,
-          unit: '6 days',
-          members: false,
-          stripe: { price: 'price_1NYjd1F12kDJKsucNTS2lk44' },
-        },
-      ],
-      maxPeople: 100,
-    },
+    // {
+    //   name: 'roa-junior-squash-summer-camps',
+    //   description: 'ROA Junior Squash Summer Camps ...',
+    //   prices: [
+    //     {
+    //       price: 35,
+    //       unit: 'day',
+    //       members: true,
+    //       stripe: { price: 'price_1NYjd2F12kDJKsuclEYavJmM' },
+    //     },
+    //     {
+    //       price: 60,
+    //       unit: '2 days',
+    //       members: true,
+    //       stripe: { price: 'price_1NYjd2F12kDJKsucXK1QO0G5' },
+    //     },
+    //     {
+    //       price: 170,
+    //       unit: '6 days',
+    //       members: true,
+    //       stripe: { price: 'price_1NYjd1F12kDJKsucVMN4Bwzb' },
+    //     },
+    //     {
+    //       price: 40,
+    //       unit: 'day',
+    //       members: false,
+    //       stripe: { price: 'price_1NYjd2F12kDJKsucWFR4NF1q' },
+    //     },
+    //     {
+    //       price: 70,
+    //       unit: '2 days',
+    //       members: false,
+    //       stripe: { price: 'price_1NYjd1F12kDJKsucvnVdXzNL' },
+    //     },
+    //     {
+    //       price: 200,
+    //       unit: '6 days',
+    //       members: false,
+    //       stripe: { price: 'price_1NYjd1F12kDJKsucNTS2lk44' },
+    //     },
+    //   ],
+    //   maxPeople: 100,
+    // },
     {
       name: 'roa-junior-squash-programme',
       description:
