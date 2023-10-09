@@ -3,6 +3,11 @@
 <h1>{{ title | capitalize }}</h1>
 {{imgc(cms.image["squash-banner"])}}
 
+<h2>Promotions</h2>
+  {% set promotions = cms.tags['squash-promotion'] %}
+  {% include "partials/promotions.njk" %}
+
+
 <p class="description">{{ squash.description }}</p>
 
 <section title="squash is fun" class="media-scroller squash-is-fun">
