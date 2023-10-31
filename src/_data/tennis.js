@@ -1,68 +1,166 @@
 module.exports = {
   name: 'tennis',
   description:
-    'West Warwicks Tennis Club can trace its origins back to 1888 from the amalgamation of Moseley LTC (1882), Newton LTC (1886) and Olton LTC (1898). We welcome players of all ages and standards. Our new coaching partners "All Court Tennis" provide an extensive set of coaching for all age groups. Alumni of our Tennis Club include Dan Evans British #1 and Highest World Ranking of #22.',
+    'West Warwicks Tennis Club can trace its origins back to 1888. We welcome players of all ages and abilities providing something for everyone whether you are an aspiring professional or you are just learning the game, looking for a nice social environment to play in. Our coaching team “All Court Tennis” provide an extensive programme for both juniors and adults with the junior programme following the LTA Youth framework for ages 3-17 and the adult programme currently being included free for adult West Warwicks members with a range of classes from cardio tennis to beginners to team drills to enjoy. Alumni of the club include Dan Evans current British #2 who has a career high ranking of #21 in the world.',
   clubspark: 'https://clubspark.lta.org.uk/WestWarwicks',
 
   gallery: [
+    'tennis-1',
+    'tennis-2',
+    'tennis-3',
+    'tennis-4',
+    'tennis-5',
+    'tennis-6',
+  ],
+  teamOfCoaches:
+    'All Court Tennis has a number of qualified, DBS, safeguarding in children & first aid trained tennis coaches, who provide both group and private coaching. Our experienced team are friendly and professional so please get in touch if you have a question or would like to book a session. For more information contact tennis@westwarwicks.co.uk or Matt on 07724521559.',
+  team: [
     {
-      image:
-        'https://images.ctfassets.net/ffrbyg3cfykl/4Kw7DNeRXYNBFovFOVBM6G/8b0656db9c89051f78a8169258b254ed/tennis-courts-sunny-day.webp',
+      name: 'Matt Tully',
+      role: 'Head Tennis Coach',
+      bio: 'Matt graduated with a business finance degree from West Liberty University in America on a tennis scholarship in 2017. He is an LTA Level 4 qualified tennis coach with over 10 years of coaching experience. Matt has played nationally and internationally in tournaments and has moved across to West Warwicks after 5 years coaching at Solihull Arden Club. Matt also captains and leads sessions for 7 county teams from Hereford & Worcestershire at Manor Park Sports Club in Malvern and is a 10&U national pathway coach. Matt is excited to be building up a team of coaches to produce an excellent development and performance programme for both juniors and adults at the club and is available for both group and individual coaching.',
+      image: 'tennis-matt-tully-coach',
     },
     {
-      image:
-        'https://images.ctfassets.net/ffrbyg3cfykl/fHjH6tQCR3OZiuxHxC2l8/bbb4e949dc29549b4f337f4d1368144f/tennis-i18.webp',
+      name: 'Matthew Corp',
+      role: 'Head Tennis Coach',
+      bio: 'Matthew graduated with a degree in Sports Studies in 2007, he is a LTA level 3 & PTR level 4 qualified tennis coach with over 17 years experience. Matt is passionate about getting more people involved in sport and and getting people active. In 2014 after 10 years service as Head coach at Solihull Tennis Club made the decision to work alongside Paul Murtagh (Walking Football Chairman) to take on Beechcroft. Matt is head coach at West Warwickshire Sports Complex and is focused on developing the tennis programme, working with the coaching team coaching groups and also offers private coaching.',
+      image: 'tennis-matt-corp-coach',
     },
     {
-      image:
-        'https://images.ctfassets.net/ffrbyg3cfykl/6dmLS5paHA0A845t4ijAc4/c6ba0b821c0129dce45731430ae842d6/tennis-i3.webp',
+      name: 'James Horton',
+      role: 'Club Coach',
+      bio: '',
+      image: 'tennis-james-horton-coach',
     },
     {
-      image:
-        'https://images.ctfassets.net/ffrbyg3cfykl/4Kw7DNeRXYNBFovFOVBM6G/8b0656db9c89051f78a8169258b254ed/tennis-courts-sunny-day.webp',
+      name: 'Max Brazier',
+      role: 'Club Coach',
+      bio: '',
+      image: 'tennis-max-brazier-coach',
     },
     {
-      image:
-        'https://images.ctfassets.net/ffrbyg3cfykl/59VKSsYoUNoxF8o2fQchQC/5b62e089e6486471c091560f82dfe25c/tennis-adult-doubles.webp',
+      name: 'Martyn Williams',
+      role: 'Club Coach',
+      bio: '',
+      image: 'tennis-martyn-williams-coach',
     },
     {
-      image:
-        'https://images.ctfassets.net/ffrbyg3cfykl/4Ba4xB4XDEKKgLTNAkuvv9/9050ca4eb38305c25909b352ed3d4e37/tennis-i14.webp',
+      name: 'Alison Owen',
+      role: 'Safeguarding Officer',
+      bio: 'I have been a member of West Warwicks for over 20 years and been an active member of the squash and tennis sections. I am a qualified cousellor with the NSPCC and Childline. If you have any concerns please contact me. alisonjaneowen@icloud.com',
+      image: 'tennis-alison-owen-safeguarding-officer',
     },
   ],
-  coaches: {
+  allCourtTennis: {
     name: 'All Court Tennis',
     description:
       'All Court Tennis  has a number of qualified, DBS, safeguarding in children & first aid trained tennis coaches, who provide both group and private coaching. Our experienced team are friendly and professional so please get in touch if you have a question or would like to book a session.',
-    members: [
-      {
-        name: 'Matt Tully',
-        title: 'Head Coach',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/6DbHrusIIuI4XkoaUkJb04/25c7a2a4a860e5a9def5dd550afc0af4/tennis-matt-tully.webp',
-        bio: 'Matt graduated with a business finance degree from West Liberty University in America on a tennis scholarship in 2017. He is an LTA Level 4 qualified tennis coach with over 10 years of coaching experience. Matt has played nationally and internationally in tournaments and has moved across to West Warwicks after 5 years coaching at Solihull Arden Club. Matt also captains and leads sessions for 7 county teams from Hereford & Worcestershire at Manor Park Sports Club in Malvern and is a 10&U national pathway coach. Matt is excited to be building up a team of coaches to produce an excellent development and performance programme for both juniors and adults at the club and is available for both group and individual coaching.',
-        telephone: '07724521559',
-        email: 'tennis@westwarwicks.co.uk',
-      },
-      {
-        name: 'Matt Corp',
-        title: 'Head Coach',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/7u96zjEIbTjA73BEHxmMHs/f6a03f2472fcb3883ef2eb4e1b507897/tennis-matt-corp.webp',
-        bio: 'Matt graduated with a degree in Sports Studies in 2007, he is a LTA level 3 & PTR level 4 qualified tennis coach with over 17 years experience. Matt is passionate about getting more people involved in sport and and getting people active.  In 2014 after 10 years  service as Head coach at Solihull Tennis Club made the decision to work alongside Paul Murtagh (Walking Football Chairman) to take on Beechcroft. Matt is head coach at West Warwickshire Sports Complex and is focused on developing the tennis programme, working with the coaching team coaching groups and also offers private coaching.',
-        telephone: '07930164811',
-        email: 'tennis@westwarwicks.co.uk',
-      },
-      {
-        name: 'Alex Navarro',
-        title: 'Club Coach',
-        image:
-          'https://images.ctfassets.net/ffrbyg3cfykl/1lQSwHB348YTlchXi0piB7/f6725dd2e36d4a139adc6fa48e945e86/tennis-alex-navarro.webp',
-        bio: 'Alex has over 20 years playing experience, reaching top 500 in Spain and has been coaching for over 10 years in Spain,  Croatia, London and now Birmingham. Alex is a level 3 RPT qualified tennis coach. His coaching approach is suitable for all levels from beginners to pros and his passion for coaching tennis at all levels is exceptional whilst coaching the physical and positive mental attributes of tennis in a fun, safe environment. West Warwicks are very proud to have Alex in the team and is an important piece of where the club looking to go in the near future. Alex is offers both group and private lessons.',
-        email: 'tennis@westwarwicks.co.uk',
-      },
-    ],
   },
+  members: [
+    {
+      section: 'Team Tennis',
+      description:
+        'West Warwicks Tennis has something for all its members. The club has a strong history of successful teams in the Birmingham and Coventry league with there being a total of 5 Mens teams and 4 Ladies teams as well as winter league teams along with our internal singles and doubles ladders so that you can continue playing competitive tennis throughout the year.',
+      contact: {
+        description: 'For more information please contact',
+        email: 'tennis@westwarwicks.co.uk',
+      },
+    },
+    {
+      section: 'Social Tennis',
+      description:
+        'There are lots of opportunities to play socially at the club throughout the week whether it be in the social sessions listed below, booking courts with friends or through our themed social tournaments that happen throughout the year.',
+      contact: {
+        description:
+          'To get involved in any of the social sessions please contact',
+        email: 'tenniscommittee@westwarwicks.co.uk',
+      },
+      sessions: [
+        {
+          day: 'Monday',
+          start: '17:30',
+          end: '19:00',
+          session: 'Ladies Practice',
+        },
+        {
+          day: 'Wednesday',
+          start: '09:00',
+          end: '10:30',
+          session: 'Social Doubles',
+        },
+        {
+          day: 'Wednesday',
+          start: '18:30',
+          end: '20:00',
+          session: 'Clubnight',
+        },
+        {
+          day: 'Friday',
+          start: '15:30',
+          end: '17:00',
+          session: 'Social Night',
+        },
+        {
+          day: 'Saturday',
+          start: '15:00',
+          end: '16:30',
+          session: 'Social Afternoon',
+        },
+        {
+          day: 'Sunday',
+          start: '10:00',
+          end: '11:30',
+          session: 'Social',
+        },
+      ],
+    },
+    {
+      section: 'Adult Tennis Coaching',
+      description:
+        'There are lots of opportunities for adults to receive coaching at West Warwicks. See below our weekly timetable with members being able to attend these classes free each week. All Court Tennis also offer private 1 to 1 coaching.',
+      contact: {
+        description: 'For more information please contact',
+        email: 'tennis@westwarwicks.co.uk',
+      },
+      sessions: [
+        {
+          day: 'Monday',
+          start: '19:30',
+          end: '20:30',
+          session: 'Doubles drills and tactics',
+        },
+        {
+          day: 'Tuesday',
+          start: '19:00',
+          end: '19:45',
+          session: 'Cardio Tennis',
+        },
+        {
+          day: 'Thursday',
+          start: '11:00',
+          end: '12:00',
+          session: 'Adult Improvers',
+        },
+        {
+          day: 'Friday',
+          start: '18:00',
+          end: '19:00',
+          session: 'Adult Beginners/Improvers',
+        },
+        {
+          day: 'Saturday',
+          start: '09:00',
+          end: '09:45',
+          session: 'Cardio Tennis',
+        },
+      ],
+      link: {
+        name: 'all-court-tennis-coaching-adult-booking',
+        cta: 'View More - Adult Coaching',
+      },
+    },
+  ],
   affiliates: [
     {
       name: 'lawn tennis association',

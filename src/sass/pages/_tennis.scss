@@ -7,7 +7,7 @@
     span {
       grid-area: content;
       place-self: center;
-      font-size: var(--font-size-fluid-2);
+      font-size: var(--font-size-fluid-1);
       background-color: var(--surface-2);
       padding-inline: 1em;
       padding-block: 0.25em;
@@ -15,6 +15,7 @@
       font-weight: var(--font-weight-6);
       color: var(--text-1);
       text-align: center;
+      line-height: 0.95;
       z-index: 1;
     }
 
@@ -25,6 +26,129 @@
       max-block-size: 50vh;
       object-fit: cover;
       object-position: left;
+    }
+  }
+
+  .lta-youth {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+
+    @media (--md-n-above) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'video icon'
+        'description description';
+
+      iframe {
+        grid-area: video;
+        block-size: 100%;
+        object-fit: cover;
+      }
+
+      #lta-youth-tennis {
+        grid-area: icon;
+      }
+
+      p.description {
+        grid-area: description;
+      }
+    }
+
+    iframe {
+      inline-size: 100%;
+    }
+
+    #lta-youth-tennis {
+      grid-area: icon;
+      display: grid;
+      grid-template-areas: 'content';
+      inline-size: 100%;
+
+      span {
+        font-size: var(--font-size-fluid-0);
+        grid-area: content;
+        place-self: start center;
+        background-color: var(--surface-2);
+        padding-inline: 1em;
+        padding-block: 0.25em;
+        opacity: 0.8;
+        font-weight: var(--font-weight-6);
+        color: var(--text-1);
+        text-align: center;
+        margin-block-start: 2em;
+        z-index: 1;
+      }
+
+      img {
+        grid-area: content;
+        place-self: unset;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .act-team {
+    article {
+      min-inline-size: 35vw;
+      font-size: var(--font-size-fluid-0);
+
+      @media (--lg-n-above) {
+        min-inline-size: 20vw;
+        max-inline-size: 25vw;
+
+        font-size: var(--font-size-fluid-1);
+      }
+    }
+  }
+
+  .members {
+    article {
+      background-color: var(--surface-3);
+      padding: var(--size-2);
+      min-inline-size: 32vw;
+      p,
+      h3 {
+        grid-area: unset;
+      }
+      h3 {
+        background-color: transparent;
+      }
+
+      .contact {
+        text-align: center;
+        font-size: var(--font-size-fluid-0);
+        margin-block-end: var(--size-1);
+      }
+
+      .sessions {
+        padding-inline: var(--size-3);
+        padding-block: var(--size-2);
+        border: 1px solid var(--text-1);
+        border-radius: var(--border-size-2);
+        margin-block-end: var(--size-3);
+        .session {
+          font-size: var(--font-size-0);
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          @media (--md-n-above) {
+            font-size: var(--font-size-1);
+            grid-template-columns: 100px 250px 50px 50px;
+          }
+          .title {
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
+
+  .promotions {
+    img {
+      object-fit: contain;
     }
   }
 }

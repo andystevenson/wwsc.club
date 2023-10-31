@@ -1,20 +1,92 @@
 {% h1 title | capitalize %}
 {% p tennis.description, class="description" %}
 
-{% set group = tennis %}
-{% include 'partials/gallery.njk' %}
+
+<h2>Newsletter</h2>
+  {% set promotions = cms.tags['tennis-promotion'] %}
+  {% include "partials/promotions.njk" %}
+  
+<section class="media-scroller tennis-gallery">
+{% for image in tennis.gallery %}
+  {% set linkdoc = cms.asset[doc].url if cms.asset[doc]  %}
+  <article>
+    {{imgc(cms.image[image])}}
+  </article>
+{% endfor %}
+</section>
 
 {{ button('book a court') | form(class='book-a-court', action=bookNow)}}
 
-{# {% set images = [
-  {url: "https://images.ctfassets.net/ffrbyg3cfykl/3EW8IVQgmn3AKNfqJsNxds/50558adf69464c30da72c3598ab19ba1/tennis-kids-classes.webp", alt:"kids classes schedule"},
-  {url: "https://images.ctfassets.net/ffrbyg3cfykl/6BKDmFIrCAa2l2cnaNnD7G/cba6efacede8924087e04de56c90505a/tennis-adult-classes.webp", alt:"adult classes schedule"}
-  ] 
-%} #}
+<section class="lta-youth">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/-2wWVYbdc08?si=Tx-YoeAxSfWvStDX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+  </iframe>
+  {{ linkc(cms.links['lta-youth-tennis'], id='lta-youth-tennis',  span('Learn More - LTA Youth Coaching') ) }}
+
+  <p class="description">All Court Tennis run a range of classes at West Warwicks for children aged 3-17, filled with energetic and fun learning and games. In our classes our fully qualified LTA coaches will make sure that children of all abilities are able to be challenged appropriately and have lots of fun whilst learning the game of tennis. Check out our LTA Blue, Red, Orange, Green and Yellow ball classes below.</p>
+
+</section>
+
 
 {{ linkc(cms.links['all-court-tennis'], id='all-court-tennis', span('All Court Tennis')) }}
+
+{% p tennis.teamOfCoaches, class="description" %}
+
+<section class="act-coaches">
+  <h2>Coaches</h2>
+    
+  <section class="media-scroller act-team">
+    {% for member in tennis.team %}
+      <article>
+        <picture>{{imgc(cms.image[member.image])}}</picture>
+        <h3>{{member.name}}</h3>
+        <p>{{member.role}}</p>
+        <details>
+          <summary>
+            Bio
+          </summary>
+          <p>{{member.bio}}</p>
+        </details>
+      </article>
+    {% endfor %}
+  </section>
+</section>
+
+<section class="members">
+  <h2>Members</h2>
+    
+  <section class="media-scroller members">
+    {% for member in tennis.members %}
+      <article>
+        {# <picture>{{imgc(cms.image[member.image])}}</picture> #}
+        <h3>{{member.section}}</h3>
+        <p>{{member.description}}</p>
+        {% if member.sessions %}
+          <div class="sessions">
+          {% for time in member.sessions %}
+            <div class='session'>
+              <span class='day'>{{time.day}}</span>
+              <span class="title">{{time.session}}</span>
+              <span class="start">{{time.start}}</span>
+              <span class="end">{{time.end}}</span>
+            </div>
+          {% endfor %}
+          </div>
+        {% endif %}
+        <div class="contact">
+          <span>{{member.contact.description}}</span>
+          <a href="mailto:{{member.contact.email}}" class="email"><strong>{{member.contact.email}}</strong></a>
+        </div>
+        {% if member.link %}
+          {% set name = member.link.name %}
+          {% set cta = member.link.cta %}
+          {{ linkc(cms.links[name], id=name, span(cta)) }}
+        {% endif %}
+      </article>
+    {% endfor %}
+  </section>
+</section>
 {{ linkc(cms.links['all-court-tennis-coaching-junior-booking'], id='all-court-tennis-coaching-junior-booking',  span('Book Junior Coaching') ) }}
-{{ linkc(cms.links['all-court-tennis-coaching-adult-booking'],   id='all-court-tennis-coaching-adult-booking', span('Book Adult Coaching')) }}
+
 
 {% set links %}
   {% for image in images %}
@@ -32,4 +104,3 @@
 
 {% include 'partials/coaches.njk' %}
 {% include 'partials/people.njk' %}
-{% include 'partials/links.njk' %}
