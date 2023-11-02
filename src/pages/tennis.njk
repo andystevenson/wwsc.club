@@ -18,12 +18,48 @@
 {{ button('book a court') | form(class='book-a-court', action=bookNow)}}
 
 <section class="lta-youth">
+  <h2>Juniors</h2>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/-2wWVYbdc08?si=Tx-YoeAxSfWvStDX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
   </iframe>
   {{ linkc(cms.links['lta-youth-tennis'], id='lta-youth-tennis',  span('Learn More - LTA Youth Coaching') ) }}
 
   <p class="description">All Court Tennis run a range of classes at West Warwicks for children aged 3-17, filled with energetic and fun learning and games. In our classes our fully qualified LTA coaches will make sure that children of all abilities are able to be challenged appropriately and have lots of fun whilst learning the game of tennis. Check out our LTA Blue, Red, Orange, Green and Yellow ball classes below.</p>
 
+  <section class="stages">
+    {% for stage in tennis.juniors.stages %}
+      <details class="stage {{stage.name}}">
+        <summary>{{stage.summary}}</summary>
+        <div class="contents">
+          {% set logo = stage.logo %}
+          {{ iconc(cms.icons[logo], class='icon') }}
+          <article class="information">
+            <h3 class="title">{{stage.title}}</h3>
+            <a href="{{stage.trial}}"class="cta">
+              <span>Book Now{{ iconc(cms.icons['box-arrow-up-right']) }}</span>
+              <p>Get a FREE trial on one of our classes!</p>
+            </a>
+            {% for description in stage.descriptions %}
+              <p class="description">
+                <strong>{{description.group}}</strong>
+                <span>{{description.description}}</span>
+              </p>
+            {% endfor %}
+            <div class="sessions">
+              {% for session in stage.sessions %}
+                <div class="session">
+                  <span class="day">{{session.day}}</span>
+                  <span class="start">{{session.start}}</span>
+                  <span class="end">{{session.end}}</span>
+                  <span class="restriction">{{session.restriction}}</span>
+                </div>
+              {% endfor %}
+            </div>
+            <iframe width="560" height="315" src="{{stage.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </article>
+        </div>
+      </details>
+    {% endfor %}
+  </section>
 </section>
 
 
@@ -81,6 +117,12 @@
           {% set cta = member.link.cta %}
           {{ linkc(cms.links[name], id=name, span(cta)) }}
         {% endif %}
+        {% if member.trial %}
+          <a href="{{member.trial}}" class="cta">
+              <span>Book Now{{ iconc(cms.icons['box-arrow-up-right']) }}</span>
+              <p>Get a FREE trial on one of our classes!</p>
+            </a>
+        {% endif %}
       </article>
     {% endfor %}
   </section>
@@ -102,5 +144,5 @@
 
 {{ linkc(cms.links['mycourts'], id='book-a-court') }}
 
-{% include 'partials/coaches.njk' %}
+
 {% include 'partials/people.njk' %}

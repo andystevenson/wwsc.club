@@ -1,4 +1,5 @@
 .tennis {
+  --_color: var(--brand);
   #all-court-tennis,
   #all-court-tennis-coaching-junior-booking,
   #all-court-tennis-coaching-adult-booking {
@@ -38,8 +39,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
+        'header header'
         'video icon'
         'description description';
+
+      h2 {
+        grid-area: header;
+      }
 
       iframe {
         grid-area: video;
@@ -53,6 +59,111 @@
 
       p.description {
         grid-area: description;
+      }
+    }
+
+    .stages {
+      gap: var(--size-1);
+      grid-column: 1 / -1;
+
+      .stage {
+        --_border-width: 5px;
+        summary {
+          background-color: var(--_color);
+          border-radius: unset;
+          font-size: var(--font-size-fluid-0);
+        }
+        border: var(--_border-width) solid var(--_color);
+
+        &.blue {
+          --_color: #0097d7;
+        }
+        &.red {
+          --_color: #e61b2e;
+        }
+        &.orange {
+          --_color: #e95d0c;
+        }
+        &.green {
+          --_color: #bccf01;
+        }
+        &.yellow {
+          --_color: #fcc838;
+        }
+
+        .contents {
+          display: flex;
+          flex-direction: column;
+          gap: var(--size-2);
+
+          @media (--md-n-above) {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-areas: 'icon information';
+            gap: var(--size-3);
+
+            .icon {
+              grid-area: icon;
+            }
+
+            .information {
+              border-inline-start: 1px solid var(--_color);
+              padding-inline-start: var(--size-3);
+              border-radius: unset;
+            }
+          }
+        }
+
+        .description {
+          // text-align: left;
+          strong {
+            text-decoration: underline;
+            text-underline-offset: 5px;
+          }
+          opacity: 1;
+          margin-block-end: unset;
+          // border-block-end: 1px solid var(--_color);
+        }
+
+        .icon {
+          max-inline-size: 250px;
+        }
+
+        .information {
+          display: flex;
+          flex-direction: column;
+          gap: var(--size-3);
+          grid-area: information;
+        }
+
+        .title {
+          background-color: transparent;
+          color: var(--_color);
+          opacity: 1;
+          text-align: center;
+          white-space: nowrap;
+        }
+
+        .sessions {
+          display: grid;
+          justify-content: center;
+          border: var(--_border-width) solid var(--_color);
+          border-radius: var(--radius-2);
+          padding: var(--size-3);
+
+          .session {
+            display: grid;
+            grid-template-columns: 100px 50px 50px 1fr;
+
+            span:first-of-type {
+              font-weight: bolder;
+            }
+          }
+        }
+
+        iframe {
+          aspect-ratio: 723 / 407;
+        }
       }
     }
 
@@ -88,6 +199,32 @@
         block-size: 100%;
         object-fit: cover;
       }
+    }
+  }
+
+  .cta {
+    display: grid;
+    border-radius: var(--radius-2);
+    padding-inline: var(--size-3);
+    background-color: var(--_color);
+    margin: auto;
+
+    span {
+      display: flex;
+      justify-content: center;
+      color: var(--text-1);
+      font-size: var(--font-size-4);
+      font-weight: bolder;
+      text-align: right;
+      img {
+        inline-size: var(--size-3);
+        block-size: var(--size-3);
+        margin-inline-start: var(--size-2);
+        filter: invert(1);
+      }
+    }
+    p {
+      grid-column: 1 / -1;
     }
   }
 
@@ -142,6 +279,10 @@
             font-weight: bolder;
           }
         }
+      }
+
+      a:last-of-type {
+        margin-block-start: var(--size-3);
       }
     }
   }

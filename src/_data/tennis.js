@@ -57,6 +57,256 @@ module.exports = {
     description:
       'All Court Tennis  has a number of qualified, DBS, safeguarding in children & first aid trained tennis coaches, who provide both group and private coaching. Our experienced team are friendly and professional so please get in touch if you have a question or would like to book a session.',
   },
+  juniors: {
+    stages: [
+      {
+        name: 'blue',
+        summary: 'Blue (age 3 - 6)',
+        title: 'Youth Blue (Ages 3 - 6)',
+        color: '#0097D7',
+        logo: 'LTA-Youth-Blue-Stage-logo',
+        trial: 'https://actennis.co.uk/free-trial/',
+        descriptions: [
+          {
+            // group: 'Under 14s',
+            description:
+              'Red ball is a bigger and slower tennis ball used for this age on a small tennis court. This stage is arguably the most important to any players development. We want each player to appreciate the value of keeping the ball in the court by controlling the body/racket/ball.',
+          },
+        ],
+        sessions: [
+          {
+            day: 'Monday',
+            start: '16:45',
+            end: '17:30',
+            restriction: '(Aged 4-6 Specific)',
+          },
+          {
+            day: 'Tuesday',
+            start: '17:00',
+            end: '18:15',
+            restriction: '(Invitational)',
+          },
+          {
+            day: 'Thursday',
+            start: '16:30',
+            end: '17:30',
+            restriction: '',
+          },
+          {
+            day: 'Saturday',
+            start: '09:00',
+            end: '10:00',
+            restriction: '',
+          },
+          {
+            day: 'Saturday',
+            start: '12:30',
+            end: '13:00',
+            restriction: '(Tots Tennis Ages 3-5)',
+          },
+          {
+            day: 'Sunday',
+            start: '09:00',
+            end: '10:00',
+            restriction: '(Girls Prime)',
+          },
+        ],
+        video: 'https://www.youtube.com/embed/inmfh3iNIY8?si=0Vvj0CbgFgCsaJ__',
+      },
+      {
+        name: 'red',
+        summary: 'Red (age 5 - 8)',
+        title: 'Youth Red (Ages 5 - 8)',
+        color: '#0097D7',
+        logo: 'LTA-Youth-Red-Stage-logo',
+        trial: 'https://actennis.co.uk/free-trial/',
+        descriptions: [
+          {
+            // group: 'Under 14s',
+            description:
+              'Red ball is a bigger and slower tennis ball used for this age on a small tennis court. This stage is arguably the most important to any players development. We want each player to appreciate the value of keeping the ball in the court by controlling the body/racket/ball.',
+          },
+        ],
+        sessions: [
+          {
+            day: 'Monday',
+            start: '16:45',
+            end: '17:30',
+            restriction: '(Aged 5-7 Specific)',
+          },
+          {
+            day: 'Tuesday',
+            start: '17:00',
+            end: '18:15',
+            restriction: '(Invitational)',
+          },
+          {
+            day: 'Thursday',
+            start: '16:30',
+            end: '17:30',
+            restriction: '',
+          },
+          {
+            day: 'Saturday',
+            start: '09:00',
+            end: '10:00',
+            restriction: '',
+          },
+          {
+            day: 'Sunday',
+            start: '09:00',
+            end: '10:00',
+            restriction: '(Girls Prime)',
+          },
+        ],
+        video: 'https://www.youtube.com/embed/ee29dGgxZvg?si=3t9GZHPfzwbIjTkP',
+      },
+      {
+        name: 'orange',
+        summary: 'Orange (age 8 - 9)',
+        title: 'Youth Orange (Ages 8 - 9)',
+        color: '#0097D7',
+        logo: 'LTA-Youth-Orange-Stage-logo',
+        trial: 'https://actennis.co.uk/free-trial/',
+        descriptions: [
+          {
+            // group: 'Under 14s',
+            description:
+              'Orange players will start to develop their athleticism as the court becomes bigger and ball speeds can double in speed. The age categories are a guide and each player can move up or down if the coaches believe it’s best for the player.',
+          },
+        ],
+        sessions: [
+          {
+            day: 'Monday',
+            start: '17:30',
+            end: '18:30',
+            restriction: '',
+          },
+          {
+            day: 'Tuesday',
+            start: '17:00',
+            end: '18:15',
+            restriction: '(Invitational)',
+          },
+          {
+            day: 'Thursday',
+            start: '17:30',
+            end: '18:30',
+            restriction: '',
+          },
+          {
+            day: 'Saturday',
+            start: '11:00',
+            end: '12:00',
+            restriction: '',
+          },
+        ],
+        video: 'https://www.youtube.com/embed/wCgP36evBag?si=7GwusL2reAOzyIjk',
+      },
+      {
+        name: 'green',
+        summary: 'Green (age 9 - 11)',
+        title: 'Youth Green (Ages 9 - 11)',
+        color: '#0097D7',
+        logo: 'LTA-Youth-Green-Stage-logo',
+        trial: 'https://actennis.co.uk/free-trial/',
+        descriptions: [
+          {
+            // group: 'Under 14s',
+            description:
+              'At this stage of learning each player competes on an adult size court and will hopefully understand how to keep score within new formats. This is where you can start to see unique strengths in the players game.',
+          },
+        ],
+        sessions: [
+          {
+            day: 'Monday',
+            start: '17:30',
+            end: '18:30',
+            restriction: '',
+          },
+          {
+            day: 'Tuesday',
+            start: '17:00',
+            end: '18:15',
+            restriction: '(Invitational)',
+          },
+          {
+            day: 'Thursday',
+            start: '17:30',
+            end: '18:30',
+            restriction: '',
+          },
+          {
+            day: 'Saturday',
+            start: '11:00',
+            end: '12:00',
+            restriction: '',
+          },
+        ],
+        video: 'https://www.youtube.com/embed/u94VLxyV0D4?si=1Rfa7b7BRQXwAQZg',
+      },
+      {
+        name: 'yellow',
+        summary: 'Yellow (age 11 - 17)',
+        title: 'Youth Yellow (Ages 11 - 17)',
+        color: '#0097D7',
+        logo: 'LTA-Youth-Yellow-Stage-logo',
+        trial: 'https://actennis.co.uk/free-trial/',
+        descriptions: [
+          {
+            group: 'Under 14s',
+            description:
+              'When at this stage we are keeping the game fun but also are planning for each players future at the club. Local tennis is usually played in doubles format so we will start to learn skill in preparation.',
+          },
+
+          {
+            group: 'Under 16s',
+            description:
+              'This is the final stage of junior coaching before joining in with adult sessions. We have a number of pathways from this stage but this is very much down to each individual. Some choose to keep participating but want to become a leader and help out the coaching team with the younger players, whilst others want to try competing against the adults.',
+          },
+        ],
+        sessions: [
+          {
+            day: 'Monday',
+            start: '18:30',
+            end: '19:30',
+            restriction: '',
+          },
+          {
+            day: 'Tuesday',
+            start: '18:15',
+            end: '19:15',
+            restriction: '',
+          },
+          {
+            day: 'Wednesday',
+            start: '17:45',
+            end: '18:45',
+            restriction: '(Girls Prime)',
+          },
+          {
+            day: 'Thursday',
+            start: '18:30',
+            end: '19:30',
+            restriction: '',
+          },
+          {
+            day: 'Friday',
+            start: '18:00',
+            end: '19:30',
+            restriction: '(Invitational)',
+          },
+          {
+            day: 'Saturday',
+            start: '10:00',
+            end: '11:00',
+            restriction: '',
+          },
+        ],
+        video: 'https://www.youtube.com/embed/V6clyY0FZZg?si=NWZHne-gpkx9M0vP',
+      },
+    ],
+  },
   members: [
     {
       section: 'Team Tennis',
@@ -159,6 +409,7 @@ module.exports = {
         name: 'all-court-tennis-coaching-adult-booking',
         cta: 'View More - Adult Coaching',
       },
+      trial: 'https://actennis.co.uk/adult-free-trial/',
     },
   ],
   affiliates: [
