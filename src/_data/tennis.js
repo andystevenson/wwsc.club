@@ -143,9 +143,9 @@ module.exports = {
           session: 'Adult Improvers',
         },
         {
-          day: 'Friday',
-          start: '18:00',
-          end: '19:00',
+          day: 'Thursday',
+          start: '19:30',
+          end: '20:30',
           session: 'Adult Beginners/Improvers',
         },
         {
