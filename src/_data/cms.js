@@ -1,9 +1,11 @@
 const { permutateAll } = require('@andystevenson/lib/permutations')
 const { log } = require('@andystevenson/lib/logger')
+const tickets = require('./tickets')
 
 // process all the content from CONTENTFUL CMS
 
-const { sortBy, without } = require('lodash')
+const sortBy = require('lodash.sortby')
+const without = require('lodash.without')
 
 const createTags = (assets) => {
   const tags = {}
@@ -93,8 +95,7 @@ const createDocByTitle = (assets) => {
   const collection = {}
   assets.forEach((asset) => {
     const { title, contentType } = asset
-    if (contentType.startsWith('image/') || contentType.startsWith('video/'))
-      return
+    if (contentType.startsWith('application/pdf')) return
 
     if (title in collection) {
       log.warn(`document has a duplicate [${title}]`)
@@ -324,6 +325,14 @@ const people = {
 
 const collections = [assets, links, people]
 
+const ticketPrices = async (asset) => {
+  if (asset.title in tickets) {
+    asset.ticket = tickets[asset.title]
+  }
+  console.log({ asset, tickets })
+  // look up a ticket price on stripe
+}
+
 module.exports = async () => {
   const fetch = (...args) =>
     import('node-fetch').then(({ default: fetch }) => fetch(...args))
@@ -354,6 +363,10 @@ module.exports = async () => {
     const json = await response.json()
     const content = transform(json.data)
     cms = { ...cms, ...content }
+    console.log('TICKETS!!!! ', cms.tags.ticket)
+    for (const asset of cms.tags.ticket) {
+      ticketPrices(asset)
+    }
   }
 
   // console.log(util.inspect(cms, undefined, null, true))

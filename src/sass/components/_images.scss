@@ -9,14 +9,16 @@ ul.images {
   }
   gap: var(--size-3);
 
-  img {
-    max-block-size: 70vh;
-    aspect-ratio: var(--ratio-portrait);
-    // object-fit: cover;
+  li {
     &:hover {
       z-index: var(--layer-important);
       scale: 1.2;
     }
+  }
+  img {
+    max-block-size: 70vh;
+    aspect-ratio: var(--ratio-portrait);
+    // object-fit: cover;
   }
 
   li {

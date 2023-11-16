@@ -2,23 +2,40 @@
   <section class="promotions">
     <ul class="images">
       {% for promotion in promotions %}
-        {% set isBrochure = promotion.tags.includes("brochure") %}
-        {% if not isBrochure %}
-          {% set brochure = cms.tags.brochure | find(["title", promotion.title + ' (pdf)']) %}
-          {% if brochure %}
-            {% set title = 'click to download -> ' + brochure.description %}
-            <li>
-              {{ imgc(promotion, 'aria-hidden'='true') 
-                  | a('aria-label'=brochure.description, href=brochure.url, title=title, target='_blank' )
-              }}
-              <p><span>download</span>{{ iconc(cms.icons.download) }}</p>
-              
+        {% set linked = false %}
 
-            </li>
-          {% else %}
-          {{ imgc(promotion, 'aria-hidden'='true') | li }}
-          {% endif %}
+        {# published a brochure for this promotion  #}
+        {% set brochure = cms.tags.brochure | find(["title", promotion.title + ' (pdf)']) %}
+        {% if brochure %}
+          {% set title = 'click to download -> ' + brochure.description %}
+          <li>
+            {{ imgc(promotion, 'aria-hidden'='true') 
+                | a('aria-label'=brochure.description, href=brochure.url, title=title, target='_blank' )
+            }}
+            <p><span>download</span>{{ iconc(cms.icons.download) }}</p>  
+          </li>
+          {% set linked = true %}
         {% endif %}
+
+        {# selling tickets to this promotion  #}
+        {% if promotion.ticket %}
+          {% set title = 'click to buy -> ' + promotion.description %}
+
+          <li>
+            {{ imgc(promotion, 'aria-hidden'='true') 
+                | a('aria-label'=promotion.description, href=promotion.ticket, title=title, target='_blank' )
+            }}
+            <p><span>buy tickets</span></p>
+          </li>
+
+          {% set linked = true %}
+        {% endif %}
+
+        {# just a promotion poster! #}
+        {% if not linked %}
+          {{ imgc(promotion, 'aria-hidden'='true') | li }}
+        {% endif %}
+
       {% endfor %}
     </ul>
   </section>
