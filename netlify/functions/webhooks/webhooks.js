@@ -29,14 +29,21 @@ async function sendMail(subject, html) {
 // chargeSucceededHtml (data)
 function chargeSucceededHtml(data) {
   const amount = data.amount / 100
+  let { name, email, line1, line2, city, postal_code } = data.billing_details
+  name ||= ''
+  email ||= ''
+  line1 ||= ''
+  line2 ||= ''
+  city ||= ''
+  postal_code ||= ''
   const html = `
   <h1>Stripe Charge Succeeded</h1>
-  <p>${data.billing_details.name}</p>
-  <p>${data.billing_details.email}</p>
-  <p>${data.billing_details.address.line1}</p>
-  <p>${data.billing_details.address.line2}</p>
-  <p>${data.billing_details.address.city}</p>
-  <p>${data.billing_details.address.postal_code}</p>
+  <p>${name}</p>
+  <p>${email}</p>
+  <p>${line1}</p>
+  <p>${line2}</p>
+  <p>${city}</p>
+  <p>${postal_code}</p>
   <h2>Receipt</h2>
   <p>Amount <strong>£${amount.toFixed(2)}</strong> by ${
     data.payment_method_details.type
@@ -61,14 +68,23 @@ async function subscriptionSucceededHtml(data) {
   `
   try {
     const customer = await stripe.customers.retrieve(data.customer)
+    let { name, email, phone } = customer
+    let { line1, line2, city, postal_code } = customer.address
+    name ||= ''
+    email ||= ''
+    line1 ||= ''
+    line2 ||= ''
+    city ||= ''
+    postal_code ||= ''
+    phone ||= ''
     html += `
-    <p>${customer.name}</p>
-    <p>${customer.email}</p>
-    <p>${customer.address.line1}</p>
-    <p>${customer.address.line2}</p>
-    <p>${customer.address.city}</p>
-    <p>${customer.address.postal_code}</p>
-    <p>${customer.phone}</p>
+    <p>${name}</p>
+    <p>${email}</p>
+    <p>${line1}</p>
+    <p>${line2}</p>
+    <p>${city}</p>
+    <p>${postal_code}</p>
+    <p>${phone}</p>
     `
   } catch (error) {
     html += `<h3>ERROR</h3>
@@ -79,6 +95,76 @@ async function subscriptionSucceededHtml(data) {
   return html
 }
 
+// checkout.session.succeeded
+
+async function checkoutSessionSucceeded(data) {
+  const { id } = data
+
+  console.log('checkout.session.succeeded', { data })
+  let html = `
+  <h1>Checkout Succeeded</h1>
+  `
+  try {
+    const session = await stripe.checkout.sessions.retrieve(id, {
+      expand: ['customer', 'line_items'],
+    })
+    console.log('checkout.session.succeeded', { session })
+
+    let { mode, payment_status, custom_fields } = session
+
+    html += `
+      <strong>${mode}</strong>
+      <p>${payment_status}</p>
+      <hr>`
+
+    let { name, email, phone } = session.customer
+    let { line1, line2, city, postal_code } = session.customer.address
+    let line_items = session.line_items.data
+
+    name ||= ''
+    email ||= ''
+    line1 ||= ''
+    line2 ||= ''
+    city ||= ''
+    postal_code ||= ''
+    phone ||= ''
+    html += `
+    <p>${name}</p>
+    <p>${email}</p>
+    <p>${line1}</p>
+    <p>${line2}</p>
+    <p>${city}</p>
+    <p>${postal_code}</p>
+    <p>${phone}</p>
+    `
+
+    if (custom_fields) {
+      for (const field of custom_fields) {
+        const { label, text } = field
+        const template = `<strong>${label}</strong><span>${text.value}</span><hr>`
+        html += template
+      }
+    }
+
+    for (const item of line_items) {
+      let { description, amount_total, currency, price, quantity } = item
+      const { unit_amount, nickname } = price
+      const template = `
+      <strong>${description}</strong>
+      <p>${+amount_total / 100} ${currency}</p>
+      <p>${+unit_amount / 100} ${currency} x ${quantity}</p>
+      <p>${nickname}</p>
+      <hr>
+      `
+      html += template
+    }
+  } catch (error) {
+    html += `<h3>ERROR</h3>
+    <p><strong>${error.message}</strong></p>
+    `
+  }
+  return html
+}
 // webhook handler
 const success = { statusCode: 200 }
 
@@ -101,11 +187,6 @@ const handler = async (event) => {
       return success
     }
 
-    // if (type === 'customer.updated') {
-    //   console.log(' >>>>> customer.updated <<<<')
-    //   return success
-    // }
-
     if (type === 'customer.subscription.created') {
       console.log(' >>>>> customer.subscription.created <<<<')
       await sendMail(
@@ -115,90 +196,13 @@ const handler = async (event) => {
       return success
     }
 
-    // if (type === 'customer.subscription.updated') {
-    //   console.log(' >>>>> customer.subscription.updated <<<<')
-    //   return success
-    // }
-
-    // if (type === 'customer.subscription.deleted') {
-    //   console.log(' >>>>> customer.subscription.deleted <<<<')
-    //   return success
-    // }
-
-    // if (type === 'customer.subscription.trial_will_end') {
-    //   console.log(' >>>>> customer.subscription.trial_will_end <<<<')
-    //   return success
-    // }
-
-    // if (type === 'invoice.created') {
-    //   console.log(' >>>>> invoice.created <<<<')
-    //   return success
-    // }
-    // if (type === 'invoice.deleted') {
-    //   console.log(' >>>>> invoice.deleted <<<<')
-    //   return success
-    // }
-
-    // if (type === 'invoice.finalized') {
-    //   console.log(' >>>>> invoice.finalized <<<<')
-    //   return success
-    // }
-    // if (type === 'invoice.finalization_failed') {
-    //   console.log(' >>>>> invoice.finalization_failed <<<<')
-    //   return success
-    // }
-    // if (type === 'invoice.paid') {
-    //   console.log(' >>>>> invoice.paid <<<<')
-    //   return success
-    // }
-
-    // if (type === 'invoice.sent') {
-    //   console.log(' >>>>> invoice.sent <<<<')
-    //   return success
-    // }
-
-    // if (type === 'invoice.payment_action_required') {
-    //   console.log(' >>>>> invoice.payment_action_required <<<<')
-    //   return success
-    // }
-    // if (type === 'invoice.payment_failed') {
-    //   console.log(' >>>>> invoice.payment_failed <<<<')
-    //   return success
-    // }
-
-    // if (type === 'invoice.payment_succeeded') {
-    //   console.log(' >>>>> invoice.payment_succeeded <<<<')
-    //   return success
-    // }
-    // if (type === 'invoice.upcoming') {
-    //   console.log(' >>>>> invoice.upcoming <<<<')
-    //   return success
-    // }
-    // if (type === 'invoice.updated') {
-    //   console.log(' >>>>> invoice.updated <<<<')
-    //   return success
-    // }
-    // if (type === 'invoice.voided') {
-    //   console.log(' >>>>> invoice.voided <<<<')
-    //   return success
-    // }
-
-    // if (type === 'payment_intent.created') {
-    //   console.log(' >>>>> payment_intent.created <<<<')
-    //   return success
-    // }
-    // if (type === 'payment_intent.cancelled') {
-    //   console.log(' >>>>> payment_intent.cancelled <<<<')
-    //   return success
-    // }
-    // if (type === 'payment_intent.paymemnt_failed') {
-    //   console.log(' >>>>> payment_intent.paymemnt_failed <<<<')
-    //   return success
-    // }
-    // if (type === 'payment_intent.succeeded') {
-    //   console.log(' >>>>> payment_intent.succeeded <<<<')
-    //   return success
-    // }
+    if (type == 'checkout.session.succeeded') {
+      await sendMail(
+        'checkout.session.succeeded',
+        await checkoutSessionSucceeded(object),
+      )
+      return success
+    }
 
     return success
   } catch (error) {
