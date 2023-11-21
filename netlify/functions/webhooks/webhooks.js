@@ -141,19 +141,20 @@ async function checkoutSessionCompleted(data) {
     if (custom_fields) {
       for (const field of custom_fields) {
         const { label, text } = field
-        const template = `<strong>${label}</strong><span>${text.value}</span><hr>`
+        const template = `<strong>${label.custom}</strong><span>${text.value}</span><hr>`
         html += template
       }
     }
 
     for (const item of line_items) {
       let { description, amount_total, currency, price, quantity } = item
-      const { unit_amount, nickname } = price
+      const { unit_amount, nickname, lookup_key } = price
       const template = `
       <strong>${description}</strong>
       <p>${+amount_total / 100} ${currency}</p>
       <p>${+unit_amount / 100} ${currency} x ${quantity}</p>
-      <p>${nickname}</p>
+      <p>${nickname ? nickname : ''}</p>
+      <p>${lookup_key ? lookup_key : ''}</p>
       <hr>
       `
       html += template
