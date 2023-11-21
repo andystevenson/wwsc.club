@@ -95,12 +95,12 @@ async function subscriptionSucceededHtml(data) {
   return html
 }
 
-// checkout.session.succeeded
+// checkout.sessions.completed
 
-async function checkoutSessionSucceeded(data) {
+async function checkoutSessionCompleted(data) {
   const { id } = data
 
-  console.log('checkout.session.succeeded', { data })
+  console.log('checkout.sessions.completed', { data })
   let html = `
   <h1>Checkout Succeeded</h1>
   `
@@ -108,7 +108,7 @@ async function checkoutSessionSucceeded(data) {
     const session = await stripe.checkout.sessions.retrieve(id, {
       expand: ['customer', 'line_items'],
     })
-    console.log('checkout.session.succeeded', { session })
+    console.log('checkout.sessions.completed', { session })
 
     let { mode, payment_status, custom_fields } = session
 
@@ -196,10 +196,12 @@ const handler = async (event) => {
       return success
     }
 
-    if (type == 'checkout.session.succeeded') {
+    if (type == 'checkout.session.completed') {
+      console.log(' >>>>> checkout.session.created <<<<')
+
       await sendMail(
-        'checkout.session.succeeded',
-        await checkoutSessionSucceeded(object),
+        'checkout.session.completed',
+        await checkoutSessionCompleted(object),
       )
       return success
     }
