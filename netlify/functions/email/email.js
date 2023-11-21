@@ -27,6 +27,7 @@ exports.handler = async function (event) {
   let email = {
     from: env.emailUser,
     to: env.emailRecipient,
+    cc: 'andystevenson@mac.com',
     subject,
   }
 
