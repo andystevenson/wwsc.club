@@ -141,7 +141,7 @@ async function checkoutSessionCompleted(data) {
     if (custom_fields) {
       for (const field of custom_fields) {
         const { label, text } = field
-        const template = `<strong>${label.custom}</strong><span>${text.value}</span><hr>`
+        const template = `<strong>${label.custom}</strong> <span>${text.value}</span><hr>`
         html += template
       }
     }
