@@ -100,7 +100,7 @@ async function subscriptionSucceededHtml(data) {
 async function checkoutSessionCompleted(data) {
   const { id } = data
 
-  console.log('checkout.sessions.completed', { data })
+  console.log('checkout.session.completed', { data })
   let html = `
   <h1>Checkout Succeeded</h1>
   `
@@ -108,7 +108,7 @@ async function checkoutSessionCompleted(data) {
     const session = await stripe.checkout.sessions.retrieve(id, {
       expand: ['customer', 'line_items'],
     })
-    console.log('checkout.sessions.completed', { session })
+    console.log('checkout.session.completed', { session })
 
     let { mode, payment_status, custom_fields } = session
 
@@ -117,8 +117,8 @@ async function checkoutSessionCompleted(data) {
       <p>${payment_status}</p>
       <hr>`
 
-    let { name, email, phone } = session.customer
-    let { line1, line2, city, postal_code } = session.customer.address
+    let { name, email, phone } = session.customer_details
+    let { line1, line2, city, postal_code } = session.customer_details.address
     let line_items = session.line_items.data
 
     name ||= ''
@@ -197,7 +197,7 @@ const handler = async (event) => {
     }
 
     if (type == 'checkout.session.completed') {
-      console.log(' >>>>> checkout.session.created <<<<')
+      console.log(' >>>>> checkout.session.completed <<<<')
 
       await sendMail(
         'checkout.session.completed',
