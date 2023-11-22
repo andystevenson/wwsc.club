@@ -4,4 +4,5 @@ module.exports = {
   'christmas-bap-and-bop-2023': 'https://buy.stripe.com/aEU4jG3SH18a6Ji2be',
   'michael-buble-tribute-2023': 'https://buy.stripe.com/3cs8zW1Kz7wy9VudTX',
   'new-year-eve-party-2023': 'https://buy.stripe.com/7sIg2o3SHeZ0aZydU3',
+  'quiz-night-november-2023': 'https://buy.stripe.com/00gbM860P18a2t25ny',
 }
