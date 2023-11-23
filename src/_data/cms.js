@@ -329,7 +329,7 @@ const ticketPrices = async (asset) => {
   if (asset.title in tickets) {
     asset.ticket = tickets[asset.title]
   }
-  console.log({ asset, tickets })
+  // console.log({ asset, tickets })
   // look up a ticket price on stripe
 }
 
@@ -363,7 +363,7 @@ module.exports = async () => {
     const json = await response.json()
     const content = transform(json.data)
     cms = { ...cms, ...content }
-    console.log('TICKETS!!!! ', cms.tags.ticket)
+    // console.log('TICKETS!!!! ', cms.tags.ticket)
     for (const asset of cms.tags.ticket) {
       ticketPrices(asset)
     }
