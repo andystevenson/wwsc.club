@@ -1,5 +1,8 @@
 {% h1 title | capitalize %}
-{% p tennis.description, class="description" %}
+<section class="introduction">
+  {{imgc(cms.image['tennis-lta-recognised'], id='lta-recognised')}}
+  {% p tennis.description, class="description" %}
+</section>
 
 
 <h2>Newsletter</h2>
@@ -22,6 +25,7 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/-2wWVYbdc08?si=Tx-YoeAxSfWvStDX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
   </iframe>
   {{ linkc(cms.links['lta-youth-tennis'], id='lta-youth-tennis',  span('Learn More - LTA Youth Coaching') ) }}
+
 
   <p class="description">All Court Tennis run a range of classes at West Warwicks for children aged 3-17, filled with energetic and fun learning and games. In our classes our fully qualified LTA coaches will make sure that children of all abilities are able to be challenged appropriately and have lots of fun whilst learning the game of tennis. Check out our LTA Blue, Red, Orange, Green and Yellow ball classes below.</p>
 
@@ -66,10 +70,11 @@
 {{ linkc(cms.links['all-court-tennis'], id='all-court-tennis', span('All Court Tennis')) }}
 
 {% p tennis.teamOfCoaches, class="description" %}
+{{imgc(cms.image['tennis-act-group-photo'])}}
 
 <section class="act-coaches">
   <h2>Coaches</h2>
-    
+
   <section class="media-scroller act-team">
     {% for member in tennis.team %}
       <article>

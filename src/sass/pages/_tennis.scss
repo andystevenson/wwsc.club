@@ -30,6 +30,10 @@
     }
   }
 
+  .introduction {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+  }
   .lta-youth {
     display: flex;
     flex-direction: column;
@@ -39,9 +43,9 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
-        'header header'
-        'video icon'
-        'description description';
+        'header header '
+        'video icon '
+        'description description ';
 
       h2 {
         grid-area: header;
@@ -297,6 +301,12 @@
     img {
       min-block-size: 40vh;
       min-inline-size: 150px;
+    }
+  }
+  [title='ACT Group Photo'] {
+    @media (--md-n-above) {
+      max-inline-size: 60vw;
+      object-fit: cover;
     }
   }
 }
