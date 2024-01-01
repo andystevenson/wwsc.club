@@ -364,8 +364,10 @@ module.exports = async () => {
     const content = transform(json.data)
     cms = { ...cms, ...content }
     // console.log('TICKETS!!!! ', cms.tags.ticket)
-    for (const asset of cms.tags.ticket) {
-      ticketPrices(asset)
+    if (cms.tags.ticket) {
+      for (const asset of cms.tags.ticket) {
+        ticketPrices(asset)
+      }
     }
   }
 
