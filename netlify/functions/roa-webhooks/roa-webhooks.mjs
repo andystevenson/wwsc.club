@@ -1,5 +1,4 @@
 import Stripe from 'stripe'
-import { createAttendeePayment } from '../../../grafbase/scripts/createAttendeePayment.mjs'
 
 const stripe = new Stripe(process.env.ROA_STRIPE_SECRET_KEY)
 // webhook handler
@@ -25,7 +24,7 @@ const handler = async (event) => {
     // console.log('roa-webhooks', type, object.metadata)
     if (object.payment_status === 'paid') {
       console.log('paid', object.metadata)
-      await createAttendeePayment(object.metadata)
+      // await createAttendeePayment(object.metadata)
     } else {
       console.log('unpaid!', object.metadata, object.payment_status)
     }

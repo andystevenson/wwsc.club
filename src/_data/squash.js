@@ -19,60 +19,6 @@ module.exports = {
   newToSquash:
     "Squash is a fast-paced racquet sport that requires agility, strategy, and precision. Played in an enclosed court, the objective is to outmanoeuvre your opponent by hitting a small rubber ball against the front wall using a racquet. Squash provides a great cardiovascular workout while simultaneously enhancing hand-eye coordination, footwork, and mental sharpness. Whether you're a beginner or an experienced player, squash offers a thrilling and challenging experience that can be enjoyed at any age or skill level.",
   juniorProgrammes: [
-    // {
-    //   name: 'roa-elite-junior-camp',
-    //   description: 'ROA Elite Junior Camp ...',
-    //   prices: [
-    //     {
-    //       price: 35,
-    //       unit: 'session',
-    //       stripe: { price: 'price_1NYjd3F12kDJKsucPBQ7jhd0' },
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: 'roa-junior-squash-summer-camps',
-    //   description: 'ROA Junior Squash Summer Camps ...',
-    //   prices: [
-    //     {
-    //       price: 35,
-    //       unit: 'day',
-    //       members: true,
-    //       stripe: { price: 'price_1NYjd2F12kDJKsuclEYavJmM' },
-    //     },
-    //     {
-    //       price: 60,
-    //       unit: '2 days',
-    //       members: true,
-    //       stripe: { price: 'price_1NYjd2F12kDJKsucXK1QO0G5' },
-    //     },
-    //     {
-    //       price: 170,
-    //       unit: '6 days',
-    //       members: true,
-    //       stripe: { price: 'price_1NYjd1F12kDJKsucVMN4Bwzb' },
-    //     },
-    //     {
-    //       price: 40,
-    //       unit: 'day',
-    //       members: false,
-    //       stripe: { price: 'price_1NYjd2F12kDJKsucWFR4NF1q' },
-    //     },
-    //     {
-    //       price: 70,
-    //       unit: '2 days',
-    //       members: false,
-    //       stripe: { price: 'price_1NYjd1F12kDJKsucvnVdXzNL' },
-    //     },
-    //     {
-    //       price: 200,
-    //       unit: '6 days',
-    //       members: false,
-    //       stripe: { price: 'price_1NYjd1F12kDJKsucNTS2lk44' },
-    //     },
-    //   ],
-    //   maxPeople: 100,
-    // },
     {
       name: 'roa-junior-squash-programme',
       description:
@@ -80,27 +26,76 @@ module.exports = {
       prices: [
         {
           price: 6.5,
-          unit: 'session',
+          unit: '40min session',
           members: true,
-          stripe: { price: 'price_1NYjd5F12kDJKsucxFY6mV7s' },
+          stripe: { price: 'price_1OZbe7F12kDJKsuc65gpPADg' },
         },
         {
-          price: 47,
-          unit: '8 weeks',
+          price: 30,
+          unit: '5x 40min sessions',
           members: true,
-          stripe: { price: 'price_1NYjd5F12kDJKsucYUwdmFar', quantity: 1 },
+          stripe: { price: 'price_1OZbfPF12kDJKsuc3KLGnFXy' },
+        },
+        {
+          price: 55,
+          unit: '10x 40min sessions',
+          members: true,
+          stripe: { price: 'price_1OZbgGF12kDJKsucPlr0Q5nZ' },
         },
         {
           price: 8,
-          unit: 'session',
-          members: false,
-          stripe: { price: 'price_1NYjd6F12kDJKsucaV0QPD4C' },
+          unit: '80min session',
+          members: true,
+          stripe: { price: 'price_1OZbm8F12kDJKsucN1jEGfU9' },
         },
         {
-          price: 60,
-          unit: '8 weeks',
+          price: 36,
+          unit: '5x 80min sessions',
+          members: true,
+          stripe: { price: 'price_1OZbnaF12kDJKsucKDVOiBYy' },
+        },
+        {
+          price: 67,
+          unit: '10x 80min sessions',
+          members: true,
+          stripe: { price: 'price_1OZbp2F12kDJKsucnt0CLT36' },
+        },
+
+        {
+          price: 8.5,
+          unit: '40min session',
           members: false,
-          stripe: { price: 'price_1NYjd5F12kDJKsuc0rGq943F', quantity: 1 },
+          stripe: { price: 'price_1OZbrjF12kDJKsucmqwihgON' },
+        },
+        {
+          price: 40,
+          unit: '5x 40min sessions',
+          members: false,
+          stripe: { price: 'price_1OZbsMF12kDJKsucqdIYmA2Z' },
+        },
+        {
+          price: 75,
+          unit: '10x 40min sessions',
+          members: false,
+          stripe: { price: 'price_1OZbtAF12kDJKsucomEG7v7T' },
+        },
+        {
+          price: 10,
+          unit: '80min session',
+          members: false,
+          stripe: { price: 'price_1OZbvcF12kDJKsucnbAciQo5' },
+        },
+        {
+          price: 46,
+          unit: '5x 80min sessions',
+          members: false,
+          stripe: { price: 'price_1OZbxDF12kDJKsucS7fzzBgo' },
+        },
+        {
+          price: 87,
+          unit: '10x 80min sessions',
+          members: false,
+          stripe: { price: 'price_1OZby0F12kDJKsucn8jOpFcO' },
         },
       ],
     },
@@ -117,7 +112,7 @@ module.exports = {
         {
           price: 25,
           unit: 'session',
-          members: false,
+          members: true,
           stripe: { price: 'price_1NYjd7F12kDJKsucKJ2oW9Mn' },
         },
       ],
@@ -142,11 +137,11 @@ module.exports = {
         },
       ],
     },
-    {
-      name: 'roa-club-night',
-      description: 'Club Night ...',
-      prices: [],
-    },
+    // {
+    //   name: 'roa-club-night',
+    //   description: 'Club Night ...',
+    //   prices: [],
+    // },
     {
       name: 'roa-individual-adult-coaching',
       description:

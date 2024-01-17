@@ -348,11 +348,20 @@ form {
     display: flex;
     justify-content: space-between;
   }
+
+  hr {
+    margin-block: var(--size-3);
+  }
+
+  small {
+    white-space: nowrap;
+  }
+
+  input[disabled] ~ span {
+    opacity: 0.5;
+  }
 }
 
-#roa-junior-squash-summer-camps-form {
-  & .sessions {
-    grid-template-columns: 1fr 1fr 2fr;
-    padding-inline: 10%;
-  }
+#roa-junior-squash-programme-sessions {
+  margin-block-start: var(--size-3);
 }

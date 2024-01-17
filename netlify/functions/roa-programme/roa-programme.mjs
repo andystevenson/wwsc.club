@@ -1,4 +1,3 @@
-import { programmeByName } from '../../../grafbase/scripts/programmeByName.mjs'
 const handler = async (event) => {
   try {
     const name = event.queryStringParameters.name || null
