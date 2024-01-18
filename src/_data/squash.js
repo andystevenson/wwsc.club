@@ -137,11 +137,7 @@ module.exports = {
         },
       ],
     },
-    // {
-    //   name: 'roa-club-night',
-    //   description: 'Club Night ...',
-    //   prices: [],
-    // },
+
     {
       name: 'roa-individual-adult-coaching',
       description:

@@ -11,6 +11,9 @@ input {
 // squash specifics
 .squash,
 .tennis {
+  ul.images {
+    grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
+  }
   // utilities
   .active {
     display: grid;
@@ -266,12 +269,6 @@ input {
   }
 }
 
-ul.images {
-  [title^='Get Back to Squash'] {
-    aspect-ratio: unset;
-  }
-}
-
 form {
   fieldset {
     gap: unset;
@@ -359,6 +356,10 @@ form {
 
   input[disabled] ~ span {
     opacity: 0.5;
+  }
+
+  img {
+    max-block-size: unset;
   }
 }
 
