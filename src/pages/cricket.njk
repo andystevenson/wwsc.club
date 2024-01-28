@@ -11,6 +11,10 @@
   <p>{{cricket.description}}</p>
 </header>
 
+<h2>Promotions</h2>
+{% set promotions = cms.tags['cricket-promotion'] %}
+{% include "partials/promotions.njk" %}
+
 <section title="gallery" class="gallery">
   <picture>
     {{ imgc(cms.image['cricket-pavillion']) }}
