@@ -1,3 +1,4 @@
+console.log('functions/roa-stripe')
 const process = require('process')
 require('dotenv').config()
 let statusCode = 200

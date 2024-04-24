@@ -1,3 +1,5 @@
+console.log('functions/email')
+
 const x = require('stripe')
 const env = require('../../../src/js/stripeEnv.js')
 

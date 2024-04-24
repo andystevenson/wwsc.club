@@ -1,3 +1,4 @@
+console.log('functions/squash')
 // making squash data available to all
 const data = require('../../../src/_data/squash')
 const handler = async (event) => {

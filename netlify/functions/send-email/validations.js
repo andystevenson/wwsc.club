@@ -1,3 +1,4 @@
+console.log('functions/send-email/validations')
 const validateEmail = (ctx, str) => {
   if (typeof str !== 'string' && !(str instanceof String)) {
     throw new TypeError(`${ctx} must be a string`)

@@ -1,3 +1,4 @@
+console.log('functions/roa-programme')
 const handler = async (event) => {
   try {
     const name = event.queryStringParameters.name || null

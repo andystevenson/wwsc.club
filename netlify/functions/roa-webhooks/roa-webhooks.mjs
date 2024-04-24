@@ -1,3 +1,4 @@
+console.log('roa-webhooks')
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.ROA_STRIPE_SECRET_KEY)

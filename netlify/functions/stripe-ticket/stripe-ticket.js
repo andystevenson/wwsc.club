@@ -1,3 +1,4 @@
+console.log('functions/stripe-ticket')
 const process = require('process')
 require('dotenv').config()
 let statusCode = 200
