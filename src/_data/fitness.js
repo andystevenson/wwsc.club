@@ -14,7 +14,7 @@ module.exports = {
           'https://images.ctfassets.net/ffrbyg3cfykl/3oiAOjkdaibbiZsyGlYRww/9fe82d1a3886b2b28344c889e7ae2370/fitness-larisa-arcip.webp',
         bio: 'Larisa is an ex-professional athlete and elite Personal Trainer qualified to develop members of all ages to their highest potential.',
         telephone: '+44 7472 676672',
-        email: 'fitness@westwarwicks.co.uk',
+        email: 'admin@westwarwicks.co.uk?Subject=fitness',
       },
       {
         name: 'Dan Spiridon',
@@ -23,7 +23,7 @@ module.exports = {
           'https://images.ctfassets.net/ffrbyg3cfykl/5RPlHkCbkQevJNFLmvhNK8/d25d4d6186641af65dbfbfb44845ff3b/fitness-dan-spiridon-latest.webp',
         bio: 'Dan is an ex-professional footballer with an extensive knowledge as an exceptional Personal Trainer.',
         telephone: '+44 7492 924542',
-        email: 'fitness@westwarwicks.co.uk',
+        email: 'admin@westwarwicks.co.uk?Subject=fitness',
       },
     ],
   },
