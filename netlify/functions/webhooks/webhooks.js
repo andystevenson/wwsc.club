@@ -1,6 +1,7 @@
 console.log('functions/webhooks')
 const x = require('stripe')
 const env = require('../../../src/js//stripeEnv.js')
+const dayjs = require('dayjs')
 const { stripe, webhook } = env
 
 const https = require('https')
@@ -98,6 +99,73 @@ async function subscriptionSucceededHtml(data) {
 
 // checkout.sessions.completed
 
+function metadataHtml(metadata) {
+  let html = ''
+
+  if ('new-or-existing' in metadata) {
+    html += `<p>New Member</p>`
+  }
+
+  if ('dob' in metadata) {
+    html += `<p>Date of Birth: ${metadata.dob}</p>`
+  }
+
+  if ('male' in metadata) {
+    html += '<p>male</p>'
+  }
+
+  if ('female' in metadata) {
+    html += '<p>female</p>'
+  }
+
+  if ('non-binary' in metadata) {
+    html += '<p>non-binary</p>'
+  }
+
+  if ('transgender' in metadata) {
+    html += '<p>transgender</p>'
+  }
+
+  if ('intersex' in metadata) {
+    html += '<p>intersex</p>'
+  }
+
+  if ('let-me-say' in metadata) {
+    html += `<p>${metadata['let-me-say']}</p>`
+  }
+
+  let { hockey, cricket, tennis, squash, racketball, gym, football, social } =
+    metadata
+
+  let sports = []
+  if ('hockey' in metadata) {
+    sports.push('hockey')
+  }
+  if ('cricket' in metadata) {
+    sports.push('cricket')
+  }
+  if ('tennis' in metadata) {
+    sports.push('tennis')
+  }
+  if ('squash' in metadata) {
+    sports.push('squash')
+  }
+  if ('racketball' in metadata) {
+    sports.push('racketball')
+  }
+  if ('gym' in metadata) {
+    sports.push('gym')
+  }
+  if ('football' in metadata) {
+    sports.push('football')
+  }
+  if ('social' in metadata) {
+    sports.push('social')
+  }
+  html += `<p>${sports.join(', ')}</p>`
+  return html
+}
+
 async function checkoutSessionCompleted(data) {
   const { id } = data
 
@@ -160,6 +228,8 @@ async function checkoutSessionCompleted(data) {
       `
       html += template
     }
+
+    html += metadataHtml(session.customer.metadata)
   } catch (error) {
     html += `<h3>ERROR</h3>
     <p><strong>${error.message}</strong></p>
@@ -183,20 +253,20 @@ const handler = async (event) => {
     const { type } = stripeEvent
     const { object } = stripeEvent.data
 
-    if (type === 'charge.succeeded') {
-      console.log(' >>>>> charge.succeeded <<<<')
-      await sendMail('charge.succeeded', chargeSucceededHtml(object))
-      return success
-    }
+    // if (type === 'charge.succeeded') {
+    //   console.log(' >>>>> charge.succeeded <<<<')
+    //   await sendMail('charge.succeeded', chargeSucceededHtml(object))
+    //   return success
+    // }
 
-    if (type === 'customer.subscription.created') {
-      console.log(' >>>>> customer.subscription.created <<<<')
-      await sendMail(
-        'customer.subscription.created',
-        await subscriptionSucceededHtml(object),
-      )
-      return success
-    }
+    // if (type === 'customer.subscription.created') {
+    //   console.log(' >>>>> customer.subscription.created <<<<')
+    //   await sendMail(
+    //     'customer.subscription.created',
+    //     await subscriptionSucceededHtml(object),
+    //   )
+    //   return success
+    // }
 
     if (type == 'checkout.session.completed') {
       console.log(' >>>>> checkout.session.completed <<<<')
