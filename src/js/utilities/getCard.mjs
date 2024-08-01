@@ -1,7 +1,7 @@
 export async function rawRetCard(cardnumber) {
   try {
     const params = new URLSearchParams({ cardnumber })
-    const url = `/api/get-card?${params}`
+    const url = `https://westwarwicks.info/api/get-card?${params}`
     const response = await fetch(url, {
       headers: {
         'Content-Type': 'application/json',

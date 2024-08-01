@@ -3,10 +3,6 @@
   command = "npm run build"
   functions = "netlify/functions"
   publish = "_site"
-
-[[redirects]]
-  from = "/api/get-card"
-  to = "https://westwarwicks.info/api/get-card"
   
 [[redirects]]
   from = "/api/*"
@@ -21,26 +17,11 @@
   from = "/reception"
   to = "/opening-times"
 
-
-
-[[redirects]]
-  from = "/card-check"
-  to = "https://westwarwicks.info/card"
-
-[[redirects]]
-  from = "/card-find"
-  to = "https://westwarwicks.info/finder"
-
 [[redirects]]
   from = "*"
   to = "/not-found"
   status = 404
 
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
-[dev]
-  command = "npm start" # Command to start your dev server
-  publish = "_site" # Folder with the static content for _redirect file
 
 
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/
