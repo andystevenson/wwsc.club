@@ -23,3 +23,6 @@ export async function rawRetCard(cardnumber) {
 const getCard = rawRetCard
 
 export default getCard
+
+// let a = await getCard('4515')
+// console.log('getCard', a)
