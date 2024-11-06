@@ -232,11 +232,11 @@ async function checkoutSessionCompleted(data) {
       html += template;
     }
 
-    html += metadataHtml(session.customer.metadata);
+    html += metadataHtml(session.customer?.metadata);
     let version = "2.0.0";
     html += `<p>email version ${version}</p>`;
   } catch (error) {
-    html += `<h3>ERROR</h3>
+    html += `<h3>EMAIL ERROR</h3>
     <p><strong>${error.message}</strong></p>
     `;
   }
